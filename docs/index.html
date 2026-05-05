@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="LIBERO and VLAPB benchmark site for lifelong robot learning and personalized robot manipulation."
+    >
+    <title>LIBERO + VLAPB</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="#top">
+        <img src="assets/libero_logo.png" alt="LIBERO logo">
+        <span>LIBERO + VLAPB</span>
+      </a>
+      <nav aria-label="Site navigation">
+        <a href="#benchmark">Benchmark</a>
+        <a href="#suites">Suites</a>
+        <a href="#start">Start</a>
+        <a href="https://github.com/Lifelong-Robot-Learning/LIBERO">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Lifelong robot learning benchmark</p>
+          <h1 id="hero-title">LIBERO + VLAPB</h1>
+          <p>
+            A research site for LIBERO, a benchmark for knowledge transfer in robot
+            manipulation, and VLAPB, a personalization benchmark built around user
+            preferences, counterfactuals, and task-level behavioral evaluation.
+          </p>
+          <div class="hero-actions" aria-label="Primary links">
+            <a class="button primary" href="#suites">View suites</a>
+            <a class="button" href="#start">Get started</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img src="assets/libero_overview.png" alt="LIBERO manipulation benchmark overview">
+        </figure>
+      </section>
+
+      <section id="benchmark" class="section split">
+        <div>
+          <p class="eyebrow">Benchmark focus</p>
+          <h2>Evaluating transfer, personalization, and instruction following</h2>
+        </div>
+        <div class="prose">
+          <p>
+            LIBERO studies declarative knowledge about objects and spatial relations
+            together with procedural manipulation behavior. VLAPB extends this setting
+            with personalized preference conditions that test whether a model can use,
+            update, ignore, or disentangle user-specific context.
+          </p>
+          <p>
+            The project includes generated task suites, object integrations, feasibility
+            review tooling, and result-generation scripts for reproducible benchmark
+            reporting.
+          </p>
+        </div>
+      </section>
+
+      <section id="suites" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">VLAPB suites</p>
+          <h2>Five personalization axes</h2>
+        </div>
+        <div class="suite-grid">
+          <article class="suite-card">
+            <span>40 instances</span>
+            <h3>Sensitivity</h3>
+            <p>
+              Only the relevant preference changes inside each counterfactual group
+              while the scene, instruction, and target object stay fixed.
+            </p>
+            <strong>SensitivityAcc · CounterfactualFlipAcc</strong>
+          </article>
+          <article class="suite-card">
+            <span>40 instances</span>
+            <h3>Selectivity</h3>
+            <p>
+              Rows include irrelevant preferences and test either the relevant factor
+              or the plain instruction.
+            </p>
+            <strong>SelectivityAcc · IrrelevantPreferenceInterferenceRate</strong>
+          </article>
+          <article class="suite-card">
+            <span>40 instances</span>
+            <h3>Consistency</h3>
+            <p>
+              The same user or profile group repeats across tasks that query stable
+              profile factors.
+            </p>
+            <strong>ConsistencyAcc · UserLevelConsistencyAcc</strong>
+          </article>
+          <article class="suite-card">
+            <span>40 instances</span>
+            <h3>Adaptability</h3>
+            <p>
+              The same user appears before and after an explicit preference update;
+              the second version should override the first.
+            </p>
+            <strong>AdaptabilityAcc · OldPreferenceErrorRate</strong>
+          </article>
+          <article class="suite-card">
+            <span>40 instances</span>
+            <h3>Entanglement</h3>
+            <p>
+              One factor is updated while a different unchanged factor is tested,
+              measuring cross-factor interference.
+            </p>
+            <strong>DisentanglementAcc · CrossFactorInterferenceRate</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="start" class="section start-panel">
+        <div>
+          <p class="eyebrow">Use the repo</p>
+          <h2>Install locally and run benchmark workflows</h2>
+          <p>
+            The codebase keeps LIBERO installation, VLAPB suite definitions, feasibility
+            review data, and result tooling together so experiments can stay close to
+            the generated tasks.
+          </p>
+        </div>
+        <pre><code>conda create -n libero python=3.8.13
+conda activate libero
+pip install -r requirements.txt
+pip install -e .</code></pre>
+      </section>
+    </main>
+
+    <footer>
+      <span>LIBERO + VLAPB</span>
+      <a href="https://arxiv.org/pdf/2306.03310.pdf">LIBERO paper</a>
+      <a href="https://lifelong-robot-learning.github.io/LIBERO/">Docs</a>
+    </footer>
+  </body>
+</html>
