@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_008 into the wooden_tray in this order: cookies, alphabet_soup, orange_juice)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.0755 0.1940 0.1255 0.2440)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.2247 -0.0087 -0.1747 0.0413)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (0.0663 -0.2179 0.1163 -0.1679)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    cookies_1 - cookies
+    orange_juice_1 - orange_juice
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    cookies_1 alphabet_soup_1 orange_juice_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On alphabet_soup_1 living_room_table_object_init_region_0)
+    (On cookies_1 living_room_table_object_init_region_1)
+    (On orange_juice_1 living_room_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In cookies_1 wooden_tray_1_contain_region) (In alphabet_soup_1 wooden_tray_1_contain_region) (In orange_juice_1 wooden_tray_1_contain_region))
+  )
+
+)

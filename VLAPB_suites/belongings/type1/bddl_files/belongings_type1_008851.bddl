@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita_black_bowl belonging to user_002 and place it on the flat_stove)
+    (:regions
+      (flat_stove_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1718 0.0736 0.2218 0.1236)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1338 0.1922 -0.0838 0.2422)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2046 -0.115 -0.1546 -0.065)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.0801 -0.2348 0.1301 -0.1848)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    new_salad_dressing_1 - new_salad_dressing
+    salad_dressing_1 - salad_dressing
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On flat_stove_1 living_room_table_flat_stove_region)
+    (On akita_black_bowl_1 living_room_table_object_init_region_0)
+    (On new_salad_dressing_1 living_room_table_object_init_region_1)
+    (On salad_dressing_1 living_room_table_object_init_region_2)
+    (On wine_bottle_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 flat_stove_1_cook_region))
+  )
+
+)

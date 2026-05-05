@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita_black_bowl belonging to user_001 and place it in the wooden_tray)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1797 0.1251 0.2297 0.1751)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1487 0.1438 -0.0987 0.1938)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.1896 -0.1457 -0.1396 -0.0957)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.1193 -0.2218 0.1693 -0.1718)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    ketchup_1 - ketchup
+    orange_juice_1 - orange_juice
+    salad_dressing_1 - salad_dressing
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On akita_black_bowl_1 living_room_table_object_init_region_0)
+    (On ketchup_1 living_room_table_object_init_region_1)
+    (On orange_juice_1 living_room_table_object_init_region_2)
+    (On salad_dressing_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In akita_black_bowl_1 wooden_tray_1_contain_region))
+  )
+
+)

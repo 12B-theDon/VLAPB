@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the butter belonging to user_001 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1991 0.0916 0.2491 0.1416)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1205 0.1586 -0.0705 0.2086)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2279 -0.1305 -0.1779 -0.0805)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.0715 -0.2105 0.1215 -0.1605)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    butter_1 - butter
+    cream_cheese_1 - cream_cheese
+    new_salad_dressing_1 - new_salad_dressing
+    porcelain_mug_1 - porcelain_mug
+  )
+
+  (:obj_of_interest
+    butter_1
+  )
+
+  (:init
+    (On plate_1 living_room_table_plate_region)
+    (On butter_1 living_room_table_object_init_region_0)
+    (On cream_cheese_1 living_room_table_object_init_region_1)
+    (On new_salad_dressing_1 living_room_table_object_init_region_2)
+    (On porcelain_mug_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On butter_1 plate_1))
+  )
+
+)

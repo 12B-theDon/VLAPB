@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the chocolate_pudding belonging to user_002 and place it on the flat_stove)
+    (:regions
+      (flat_stove_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1759 0.1102 0.2259 0.1602)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1486 0.1586 -0.0986 0.2086)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2045 -0.1458 -0.1545 -0.0958)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.1077 -0.2221 0.1577 -0.1721)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    chocolate_pudding_1 - chocolate_pudding
+    porcelain_mug_1 - porcelain_mug
+    salad_dressing_1 - salad_dressing
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1
+  )
+
+  (:init
+    (On flat_stove_1 kitchen_table_flat_stove_region)
+    (On chocolate_pudding_1 kitchen_table_object_init_region_0)
+    (On alphabet_soup_1 kitchen_table_object_init_region_1)
+    (On porcelain_mug_1 kitchen_table_object_init_region_2)
+    (On salad_dressing_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On chocolate_pudding_1 flat_stove_1_cook_region))
+  )
+
+)

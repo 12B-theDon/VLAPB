@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show new salad dressing)
+    (:regions
+      (new_salad_dressing_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    new_salad_dressing_1 - new_salad_dressing
+  )
+
+  (:obj_of_interest
+    new_salad_dressing_1
+  )
+
+  (:init
+    (On new_salad_dressing_1 main_table_new_salad_dressing_init_region)
+  )
+
+  (:goal
+    (And (On new_salad_dressing_1 main_table_new_salad_dressing_init_region))
+  )
+
+)

@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the cookies belonging to user_002 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1959 0.1062 0.2459 0.1562)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1306 0.1528 -0.0806 0.2028)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2153 -0.138 -0.1653 -0.088)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.0916 -0.2212 0.1416 -0.1712)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    cookies_1 - cookies
+    porcelain_mug_1 - porcelain_mug
+    salad_dressing_1 - salad_dressing
+  )
+
+  (:obj_of_interest
+    cookies_1
+  )
+
+  (:init
+    (On plate_1 kitchen_table_plate_region)
+    (On cookies_1 kitchen_table_object_init_region_0)
+    (On bbq_sauce_1 kitchen_table_object_init_region_1)
+    (On porcelain_mug_1 kitchen_table_object_init_region_2)
+    (On salad_dressing_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On cookies_1 plate_1))
+  )
+
+)

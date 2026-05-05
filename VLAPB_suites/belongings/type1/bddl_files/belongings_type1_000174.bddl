@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the cream_cheese belonging to user_009 and place it in the wooden_tray)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1637 0.1071 0.2137 0.1571)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1564 0.1627 -0.1064 0.2127)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2272 -0.1666 -0.1772 -0.1166)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.108 -0.215 0.158 -0.165)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    bbq_sauce_1 - bbq_sauce
+    butter_1 - butter
+    cream_cheese_1 - cream_cheese
+  )
+
+  (:obj_of_interest
+    cream_cheese_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On cream_cheese_1 living_room_table_object_init_region_0)
+    (On akita_black_bowl_1 living_room_table_object_init_region_1)
+    (On bbq_sauce_1 living_room_table_object_init_region_2)
+    (On butter_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In cream_cheese_1 wooden_tray_1_contain_region))
+  )
+
+)

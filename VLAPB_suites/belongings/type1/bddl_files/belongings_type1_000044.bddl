@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the orange_juice belonging to user_004 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1435 0.1092 0.1935 0.1592)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1801 0.1699 -0.1301 0.2199)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2154 -0.1765 -0.1654 -0.1265)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.116 -0.2022 0.166 -0.1522)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    bbq_sauce_1 - bbq_sauce
+    butter_1 - butter
+    orange_juice_1 - orange_juice
+  )
+
+  (:obj_of_interest
+    orange_juice_1
+  )
+
+  (:init
+    (On plate_1 kitchen_table_plate_region)
+    (On orange_juice_1 kitchen_table_object_init_region_0)
+    (On alphabet_soup_1 kitchen_table_object_init_region_1)
+    (On bbq_sauce_1 kitchen_table_object_init_region_2)
+    (On butter_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On orange_juice_1 plate_1))
+  )
+
+)

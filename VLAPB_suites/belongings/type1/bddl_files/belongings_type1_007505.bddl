@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita_black_bowl belonging to user_002 and place it in the basket)
+    (:regions
+      (basket_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1762 0.0518 0.2262 0.1018)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0078 0.2144 0.0422 0.2644)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2482 0.0993 -0.1982 0.1493)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0424 -0.2674 0.0076 -0.2174)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    basket_1 - basket
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    alphabet_soup_1 - alphabet_soup
+    new_salad_dressing_1 - new_salad_dressing
+    porcelain_mug_1 - porcelain_mug
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On basket_1 kitchen_table_basket_region)
+    (On akita_black_bowl_1 kitchen_table_object_init_region_0)
+    (On alphabet_soup_1 kitchen_table_object_init_region_1)
+    (On new_salad_dressing_1 kitchen_table_object_init_region_2)
+    (On porcelain_mug_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In akita_black_bowl_1 basket_1_contain_region))
+  )
+
+)

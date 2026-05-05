@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the glazed_rim_porcelain_ramekin belonging to user_003 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1602 0.1433 0.2102 0.1933)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1913 0.158 -0.1413 0.208)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.1944 -0.1789 -0.1444 -0.1289)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.1164 -0.1805 0.1664 -0.1305)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    cookies_1 - cookies
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    porcelain_mug_1 - porcelain_mug
+  )
+
+  (:obj_of_interest
+    glazed_rim_porcelain_ramekin_1
+  )
+
+  (:init
+    (On plate_1 living_room_table_plate_region)
+    (On glazed_rim_porcelain_ramekin_1 living_room_table_object_init_region_0)
+    (On akita_black_bowl_1 living_room_table_object_init_region_1)
+    (On cookies_1 living_room_table_object_init_region_2)
+    (On porcelain_mug_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On glazed_rim_porcelain_ramekin_1 plate_1))
+  )
+
+)

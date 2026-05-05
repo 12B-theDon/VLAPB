@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the bbq_sauce belonging to user_001 and place it in the basket)
+    (:regions
+      (basket_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1977 0.0431 0.2477 0.0931)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (0.0059 0.1953 0.0559 0.2453)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2207 0.102 -0.1707 0.152)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0537 -0.2295 -0.0037 -0.1795)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    basket_1 - basket
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    cookies_1 - cookies
+    orange_juice_1 - orange_juice
+    salad_dressing_1 - salad_dressing
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+  )
+
+  (:init
+    (On basket_1 kitchen_table_basket_region)
+    (On bbq_sauce_1 kitchen_table_object_init_region_0)
+    (On cookies_1 kitchen_table_object_init_region_1)
+    (On orange_juice_1 kitchen_table_object_init_region_2)
+    (On salad_dressing_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 basket_1_contain_region))
+  )
+
+)

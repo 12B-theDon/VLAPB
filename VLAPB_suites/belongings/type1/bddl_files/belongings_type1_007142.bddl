@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the butter belonging to user_001 and place it in the wooden_tray)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1411 0.1378 0.1911 0.1878)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.176 0.129 -0.126 0.179)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2056 -0.2021 -0.1556 -0.1521)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.1523 -0.2058 0.2023 -0.1558)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:objects
+    butter_1 - butter
+    porcelain_mug_1 - porcelain_mug
+    red_coffee_mug_1 - red_coffee_mug
+    salad_dressing_1 - salad_dressing
+  )
+
+  (:obj_of_interest
+    butter_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On butter_1 living_room_table_object_init_region_0)
+    (On porcelain_mug_1 living_room_table_object_init_region_1)
+    (On red_coffee_mug_1 living_room_table_object_init_region_2)
+    (On salad_dressing_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In butter_1 wooden_tray_1_contain_region))
+  )
+
+)

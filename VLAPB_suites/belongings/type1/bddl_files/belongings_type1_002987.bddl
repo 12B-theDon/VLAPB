@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the alphabet_soup belonging to user_001 and place it on the flat_stove)
+    (:regions
+      (flat_stove_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1454 0.1304 0.1954 0.1804)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1585 0.1214 -0.1085 0.1714)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1745 -0.1613 -0.1245 -0.1113)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.1274 -0.1921 0.1774 -0.1421)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    ketchup_1 - ketchup
+    milk_1 - milk
+    orange_juice_1 - orange_juice
+  )
+
+  (:obj_of_interest
+    alphabet_soup_1
+  )
+
+  (:init
+    (On flat_stove_1 kitchen_table_flat_stove_region)
+    (On alphabet_soup_1 kitchen_table_object_init_region_0)
+    (On ketchup_1 kitchen_table_object_init_region_1)
+    (On milk_1 kitchen_table_object_init_region_2)
+    (On orange_juice_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On alphabet_soup_1 flat_stove_1_cook_region))
+  )
+
+)

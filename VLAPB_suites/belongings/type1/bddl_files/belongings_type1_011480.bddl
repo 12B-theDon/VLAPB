@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the cookies belonging to user_002 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1862 0.1095 0.2362 0.1595)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1472 0.167 -0.0972 0.217)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2357 -0.1591 -0.1857 -0.1091)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.1106 -0.2381 0.1606 -0.1881)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    cookies_1 - cookies
+    new_salad_dressing_1 - new_salad_dressing
+    white_yellow_mug_1 - white_yellow_mug
+  )
+
+  (:obj_of_interest
+    cookies_1
+  )
+
+  (:init
+    (On plate_1 living_room_table_plate_region)
+    (On cookies_1 living_room_table_object_init_region_0)
+    (On bbq_sauce_1 living_room_table_object_init_region_1)
+    (On new_salad_dressing_1 living_room_table_object_init_region_2)
+    (On white_yellow_mug_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On cookies_1 plate_1))
+  )
+
+)

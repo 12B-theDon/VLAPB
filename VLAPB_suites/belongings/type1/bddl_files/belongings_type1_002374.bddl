@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the alphabet_soup belonging to user_001 and place it in the wooden_tray)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1378 0.1035 0.1878 0.1535)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1475 0.1302 -0.0975 0.1802)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1992 -0.1625 -0.1492 -0.1125)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.1131 -0.2 0.1631 -0.15)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    cookies_1 - cookies
+    new_salad_dressing_1 - new_salad_dressing
+    white_bowl_1 - white_bowl
+  )
+
+  (:obj_of_interest
+    alphabet_soup_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On alphabet_soup_1 kitchen_table_object_init_region_0)
+    (On cookies_1 kitchen_table_object_init_region_1)
+    (On new_salad_dressing_1 kitchen_table_object_init_region_2)
+    (On white_bowl_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In alphabet_soup_1 wooden_tray_1_contain_region))
+  )
+
+)

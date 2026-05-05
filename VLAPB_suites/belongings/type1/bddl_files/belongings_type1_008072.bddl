@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita_black_bowl belonging to user_002 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1863 0.1052 0.2363 0.1552)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1301 0.1455 -0.0801 0.1955)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2261 -0.1489 -0.1761 -0.0989)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.0838 -0.2015 0.1338 -0.1515)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    butter_1 - butter
+    milk_1 - milk
+    white_yellow_mug_1 - white_yellow_mug
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On plate_1 kitchen_table_plate_region)
+    (On akita_black_bowl_1 kitchen_table_object_init_region_0)
+    (On butter_1 kitchen_table_object_init_region_1)
+    (On milk_1 kitchen_table_object_init_region_2)
+    (On white_yellow_mug_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 plate_1))
+  )
+
+)

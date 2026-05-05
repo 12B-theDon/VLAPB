@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita_black_bowl belonging to user_001 and place it in the wooden_tray)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1548 0.0837 0.2048 0.1337)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1298 0.1483 -0.0798 0.1983)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2089 -0.1362 -0.1589 -0.0862)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.0986 -0.2294 0.1486 -0.1794)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    cream_cheese_1 - cream_cheese
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    milk_1 - milk
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On akita_black_bowl_1 kitchen_table_object_init_region_0)
+    (On cream_cheese_1 kitchen_table_object_init_region_1)
+    (On glazed_rim_porcelain_ramekin_1 kitchen_table_object_init_region_2)
+    (On milk_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In akita_black_bowl_1 wooden_tray_1_contain_region))
+  )
+
+)

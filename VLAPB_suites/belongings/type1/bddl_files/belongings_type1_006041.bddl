@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the butter belonging to user_001 and place it in the basket)
+    (:regions
+      (basket_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.2031 0.0947 0.2531 0.1447)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.0355 0.1976 0.0145 0.2476)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.243 0.0644 -0.193 0.1144)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (-0.0146 -0.2465 0.0354 -0.1965)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    basket_1 - basket
+  )
+
+  (:objects
+    butter_1 - butter
+    cookies_1 - cookies
+    orange_juice_1 - orange_juice
+    white_bowl_1 - white_bowl
+  )
+
+  (:obj_of_interest
+    butter_1
+  )
+
+  (:init
+    (On basket_1 living_room_table_basket_region)
+    (On butter_1 living_room_table_object_init_region_0)
+    (On cookies_1 living_room_table_object_init_region_1)
+    (On orange_juice_1 living_room_table_object_init_region_2)
+    (On white_bowl_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In butter_1 basket_1_contain_region))
+  )
+
+)

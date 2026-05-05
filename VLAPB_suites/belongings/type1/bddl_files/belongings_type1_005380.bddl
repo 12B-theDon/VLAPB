@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the bbq_sauce belonging to user_001 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1702 0.1155 0.2202 0.1655)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1584 0.1603 -0.1084 0.2103)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2323 -0.1742 -0.1823 -0.1242)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.1256 -0.2343 0.1756 -0.1843)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    porcelain_mug_1 - porcelain_mug
+    white_yellow_mug_1 - white_yellow_mug
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+  )
+
+  (:init
+    (On plate_1 kitchen_table_plate_region)
+    (On bbq_sauce_1 kitchen_table_object_init_region_0)
+    (On porcelain_mug_1 kitchen_table_object_init_region_1)
+    (On white_yellow_mug_1 kitchen_table_object_init_region_2)
+    (On wine_bottle_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On bbq_sauce_1 plate_1))
+  )
+
+)

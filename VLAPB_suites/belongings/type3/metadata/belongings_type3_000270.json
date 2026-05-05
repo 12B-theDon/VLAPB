@@ -1,0 +1,54 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/type3/bddl_files/belongings_type3_000270.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_type3_000270",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "glazed_rim_porcelain_ramekin",
+    "akita_black_bowl",
+    "cookies",
+    "porcelain_mug"
+  ],
+  "language": "Pick the glazed_rim_porcelain_ramekin belonging to user_003 and place it in the wooden_tray",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_002": [
+      "cookies"
+    ],
+    "user_003": [
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "user_004": [
+      "porcelain_mug"
+    ]
+  },
+  "participating_users": [
+    "user_003",
+    "user_001",
+    "user_002",
+    "user_004"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "split": "type3",
+  "suite": "belongings",
+  "table": "kitchen_table",
+  "target_object": "glazed_rim_porcelain_ramekin",
+  "target_user": "user_003",
+  "task_type": "type3"
+}

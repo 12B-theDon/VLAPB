@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the cookies belonging to user_002 and place it on the flat_stove)
+    (:regions
+      (flat_stove_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.2031 0.0804 0.2531 0.1304)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1313 0.2049 -0.0813 0.2549)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2524 -0.1301 -0.2024 -0.0801)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.0699 -0.2304 0.1199 -0.1804)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    cookies_1 - cookies
+    new_salad_dressing_1 - new_salad_dressing
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    cookies_1
+  )
+
+  (:init
+    (On flat_stove_1 living_room_table_flat_stove_region)
+    (On cookies_1 living_room_table_object_init_region_0)
+    (On alphabet_soup_1 living_room_table_object_init_region_1)
+    (On new_salad_dressing_1 living_room_table_object_init_region_2)
+    (On wine_bottle_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On cookies_1 flat_stove_1_cook_region))
+  )
+
+)

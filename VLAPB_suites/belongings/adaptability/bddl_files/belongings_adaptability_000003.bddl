@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the wine_bottle belonging to user_001 and place it on the flat_stove)
+    (:regions
+      (flat_stove_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1376 0.1338 0.1876 0.1838)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2005 0.1548 -0.1505 0.2048)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1717 -0.1682 -0.1217 -0.1182)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (0.1149 -0.1683 0.1649 -0.1183)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    cookies_1 - cookies
+    cream_cheese_1 - cream_cheese
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    wine_bottle_1
+  )
+
+  (:init
+    (On flat_stove_1 kitchen_table_flat_stove_region)
+    (On wine_bottle_1 kitchen_table_object_init_region_0)
+    (On chocolate_pudding_1 kitchen_table_object_init_region_1)
+    (On cookies_1 kitchen_table_object_init_region_2)
+    (On cream_cheese_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On wine_bottle_1 flat_stove_1_cook_region))
+  )
+
+)

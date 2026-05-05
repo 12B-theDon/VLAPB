@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the cookies belonging to user_002 and place it in the basket)
+    (:regions
+      (basket_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1669 0.0404 0.2169 0.0904)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0017 0.1895 0.0483 0.2395)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.241 0.1058 -0.191 0.1558)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0467 -0.2251 0.0033 -0.1751)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    basket_1 - basket
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    cookies_1 - cookies
+    ketchup_1 - ketchup
+    orange_juice_1 - orange_juice
+  )
+
+  (:obj_of_interest
+    cookies_1
+  )
+
+  (:init
+    (On basket_1 kitchen_table_basket_region)
+    (On cookies_1 kitchen_table_object_init_region_0)
+    (On akita_black_bowl_1 kitchen_table_object_init_region_1)
+    (On ketchup_1 kitchen_table_object_init_region_2)
+    (On orange_juice_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In cookies_1 basket_1_contain_region))
+  )
+
+)

@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the butter belonging to user_001 and place it in the basket)
+    (:regions
+      (basket_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1682 0.0401 0.2182 0.0901)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0026 0.1754 0.0474 0.2254)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.236 0.1037 -0.186 0.1537)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0498 -0.2466 0.0002 -0.1966)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    basket_1 - basket
+  )
+
+  (:objects
+    butter_1 - butter
+    cookies_1 - cookies
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    ketchup_1 - ketchup
+  )
+
+  (:obj_of_interest
+    butter_1
+  )
+
+  (:init
+    (On basket_1 kitchen_table_basket_region)
+    (On butter_1 kitchen_table_object_init_region_0)
+    (On cookies_1 kitchen_table_object_init_region_1)
+    (On glazed_rim_porcelain_ramekin_1 kitchen_table_object_init_region_2)
+    (On ketchup_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In butter_1 basket_1_contain_region))
+  )
+
+)

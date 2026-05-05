@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "ketchup",
+      "chocolate_pudding",
+      "bbq_sauce"
+    ],
+    "previous_strategy": "reverse_alphabetical",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "bbq_sauce",
+      "chocolate_pudding",
+      "ketchup"
+    ],
+    "same_scene": "LIVING_ROOM_SCENE6",
+    "same_table": "living_room_table",
+    "updated_sequence": [
+      "bbq_sauce",
+      "chocolate_pudding",
+      "ketchup"
+    ],
+    "updated_strategy": "alphabetical",
+    "user_id": "user_010"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000010.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000010",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "chocolate_pudding",
+    "ketchup"
+  ],
+  "language": "After user_010's sequence preference changes from ketchup, chocolate_pudding, bbq_sauce to bbq_sauce, chocolate_pudding, ketchup, put the same objects into the wooden_tray in the new order: bbq_sauce, chocolate_pudding, ketchup",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "chocolate_pudding": true,
+    "ketchup": true
+  },
+  "ownership": {
+    "user_010": [
+      "bbq_sauce",
+      "chocolate_pudding",
+      "ketchup"
+    ]
+  },
+  "participating_users": [
+    "user_010"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "sequence_strategy": "alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2588,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0734,
+      "y": 0.2482
+    },
+    {
+      "distance_to_tray": 0.2208,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 2,
+      "x": -0.2204,
+      "y": -0.0136
+    },
+    {
+      "distance_to_tray": 0.2315,
+      "object_type": "ketchup",
+      "ordinal_position": 3,
+      "x": 0.1279,
+      "y": -0.193
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "bbq_sauce",
+    "chocolate_pudding",
+    "ketchup"
+  ],
+  "target_user": "user_010",
+  "task_type": "adaptability"
+}

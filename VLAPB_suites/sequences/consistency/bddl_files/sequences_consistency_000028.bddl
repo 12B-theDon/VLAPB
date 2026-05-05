@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_010 into the wooden_tray in this order: porcelain_mug, chocolate_pudding, bbq_sauce)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.0808 0.2000 0.1308 0.2500)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.2597 -0.0037 -0.2097 0.0463)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (0.0679 -0.2259 0.1179 -0.1759)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    chocolate_pudding_1 - chocolate_pudding
+    porcelain_mug_1 - porcelain_mug
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    porcelain_mug_1 chocolate_pudding_1 bbq_sauce_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On bbq_sauce_1 living_room_table_object_init_region_0)
+    (On chocolate_pudding_1 living_room_table_object_init_region_1)
+    (On porcelain_mug_1 living_room_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In porcelain_mug_1 wooden_tray_1_contain_region) (In chocolate_pudding_1 wooden_tray_1_contain_region) (In bbq_sauce_1 wooden_tray_1_contain_region))
+  )
+
+)

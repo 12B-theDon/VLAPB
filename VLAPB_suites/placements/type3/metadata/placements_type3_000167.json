@@ -1,0 +1,72 @@
+{
+  "adaptation": null,
+  "area": "living_room",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type3/bddl_files/placements_type3_000167.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+  },
+  "debug": {
+    "libero_pair_count": 0
+  },
+  "distractor_object": "bbq_sauce",
+  "distractor_pose_index": 1,
+  "episode_id": "placements_type3_000167",
+  "fixtures": [
+    {
+      "fixture": "basket",
+      "side": "right"
+    },
+    {
+      "fixture": "cabinet",
+      "side": "left"
+    }
+  ],
+  "language": "Pick the white_bowl belonging to user_006 and place it at the front of the basket",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_006": [
+      "white_bowl"
+    ]
+  },
+  "participating_users": [
+    "user_006"
+  ],
+  "preference": {
+    "area": "living_room",
+    "fixed_type": "basket",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "front",
+    "location": "basket.back_side",
+    "object_type": "white_bowl",
+    "scene": "LIVING_ROOM_SCENE2",
+    "table": "living_room_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "LIVING_ROOM_SCENE2",
+  "secondary_object": null,
+  "secondary_preference": null,
+  "secondary_user": null,
+  "split": "type3",
+  "suite": "placements",
+  "table": "living_room_table",
+  "target_object": "white_bowl",
+  "target_object_seen": true,
+  "target_user": "user_006",
+  "task_type": "type3"
+}

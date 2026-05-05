@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the alphabet_soup belonging to user_001 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.1618 0.1211 0.2118 0.1711)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1617 0.1498 -0.1117 0.1998)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2189 -0.1766 -0.1689 -0.1266)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.119 -0.2092 0.169 -0.1592)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    cream_cheese_1 - cream_cheese
+    ketchup_1 - ketchup
+    orange_juice_1 - orange_juice
+  )
+
+  (:obj_of_interest
+    alphabet_soup_1
+  )
+
+  (:init
+    (On plate_1 living_room_table_plate_region)
+    (On alphabet_soup_1 living_room_table_object_init_region_0)
+    (On cream_cheese_1 living_room_table_object_init_region_1)
+    (On ketchup_1 living_room_table_object_init_region_2)
+    (On orange_juice_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On alphabet_soup_1 plate_1))
+  )
+
+)

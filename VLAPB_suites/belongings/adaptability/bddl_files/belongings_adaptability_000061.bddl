@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the red_coffee_mug belonging to user_001 and place it in the basket)
+    (:regions
+      (basket_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.1934 0.0563 0.2434 0.1063)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0088 0.177 0.0412 0.227)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2347 0.0941 -0.1847 0.1441)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0427 -0.245 0.0073 -0.195)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+    basket_1 - basket
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    cookies_1 - cookies
+    ketchup_1 - ketchup
+    red_coffee_mug_1 - red_coffee_mug
+  )
+
+  (:obj_of_interest
+    red_coffee_mug_1
+  )
+
+  (:init
+    (On basket_1 kitchen_table_basket_region)
+    (On red_coffee_mug_1 kitchen_table_object_init_region_0)
+    (On chocolate_pudding_1 kitchen_table_object_init_region_1)
+    (On cookies_1 kitchen_table_object_init_region_2)
+    (On ketchup_1 kitchen_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (In red_coffee_mug_1 basket_1_contain_region))
+  )
+
+)

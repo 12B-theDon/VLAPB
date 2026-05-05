@@ -1,0 +1,73 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the white_yellow_mug belonging to user_001 and place it on the plate)
+    (:regions
+      (plate_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.03 -0.03 0.03 0.03)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.171 0.0936 0.221 0.1436)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.1419 0.1682 -0.0919 0.2182)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (-0.2024 -0.1324 -0.1524 -0.0824)
+            )
+          )
+      )
+      (object_init_region_3
+          (:target living_room_table)
+          (:ranges (
+              (0.0909 -0.2165 0.1409 -0.1665)
+            )
+          )
+      )
+      (top_region
+          (:target plate_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+    plate_1 - plate
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    cookies_1 - cookies
+    milk_1 - milk
+    white_yellow_mug_1 - white_yellow_mug
+  )
+
+  (:obj_of_interest
+    white_yellow_mug_1
+  )
+
+  (:init
+    (On plate_1 living_room_table_plate_region)
+    (On white_yellow_mug_1 living_room_table_object_init_region_0)
+    (On chocolate_pudding_1 living_room_table_object_init_region_1)
+    (On cookies_1 living_room_table_object_init_region_2)
+    (On milk_1 living_room_table_object_init_region_3)
+  )
+
+  (:goal
+    (And (On white_yellow_mug_1 plate_1))
+  )
+
+)

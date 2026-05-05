@@ -1,0 +1,46 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/multiuser/bddl_files/belongings_multiuser_000098.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_multiuser_000098",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "alphabet_soup",
+    "akita_black_bowl",
+    "chocolate_pudding",
+    "cookies"
+  ],
+  "language": "Pick the alphabet_soup belonging to user_009 and place it in the wooden_tray",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_009": [
+      "alphabet_soup"
+    ]
+  },
+  "participating_users": [
+    "user_009",
+    "user_001"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "split": "multiuser",
+  "suite": "belongings",
+  "table": "kitchen_table",
+  "target_object": "alphabet_soup",
+  "target_user": "user_009",
+  "task_type": "multiuser_type1"
+}

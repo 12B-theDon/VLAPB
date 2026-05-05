@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000024.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "cookies",
+      "ketchup"
+    ],
+    "unseen_object": "orange_juice",
+    "user_id": "user_008"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000024",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "cookies",
+    "ketchup",
+    "orange_juice"
+  ],
+  "language": "Put the objects belonging to user_008 into the wooden_tray in this order: ketchup, cookies, orange_juice",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "cookies": true,
+    "ketchup": true,
+    "orange_juice": false
+  },
+  "ownership": {
+    "user_008": [
+      "cookies",
+      "ketchup",
+      "orange_juice"
+    ]
+  },
+  "participating_users": [
+    "user_008"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE3",
+  "sequence_strategy": "even_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.1923,
+      "object_type": "cookies",
+      "ordinal_position": 1,
+      "x": 0.0586,
+      "y": 0.1832
+    },
+    {
+      "distance_to_tray": 0.2534,
+      "object_type": "ketchup",
+      "ordinal_position": 2,
+      "x": -0.2532,
+      "y": -0.01
+    },
+    {
+      "distance_to_tray": 0.246,
+      "object_type": "orange_juice",
+      "ordinal_position": 3,
+      "x": 0.1313,
+      "y": -0.208
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "ketchup",
+    "cookies",
+    "orange_juice"
+  ],
+  "target_user": "user_008",
+  "task_type": "consistency"
+}

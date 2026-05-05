@@ -1,0 +1,266 @@
+{
+  "config": "/home/artemis/Documents/VLAPB/libero/scripts/suites/VLAPB_config.yaml",
+  "configured_total_episodes": 1000,
+  "counts": {
+    "adaptability": 77,
+    "consistency": 11,
+    "multiuser": 609,
+    "type1": 64,
+    "type2": 312,
+    "type3": 936,
+    "type4": 312
+  },
+  "hyperparameters": {
+    "fixture_box_size": 0.02,
+    "fixture_pair_policy": {
+      "drawer_conflict_fixtures": [
+        "microwave",
+        "wooden_two_layer_shelf"
+      ],
+      "drawer_fixtures": [
+        "cabinet",
+        "white_cabinet",
+        "wooden_cabinet"
+      ],
+      "mutually_excluded_pairs": [
+        [
+          "microwave",
+          "wooden_two_layer_shelf"
+        ]
+      ]
+    },
+    "fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "max_episodes_per_split": null,
+    "object_box_size": 0.025,
+    "object_owners": {
+      "akita_black_bowl": [
+        "user_001",
+        "user_002",
+        "user_003",
+        "user_004",
+        "user_005",
+        "user_006"
+      ],
+      "alphabet_soup": [
+        "user_001",
+        "user_007",
+        "user_008",
+        "user_009"
+      ],
+      "bbq_sauce": [
+        "user_001",
+        "user_010",
+        "user_011",
+        "user_012",
+        "user_013"
+      ],
+      "butter": [
+        "user_001",
+        "user_014",
+        "user_015",
+        "user_016",
+        "user_017"
+      ],
+      "chocolate_pudding": [
+        "user_002",
+        "user_007",
+        "user_010",
+        "user_014",
+        "user_018"
+      ],
+      "cookies": [
+        "user_002",
+        "user_008",
+        "user_011",
+        "user_015",
+        "user_019"
+      ],
+      "cream_cheese": [
+        "user_002",
+        "user_009",
+        "user_012",
+        "user_016",
+        "user_020"
+      ],
+      "glazed_rim_porcelain_ramekin": [
+        "user_003",
+        "user_007",
+        "user_011",
+        "user_016"
+      ],
+      "ketchup": [
+        "user_003",
+        "user_008",
+        "user_010",
+        "user_017",
+        "user_020"
+      ],
+      "milk": [
+        "user_003",
+        "user_009",
+        "user_013",
+        "user_014",
+        "user_019"
+      ],
+      "new_salad_dressing": [
+        "user_004",
+        "user_007",
+        "user_012",
+        "user_015"
+      ],
+      "orange_juice": [
+        "user_004",
+        "user_008",
+        "user_013",
+        "user_016",
+        "user_018"
+      ],
+      "porcelain_mug": [
+        "user_004",
+        "user_009",
+        "user_010"
+      ],
+      "red_coffee_mug": [
+        "user_005",
+        "user_011",
+        "user_014",
+        "user_020"
+      ],
+      "salad_dressing": [
+        "user_005",
+        "user_012",
+        "user_017",
+        "user_018",
+        "user_019"
+      ],
+      "tomato_sauce": [
+        "user_005",
+        "user_013",
+        "user_015"
+      ],
+      "white_bowl": [
+        "user_006",
+        "user_017"
+      ],
+      "white_yellow_mug": [
+        "user_006",
+        "user_018",
+        "user_020"
+      ],
+      "wine_bottle": [
+        "user_006",
+        "user_019"
+      ]
+    },
+    "seed": 7,
+    "seen_ratio": 0.75,
+    "use_gpu": false
+  },
+  "libero_objects": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "output_root": "/home/artemis/Documents/VLAPB/VLAPB_suites",
+  "planned_counts": {
+    "adaptability": 33,
+    "consistency": 5,
+    "multiuser": 262,
+    "type1": 28,
+    "type2": 135,
+    "type3": 403,
+    "type4": 134
+  },
+  "planned_total": 1000,
+  "profiles": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "suite": "placements",
+  "total": 2321,
+  "user_seen_unseen_counts": {
+    "user_001": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_002": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_003": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_004": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_005": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_006": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_007": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_008": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_009": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_010": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_011": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_012": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_013": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_014": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_015": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_016": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_017": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_018": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_019": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_020": {
+      "seen": 3,
+      "unseen": 1
+    }
+  },
+  "written": 1000
+}

@@ -1,0 +1,711 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>VLAPB Spawn Validator</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { font-family: system-ui, sans-serif; margin: 0; color: #1f2933; overflow: auto; }
+    main { min-height: 100vh; padding: 10px; display: grid; grid-template-rows: auto 1fr; gap: 8px; }
+    h1 { font-size: 18px; margin: 0; white-space: nowrap; }
+    .topbar { display: grid; grid-template-columns: auto minmax(420px, 1fr) auto; gap: 8px; align-items: stretch; min-height: 96px; }
+    .workspace { min-height: 0; display: grid; grid-template-columns: minmax(360px, 512px) minmax(330px, 1fr) minmax(280px, 420px); gap: 8px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .panel { border: 1px solid #ccd3dd; border-radius: 6px; padding: 8px; margin: 0; min-width: 0; overflow: hidden; }
+    .stack { display: flex; flex-direction: column; gap: 8px; min-height: 0; }
+    .grow { flex: 1; min-height: 0; }
+    .label { color: #52606d; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .value { font-size: 14px; font-weight: 650; margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    button, select { padding: 6px 9px; border: 1px solid #9aa5b1; background: #fff; border-radius: 6px; font-size: 13px; }
+    button { cursor: pointer; }
+    button.primary { background: #14532d; color: #fff; border-color: #14532d; }
+    button.danger { background: #7f1d1d; color: #fff; border-color: #7f1d1d; }
+    button.warn { background: #92400e; color: #fff; border-color: #92400e; }
+    button.reference-available { background: #166534; color: #fff; border-color: #166534; }
+    button.reference-missing { background: #e5e7eb; color: #6b7280; border-color: #cbd5e1; cursor: not-allowed; }
+    select.need-verification { color: #111827; border-color: #92400e; font-weight: 700; }
+    select.stable { color: #9ca3af; }
+    option.object-stable { color: #9ca3af; }
+    option.object-need-verification { color: #111827; font-weight: 700; }
+    option.object-impossible { color: #991b1b; }
+    option.object-not-run { color: #52606d; }
+    .status-message { border-radius: 6px; padding: 6px 8px; font-size: 12px; font-weight: 650; }
+    .status-idle { background: #f5f7fa; color: #52606d; }
+    .status-running { background: #fef3c7; color: #92400e; }
+    .status-ok { background: #dcfce7; color: #166534; }
+    .status-warning { background: #fee2e2; color: #991b1b; }
+    pre { background: #f5f7fa; border-radius: 4px; padding: 6px; overflow: auto; margin: 0; font-size: 11px; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border-bottom: 1px solid #e4e7eb; padding: 4px 6px; text-align: left; font-size: 12px; }
+    input { width: 78px; padding: 4px; border: 1px solid #bcccdc; border-radius: 4px; }
+    .hint { color: #52606d; line-height: 1.35; font-size: 12px; margin: 4px 0; }
+    #renderImage { width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border: 1px solid #ccd3dd; border-radius: 6px; background: #fbfcfe; }
+    #gifImage, #finalImage { width: 80%; max-height: 38vh; object-fit: contain; align-self: center; border: 1px solid #ccd3dd; border-radius: 6px; background: #fbfcfe; }
+    #finalImage { display: none; }
+    #renderImage { cursor: crosshair; }
+    .stats { display: grid; grid-template-columns: repeat(8, minmax(70px, 1fr)); gap: 6px; }
+    .stat { background: #f5f7fa; border-radius: 6px; padding: 5px 7px; min-width: 0; }
+    .stat span { font-size: 11px; color: #52606d; }
+    .stat strong { display: block; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .combo-status { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+    .combo-card { border-radius: 6px; padding: 6px 7px; background: #f5f7fa; border: 1px solid #e4e7eb; min-width: 0; }
+    .combo-card.clickable { cursor: pointer; }
+    .combo-card.clickable:hover { filter: brightness(.97); }
+    .combo-card span { display: block; font-size: 10px; color: #52606d; text-transform: uppercase; letter-spacing: .03em; }
+    .combo-card strong { display: block; font-size: 15px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .combo-ok { background: #dcfce7; border-color: #bbf7d0; color: #14532d; }
+    .combo-warn { background: #fef3c7; border-color: #fde68a; color: #92400e; }
+    .combo-bad { background: #fee2e2; border-color: #fecaca; color: #991b1b; }
+    .combo-muted { background: #f1f5f9; border-color: #e2e8f0; color: #475569; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr 170px; gap: 8px; align-items: end; }
+    #path { max-height: 34px; white-space: nowrap; }
+    #resultBox { flex: 1; min-height: 80px; max-height: 26vh; }
+    .pose-panel { flex: 0 0 auto; }
+    .actions-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+    @media (max-width: 1100px) {
+      body { overflow: auto; }
+      main { height: auto; }
+      .topbar, .workspace, .info-grid { grid-template-columns: 1fr; }
+      #renderImage, #gifImage, #finalImage { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="topbar">
+    <div class="panel stack">
+      <h1>VLAPB Spawn Validator</h1>
+      <div class="row">
+        <button onclick="prevItem()">Prev</button>
+        <button onclick="nextItem()">Next</button>
+        <button onclick="loadQueue()">Reload</button>
+        <span id="progress" class="hint"></span>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="panel">
+      <div class="info-grid">
+        <div><div class="label">Scene</div><div id="scene" class="value"></div></div>
+        <div><div class="label">Location</div><div id="location" class="value"></div></div>
+        <div><div class="label">Object</div><select id="objectSelect" onchange="setObject(this.value)"></select></div>
+      </div>
+      <div class="label" style="margin-top:4px;">File</div><pre id="path"></pre>
+      <div id="needs" class="hint"></div>
+    </div>
+  </div>
+  <div class="workspace">
+    <div class="panel stack">
+      <div class="label">MuJoCo Render</div>
+      <p id="renderStatus" class="hint">Rendering...</p>
+      <img id="renderImage" alt="MuJoCo render" onclick="clickAnchor(event)">
+      <p class="hint">Click the image to set this scene/location anchor.</p>
+      <div class="label">All Combination Status</div>
+      <div id="combinationStatus" class="combo-status"></div>
+    </div>
+    <div class="stack">
+      <div class="panel pose-panel">
+        <table>
+          <thead><tr><th>Axis</th><th>Anchor Value</th></tr></thead>
+          <tbody id="poseRows"></tbody>
+        </table>
+        <p class="hint">A/D y, W/S x, R/F z, J/L roll, I/K pitch, U/O heading. Shift makes larger steps.</p>
+      </div>
+      <div class="panel actions-panel">
+        <div class="row">
+          <button class="primary" onclick="saveAnchor()">Save Anchor</button>
+          <button id="referenceButton" onclick="useReferenceAnchor()">Use LIBERO Reference</button>
+          <button class="warn" onclick="validateAuto()">Auto Validate Location</button>
+          <button class="warn" onclick="validateAutoAll()">Auto Validate All</button>
+          <button class="danger" onclick="saveReview('impossible')">Impossible</button>
+        </div>
+        <div id="simulationMessage" class="status-message status-idle">Click the MuJoCo render to save representative anchor and run 5sec simulation.</div>
+        <pre id="resultBox"></pre>
+      </div>
+    </div>
+    <div class="panel stack">
+      <div class="label">Gravity GIF</div>
+      <p id="gifStatus" class="hint">No simulation yet.</p>
+      <p id="velocityStatus" class="hint"></p>
+      <img id="gifImage" alt="Gravity simulation gif">
+      <div class="label">After 5 Sec</div>
+      <p id="finalStatus" class="hint">No final image yet.</p>
+      <img id="finalImage" alt="Final MuJoCo render after 5 seconds">
+    </div>
+  </div>
+</main>
+<script>
+let queue = [];
+let index = 0;
+let pose = {x:0, y:0, z:0, r:0, p:0, h:0};
+let selectedObject = "";
+const axes = ["x", "y", "z", "r", "p", "h"];
+let renderTimer = null;
+let renderUrl = null;
+let anchorClicked = false;
+let latestStats = null;
+let representativeDoneNotified = false;
+let renderRequestId = 0;
+let renderInFlight = false;
+let renderPending = false;
+let reviewMode = false;
+let currentReviewKey = null;
+const keyMap = {
+  "a": ["y", -1], "d": ["y", 1], "s": ["x", 1], "w": ["x", -1],
+  "f": ["z", -1], "r": ["z", 1], "j": ["r", -1], "l": ["r", 1],
+  "k": ["p", -1], "i": ["p", 1], "u": ["h", -1], "o": ["h", 1]
+};
+
+async function loadStats() {
+  let stats;
+  try {
+    const res = await fetch("/api/stats");
+    stats = await res.json();
+  } catch (err) {
+    document.getElementById("stats").innerHTML = `<div class="stat"><span>Stats</span><strong>Failed</strong></div>`;
+    document.getElementById("simulationMessage").textContent = `Stats failed: ${err}`;
+    return;
+  }
+  latestStats = stats;
+  const status = stats.status_counts || {};
+  document.getElementById("stats").innerHTML = [
+    ["Anchors", `${stats.anchors_complete}/${stats.anchors_total}`],
+    ["Obj Poses", `${stats.object_pose_done || 0}/${stats.object_combinations_total || 0}`],
+    ["Obj Runs", `${stats.object_validation_unique_done || 0}/${stats.object_combinations_total || 0}`],
+    ["Missing", stats.anchors_missing || 0],
+    ["Runs", stats.validation_runs || 0],
+    ["Auto OK", status.auto_possible || 0],
+    ["Review", status.review || 0],
+    ["Unsettled", status.unsettled || 0],
+    ["Impossible", status.impossible || 0],
+    ["GIFs", `${stats.gifs_present || 0}/${(stats.gifs_present || 0) + (stats.gifs_missing || 0)}`],
+  ].map(([k, v]) => `<div class="stat"><span>${k}</span><strong>${v}</strong></div>`).join("");
+  renderCombinationStatus(stats);
+  if (
+    !representativeDoneNotified &&
+    stats.representative_anchor_total > 0 &&
+    stats.representative_anchor_done === stats.representative_anchor_total
+  ) {
+    representativeDoneNotified = true;
+    alert("All representative N/A anchors are set. Auto Validate Location can now generate object-level positions and GIF checks.");
+  }
+  updateCombinationMessage();
+}
+
+function renderCombinationStatus(stats) {
+  const total = stats.object_combinations_total || 0;
+  const stable = stats.latest_stable_combinations || 0;
+  const need = stats.latest_need_verification_combinations || 0;
+  const impossible = stats.latest_impossible_combinations || 0;
+  const notRun = stats.object_validation_not_run || 0;
+  const poseNA = stats.object_pose_na || 0;
+  const anchorDone = stats.anchors_complete || 0;
+  const anchorTotal = stats.anchors_total || 0;
+  const reviewQueue = stats.review_queue_count || 0;
+  document.getElementById("combinationStatus").innerHTML = [
+    `<div class="combo-card combo-ok"><span>Stable</span><strong>${stable}/${total}</strong></div>`,
+    `<div class="combo-card combo-warn clickable" onclick="autoRedropNeedVerification()"><span>Need Verification</span><strong>${need} latest · ${reviewQueue} queued</strong></div>`,
+    `<div class="combo-card combo-muted"><span>N/A Pose</span><strong>${poseNA}/${total}</strong></div>`,
+    `<div class="combo-card combo-muted"><span>Not Run</span><strong>${notRun}/${total}</strong></div>`,
+    `<div class="combo-card combo-bad"><span>Impossible</span><strong>${impossible}/${total}</strong></div>`,
+    `<div class="combo-card combo-ok"><span>Anchors</span><strong>${anchorDone}/${anchorTotal}</strong></div>`,
+  ].join("");
+}
+
+async function autoRedropNeedVerification() {
+  reviewMode = true;
+  try {
+    const queued = await (await fetch("/api/review-queue")).json();
+    if (queued.length < 50) {
+      setSimulationMessage("warning", `Only ${queued.length} queued items remain. Starting human validation instead of auto re-drop.`);
+      await showNextReviewItem();
+      return;
+    }
+  } catch (err) {
+    setSimulationMessage("warning", `Could not inspect review queue; starting human validation: ${err}`);
+    await showNextReviewItem();
+    return;
+  }
+  document.getElementById("resultBox").textContent = "Auto re-dropping queued need verification items with higher z...";
+  setSimulationMessage("running", "Re-dropping need verification items: keep xy, lift z, wait 5sec for settle...");
+  try {
+    const res = await postJson("/api/redrop-review-queue", {});
+    const result = await res.json();
+    document.getElementById("resultBox").textContent = JSON.stringify(result, null, 2);
+    await loadQueue();
+    await loadStats();
+    if (result.review_items && result.review_items.length) {
+      setSimulationMessage(
+        "warning",
+        `Re-drop complete. ${result.settled_count} settled; ${result.still_review_count} still need verification.`
+      );
+      await showNextReviewItem();
+    } else {
+      currentReviewKey = null;
+      setSimulationMessage("ok", `Re-drop complete. ${result.settled_count} queued items settled.`);
+    }
+  } catch (err) {
+    setSimulationMessage("warning", `Re-drop failed: ${err}`);
+    document.getElementById("resultBox").textContent = `Re-drop failed: ${err}`;
+  }
+}
+
+async function showFirstReviewItem() {
+  reviewMode = true;
+  await showNextReviewItem();
+}
+
+async function showNextReviewItem() {
+  try {
+    const res = await fetch("/api/review-queue");
+    const items = await res.json();
+    if (!items.length) {
+      currentReviewKey = null;
+      setSimulationMessage("ok", "No queued review item yet.");
+      return;
+    }
+    const item = items[0];
+    currentReviewKey = `${item.scene}/${item.location}/${item.object}`;
+    document.getElementById("resultBox").textContent = JSON.stringify(item, null, 2);
+    const foundIndex = queue.findIndex(entry => entry.scene === item.scene && entry.location === item.location);
+    if (foundIndex >= 0) {
+      index = foundIndex;
+      selectedObject = item.object;
+      pose = item.pose || pose;
+      queue[index].anchor = pose;
+      queue[index].pose = pose;
+      render();
+      document.getElementById("objectSelect").value = selectedObject;
+    }
+    if (item.gif_url) {
+      document.getElementById("gifImage").src = item.gif_url + `?t=${Date.now()}`;
+      document.getElementById("gifStatus").textContent = `Human review: ${item.review_reason} / ${item.status}: ${item.reason}`;
+    }
+    if (item.final_image_url) {
+      const finalImage = document.getElementById("finalImage");
+      finalImage.src = item.final_image_url + `?t=${Date.now()}`;
+      finalImage.style.display = "block";
+      document.getElementById("finalStatus").textContent = "Review this 5sec final position.";
+    }
+    setSimulationMessage("warning", "Showing first queued review item with GIF and final position image.");
+  } catch (err) {
+    setSimulationMessage("warning", `Could not load review queue: ${err}`);
+  }
+}
+
+async function loadQueue() {
+  document.getElementById("progress").textContent = "Loading queue...";
+  try {
+    const res = await fetch("/api/queue");
+    queue = await res.json();
+  } catch (err) {
+    document.getElementById("progress").textContent = "Queue failed.";
+    document.getElementById("resultBox").textContent = `Queue failed: ${err}`;
+    return;
+  }
+  index = Math.min(index, Math.max(queue.length - 1, 0));
+  render();
+  loadStats();
+}
+
+function current() {
+  const item = {...queue[index]};
+  item.object = selectedObject || item.object;
+  item.pose = pose;
+  item.anchor = pose;
+  return item;
+}
+
+function render() {
+  if (!queue.length) {
+    document.getElementById("progress").textContent = "No entries found.";
+    return;
+  }
+  const item = queue[index];
+  const objects = item.objects || [];
+  anchorClicked = false;
+  pose = item.anchor || {x:0, y:0, z:0, r:0, p:0, h:0};
+  selectedObject = objects.includes(selectedObject) ? selectedObject : (item.object || objects[0] || "");
+  document.getElementById("progress").textContent = `${index + 1} / ${queue.length}`;
+  document.getElementById("scene").textContent = item.scene;
+  document.getElementById("location").textContent = item.location;
+  document.getElementById("path").textContent = item.path;
+  document.getElementById("needs").textContent = item.needs_initial_pose
+    ? "Anchor missing: click the render image or edit values, then Save Anchor."
+    : validationMessage(item);
+  renderObjectSelect(item);
+  const referenceButton = document.getElementById("referenceButton");
+  referenceButton.disabled = !item.libero_reference_available;
+  referenceButton.className = item.libero_reference_available ? "reference-available" : "reference-missing";
+  referenceButton.textContent = item.libero_reference_available
+    ? (item.libero_reference_match_type === "similar_scene" ? "Use Similar LIBERO Reference" : "Use LIBERO Reference")
+    : "No LIBERO Reference";
+  renderPose();
+  scheduleRender(0);
+}
+
+function setObject(value) {
+  selectedObject = value;
+  applyObjectSelectStyle();
+  scheduleRender(0);
+}
+
+function validationMessage(item) {
+  if (item.validation_state === "need_verification") {
+    return "Need verification: black object entries need human review; stable entries are gray.";
+  }
+  if (item.validation_state === "stable") {
+    return "Stable: auto validation finished for this location.";
+  }
+  return "Anchor set: simulate one object or auto validate all objects for this location.";
+}
+
+function objectState(item, obj) {
+  return (item.object_validation || {})[obj] || "not_run";
+}
+
+function stateLabel(state) {
+  if (state === "need_verification") return "need verification";
+  if (state === "stable") return "stable";
+  if (state === "impossible") return "impossible";
+  return "not run";
+}
+
+function renderObjectSelect(item) {
+  const select = document.getElementById("objectSelect");
+  select.innerHTML = (item.objects || []).map(obj => {
+    const state = objectState(item, obj);
+    const selected = obj === selectedObject ? "selected" : "";
+    return `<option class="object-${state.replace(/_/g, "-")}" value="${obj}" ${selected}>${obj} · ${stateLabel(state)}</option>`;
+  }).join("");
+  applyObjectSelectStyle();
+}
+
+function applyObjectSelectStyle() {
+  const item = queue[index] || {};
+  const state = objectState(item, selectedObject);
+  const select = document.getElementById("objectSelect");
+  select.classList.remove("need-verification", "stable");
+  if (state === "need_verification") select.classList.add("need-verification");
+  if (state === "stable") select.classList.add("stable");
+}
+
+function renderPose() {
+  document.getElementById("poseRows").innerHTML = axes.map(axis =>
+    `<tr><td>${axis}</td><td><input value="${Number(pose[axis]).toFixed(4)}" onchange="setPose('${axis}', this.value)"></td></tr>`
+  ).join("");
+}
+
+function setPose(axis, value) {
+  pose[axis] = Number(value) || 0;
+  renderPose();
+  scheduleRender(150);
+}
+
+function scheduleRender(delay) {
+  clearTimeout(renderTimer);
+  renderTimer = setTimeout(renderMujoco, delay);
+}
+
+async function postJson(url, payload) {
+  const res = await fetch(url, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)});
+  if (!res.ok) throw new Error(await res.text());
+  return res;
+}
+
+async function renderMujoco() {
+  if (!queue.length || !selectedObject) return;
+  if (renderInFlight) {
+    renderPending = true;
+    return;
+  }
+  renderInFlight = true;
+  renderPending = false;
+  const requestId = ++renderRequestId;
+  const status = document.getElementById("renderStatus");
+  status.textContent = "Rendering MuJoCo...";
+  try {
+    const res = await postJson("/api/render", current());
+    const blob = await res.blob();
+    if (requestId === renderRequestId) {
+      if (renderUrl) URL.revokeObjectURL(renderUrl);
+      renderUrl = URL.createObjectURL(blob);
+      document.getElementById("renderImage").src = renderUrl;
+      status.textContent = "Rendered.";
+    }
+  } catch (err) {
+    status.textContent = `Render failed: ${err}`;
+  } finally {
+    renderInFlight = false;
+    if (renderPending) {
+      scheduleRender(100);
+    }
+  }
+}
+
+async function clickAnchor(event) {
+  const img = event.currentTarget;
+  const rect = img.getBoundingClientRect();
+  const pixel_x = (event.clientX - rect.left) * (img.naturalWidth / rect.width);
+  const pixel_y = (event.clientY - rect.top) * (img.naturalHeight / rect.height);
+  document.getElementById("renderStatus").textContent = "Saving clicked anchor...";
+  try {
+    const res = await postJson("/api/click-anchor", {...current(), pixel_x, pixel_y});
+    const data = await res.json();
+    pose = data.anchor;
+    queue[index].anchor = pose;
+    queue[index].pose = pose;
+    queue[index].needs_initial_pose = false;
+    anchorClicked = true;
+    renderPose();
+    scheduleRender(0);
+    await loadStats();
+    await simulateCurrent();
+  } catch (err) {
+    setSimulationMessage("warning", `Click/simulation failed: ${err}`);
+    document.getElementById("renderStatus").textContent = `Click failed: ${err}`;
+  }
+}
+
+function setSimulationMessage(kind, text) {
+  const el = document.getElementById("simulationMessage");
+  el.className = `status-message status-${kind}`;
+  el.textContent = `${text} ${combinationSummaryText()}`;
+}
+
+function combinationSummaryText() {
+  if (!latestStats) return "";
+  return `Representative anchors: ${latestStats.representative_anchor_done || 0}/${latestStats.representative_anchor_total || 0}. Object-specific poses: ${latestStats.object_pose_done || 0}/${latestStats.object_combinations_total || 0}. Object validation runs: ${latestStats.object_validation_unique_done || 0}/${latestStats.object_combinations_total || 0}. Note: representative anchor progress is not all-object verification.`;
+}
+
+function updateCombinationMessage() {
+  const el = document.getElementById("simulationMessage");
+  if (!el || !latestStats || !el.textContent) return;
+  if (el.className.includes("status-idle")) {
+    el.textContent = `Click the MuJoCo render to save representative anchor and run 5sec simulation. ${combinationSummaryText()}`;
+  }
+}
+
+async function saveAnchor(requireClick = false) {
+  if (requireClick && !anchorClicked) {
+    const message = "Click the MuJoCo render first, then save the anchor.";
+    document.getElementById("resultBox").textContent = message;
+    document.getElementById("renderStatus").textContent = message;
+    return;
+  }
+  const res = await postJson("/api/save-anchor", current());
+  const data = await res.json();
+  pose = data.anchor;
+  queue[index].anchor = pose;
+  queue[index].pose = pose;
+  queue[index].needs_initial_pose = false;
+  anchorClicked = false;
+  if (reviewMode && currentReviewKey) {
+    await postJson("/api/save-review", {...current(), status: "human_possible"});
+  }
+  await loadStats();
+  await loadQueue();
+  if (reviewMode && currentReviewKey) {
+    await showNextReviewItem();
+  } else {
+    index = Math.min(queue.length - 1, index + 1);
+    render();
+  }
+}
+
+async function useReferenceAnchor() {
+  document.getElementById("resultBox").textContent = "Reading original LIBERO demo final pose...";
+  try {
+    const res = await postJson("/api/use-reference-anchor", current());
+    const data = await res.json();
+    pose = data.anchor;
+    queue[index].anchor = pose;
+    queue[index].pose = pose;
+    queue[index].needs_initial_pose = false;
+    document.getElementById("resultBox").textContent = JSON.stringify(data, null, 2);
+    await loadStats();
+    renderPose();
+    scheduleRender(0);
+    await simulateCurrent();
+  } catch (err) {
+    document.getElementById("resultBox").textContent = `Reference failed: ${err}`;
+  }
+}
+
+async function simulateCurrent() {
+  setSimulationMessage("running", "Running 5sec MuJoCo simulation...");
+  document.getElementById("gifStatus").textContent = "Simulating gravity...";
+  document.getElementById("velocityStatus").textContent = "";
+  document.getElementById("finalStatus").textContent = "Waiting for 5 sec final render...";
+  const representativeAnchor = {...pose};
+  let result;
+  try {
+    const res = await postJson("/api/simulate", {...current(), save_anchor_from_sim: false});
+    result = await res.json();
+  } catch (err) {
+    setSimulationMessage("warning", `5sec simulation failed: ${err}`);
+    document.getElementById("gifStatus").textContent = `Simulation failed: ${err}`;
+    return;
+  }
+  document.getElementById("resultBox").textContent = JSON.stringify(result, null, 2);
+  pose = representativeAnchor;
+  queue[index].anchor = representativeAnchor;
+  queue[index].pose = representativeAnchor;
+  renderPose();
+  if (result.gif_url) {
+    document.getElementById("gifImage").src = result.gif_url + `?t=${Date.now()}`;
+    document.getElementById("gifStatus").textContent = `${result.status}: ${result.reason}`;
+  } else {
+    document.getElementById("gifStatus").textContent = `${result.status}: ${result.reason}`;
+  }
+  document.getElementById("velocityStatus").textContent = result.velocity_stable === false
+    ? `WARNING: ${result.velocity_warning}`
+    : `Velocity stable: final speed ${result.final_speed ?? "N/A"}`;
+  setSimulationMessage(
+    result.velocity_stable === false ? "warning" : "ok",
+    result.velocity_stable === false
+      ? `WARNING: velocity is not stable after 5sec. ${result.final_speed ?? "N/A"}`
+      : `5sec simulation complete. Velocity stable. final speed ${result.final_speed ?? "N/A"}`
+  );
+  if (result.final_image_url) {
+    const finalImage = document.getElementById("finalImage");
+    finalImage.src = result.final_image_url + `?t=${Date.now()}`;
+    finalImage.style.display = "block";
+    document.getElementById("finalStatus").textContent = "Object position after 5 seconds.";
+  } else {
+    document.getElementById("finalStatus").textContent = "No final image saved.";
+  }
+  await loadStats();
+}
+
+async function validateAuto() {
+  document.getElementById("resultBox").textContent = "Auto validating all objects for this location...";
+  setSimulationMessage("running", "Auto validation is running. Terminal tqdm shows object-level progress...");
+  try {
+    const res = await postJson("/api/validate-auto", current());
+    const result = await res.json();
+    document.getElementById("resultBox").textContent = JSON.stringify(result, null, 2);
+    if (result.review_items && result.review_items.length) {
+      reviewMode = true;
+      const item = result.review_items[0];
+      currentReviewKey = `${item.scene}/${item.location}/${item.object}`;
+      selectedObject = item.object;
+      pose = item.pose || pose;
+      queue[index].anchor = pose;
+      queue[index].pose = pose;
+      document.getElementById("objectSelect").value = selectedObject;
+      renderPose();
+      if (item.gif_url) {
+        document.getElementById("gifImage").src = item.gif_url + `?t=${Date.now()}`;
+        document.getElementById("gifStatus").textContent = `Human review: ${item.review_reason} / ${item.status}: ${item.reason}`;
+      }
+      if (item.final_image_url) {
+        const finalImage = document.getElementById("finalImage");
+        finalImage.src = item.final_image_url + `?t=${Date.now()}`;
+        finalImage.style.display = "block";
+        document.getElementById("finalStatus").textContent = "Review this 5sec final position.";
+      }
+      setSimulationMessage("warning", `Auto validation complete. ${result.review_count} items need human review; showing the first one.`);
+    } else {
+      currentReviewKey = null;
+      setSimulationMessage("ok", "Auto validation complete. No human review items selected.");
+    }
+    await loadQueue();
+    await loadStats();
+    if (reviewMode && currentReviewKey) {
+      await showNextReviewItem();
+    }
+  } catch (err) {
+    setSimulationMessage("warning", `Auto validation failed: ${err}`);
+    document.getElementById("resultBox").textContent = `Auto validation failed: ${err}`;
+  }
+}
+
+async function validateAutoAll() {
+  const ok = confirm("Run 5sec MuJoCo validation for every anchored scene/location? This can take a long time.");
+  if (!ok) return;
+  document.getElementById("resultBox").textContent = "Auto validating all anchored scene/location files...";
+  setSimulationMessage("running", "Auto validation for ALL locations is running. Terminal tqdm shows global progress...");
+  try {
+    const res = await postJson("/api/validate-auto-all", {});
+    const result = await res.json();
+    document.getElementById("resultBox").textContent = JSON.stringify(result, null, 2);
+    if (result.review_items && result.review_items.length) {
+      reviewMode = true;
+      const item = result.review_items[0];
+      currentReviewKey = `${item.scene}/${item.location}/${item.object}`;
+      selectedObject = item.object;
+      pose = item.pose || pose;
+      const foundIndex = queue.findIndex(entry => entry.scene === item.scene && entry.location === item.location);
+      if (foundIndex >= 0) {
+        index = foundIndex;
+        queue[index].anchor = pose;
+        queue[index].pose = pose;
+        render();
+      } else {
+        renderPose();
+      }
+      if (item.gif_url) {
+        document.getElementById("gifImage").src = item.gif_url + `?t=${Date.now()}`;
+        document.getElementById("gifStatus").textContent = `Human review: ${item.review_reason} / ${item.status}: ${item.reason}`;
+      }
+      if (item.final_image_url) {
+        const finalImage = document.getElementById("finalImage");
+        finalImage.src = item.final_image_url + `?t=${Date.now()}`;
+        finalImage.style.display = "block";
+        document.getElementById("finalStatus").textContent = "Review this 5sec final position.";
+      }
+      setSimulationMessage("warning", `Auto validation ALL complete. ${result.review_count} review items; showing first item.`);
+    } else {
+      currentReviewKey = null;
+      setSimulationMessage("ok", "Auto validation ALL complete. No human review items selected.");
+    }
+    await loadQueue();
+    await loadStats();
+    if (reviewMode && currentReviewKey) {
+      await showNextReviewItem();
+    }
+  } catch (err) {
+    setSimulationMessage("warning", `Auto validation ALL failed: ${err}`);
+    document.getElementById("resultBox").textContent = `Auto validation ALL failed: ${err}`;
+  }
+}
+
+async function saveReview(status) {
+  const res = await postJson("/api/save-review", {...current(), status});
+  document.getElementById("resultBox").textContent = JSON.stringify(await res.json(), null, 2);
+  await loadStats();
+  await loadQueue();
+  if (reviewMode) {
+    await showNextReviewItem();
+  } else if (status === "impossible") {
+    index = Math.min(queue.length - 1, index + 1);
+    render();
+  }
+}
+
+function prevItem() { index = Math.max(0, index - 1); render(); }
+function nextItem() { index = Math.min(queue.length - 1, index + 1); render(); }
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    saveAnchor(true);
+    return;
+  }
+  const mapped = keyMap[event.key.toLowerCase()];
+  if (!mapped || event.target.tagName === "INPUT") return;
+  const [axis, sign] = mapped;
+  const base = ["x", "y", "z"].includes(axis) ? 0.01 : 0.05;
+  const step = event.shiftKey ? base * 5 : base;
+  pose[axis] = Number((pose[axis] + sign * step).toFixed(4));
+  renderPose();
+  scheduleRender(200);
+});
+
+loadQueue();
+</script>
+</body>
+</html>

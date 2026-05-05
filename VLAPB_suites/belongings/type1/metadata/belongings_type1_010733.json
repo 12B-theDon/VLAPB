@@ -1,0 +1,42 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/type1/bddl_files/belongings_type1_010733.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_type1_010733",
+  "fixture": "basket",
+  "graspable_objects": [
+    "chocolate_pudding",
+    "orange_juice",
+    "red_coffee_mug",
+    "white_yellow_mug"
+  ],
+  "language": "Pick the chocolate_pudding belonging to user_002 and place it in the basket",
+  "ownership": {
+    "user_002": [
+      "chocolate_pudding"
+    ]
+  },
+  "participating_users": [
+    "user_002"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "split": "type1",
+  "suite": "belongings",
+  "table": "kitchen_table",
+  "target_object": "chocolate_pudding",
+  "target_user": "user_002",
+  "task_type": "type1"
+}

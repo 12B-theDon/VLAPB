@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_004's sequence preference changes from orange_juice, akita_black_bowl, new_salad_dressing to new_salad_dressing, akita_black_bowl, orange_juice, put the same objects into the wooden_tray in the new order: new_salad_dressing, akita_black_bowl, orange_juice)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.0197 0.1887 0.0697 0.2387)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.2326 -0.0548 -0.1826 -0.0048)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (0.1127 -0.2002 0.1627 -0.1502)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    new_salad_dressing_1 - new_salad_dressing
+    orange_juice_1 - orange_juice
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    new_salad_dressing_1 akita_black_bowl_1 orange_juice_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On akita_black_bowl_1 living_room_table_object_init_region_0)
+    (On new_salad_dressing_1 living_room_table_object_init_region_1)
+    (On orange_juice_1 living_room_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In new_salad_dressing_1 wooden_tray_1_contain_region) (In akita_black_bowl_1 wooden_tray_1_contain_region) (In orange_juice_1 wooden_tray_1_contain_region))
+  )
+
+)

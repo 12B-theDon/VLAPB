@@ -1,0 +1,46 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/multiuser/bddl_files/belongings_multiuser_000080.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_multiuser_000080",
+  "fixture": "plate",
+  "graspable_objects": [
+    "new_salad_dressing",
+    "akita_black_bowl",
+    "cookies",
+    "cream_cheese"
+  ],
+  "language": "Pick the new_salad_dressing belonging to user_007 and place it on the plate",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_007": [
+      "new_salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_007",
+    "user_001"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "On",
+  "scene": "LIVING_ROOM_SCENE6",
+  "split": "multiuser",
+  "suite": "belongings",
+  "table": "living_room_table",
+  "target_object": "new_salad_dressing",
+  "target_user": "user_007",
+  "task_type": "multiuser_type1"
+}

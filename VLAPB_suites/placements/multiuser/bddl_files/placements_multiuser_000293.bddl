@@ -1,0 +1,76 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_011, pick the cookies and place it at the top of the wooden_cabinet, for user_003, pick the akita_black_bowl and place it at the in of the basket.)
+    (:regions
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (basket_right_right_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_left)
+      )
+      (contain_region
+          (:target basket_right)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    cookies_1 - cookies
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    cookies_1 akita_black_bowl_1
+    wooden_cabinet_left basket_right
+  )
+
+  (:init
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On cookies_1 kitchen_table_target_object_init_region)
+    (On akita_black_bowl_1 kitchen_table_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (In cookies_1 wooden_cabinet_left_top_region) (In akita_black_bowl_1 basket_right_contain_region))
+  )
+
+)

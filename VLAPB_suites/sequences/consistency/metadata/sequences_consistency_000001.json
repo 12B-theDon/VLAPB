@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000001.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "akita_black_bowl",
+      "alphabet_soup"
+    ],
+    "unseen_object": "butter",
+    "user_id": "user_001"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000001",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "akita_black_bowl",
+    "alphabet_soup",
+    "butter"
+  ],
+  "language": "Put the objects belonging to user_001 into the wooden_tray in this order: akita_black_bowl, alphabet_soup, butter",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "akita_black_bowl": true,
+    "alphabet_soup": true,
+    "butter": false
+  },
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl",
+      "alphabet_soup",
+      "butter"
+    ]
+  },
+  "participating_users": [
+    "user_001"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2377,
+      "object_type": "akita_black_bowl",
+      "ordinal_position": 1,
+      "x": 0.1108,
+      "y": 0.2103
+    },
+    {
+      "distance_to_tray": 0.1972,
+      "object_type": "alphabet_soup",
+      "ordinal_position": 2,
+      "x": -0.1954,
+      "y": 0.0267
+    },
+    {
+      "distance_to_tray": 0.2039,
+      "object_type": "butter",
+      "ordinal_position": 3,
+      "x": 0.0771,
+      "y": -0.1888
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "akita_black_bowl",
+    "alphabet_soup",
+    "butter"
+  ],
+  "target_user": "user_001",
+  "task_type": "consistency"
+}

@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show bbq sauce)
+    (:regions
+      (bbq_sauce_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+  )
+
+  (:init
+    (On bbq_sauce_1 main_table_bbq_sauce_init_region)
+  )
+
+  (:goal
+    (And (On bbq_sauce_1 main_table_bbq_sauce_init_region))
+  )
+
+)

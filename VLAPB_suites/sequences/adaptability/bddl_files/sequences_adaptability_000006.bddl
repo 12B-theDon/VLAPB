@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_006's sequence preference changes from akita_black_bowl, white_bowl, white_yellow_mug to white_yellow_mug, white_bowl, akita_black_bowl, put the same objects into the wooden_tray in the new order: white_yellow_mug, white_bowl, akita_black_bowl)
+    (:regions
+      (wooden_tray_region
+          (:target study_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target study_table)
+          (:ranges (
+              (0.0704 0.1922 0.1204 0.2422)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target study_table)
+          (:ranges (
+              (-0.2432 -0.0108 -0.1932 0.0392)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target study_table)
+          (:ranges (
+              (0.0853 -0.2484 0.1353 -0.1984)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    study_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    white_bowl_1 - white_bowl
+    white_yellow_mug_1 - white_yellow_mug
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    white_yellow_mug_1 white_bowl_1 akita_black_bowl_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 study_table_wooden_tray_region)
+    (On akita_black_bowl_1 study_table_object_init_region_0)
+    (On white_bowl_1 study_table_object_init_region_1)
+    (On white_yellow_mug_1 study_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In white_yellow_mug_1 wooden_tray_1_contain_region) (In white_bowl_1 wooden_tray_1_contain_region) (In akita_black_bowl_1 wooden_tray_1_contain_region))
+  )
+
+)

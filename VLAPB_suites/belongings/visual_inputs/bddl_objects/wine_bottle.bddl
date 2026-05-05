@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show wine bottle)
+    (:regions
+      (wine_bottle_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    wine_bottle_1
+  )
+
+  (:init
+    (On wine_bottle_1 main_table_wine_bottle_init_region)
+  )
+
+  (:goal
+    (And (On wine_bottle_1 main_table_wine_bottle_init_region))
+  )
+
+)

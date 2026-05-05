@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_010's sequence preference changes from ketchup, chocolate_pudding, bbq_sauce to bbq_sauce, chocolate_pudding, ketchup, put the same objects into the wooden_tray in the new order: bbq_sauce, chocolate_pudding, ketchup)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.0484 0.2232 0.0984 0.2732)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.2454 -0.0386 -0.1954 0.0114)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (0.1029 -0.2180 0.1529 -0.1680)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    chocolate_pudding_1 - chocolate_pudding
+    ketchup_1 - ketchup
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1 chocolate_pudding_1 ketchup_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On bbq_sauce_1 living_room_table_object_init_region_0)
+    (On chocolate_pudding_1 living_room_table_object_init_region_1)
+    (On ketchup_1 living_room_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 wooden_tray_1_contain_region) (In chocolate_pudding_1 wooden_tray_1_contain_region) (In ketchup_1 wooden_tray_1_contain_region))
+  )
+
+)

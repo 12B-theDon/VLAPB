@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_002's sequence preference changes from cookies, chocolate_pudding, akita_black_bowl to akita_black_bowl, chocolate_pudding, cookies, put the same objects into the wooden_tray in the new order: akita_black_bowl, chocolate_pudding, cookies)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.0189 0.1577 0.0689 0.2077)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2387 -0.0493 -0.1887 0.0007)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (0.1006 -0.1948 0.1506 -0.1448)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    chocolate_pudding_1 - chocolate_pudding
+    cookies_1 - cookies
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1 chocolate_pudding_1 cookies_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On akita_black_bowl_1 kitchen_table_object_init_region_0)
+    (On chocolate_pudding_1 kitchen_table_object_init_region_1)
+    (On cookies_1 kitchen_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In akita_black_bowl_1 wooden_tray_1_contain_region) (In chocolate_pudding_1 wooden_tray_1_contain_region) (In cookies_1 wooden_tray_1_contain_region))
+  )
+
+)

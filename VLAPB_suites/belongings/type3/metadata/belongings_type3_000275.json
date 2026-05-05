@@ -1,0 +1,54 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/type3/bddl_files/belongings_type3_000275.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_type3_000275",
+  "fixture": "flat_stove",
+  "graspable_objects": [
+    "new_salad_dressing",
+    "akita_black_bowl",
+    "cookies",
+    "milk"
+  ],
+  "language": "Pick the new_salad_dressing belonging to user_004 and place it on the flat_stove",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_002": [
+      "cookies"
+    ],
+    "user_003": [
+      "milk"
+    ],
+    "user_004": [
+      "new_salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_004",
+    "user_001",
+    "user_002",
+    "user_003"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "On",
+  "scene": "KITCHEN_SCENE5",
+  "split": "type3",
+  "suite": "belongings",
+  "table": "kitchen_table",
+  "target_object": "new_salad_dressing",
+  "target_user": "user_004",
+  "task_type": "type3"
+}

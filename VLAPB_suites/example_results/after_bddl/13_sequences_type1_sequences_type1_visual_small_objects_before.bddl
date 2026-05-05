@@ -1,0 +1,87 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_001 into the wooden_tray in this order: alphabet_soup, bbq_sauce, butter)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.0679 0.1885 0.1179 0.2385)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.2638 -0.0104 -0.2138 0.0396)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (0.0861 -0.2479 0.1361 -0.1979)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    
+      (sequence_before_alphabet_soup_1_region
+          (:target living_room_table)
+          (:ranges (
+              (0.1950 0.1250 0.2450 0.1750)
+            )
+          )
+      )
+      (sequence_before_bbq_sauce_1_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.2550 -0.1050 -0.2050 -0.0550)
+            )
+          )
+      )
+      (sequence_before_butter_1_region
+          (:target living_room_table)
+          (:ranges (
+              (0.1650 -0.2250 0.2150 -0.1750)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    bbq_sauce_1 - bbq_sauce
+    butter_1 - butter
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    alphabet_soup_1 bbq_sauce_1 butter_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On alphabet_soup_1 living_room_table_sequence_before_alphabet_soup_1_region)
+    (On bbq_sauce_1 living_room_table_sequence_before_bbq_sauce_1_region)
+    (On butter_1 living_room_table_sequence_before_butter_1_region)
+  )
+
+  (:goal
+    (And (On butter_1 wooden_tray_1))
+  )
+
+)

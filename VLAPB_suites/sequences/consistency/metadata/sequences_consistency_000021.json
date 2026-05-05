@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000021.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "chocolate_pudding",
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "unseen_object": "new_salad_dressing",
+    "user_id": "user_007"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000021",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "chocolate_pudding",
+    "glazed_rim_porcelain_ramekin",
+    "new_salad_dressing"
+  ],
+  "language": "Put the objects belonging to user_007 into the wooden_tray in this order: chocolate_pudding, new_salad_dressing, glazed_rim_porcelain_ramekin",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "chocolate_pudding": true,
+    "glazed_rim_porcelain_ramekin": true,
+    "new_salad_dressing": false
+  },
+  "ownership": {
+    "user_007": [
+      "chocolate_pudding",
+      "glazed_rim_porcelain_ramekin",
+      "new_salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_007"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "odd_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2006,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 1,
+      "x": 0.0844,
+      "y": 0.182
+    },
+    {
+      "distance_to_tray": 0.2229,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 2,
+      "x": -0.2221,
+      "y": 0.019
+    },
+    {
+      "distance_to_tray": 0.2021,
+      "object_type": "new_salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.0858,
+      "y": -0.183
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "chocolate_pudding",
+    "new_salad_dressing",
+    "glazed_rim_porcelain_ramekin"
+  ],
+  "target_user": "user_007",
+  "task_type": "consistency"
+}

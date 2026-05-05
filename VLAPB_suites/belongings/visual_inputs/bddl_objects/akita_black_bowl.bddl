@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show akita black bowl)
+    (:regions
+      (akita_black_bowl_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 main_table_akita_black_bowl_init_region)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 main_table_akita_black_bowl_init_region))
+  )
+
+)

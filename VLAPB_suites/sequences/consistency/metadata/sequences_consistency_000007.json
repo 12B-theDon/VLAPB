@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000007.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "akita_black_bowl",
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "unseen_object": "milk",
+    "user_id": "user_003"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000007",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "akita_black_bowl",
+    "glazed_rim_porcelain_ramekin",
+    "milk"
+  ],
+  "language": "Put the objects belonging to user_003 into the wooden_tray in this order: milk, akita_black_bowl, glazed_rim_porcelain_ramekin",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "akita_black_bowl": true,
+    "glazed_rim_porcelain_ramekin": true,
+    "milk": false
+  },
+  "ownership": {
+    "user_003": [
+      "akita_black_bowl",
+      "glazed_rim_porcelain_ramekin",
+      "milk"
+    ]
+  },
+  "participating_users": [
+    "user_003"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2253,
+      "object_type": "akita_black_bowl",
+      "ordinal_position": 1,
+      "x": 0.1155,
+      "y": 0.1935
+    },
+    {
+      "distance_to_tray": 0.2257,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 2,
+      "x": -0.2217,
+      "y": 0.0424
+    },
+    {
+      "distance_to_tray": 0.2143,
+      "object_type": "milk",
+      "ordinal_position": 3,
+      "x": 0.0703,
+      "y": -0.2024
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "milk",
+    "akita_black_bowl",
+    "glazed_rim_porcelain_ramekin"
+  ],
+  "target_user": "user_003",
+  "task_type": "consistency"
+}

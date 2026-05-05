@@ -1,0 +1,79 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_008, pick the alphabet_soup and place it at the front of the wooden_cabinet, for user_009, pick the alphabet_soup and place it at the in of the basket.)
+    (:regions
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (basket_right_right_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.5000 0.2600 -0.1000)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_right)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
+  )
+
+  (:objects
+    alphabet_soup_1 alphabet_soup_2 - alphabet_soup
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    alphabet_soup_1 alphabet_soup_2
+    wooden_cabinet_left basket_right
+  )
+
+  (:init
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On alphabet_soup_1 kitchen_table_target_object_init_region)
+    (On alphabet_soup_2 kitchen_table_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY alphabet_soup_1 kitchen_table_placement_goal_region) (In alphabet_soup_2 basket_right_contain_region))
+  )
+
+)

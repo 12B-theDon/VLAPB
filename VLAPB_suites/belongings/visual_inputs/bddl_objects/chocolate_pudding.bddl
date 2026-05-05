@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show chocolate pudding)
+    (:regions
+      (chocolate_pudding_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1
+  )
+
+  (:init
+    (On chocolate_pudding_1 main_table_chocolate_pudding_init_region)
+  )
+
+  (:goal
+    (And (On chocolate_pudding_1 main_table_chocolate_pudding_init_region))
+  )
+
+)

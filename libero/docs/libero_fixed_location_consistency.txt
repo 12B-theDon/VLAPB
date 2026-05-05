@@ -1,0 +1,40 @@
+LIBERO fixed target location consistency
+
+Scope:
+- Based on fixed targets extracted in libero_objects.json goal couplings.
+- This is not a scan of every fixture in every scene.
+- Consistency key: raw fixed type + scene + table.
+- Compared location signature fields: reference, region_name, ranges, yaw_rotation, target.
+
+Result:
+- Contexts checked: 34
+- Inconsistent contexts: 3
+
+Inconsistent fixed target types:
+
+1. akita_black_bowl
+   - KITCHEN_SCENE2 / kitchen_table
+     - middle bowl location
+     - back bowl location
+   - LIVING_ROOM_SCENE4 / living_room_table
+     - right bowl location
+     - left bowl location
+
+2. plate
+   - LIVING_ROOM_SCENE5 / living_room_table
+     - left plate location
+     - right plate location
+
+Consistent within each scene/table context:
+- basket
+- desk_caddy
+- flat_stove
+- kitchen_table
+- living_room_table
+- microwave
+- study_table
+- white_cabinet
+- wine_rack
+- wooden_cabinet
+- wooden_tray
+- wooden_two_layer_shelf

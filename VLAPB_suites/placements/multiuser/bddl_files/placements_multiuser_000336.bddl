@@ -1,0 +1,79 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_012, pick the bbq_sauce and place it at the front of the wooden_tray, for user_010, pick the bbq_sauce and place it at the in of the wooden_cabinet.)
+    (:regions
+      (wooden_tray_left_left_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0200 -0.2400 0.0200 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (wooden_cabinet_right_right_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0200 0.2800 0.0200 0.3200)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (0.0500 -0.3000 0.1900 -0.1400)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_cabinet_right)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+    wooden_cabinet_right - wooden_cabinet
+  )
+
+  (:objects
+    bbq_sauce_1 bbq_sauce_2 - bbq_sauce
+    wooden_tray_left - wooden_tray
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1 bbq_sauce_2
+    wooden_tray_left wooden_cabinet_right
+  )
+
+  (:init
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
+    (On bbq_sauce_1 living_room_table_target_object_init_region)
+    (On bbq_sauce_2 living_room_table_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY bbq_sauce_1 living_room_table_placement_goal_region) (In bbq_sauce_2 wooden_cabinet_right_contain_region))
+  )
+
+)

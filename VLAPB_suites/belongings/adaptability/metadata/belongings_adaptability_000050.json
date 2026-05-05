@@ -1,0 +1,50 @@
+{
+  "adaptation": {
+    "episode_number": 50,
+    "overlapping_other_users": [
+      "user_006"
+    ],
+    "previous_belonging": "akita_black_bowl",
+    "updated_belonging": "wine_bottle",
+    "user_id": "user_001"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/adaptability/bddl_files/belongings_adaptability_000050.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_adaptability_000050",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "wine_bottle",
+    "chocolate_pudding",
+    "cookies",
+    "ketchup"
+  ],
+  "language": "Pick the wine_bottle belonging to user_001 and place it in the wooden_tray",
+  "ownership": {
+    "user_001": [
+      "wine_bottle"
+    ]
+  },
+  "participating_users": [
+    "user_001"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "split": "adaptability",
+  "suite": "belongings",
+  "table": "kitchen_table",
+  "target_object": "wine_bottle",
+  "target_user": "user_001",
+  "task_type": "adaptability"
+}

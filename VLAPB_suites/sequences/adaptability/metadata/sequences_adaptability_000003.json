@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "akita_black_bowl",
+      "glazed_rim_porcelain_ramekin",
+      "ketchup"
+    ],
+    "previous_strategy": "fixed_near_to_far",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "akita_black_bowl",
+      "glazed_rim_porcelain_ramekin",
+      "ketchup"
+    ],
+    "same_scene": "LIVING_ROOM_SCENE1",
+    "same_table": "living_room_table",
+    "updated_sequence": [
+      "ketchup",
+      "glazed_rim_porcelain_ramekin",
+      "akita_black_bowl"
+    ],
+    "updated_strategy": "fixed_far_to_near",
+    "user_id": "user_003"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000003.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000003",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "akita_black_bowl",
+    "glazed_rim_porcelain_ramekin",
+    "ketchup"
+  ],
+  "language": "After user_003's sequence preference changes from akita_black_bowl, glazed_rim_porcelain_ramekin, ketchup to ketchup, glazed_rim_porcelain_ramekin, akita_black_bowl, put the same objects into the wooden_tray in the new order: ketchup, glazed_rim_porcelain_ramekin, akita_black_bowl",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "akita_black_bowl": true,
+    "glazed_rim_porcelain_ramekin": true,
+    "ketchup": true
+  },
+  "ownership": {
+    "user_003": [
+      "akita_black_bowl",
+      "glazed_rim_porcelain_ramekin",
+      "ketchup"
+    ]
+  },
+  "participating_users": [
+    "user_003"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "fixed_far_to_near",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2295,
+      "object_type": "akita_black_bowl",
+      "ordinal_position": 1,
+      "x": 0.0715,
+      "y": 0.2181
+    },
+    {
+      "distance_to_tray": 0.234,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 2,
+      "x": -0.2339,
+      "y": -0.0076
+    },
+    {
+      "distance_to_tray": 0.2467,
+      "object_type": "ketchup",
+      "ordinal_position": 3,
+      "x": 0.1302,
+      "y": -0.2095
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "ketchup",
+    "glazed_rim_porcelain_ramekin",
+    "akita_black_bowl"
+  ],
+  "target_user": "user_003",
+  "task_type": "adaptability"
+}

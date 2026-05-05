@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "cookies",
+      "alphabet_soup",
+      "ketchup"
+    ],
+    "previous_strategy": "even_positions_first",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "alphabet_soup",
+      "cookies",
+      "ketchup"
+    ],
+    "same_scene": "KITCHEN_SCENE5",
+    "same_table": "kitchen_table",
+    "updated_sequence": [
+      "alphabet_soup",
+      "ketchup",
+      "cookies"
+    ],
+    "updated_strategy": "odd_positions_first",
+    "user_id": "user_008"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000008.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000008",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "alphabet_soup",
+    "cookies",
+    "ketchup"
+  ],
+  "language": "After user_008's sequence preference changes from cookies, alphabet_soup, ketchup to alphabet_soup, ketchup, cookies, put the same objects into the wooden_tray in the new order: alphabet_soup, ketchup, cookies",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "alphabet_soup": true,
+    "cookies": true,
+    "ketchup": true
+  },
+  "ownership": {
+    "user_008": [
+      "alphabet_soup",
+      "cookies",
+      "ketchup"
+    ]
+  },
+  "participating_users": [
+    "user_008"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "sequence_strategy": "odd_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.1924,
+      "object_type": "alphabet_soup",
+      "ordinal_position": 1,
+      "x": 0.0683,
+      "y": 0.1799
+    },
+    {
+      "distance_to_tray": 0.2279,
+      "object_type": "cookies",
+      "ordinal_position": 2,
+      "x": -0.2279,
+      "y": 0.0031
+    },
+    {
+      "distance_to_tray": 0.2397,
+      "object_type": "ketchup",
+      "ordinal_position": 3,
+      "x": 0.117,
+      "y": -0.2092
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "alphabet_soup",
+    "ketchup",
+    "cookies"
+  ],
+  "target_user": "user_008",
+  "task_type": "adaptability"
+}

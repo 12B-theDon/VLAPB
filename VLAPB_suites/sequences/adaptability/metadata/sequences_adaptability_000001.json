@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "akita_black_bowl",
+      "alphabet_soup",
+      "bbq_sauce"
+    ],
+    "previous_strategy": "alphabetical",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "akita_black_bowl",
+      "alphabet_soup",
+      "bbq_sauce"
+    ],
+    "same_scene": "KITCHEN_SCENE1",
+    "same_table": "kitchen_table",
+    "updated_sequence": [
+      "bbq_sauce",
+      "alphabet_soup",
+      "akita_black_bowl"
+    ],
+    "updated_strategy": "reverse_alphabetical",
+    "user_id": "user_001"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000001.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000001",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "akita_black_bowl",
+    "alphabet_soup",
+    "bbq_sauce"
+  ],
+  "language": "After user_001's sequence preference changes from akita_black_bowl, alphabet_soup, bbq_sauce to bbq_sauce, alphabet_soup, akita_black_bowl, put the same objects into the wooden_tray in the new order: bbq_sauce, alphabet_soup, akita_black_bowl",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "akita_black_bowl": true,
+    "alphabet_soup": true,
+    "bbq_sauce": true
+  },
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl",
+      "alphabet_soup",
+      "bbq_sauce"
+    ]
+  },
+  "participating_users": [
+    "user_001"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "reverse_alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.1926,
+      "object_type": "akita_black_bowl",
+      "ordinal_position": 1,
+      "x": 0.0594,
+      "y": 0.1832
+    },
+    {
+      "distance_to_tray": 0.223,
+      "object_type": "alphabet_soup",
+      "ordinal_position": 2,
+      "x": -0.2229,
+      "y": -0.0079
+    },
+    {
+      "distance_to_tray": 0.2339,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 3,
+      "x": 0.1241,
+      "y": -0.1983
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "bbq_sauce",
+    "alphabet_soup",
+    "akita_black_bowl"
+  ],
+  "target_user": "user_001",
+  "task_type": "adaptability"
+}

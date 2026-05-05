@@ -1,0 +1,61 @@
+{
+  "config": "/home/artemis/Documents/VLAPB/libero/scripts/suites/VLAPB_config.yaml",
+  "configured_adaptability_episodes": 100,
+  "configured_multiuser_episodes": 100,
+  "configured_type_episodes": 900,
+  "counts": {
+    "adaptability": 0,
+    "multiuser": 90034624,
+    "type1": 145600,
+    "type2": 14762304,
+    "type3": 14762304
+  },
+  "hyperparameters": {
+    "adaptability_overlap_limit": 1,
+    "fixture_box_size": 0.03,
+    "fixtures": [
+      "basket",
+      "wooden_tray",
+      "flat_stove",
+      "plate"
+    ],
+    "max_episodes_per_split": null,
+    "object_box_size": 0.025,
+    "pair_stats_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects_summary.md",
+    "scene_variants": [
+      [
+        "KITCHEN_SCENE1",
+        "kitchen_table"
+      ],
+      [
+        "KITCHEN_SCENE5",
+        "kitchen_table"
+      ],
+      [
+        "LIVING_ROOM_SCENE1",
+        "living_room_table"
+      ],
+      [
+        "LIVING_ROOM_SCENE6",
+        "living_room_table"
+      ]
+    ],
+    "seed": 7,
+    "spawn_radius": 0.24,
+    "use_gpu": false
+  },
+  "output_root": "/home/artemis/Documents/VLAPB/VLAPB_suites",
+  "pair_stats": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects_summary.md",
+  "planned_counts": {
+    "adaptability": 0,
+    "multiuser": 100,
+    "type1": 300,
+    "type2": 300,
+    "type3": 300
+  },
+  "planned_total": 1000,
+  "profiles": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "suite": "belongings",
+  "total": 119704832,
+  "written": 1000
+}

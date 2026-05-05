@@ -1,0 +1,80 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_019, pick the cookies and place it at the top of the wooden_cabinet, for user_004, pick the orange_juice and place it at the left of the basket.)
+    (:regions
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (basket_right_right_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_left)
+      )
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1600 -0.1900 0.1600 0.2100)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
+  )
+
+  (:objects
+    cookies_1 - cookies
+    orange_juice_1 - orange_juice
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    cookies_1 orange_juice_1
+    wooden_cabinet_left basket_right
+  )
+
+  (:init
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On cookies_1 kitchen_table_target_object_init_region)
+    (On orange_juice_1 kitchen_table_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (In cookies_1 wooden_cabinet_left_top_region) (AtXY orange_juice_1 kitchen_table_secondary_placement_goal_region))
+  )
+
+)

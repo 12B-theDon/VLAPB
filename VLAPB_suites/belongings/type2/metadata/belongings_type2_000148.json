@@ -1,0 +1,54 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/type2/bddl_files/belongings_type2_000148.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_type2_000148",
+  "fixture": "plate",
+  "graspable_objects": [
+    "cookies",
+    "akita_black_bowl",
+    "ketchup",
+    "new_salad_dressing"
+  ],
+  "language": "Pick the cookies belonging to user_002 and place it on the plate",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_002": [
+      "cookies"
+    ],
+    "user_003": [
+      "ketchup"
+    ],
+    "user_004": [
+      "new_salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_001",
+    "user_002",
+    "user_003",
+    "user_004"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "On",
+  "scene": "KITCHEN_SCENE5",
+  "split": "type2",
+  "suite": "belongings",
+  "table": "kitchen_table",
+  "target_object": "cookies",
+  "target_user": "user_002",
+  "task_type": "type2"
+}

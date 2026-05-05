@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_003 into the wooden_tray in this order: ketchup, milk, akita_black_bowl)
+    (:regions
+      (wooden_tray_region
+          (:target study_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target study_table)
+          (:ranges (
+              (0.0328 0.2322 0.0828 0.2822)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target study_table)
+          (:ranges (
+              (-0.2282 -0.0511 -0.1782 -0.0011)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target study_table)
+          (:ranges (
+              (0.1184 -0.2130 0.1684 -0.1630)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    study_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    ketchup_1 - ketchup
+    milk_1 - milk
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    ketchup_1 milk_1 akita_black_bowl_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 study_table_wooden_tray_region)
+    (On akita_black_bowl_1 study_table_object_init_region_0)
+    (On ketchup_1 study_table_object_init_region_1)
+    (On milk_1 study_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In ketchup_1 wooden_tray_1_contain_region) (In milk_1 wooden_tray_1_contain_region) (In akita_black_bowl_1 wooden_tray_1_contain_region))
+  )
+
+)

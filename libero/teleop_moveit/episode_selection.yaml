@@ -1,0 +1,57 @@
+description: VLAPB finetuning curriculum selection policy.
+available:
+  items:
+  - akita_black_bowl
+  - alphabet_soup
+  - bbq_sauce
+  - black_book
+  - butter
+  - chefmate_8_frypan
+  - chocolate_pudding
+  - cream_cheese
+  - ketchup
+  - milk
+  - moka_pot
+  - orange_juice
+  - porcelain_mug
+  - red_coffee_mug
+  - salad_dressing
+  - tomato_sauce
+  - white_bowl
+  - white_yellow_mug
+  - yellow_book
+  fixed_items:
+  - basket
+  - cabinet
+  - desk_caddy
+  - flat_stove
+  - microwave
+  - plate
+  - white_cabinet
+  - wine_rack
+  - wooden_cabinet
+  - wooden_tray
+  - wooden_two_layer_shelf
+  scenes: []
+selection:
+  unwanted_items:
+  - black_book
+  - yellow_book
+  - moka_pot
+  - chefmate_8_frypan
+  unwanted_fixed_items:
+  - caddy
+  - desk_caddy
+  - wine_rack
+  unwanted_scenes: []
+generation:
+  num_users: 9
+  preferred_fixed_item: plate
+  sequence_receptable: wooden_two_layer_shelf
+  task_counts:
+    Ownership: 36
+    Pick Order: 36
+    Placement: 36
+    Multi-user: 36
+    Adaptability: 36
+    Consistency: 36

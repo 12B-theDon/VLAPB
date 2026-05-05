@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+MUJOCO_LOG.TXT
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large experiment outputs and datasets
+outputs/
+results/
+runs/
+wandb/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# codex
+LIBERO.code-workspace
+
+# Generated teleoperation / MoveIt outputs
+libero/teleop_moveit/moveit/
+libero/teleop_moveit/raw/
+libero/teleop_moveit/hdf5/
+libero/teleop_moveit/previews/
+libero/teleop_moveit/*.png
+libero/teleop_moveit/*.jpg
+libero/teleop_moveit/*.jpeg
+libero/teleop_moveit/*.mp4
+libero/teleop_moveit/*.gif
+libero/teleop_moveit/*trajectory.json
+*.hdf5
+*.h5
+
+# Generated evaluation manifests and run outputs
+libero/evaluations/compare_injection_methods/manifest_vlapb.json
+libero/evaluations/compare_injection_methods/*_results/
+libero/evaluations/compare_injection_methods/zeroshot_results/
+libero/evaluations/compare_injection_methods/finetuned_checkpoint_results/

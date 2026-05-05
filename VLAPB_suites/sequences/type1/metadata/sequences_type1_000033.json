@@ -1,0 +1,73 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type1/bddl_files/sequences_type1_000033.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three unique graspable objects not owned by any profile user"
+  },
+  "episode_id": "sequences_type1_000033",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "black_book",
+    "chefmate_8_frypan",
+    "moka_pot"
+  ],
+  "language": "Use user_009's sequence preference and put the objects into the wooden_tray in this order: black_book, chefmate_8_frypan, moka_pot",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "black_book": false,
+    "chefmate_8_frypan": false,
+    "moka_pot": false
+  },
+  "ownership": {},
+  "participating_users": [
+    "user_009"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2053,
+      "object_type": "black_book",
+      "ordinal_position": 1,
+      "x": 0.0404,
+      "y": 0.2013
+    },
+    {
+      "distance_to_tray": 0.3828,
+      "object_type": "chefmate_8_frypan",
+      "ordinal_position": 2,
+      "x": -0.3784,
+      "y": -0.0576
+    },
+    {
+      "distance_to_tray": 0.1971,
+      "object_type": "moka_pot",
+      "ordinal_position": 3,
+      "x": 0.1231,
+      "y": -0.1539
+    }
+  ],
+  "split": "type1",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "black_book",
+    "chefmate_8_frypan",
+    "moka_pot"
+  ],
+  "target_user": "user_009",
+  "task_type": "type1"
+}

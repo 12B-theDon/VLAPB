@@ -1,0 +1,87 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_007 into the wooden_tray in this order: chocolate_pudding, alphabet_soup, glazed_rim_porcelain_ramekin)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.0212 0.1600 0.0712 0.2100)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2304 -0.0466 -0.1804 0.0034)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (0.1211 -0.2261 0.1711 -0.1761)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    
+      (sequence_before_chocolate_pudding_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1950 0.1250 0.2450 0.1750)
+            )
+          )
+      )
+      (sequence_before_alphabet_soup_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2550 -0.1050 -0.2050 -0.0550)
+            )
+          )
+      )
+      (sequence_before_glazed_rim_porcelain_ramekin_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1650 -0.2250 0.2150 -0.1750)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    chocolate_pudding_1 - chocolate_pudding
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1 alphabet_soup_1 glazed_rim_porcelain_ramekin_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On chocolate_pudding_1 kitchen_table_sequence_before_chocolate_pudding_1_region)
+    (On alphabet_soup_1 kitchen_table_sequence_before_alphabet_soup_1_region)
+    (On glazed_rim_porcelain_ramekin_1 kitchen_table_sequence_before_glazed_rim_porcelain_ramekin_1_region)
+  )
+
+  (:goal
+    (And (On glazed_rim_porcelain_ramekin_1 wooden_tray_1))
+  )
+
+)

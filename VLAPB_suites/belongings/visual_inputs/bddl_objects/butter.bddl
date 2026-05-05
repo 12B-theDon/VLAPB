@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show butter)
+    (:regions
+      (butter_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    butter_1 - butter
+  )
+
+  (:obj_of_interest
+    butter_1
+  )
+
+  (:init
+    (On butter_1 main_table_butter_init_region)
+  )
+
+  (:goal
+    (And (On butter_1 main_table_butter_init_region))
+  )
+
+)

@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show cookies)
+    (:regions
+      (cookies_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    cookies_1 - cookies
+  )
+
+  (:obj_of_interest
+    cookies_1
+  )
+
+  (:init
+    (On cookies_1 main_table_cookies_init_region)
+  )
+
+  (:goal
+    (And (On cookies_1 main_table_cookies_init_region))
+  )
+
+)

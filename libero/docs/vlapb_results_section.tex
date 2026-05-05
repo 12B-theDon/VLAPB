@@ -1,0 +1,75 @@
+\section{VLAPB Results}
+\label{sec:vlapb_results}
+
+VLAPB evaluates whether vision-language-action policies can bind personalized factors to the correct task, user, and temporal context. Unlike standard LIBERO evaluations, where the instruction usually specifies the target behavior directly, VLAPB requires the policy to infer the target from injected user preferences. This makes the benchmark sensitive to failures in personalization, selective retrieval, update handling, and multi-factor consistency.
+
+\subsection{Overall Suite Performance}
+
+Table~\ref{tab:vlapb_overall_suite} and Figure~\ref{fig:vlapb_overall_suite} summarize the expected suite-level trend. The base VLA pilot performs poorly on VLAPB despite being able to execute generic manipulation skills, suggesting that the main bottleneck is not only low-level control but also personalized factor binding. Text injection improves sensitivity and basic preference following, while structured injection is expected to provide larger gains by making the active user and relevant factor more explicit.
+
+\input{results/tab1_overall_suite_performance}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{results/fig1_overall_suite_performance.pdf}
+    \caption{Overall VLAPB suite performance. The benchmark separates generic manipulation ability from personalized preference binding.}
+    \label{fig:vlapb_overall_suite}
+\end{figure}
+
+\subsection{Selectivity}
+
+Selectivity measures whether the model can use the relevant personalized factor while ignoring unrelated preferences in the same prompt. Table~\ref{tab:vlapb_selectivity_pfactors} and Figure~\ref{fig:vlapb_selectivity_pfactors} show the expected degradation as more p-factors are included. The key failure mode is irrelevant preference interference, where the policy binds a distractor preference to the current instruction.
+
+\input{results/tab2_selectivity_vs_p_factors}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.92\linewidth]{results/fig2_selectivity_vs_p_factors.pdf}
+    \caption{Selectivity as the number of p-factors increases. Accuracy decreases while irrelevant preference interference increases.}
+    \label{fig:vlapb_selectivity_pfactors}
+\end{figure}
+
+\subsection{Sensitivity}
+
+Sensitivity evaluates whether changing only the personalized factor changes the selected target while the scene, instruction, and target object remain fixed. Table~\ref{tab:vlapb_sensitivity_factor_type} and Figure~\ref{fig:vlapb_sensitivity_factor_type} break this down by p-factor type. Spatial preferences are expected to be easier because they map more directly to existing manipulation priors, while category-level and object-specific preferences require stronger language-to-action binding.
+
+\input{results/tab3_sensitivity_by_factor_type}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{results/fig3_sensitivity_by_factor_type.pdf}
+    \caption{Counterfactual sensitivity by p-factor type. Spatial factors are expected to be easier than category or object-specific factors.}
+    \label{fig:vlapb_sensitivity_factor_type}
+\end{figure}
+
+\subsection{Adaptability}
+
+Adaptability tests whether the model can follow updated preferences rather than stale preferences. Table~\ref{tab:vlapb_adaptability_updates} and Figure~\ref{fig:vlapb_adaptability_updates} compare initial preference use with the post-update condition. The expected drop after the update indicates that models often attend to the older rule when both the previous and current preferences are present.
+
+\input{results/tab4_adaptability_preference_updates}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.78\linewidth]{results/fig4_adaptability_preference_updates.pdf}
+    \caption{Adaptability under explicit preference updates. The post-update setting exposes stale-profile errors.}
+    \label{fig:vlapb_adaptability_updates}
+\end{figure}
+
+\subsection{Consistency}
+
+Consistency measures whether the model can apply the right factor from a stable multi-factor profile. Table~\ref{tab:vlapb_consistency_pfactors} and Figure~\ref{fig:vlapb_consistency_pfactors} show that performance is expected to fall as the number of p-factors grows. User-level consistency is stricter than task-level consistency because the model must correctly handle multiple personalized factors for the same user.
+
+\input{results/tab5_consistency_vs_p_factors}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.92\linewidth]{results/fig5_consistency_vs_p_factors.pdf}
+    \caption{Consistency as the number of p-factors in the user profile increases. User-level consistency degrades faster than task-level consistency.}
+    \label{fig:vlapb_consistency_pfactors}
+\end{figure}
+
+\subsection{Recommended Reporting Structure}
+
+Table~\ref{tab:vlapb_recommended_tables} summarizes the recommended reporting structure. Together, these tables and figures support the central conclusion that VLAPB exposes personalization-specific failures that are not visible in standard instruction-following manipulation benchmarks.
+
+\input{results/tab_summary_recommended_tables}

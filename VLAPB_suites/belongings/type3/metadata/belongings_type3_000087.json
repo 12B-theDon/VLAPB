@@ -1,0 +1,54 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/type3/bddl_files/belongings_type3_000087.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_type3_000087",
+  "fixture": "flat_stove",
+  "graspable_objects": [
+    "orange_juice",
+    "akita_black_bowl",
+    "chocolate_pudding",
+    "ketchup"
+  ],
+  "language": "Pick the orange_juice belonging to user_004 and place it on the flat_stove",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_002": [
+      "chocolate_pudding"
+    ],
+    "user_003": [
+      "ketchup"
+    ],
+    "user_004": [
+      "orange_juice"
+    ]
+  },
+  "participating_users": [
+    "user_004",
+    "user_001",
+    "user_002",
+    "user_003"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "On",
+  "scene": "LIVING_ROOM_SCENE6",
+  "split": "type3",
+  "suite": "belongings",
+  "table": "living_room_table",
+  "target_object": "orange_juice",
+  "target_user": "user_004",
+  "task_type": "type3"
+}

@@ -1,0 +1,70 @@
+{
+  "adaptation": null,
+  "area": "kitchen",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type2/bddl_files/placements_type2_000155.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+  },
+  "debug": {
+    "libero_pair_count": 0
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_type2_000155",
+  "fixtures": [
+    {
+      "fixture": "wooden_cabinet",
+      "side": "left"
+    },
+    {
+      "fixture": "wooden_tray",
+      "side": "right"
+    }
+  ],
+  "language": "Pick the cookies belonging to user_011 and place it at the top of the wooden_cabinet",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_011": [
+      "cookies"
+    ]
+  },
+  "participating_users": [
+    "user_011"
+  ],
+  "preference": {
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "top",
+    "location": "cabinet.top_drawer.inside",
+    "object_type": "cookies",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "KITCHEN_SCENE1",
+  "secondary_object": null,
+  "secondary_preference": null,
+  "secondary_user": null,
+  "split": "type2",
+  "suite": "placements",
+  "table": "kitchen_table",
+  "target_object": "cookies",
+  "target_object_seen": true,
+  "target_user": "user_011",
+  "task_type": "type2"
+}

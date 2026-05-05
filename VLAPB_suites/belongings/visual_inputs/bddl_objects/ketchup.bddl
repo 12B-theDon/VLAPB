@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show ketchup)
+    (:regions
+      (ketchup_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    ketchup_1 - ketchup
+  )
+
+  (:obj_of_interest
+    ketchup_1
+  )
+
+  (:init
+    (On ketchup_1 main_table_ketchup_init_region)
+  )
+
+  (:goal
+    (And (On ketchup_1 main_table_ketchup_init_region))
+  )
+
+)

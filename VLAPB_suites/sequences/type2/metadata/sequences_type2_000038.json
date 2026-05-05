@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000038.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000038",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "chocolate_pudding",
+    "porcelain_mug"
+  ],
+  "language": "Put the objects belonging to user_010 into the wooden_tray in this order: porcelain_mug, chocolate_pudding, bbq_sauce",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "chocolate_pudding": true,
+    "porcelain_mug": false
+  },
+  "ownership": {
+    "user_010": [
+      "bbq_sauce",
+      "chocolate_pudding",
+      "porcelain_mug"
+    ]
+  },
+  "participating_users": [
+    "user_010"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "sequence_strategy": "reverse_alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.23,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0692,
+      "y": 0.2193
+    },
+    {
+      "distance_to_tray": 0.2242,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 2,
+      "x": -0.224,
+      "y": -0.0097
+    },
+    {
+      "distance_to_tray": 0.1892,
+      "object_type": "porcelain_mug",
+      "ordinal_position": 3,
+      "x": 0.1016,
+      "y": -0.1596
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "porcelain_mug",
+    "chocolate_pudding",
+    "bbq_sauce"
+  ],
+  "target_user": "user_010",
+  "task_type": "type2"
+}

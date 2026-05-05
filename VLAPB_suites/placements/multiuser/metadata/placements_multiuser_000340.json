@@ -1,0 +1,86 @@
+{
+  "adaptation": null,
+  "area": "living_room",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000340.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+  },
+  "debug": {
+    "libero_pair_count": 0
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_multiuser_000340",
+  "fixtures": [
+    {
+      "fixture": "wooden_tray",
+      "side": "left"
+    },
+    {
+      "fixture": "basket",
+      "side": "right"
+    }
+  ],
+  "language": "For user_012, pick the bbq_sauce and place it at the front of the wooden_tray, for user_001, pick the bbq_sauce and place it at the back of the basket.",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_001": [
+      "bbq_sauce"
+    ],
+    "user_012": [
+      "bbq_sauce"
+    ]
+  },
+  "participating_users": [
+    "user_012",
+    "user_001"
+  ],
+  "preference": {
+    "area": "living_room",
+    "fixed_type": "wooden_tray",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "front",
+    "location": "wooden_tray.back_side",
+    "object_type": "bbq_sauce",
+    "scene": "LIVING_ROOM_SCENE3",
+    "table": "living_room_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "LIVING_ROOM_SCENE3",
+  "secondary_object": "bbq_sauce",
+  "secondary_preference": {
+    "area": "living_room",
+    "fixed_type": "basket",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "back",
+    "location": "basket.front_side",
+    "object_type": "bbq_sauce",
+    "scene": "LIVING_ROOM_SCENE3",
+    "table": "living_room_table"
+  },
+  "secondary_user": "user_001",
+  "split": "multiuser",
+  "suite": "placements",
+  "table": "living_room_table",
+  "target_object": "bbq_sauce",
+  "target_object_seen": true,
+  "target_user": "user_012",
+  "task_type": "multiuser"
+}

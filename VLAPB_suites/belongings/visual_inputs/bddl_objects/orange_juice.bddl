@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show orange juice)
+    (:regions
+      (orange_juice_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    orange_juice_1 - orange_juice
+  )
+
+  (:obj_of_interest
+    orange_juice_1
+  )
+
+  (:init
+    (On orange_juice_1 main_table_orange_juice_init_region)
+  )
+
+  (:goal
+    (And (On orange_juice_1 main_table_orange_juice_init_region))
+  )
+
+)

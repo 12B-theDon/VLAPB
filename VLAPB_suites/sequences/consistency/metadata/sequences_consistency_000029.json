@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000029.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "bbq_sauce",
+      "ketchup"
+    ],
+    "unseen_object": "porcelain_mug",
+    "user_id": "user_010"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000029",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "ketchup",
+    "porcelain_mug"
+  ],
+  "language": "Put the objects belonging to user_010 into the wooden_tray in this order: porcelain_mug, ketchup, bbq_sauce",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "ketchup": true,
+    "porcelain_mug": false
+  },
+  "ownership": {
+    "user_010": [
+      "bbq_sauce",
+      "ketchup",
+      "porcelain_mug"
+    ]
+  },
+  "participating_users": [
+    "user_010"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE1",
+  "sequence_strategy": "reverse_alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2383,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0921,
+      "y": 0.2198
+    },
+    {
+      "distance_to_tray": 0.2326,
+      "object_type": "ketchup",
+      "ordinal_position": 2,
+      "x": -0.2323,
+      "y": 0.0111
+    },
+    {
+      "distance_to_tray": 0.1958,
+      "object_type": "porcelain_mug",
+      "ordinal_position": 3,
+      "x": 0.0897,
+      "y": -0.1741
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "porcelain_mug",
+    "ketchup",
+    "bbq_sauce"
+  ],
+  "target_user": "user_010",
+  "task_type": "consistency"
+}

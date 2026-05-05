@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "salad_dressing",
+      "red_coffee_mug",
+      "akita_black_bowl"
+    ],
+    "previous_strategy": "left_to_right",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "akita_black_bowl",
+      "red_coffee_mug",
+      "salad_dressing"
+    ],
+    "same_scene": "STUDY_SCENE1",
+    "same_table": "study_table",
+    "updated_sequence": [
+      "akita_black_bowl",
+      "red_coffee_mug",
+      "salad_dressing"
+    ],
+    "updated_strategy": "right_to_left",
+    "user_id": "user_005"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000005.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000005",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "akita_black_bowl",
+    "red_coffee_mug",
+    "salad_dressing"
+  ],
+  "language": "After user_005's sequence preference changes from salad_dressing, red_coffee_mug, akita_black_bowl to akita_black_bowl, red_coffee_mug, salad_dressing, put the same objects into the wooden_tray in the new order: akita_black_bowl, red_coffee_mug, salad_dressing",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "akita_black_bowl": true,
+    "red_coffee_mug": true,
+    "salad_dressing": true
+  },
+  "ownership": {
+    "user_005": [
+      "akita_black_bowl",
+      "red_coffee_mug",
+      "salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_005"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE1",
+  "sequence_strategy": "right_to_left",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2424,
+      "object_type": "akita_black_bowl",
+      "ordinal_position": 1,
+      "x": 0.119,
+      "y": 0.2112
+    },
+    {
+      "distance_to_tray": 0.2546,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 2,
+      "x": -0.2512,
+      "y": 0.0416
+    },
+    {
+      "distance_to_tray": 0.1877,
+      "object_type": "salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.066,
+      "y": -0.1757
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "akita_black_bowl",
+    "red_coffee_mug",
+    "salad_dressing"
+  ],
+  "target_user": "user_005",
+  "task_type": "adaptability"
+}

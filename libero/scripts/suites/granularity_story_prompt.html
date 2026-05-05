@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VLAPB Granularity Story Prompt</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+    pre { white-space: pre-wrap; background: #f6f8fa; border: 1px solid #d0d7de; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>VLAPB Granularity Story Prompt</h1>
+  <pre>Generate three textual injection stories from the given JSON for a personalized VLA benchmark.
+
+The stories are used before task execution. They register user-specific preferences, ownership, object-order rules, and placement habits. They must not be written as task commands.
+
+Generate:
+- one_sentence_story: exactly 1 sentence
+- four_sentence_story: exactly 4 sentences
+- eight_sentence_story: exactly 8 sentences
+
+All three versions must imply the same expected target.
+Longer stories may add context or controlled distractors, but must not reveal the target action more directly than the shorter story.
+Do not add facts not present in the JSON.
+Do not contradict the JSON.
+Do not introduce new task-relevant objects.
+Do not use imperative robot commands such as &quot;put&quot;, &quot;place&quot;, &quot;move&quot;, or &quot;pick up&quot; as direct instructions.
+Do not say &quot;the correct action is&quot; or &quot;the robot should.&quot;
+
+Axis rules:
+- Sensitivity: express the target user&#x27;s relevant preference; keep counterfactual variants parallel.
+- Adaptability: produce both initial and updated stories; the update must override the old preference.
+- Consistency: express a stable multi-factor profile for the same user across multiple tasks.
+- Selectivity: include relevant and irrelevant preferences, but keep irrelevant preferences controlled and separable.
+- Multi-user: clearly separate preferences by user_id; do not merge users&#x27; preferences.
+- Entanglement/Disentanglement: keep changed and tested factors independent.
+
+Return valid JSON with:
+{
+  &quot;task_id&quot;: &quot;...&quot;,
+  &quot;evaluation_axis&quot;: &quot;...&quot;,
+  &quot;user_id&quot;: &quot;...&quot;,
+  &quot;story_variants&quot;: {
+    &quot;one_sentence&quot;: &quot;...&quot;,
+    &quot;four_sentence&quot;: &quot;...&quot;,
+    &quot;eight_sentence&quot;: &quot;...&quot;
+  },
+  &quot;adaptability_variants&quot;: null or {
+    &quot;initial&quot;: {
+      &quot;one_sentence&quot;: &quot;...&quot;,
+      &quot;four_sentence&quot;: &quot;...&quot;,
+      &quot;eight_sentence&quot;: &quot;...&quot;
+    },
+    &quot;updated&quot;: {
+      &quot;one_sentence&quot;: &quot;...&quot;,
+      &quot;four_sentence&quot;: &quot;...&quot;,
+      &quot;eight_sentence&quot;: &quot;...&quot;
+    }
+  }
+}
+
+Input JSON:
+{INPUT_JSON}
+</pre>
+</body>
+</html>

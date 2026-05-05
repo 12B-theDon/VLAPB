@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000009.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "glazed_rim_porcelain_ramekin",
+      "ketchup"
+    ],
+    "unseen_object": "milk",
+    "user_id": "user_003"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000009",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "glazed_rim_porcelain_ramekin",
+    "ketchup",
+    "milk"
+  ],
+  "language": "Put the objects belonging to user_003 into the wooden_tray in this order: ketchup, glazed_rim_porcelain_ramekin, milk",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "glazed_rim_porcelain_ramekin": true,
+    "ketchup": true,
+    "milk": false
+  },
+  "ownership": {
+    "user_003": [
+      "glazed_rim_porcelain_ramekin",
+      "ketchup",
+      "milk"
+    ]
+  },
+  "participating_users": [
+    "user_003"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2259,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 1,
+      "x": 0.0415,
+      "y": 0.2221
+    },
+    {
+      "distance_to_tray": 0.2089,
+      "object_type": "ketchup",
+      "ordinal_position": 2,
+      "x": -0.2061,
+      "y": -0.0342
+    },
+    {
+      "distance_to_tray": 0.246,
+      "object_type": "milk",
+      "ordinal_position": 3,
+      "x": 0.1562,
+      "y": -0.1901
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "ketchup",
+    "glazed_rim_porcelain_ramekin",
+    "milk"
+  ],
+  "target_user": "user_003",
+  "task_type": "consistency"
+}

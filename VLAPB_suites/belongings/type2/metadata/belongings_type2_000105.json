@@ -1,0 +1,54 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/type2/bddl_files/belongings_type2_000105.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_type2_000105",
+  "fixture": "basket",
+  "graspable_objects": [
+    "milk",
+    "akita_black_bowl",
+    "chocolate_pudding",
+    "porcelain_mug"
+  ],
+  "language": "Pick the milk belonging to user_003 and place it in the basket",
+  "ownership": {
+    "user_001": [
+      "akita_black_bowl"
+    ],
+    "user_002": [
+      "chocolate_pudding"
+    ],
+    "user_003": [
+      "milk"
+    ],
+    "user_004": [
+      "porcelain_mug"
+    ]
+  },
+  "participating_users": [
+    "user_001",
+    "user_002",
+    "user_003",
+    "user_004"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "split": "type2",
+  "suite": "belongings",
+  "table": "living_room_table",
+  "target_object": "milk",
+  "target_user": "user_003",
+  "task_type": "type2"
+}

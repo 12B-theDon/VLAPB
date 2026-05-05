@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_003's sequence preference changes from akita_black_bowl, glazed_rim_porcelain_ramekin, ketchup to ketchup, glazed_rim_porcelain_ramekin, akita_black_bowl, put the same objects into the wooden_tray in the new order: ketchup, glazed_rim_porcelain_ramekin, akita_black_bowl)
+    (:regions
+      (wooden_tray_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target living_room_table)
+          (:ranges (
+              (0.0465 0.1931 0.0965 0.2431)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target living_room_table)
+          (:ranges (
+              (-0.2589 -0.0326 -0.2089 0.0174)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target living_room_table)
+          (:ranges (
+              (0.1052 -0.2345 0.1552 -0.1845)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    ketchup_1 - ketchup
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    ketchup_1 glazed_rim_porcelain_ramekin_1 akita_black_bowl_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 living_room_table_wooden_tray_region)
+    (On akita_black_bowl_1 living_room_table_object_init_region_0)
+    (On glazed_rim_porcelain_ramekin_1 living_room_table_object_init_region_1)
+    (On ketchup_1 living_room_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In ketchup_1 wooden_tray_1_contain_region) (In glazed_rim_porcelain_ramekin_1 wooden_tray_1_contain_region) (In akita_black_bowl_1 wooden_tray_1_contain_region))
+  )
+
+)

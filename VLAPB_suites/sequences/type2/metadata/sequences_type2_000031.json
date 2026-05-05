@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000031.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000031",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "alphabet_soup",
+    "ketchup",
+    "orange_juice"
+  ],
+  "language": "Put the objects belonging to user_008 into the wooden_tray in this order: ketchup, alphabet_soup, orange_juice",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "alphabet_soup": true,
+    "ketchup": true,
+    "orange_juice": false
+  },
+  "ownership": {
+    "user_008": [
+      "alphabet_soup",
+      "ketchup",
+      "orange_juice"
+    ]
+  },
+  "participating_users": [
+    "user_008"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "even_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2396,
+      "object_type": "alphabet_soup",
+      "ordinal_position": 1,
+      "x": 0.1063,
+      "y": 0.2147
+    },
+    {
+      "distance_to_tray": 0.2033,
+      "object_type": "ketchup",
+      "ordinal_position": 2,
+      "x": -0.2021,
+      "y": 0.0225
+    },
+    {
+      "distance_to_tray": 0.2267,
+      "object_type": "orange_juice",
+      "ordinal_position": 3,
+      "x": 0.091,
+      "y": -0.2076
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "ketchup",
+    "alphabet_soup",
+    "orange_juice"
+  ],
+  "target_user": "user_008",
+  "task_type": "type2"
+}

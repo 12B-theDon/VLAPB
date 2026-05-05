@@ -1,0 +1,86 @@
+{
+  "adaptation": null,
+  "area": "living_room",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000155.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+  },
+  "debug": {
+    "libero_pair_count": 0
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_multiuser_000155",
+  "fixtures": [
+    {
+      "fixture": "basket",
+      "side": "left"
+    },
+    {
+      "fixture": "wooden_tray",
+      "side": "right"
+    }
+  ],
+  "language": "For user_007, pick the glazed_rim_porcelain_ramekin and place it at the front of the basket, for user_015, pick the cookies and place it at the back of the wooden_tray.",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_007": [
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "user_015": [
+      "cookies"
+    ]
+  },
+  "participating_users": [
+    "user_007",
+    "user_015"
+  ],
+  "preference": {
+    "area": "living_room",
+    "fixed_type": "basket",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "front",
+    "location": "basket.back_side",
+    "object_type": "glazed_rim_porcelain_ramekin",
+    "scene": "LIVING_ROOM_SCENE2",
+    "table": "living_room_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "LIVING_ROOM_SCENE2",
+  "secondary_object": "cookies",
+  "secondary_preference": {
+    "area": "living_room",
+    "fixed_type": "wooden_tray",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "back",
+    "location": "wooden_tray.front_side",
+    "object_type": "cookies",
+    "scene": "LIVING_ROOM_SCENE2",
+    "table": "living_room_table"
+  },
+  "secondary_user": "user_015",
+  "split": "multiuser",
+  "suite": "placements",
+  "table": "living_room_table",
+  "target_object": "glazed_rim_porcelain_ramekin",
+  "target_object_seen": true,
+  "target_user": "user_007",
+  "task_type": "multiuser"
+}

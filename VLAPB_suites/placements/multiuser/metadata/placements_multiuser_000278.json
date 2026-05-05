@@ -1,0 +1,84 @@
+{
+  "adaptation": null,
+  "area": "kitchen",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000278.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+  },
+  "debug": {
+    "libero_pair_count": 1
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_multiuser_000278",
+  "fixtures": [
+    {
+      "fixture": "wooden_cabinet",
+      "side": "left"
+    },
+    {
+      "fixture": "wooden_tray",
+      "side": "right"
+    }
+  ],
+  "language": "For user_010, pick the chocolate_pudding and place it at the right of the wooden_cabinet, for user_012, pick the cream_cheese and place it at the in of the wooden_tray.",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_010": [
+      "chocolate_pudding"
+    ],
+    "user_012": [
+      "cream_cheese"
+    ]
+  },
+  "participating_users": [
+    "user_010",
+    "user_012"
+  ],
+  "preference": {
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "right",
+    "location": "cabinet.right_side",
+    "object_type": "chocolate_pudding",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "KITCHEN_SCENE1",
+  "secondary_object": "cream_cheese",
+  "secondary_preference": {
+    "area": "kitchen",
+    "fixed_type": "wooden_tray",
+    "label": "in",
+    "location": "wooden_tray.inside",
+    "object_type": "cream_cheese",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
+  },
+  "secondary_user": "user_012",
+  "split": "multiuser",
+  "suite": "placements",
+  "table": "kitchen_table",
+  "target_object": "chocolate_pudding",
+  "target_object_seen": true,
+  "target_user": "user_010",
+  "task_type": "multiuser"
+}

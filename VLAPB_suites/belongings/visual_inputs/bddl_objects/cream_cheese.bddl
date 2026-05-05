@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show cream cheese)
+    (:regions
+      (cream_cheese_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    cream_cheese_1 - cream_cheese
+  )
+
+  (:obj_of_interest
+    cream_cheese_1
+  )
+
+  (:init
+    (On cream_cheese_1 main_table_cream_cheese_init_region)
+  )
+
+  (:goal
+    (And (On cream_cheese_1 main_table_cream_cheese_init_region))
+  )
+
+)

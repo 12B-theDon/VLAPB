@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show porcelain mug)
+    (:regions
+      (porcelain_mug_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    porcelain_mug_1 - porcelain_mug
+  )
+
+  (:obj_of_interest
+    porcelain_mug_1
+  )
+
+  (:init
+    (On porcelain_mug_1 main_table_porcelain_mug_init_region)
+  )
+
+  (:goal
+    (And (On porcelain_mug_1 main_table_porcelain_mug_init_region))
+  )
+
+)

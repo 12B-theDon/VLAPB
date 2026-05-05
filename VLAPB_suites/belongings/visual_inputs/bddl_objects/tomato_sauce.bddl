@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show tomato sauce)
+    (:regions
+      (tomato_sauce_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    tomato_sauce_1 - tomato_sauce
+  )
+
+  (:obj_of_interest
+    tomato_sauce_1
+  )
+
+  (:init
+    (On tomato_sauce_1 main_table_tomato_sauce_init_region)
+  )
+
+  (:goal
+    (And (On tomato_sauce_1 main_table_tomato_sauce_init_region))
+  )
+
+)

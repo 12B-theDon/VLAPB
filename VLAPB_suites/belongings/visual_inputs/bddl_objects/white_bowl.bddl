@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show white bowl)
+    (:regions
+      (white_bowl_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    white_bowl_1 - white_bowl
+  )
+
+  (:obj_of_interest
+    white_bowl_1
+  )
+
+  (:init
+    (On white_bowl_1 main_table_white_bowl_init_region)
+  )
+
+  (:goal
+    (And (On white_bowl_1 main_table_white_bowl_init_region))
+  )
+
+)

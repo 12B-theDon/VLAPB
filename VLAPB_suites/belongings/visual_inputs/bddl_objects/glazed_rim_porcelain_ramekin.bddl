@@ -1,0 +1,34 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language show glazed rim porcelain ramekin)
+    (:regions
+      (glazed_rim_porcelain_ramekin_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025000 -0.145000 0.025000 -0.095000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+  )
+
+  (:obj_of_interest
+    glazed_rim_porcelain_ramekin_1
+  )
+
+  (:init
+    (On glazed_rim_porcelain_ramekin_1 main_table_glazed_rim_porcelain_ramekin_init_region)
+  )
+
+  (:goal
+    (And (On glazed_rim_porcelain_ramekin_1 main_table_glazed_rim_porcelain_ramekin_init_region))
+  )
+
+)

@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000033.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000033",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "alphabet_soup",
+    "cream_cheese",
+    "milk"
+  ],
+  "language": "Put the objects belonging to user_009 into the wooden_tray in this order: alphabet_soup, cream_cheese, milk",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "alphabet_soup": true,
+    "cream_cheese": true,
+    "milk": true
+  },
+  "ownership": {
+    "user_009": [
+      "alphabet_soup",
+      "cream_cheese",
+      "milk"
+    ]
+  },
+  "participating_users": [
+    "user_009"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2419,
+      "object_type": "alphabet_soup",
+      "ordinal_position": 1,
+      "x": 0.0697,
+      "y": 0.2316
+    },
+    {
+      "distance_to_tray": 0.2302,
+      "object_type": "cream_cheese",
+      "ordinal_position": 2,
+      "x": -0.2298,
+      "y": -0.0131
+    },
+    {
+      "distance_to_tray": 0.1972,
+      "object_type": "milk",
+      "ordinal_position": 3,
+      "x": 0.1081,
+      "y": -0.1649
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "alphabet_soup",
+    "cream_cheese",
+    "milk"
+  ],
+  "target_user": "user_009",
+  "task_type": "type2"
+}

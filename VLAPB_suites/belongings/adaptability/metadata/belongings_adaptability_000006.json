@@ -1,0 +1,50 @@
+{
+  "adaptation": {
+    "episode_number": 6,
+    "overlapping_other_users": [
+      "user_005"
+    ],
+    "previous_belonging": "akita_black_bowl",
+    "updated_belonging": "salad_dressing",
+    "user_id": "user_001"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/belongings/adaptability/bddl_files/belongings_adaptability_000006.bddl",
+  "constraints": {
+    "fixture_relation": {
+      "basket": "In",
+      "flat_stove": "On",
+      "plate": "On",
+      "wooden_tray": "In"
+    },
+    "graspable_object_count": 4,
+    "spawn_policy": "randomized circle around the fixed object; basket avoids back-side occlusion",
+    "spawn_radius": 0.24
+  },
+  "debug": null,
+  "episode_id": "belongings_adaptability_000006",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "salad_dressing",
+    "chocolate_pudding",
+    "cookies",
+    "cream_cheese"
+  ],
+  "language": "Pick the salad_dressing belonging to user_001 and place it in the wooden_tray",
+  "ownership": {
+    "user_001": [
+      "salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_001"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "split": "adaptability",
+  "suite": "belongings",
+  "table": "living_room_table",
+  "target_object": "salad_dressing",
+  "target_user": "user_001",
+  "task_type": "adaptability"
+}

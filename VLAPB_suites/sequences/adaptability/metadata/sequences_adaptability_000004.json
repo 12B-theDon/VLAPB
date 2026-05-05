@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "orange_juice",
+      "akita_black_bowl",
+      "new_salad_dressing"
+    ],
+    "previous_strategy": "fixed_far_to_near",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "akita_black_bowl",
+      "new_salad_dressing",
+      "orange_juice"
+    ],
+    "same_scene": "LIVING_ROOM_SCENE6",
+    "same_table": "living_room_table",
+    "updated_sequence": [
+      "new_salad_dressing",
+      "akita_black_bowl",
+      "orange_juice"
+    ],
+    "updated_strategy": "fixed_near_to_far",
+    "user_id": "user_004"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000004.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000004",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "akita_black_bowl",
+    "new_salad_dressing",
+    "orange_juice"
+  ],
+  "language": "After user_004's sequence preference changes from orange_juice, akita_black_bowl, new_salad_dressing to new_salad_dressing, akita_black_bowl, orange_juice, put the same objects into the wooden_tray in the new order: new_salad_dressing, akita_black_bowl, orange_juice",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "akita_black_bowl": true,
+    "new_salad_dressing": true,
+    "orange_juice": true
+  },
+  "ownership": {
+    "user_004": [
+      "akita_black_bowl",
+      "new_salad_dressing",
+      "orange_juice"
+    ]
+  },
+  "participating_users": [
+    "user_004"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2183,
+      "object_type": "akita_black_bowl",
+      "ordinal_position": 1,
+      "x": 0.0447,
+      "y": 0.2137
+    },
+    {
+      "distance_to_tray": 0.2097,
+      "object_type": "new_salad_dressing",
+      "ordinal_position": 2,
+      "x": -0.2076,
+      "y": -0.0298
+    },
+    {
+      "distance_to_tray": 0.2228,
+      "object_type": "orange_juice",
+      "ordinal_position": 3,
+      "x": 0.1377,
+      "y": -0.1752
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "new_salad_dressing",
+    "akita_black_bowl",
+    "orange_juice"
+  ],
+  "target_user": "user_004",
+  "task_type": "adaptability"
+}
