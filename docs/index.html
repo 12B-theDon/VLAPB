@@ -5,140 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="LIBERO and VLAPB benchmark site for lifelong robot learning and personalized robot manipulation."
+      content="VLAPB: a benchmark for evaluating personalization in vision-language-action models."
     >
-    <title>LIBERO + VLAPB</title>
+    <title>VLAPB</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
-      <a class="brand" href="#top">
-        <img src="assets/libero_logo.png" alt="LIBERO logo">
-        <span>LIBERO + VLAPB</span>
-      </a>
+      <a class="brand" href="#top">VLAPB</a>
       <nav aria-label="Site navigation">
         <a href="#benchmark">Benchmark</a>
-        <a href="#suites">Suites</a>
-        <a href="#start">Start</a>
-        <a href="https://github.com/Lifelong-Robot-Learning/LIBERO">GitHub</a>
+        <a href="#axes">Axes</a>
+        <a href="#results">Results</a>
+        <a href="#resources">Resources</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Lifelong robot learning benchmark</p>
-          <h1 id="hero-title">LIBERO + VLAPB</h1>
+          <p class="eyebrow">VLA personalization benchmark</p>
+          <h1 id="hero-title">VLAPB</h1>
           <p>
-            A research site for LIBERO, a benchmark for knowledge transfer in robot
-            manipulation, and VLAPB, a personalization benchmark built around user
-            preferences, counterfactuals, and task-level behavioral evaluation.
+            A benchmark for testing whether vision-language-action models can
+            condition robot behavior on personalized factors, update those factors
+            over time, and avoid confusing irrelevant or cross-user preferences.
           </p>
           <div class="hero-actions" aria-label="Primary links">
-            <a class="button primary" href="#suites">View suites</a>
-            <a class="button" href="#start">Get started</a>
+            <a class="button primary" href="#axes">View evaluation axes</a>
+            <a class="button" href="#results">See result figures</a>
           </div>
         </div>
         <figure class="hero-media">
-          <img src="assets/libero_overview.png" alt="LIBERO manipulation benchmark overview">
+          <img src="assets/overview.png" alt="VLAPB benchmark overview">
         </figure>
       </section>
 
       <section id="benchmark" class="section split">
         <div>
-          <p class="eyebrow">Benchmark focus</p>
-          <h2>Evaluating transfer, personalization, and instruction following</h2>
+          <p class="eyebrow">Benchmark idea</p>
+          <h2>Personalized factors as first-class task context</h2>
         </div>
         <div class="prose">
           <p>
-            LIBERO studies declarative knowledge about objects and spatial relations
-            together with procedural manipulation behavior. VLAPB extends this setting
-            with personalized preference conditions that test whether a model can use,
-            update, ignore, or disentangle user-specific context.
+            VLAPB evaluates whether a model can translate user-specific
+            personalized factors, or P-factors, into correct robot actions under
+            otherwise similar observations and task instructions.
           </p>
           <p>
-            The project includes generated task suites, object integrations, feasibility
-            review tooling, and result-generation scripts for reproducible benchmark
-            reporting.
+            The benchmark separates personalization behavior into controlled suites:
+            sensitivity to preference changes, selectivity under irrelevant context,
+            consistency across new tasks, adaptability after updates, and
+            disentanglement across multiple users.
           </p>
         </div>
       </section>
 
-      <section id="suites" class="section">
+      <section class="section visual-section" aria-labelledby="concept-title">
         <div class="section-heading">
-          <p class="eyebrow">VLAPB suites</p>
-          <h2>Five personalization axes</h2>
+          <p class="eyebrow">Concept</p>
+          <h2 id="concept-title">From user factors to personalized action</h2>
         </div>
-        <div class="suite-grid">
-          <article class="suite-card">
-            <span>40 instances</span>
-            <h3>Sensitivity</h3>
-            <p>
-              Only the relevant preference changes inside each counterfactual group
-              while the scene, instruction, and target object stay fixed.
-            </p>
-            <strong>SensitivityAcc · CounterfactualFlipAcc</strong>
+        <figure class="wide-figure">
+          <img
+            src="assets/VLA_Personalization_Concept.png"
+            alt="VLA personalization concept diagram"
+          >
+        </figure>
+      </section>
+
+      <section id="axes" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation axes</p>
+          <h2>Five ways personalization can fail</h2>
+        </div>
+        <div class="axis-grid">
+          <article class="axis-card">
+            <img src="assets/1_sensitivity.png" alt="Sensitivity suite example">
+            <div>
+              <span>Axis 1</span>
+              <h3>Sensitivity</h3>
+              <p>
+                Whether the model produces P-factor-dependent actions under
+                identical observations and task instructions.
+              </p>
+            </div>
           </article>
-          <article class="suite-card">
-            <span>40 instances</span>
-            <h3>Selectivity</h3>
-            <p>
-              Rows include irrelevant preferences and test either the relevant factor
-              or the plain instruction.
-            </p>
-            <strong>SelectivityAcc · IrrelevantPreferenceInterferenceRate</strong>
+          <article class="axis-card">
+            <img src="assets/2_selectivity.png" alt="Selectivity suite example">
+            <div>
+              <span>Axis 2</span>
+              <h3>Selectivity</h3>
+              <p>
+                Whether the model uses only task-relevant P-factors from diverse
+                user descriptions.
+              </p>
+            </div>
           </article>
-          <article class="suite-card">
-            <span>40 instances</span>
-            <h3>Consistency</h3>
-            <p>
-              The same user or profile group repeats across tasks that query stable
-              profile factors.
-            </p>
-            <strong>ConsistencyAcc · UserLevelConsistencyAcc</strong>
+          <article class="axis-card">
+            <img src="assets/3_consistency.png" alt="Consistency suite example">
+            <div>
+              <span>Axis 3</span>
+              <h3>Consistency</h3>
+              <p>
+                Infers user-preferred actions consistently from previously
+                provided P-factors in new task contexts.
+              </p>
+            </div>
           </article>
-          <article class="suite-card">
-            <span>40 instances</span>
-            <h3>Adaptability</h3>
-            <p>
-              The same user appears before and after an explicit preference update;
-              the second version should override the first.
-            </p>
-            <strong>AdaptabilityAcc · OldPreferenceErrorRate</strong>
+          <article class="axis-card">
+            <img src="assets/4_adaptability.png" alt="Adaptability suite example">
+            <div>
+              <span>Axis 4</span>
+              <h3>Adaptability</h3>
+              <p>
+                Updates personalized behavior according to changes in the user's
+                P-factors.
+              </p>
+            </div>
           </article>
-          <article class="suite-card">
-            <span>40 instances</span>
-            <h3>Entanglement</h3>
-            <p>
-              One factor is updated while a different unchanged factor is tested,
-              measuring cross-factor interference.
-            </p>
-            <strong>DisentanglementAcc · CrossFactorInterferenceRate</strong>
+          <article class="axis-card">
+            <img src="assets/5_multi-user.png" alt="Disentanglement suite example">
+            <div>
+              <span>Axis 5</span>
+              <h3>Disentanglement</h3>
+              <p>
+                Separates multiple users' P-factors and executes the task
+                according to the target user's preference.
+              </p>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="start" class="section start-panel">
+      <section class="section visual-section" aria-labelledby="suite-title">
+        <div class="section-heading">
+          <p class="eyebrow">Suite examples</p>
+          <h2 id="suite-title">Controlled personalized manipulation tasks</h2>
+        </div>
+        <figure class="wide-figure">
+          <img src="assets/example_suites.png" alt="VLAPB suite examples">
+        </figure>
+      </section>
+
+      <section class="section visual-section" aria-labelledby="comparison-title">
+        <div class="section-heading">
+          <p class="eyebrow">Positioning</p>
+          <h2 id="comparison-title">How VLAPB compares with existing benchmarks</h2>
+        </div>
+        <figure class="wide-figure">
+          <img
+            src="assets/compare_with_existing_benchmarks.png"
+            alt="Comparison between VLAPB and existing robot learning benchmarks"
+          >
+        </figure>
+      </section>
+
+      <section id="results" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Results</p>
+          <h2>Finetuning and textual injection analyses</h2>
+        </div>
+        <div class="result-grid">
+          <figure class="result-card">
+            <img
+              src="assets/fig6_libero_vlapb_finetuning_comparison.png"
+              alt="LIBERO and VLAPB finetuning comparison results"
+            >
+            <figcaption>LIBERO and VLAPB finetuning comparison.</figcaption>
+          </figure>
+          <figure class="result-card">
+            <img
+              src="assets/fig8_textual_injection_length_granularity.png"
+              alt="Textual injection length and granularity results"
+            >
+            <figcaption>Textual injection length and granularity analysis.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="resources" class="section start-panel">
         <div>
-          <p class="eyebrow">Use the repo</p>
-          <h2>Install locally and run benchmark workflows</h2>
+          <p class="eyebrow">Resources</p>
+          <h2>Repository structure</h2>
           <p>
-            The codebase keeps LIBERO installation, VLAPB suite definitions, feasibility
-            review data, and result tooling together so experiments can stay close to
-            the generated tasks.
+            The repository includes VLAPB suite definitions, LIBERO task assets,
+            feasibility review tooling, and scripts used to generate benchmark
+            figures and tables.
           </p>
         </div>
-        <pre><code>conda create -n libero python=3.8.13
-conda activate libero
-pip install -r requirements.txt
-pip install -e .</code></pre>
+        <pre><code>docs/
+  index.html
+  styles.css
+  assets/
+libero/docs/results/
+  fig6_libero_vlapb_finetuning_comparison.png
+  fig8_textual_injection_length_granularity.png</code></pre>
       </section>
     </main>
 
     <footer>
-      <span>LIBERO + VLAPB</span>
-      <a href="https://arxiv.org/pdf/2306.03310.pdf">LIBERO paper</a>
-      <a href="https://lifelong-robot-learning.github.io/LIBERO/">Docs</a>
+      <span>VLAPB</span>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#axes">Axes</a>
+      <a href="#results">Results</a>
     </footer>
   </body>
 </html>
