@@ -4,6 +4,13 @@ Code release for the VLAPB paper.
 
 This repository contains benchmark suites, LIBERO-based tooling, and supporting scripts for running and analyzing VLAPB experiments.
 
+## Links
+
+- [Project website](https://12b-thedon.github.io/VLAPB/)
+- [Code](https://github.com/12B-theDon/VLAPB)
+- Paper: coming soon
+- Docker: coming soon
+
 ## Repository
 
 - `VLAPB_suites/`: Generated VLAPB task suites and summaries.
@@ -50,7 +57,7 @@ Related benchmark papers:
 
 ## Citation
 
-Citation information will be added with the paper release.
+Citation information and the paper link will be added with the paper release.
 
 ## License
 

@@ -59,8 +59,10 @@ a {
 
 .brand img {
   display: block;
-  width: 56px;
-  height: auto;
+  width: auto;
+  max-width: 64px;
+  max-height: 32px;
+  object-fit: contain;
 }
 
 nav {
@@ -90,13 +92,6 @@ footer a:hover {
 .hero-copy {
   max-width: 820px;
   text-align: center;
-}
-
-.hero-logo {
-  display: block;
-  width: clamp(82px, 9vw, 118px);
-  height: auto;
-  margin: 0 auto 14px;
 }
 
 .eyebrow {
