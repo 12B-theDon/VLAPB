@@ -130,8 +130,7 @@ h3 {
 }
 
 .hero p:not(.eyebrow),
-.prose p,
-.start-panel p {
+.prose p {
   color: var(--muted);
   font-size: clamp(0.94rem, 1.15vw, 1.04rem);
 }
@@ -147,6 +146,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 44px;
   padding: 0 18px;
   border: 1px solid var(--line);
@@ -154,6 +154,13 @@ h3 {
   background: var(--surface);
   color: var(--ink);
   font-weight: 800;
+}
+
+.icon-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .button.primary {
@@ -215,16 +222,28 @@ h3 {
   height: auto;
 }
 
+.table-figure {
+  width: min(100%, 944px);
+  margin-inline: auto;
+  box-shadow: none;
+}
+
+.table-figure img {
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
 .suite-figure {
   display: flex;
   justify-content: center;
-  max-height: 78vh;
+  max-height: 68vh;
 }
 
 .suite-figure img {
   width: auto;
   max-width: 100%;
-  max-height: 78vh;
+  max-height: 68vh;
   object-fit: contain;
 }
 
@@ -236,11 +255,11 @@ h3 {
 
 .axis-card {
   display: grid;
-  grid-template-columns: minmax(160px, 0.46fr) minmax(0, 0.54fr);
-  gap: 18px;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-content: start;
   grid-column: span 3;
-  min-height: 210px;
+  min-height: 0;
   padding: 15px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -249,16 +268,19 @@ h3 {
 
 .axis-card:nth-child(n + 3) {
   grid-column: span 2;
-  grid-template-columns: 1fr;
-  align-content: start;
 }
 
 .axis-card img {
+  order: 2;
   display: block;
   width: 100%;
   height: auto;
   border: 1px solid var(--line);
   border-radius: 6px;
+}
+
+.axis-card div {
+  order: 1;
 }
 
 .axis-card span {
@@ -302,26 +324,6 @@ h3 {
   font-weight: 700;
 }
 
-.start-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.75fr);
-  gap: clamp(24px, 5vw, 72px);
-  align-items: center;
-  background: #eef4f1;
-}
-
-pre {
-  overflow-x: auto;
-  margin: 0;
-  padding: 22px;
-  border: 1px solid #cad9d2;
-  border-radius: 8px;
-  background: #101820;
-  color: #eef7f4;
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -345,7 +347,7 @@ footer span {
   .axis-card,
   .axis-card:nth-child(n + 3) {
     grid-column: auto;
-    grid-template-columns: minmax(160px, 0.42fr) minmax(0, 0.58fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -364,7 +366,6 @@ footer span {
 
   .hero,
   .split,
-  .start-panel,
   .result-grid {
     grid-template-columns: 1fr;
   }
