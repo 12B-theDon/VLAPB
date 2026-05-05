@@ -289,9 +289,11 @@ h3 {
   order: 1;
   display: block;
   width: 100%;
-  height: auto;
+  height: 176px;
+  object-fit: contain;
   border: 1px solid var(--line);
   border-radius: 6px;
+  background: #fff;
 }
 
 .axis-card div {
@@ -314,8 +316,10 @@ h3 {
 
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  grid-template-columns: 1fr;
   gap: 18px;
+  max-width: 980px;
+  margin-inline: auto;
 }
 
 .result-card {
@@ -395,6 +399,10 @@ footer span {
 
   .axis-card:nth-child(n + 3) {
     grid-template-columns: 1fr;
+  }
+
+  .axis-card img {
+    height: 150px;
   }
 }
 
