@@ -249,6 +249,20 @@ h3 {
   margin-inline: auto;
 }
 
+.table-figure figcaption {
+  max-width: 900px;
+  margin: 14px auto 0;
+  padding: 0 18px 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.math {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
 .suite-figure {
   display: flex;
   justify-content: center;
@@ -289,7 +303,7 @@ h3 {
   order: 1;
   display: block;
   width: 100%;
-  height: 176px;
+  height: 230px;
   object-fit: contain;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -402,7 +416,7 @@ footer span {
   }
 
   .axis-card img {
-    height: 150px;
+    height: 190px;
   }
 }
 
