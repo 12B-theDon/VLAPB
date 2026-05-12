@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "new_salad_dressing",
+      "bbq_sauce",
+      "cream_cheese"
+    ],
+    "previous_strategy": "fixed_far_to_near",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "bbq_sauce",
+      "cream_cheese",
+      "new_salad_dressing"
+    ],
+    "same_scene": "STUDY_SCENE3",
+    "same_table": "study_table",
+    "updated_sequence": [
+      "cream_cheese",
+      "bbq_sauce",
+      "new_salad_dressing"
+    ],
+    "updated_strategy": "fixed_near_to_far",
+    "user_id": "user_012"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000012.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000012",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "cream_cheese",
+    "new_salad_dressing"
+  ],
+  "language": "After user_012's sequence preference changes from new_salad_dressing, bbq_sauce, cream_cheese to cream_cheese, bbq_sauce, new_salad_dressing, put the same objects into the wooden_tray in the new order: cream_cheese, bbq_sauce, new_salad_dressing",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "cream_cheese": true,
+    "new_salad_dressing": true
+  },
+  "ownership": {
+    "user_012": [
+      "bbq_sauce",
+      "cream_cheese",
+      "new_salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_012"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE3",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2464,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0652,
+      "y": 0.2376
+    },
+    {
+      "distance_to_tray": 0.2307,
+      "object_type": "cream_cheese",
+      "ordinal_position": 2,
+      "x": -0.2299,
+      "y": -0.0187
+    },
+    {
+      "distance_to_tray": 0.2557,
+      "object_type": "new_salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.1454,
+      "y": -0.2103
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "cream_cheese",
+    "bbq_sauce",
+    "new_salad_dressing"
+  ],
+  "target_user": "user_012",
+  "task_type": "adaptability"
+}

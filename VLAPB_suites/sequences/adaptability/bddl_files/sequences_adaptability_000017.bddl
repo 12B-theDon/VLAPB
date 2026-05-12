@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_017's sequence preference changes from butter, ketchup, salad_dressing to salad_dressing, ketchup, butter, put the same objects into the wooden_tray in the new order: salad_dressing, ketchup, butter)
+    (:regions
+      (wooden_tray_region
+          (:target study_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target study_table)
+          (:ranges (
+              (0.0410 0.1518 0.0910 0.2018)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target study_table)
+          (:ranges (
+              (-0.2184 -0.0234 -0.1684 0.0266)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target study_table)
+          (:ranges (
+              (0.0729 -0.1978 0.1229 -0.1478)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    study_table - table
+  )
+
+  (:objects
+    butter_1 - butter
+    ketchup_1 - ketchup
+    salad_dressing_1 - salad_dressing
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    salad_dressing_1 ketchup_1 butter_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 study_table_wooden_tray_region)
+    (On butter_1 study_table_object_init_region_0)
+    (On ketchup_1 study_table_object_init_region_1)
+    (On salad_dressing_1 study_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In salad_dressing_1 wooden_tray_1_contain_region) (In ketchup_1 wooden_tray_1_contain_region) (In butter_1 wooden_tray_1_contain_region))
+  )
+
+)

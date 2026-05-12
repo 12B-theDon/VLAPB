@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000057.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "milk",
+      "salad_dressing"
+    ],
+    "unseen_object": "wine_bottle",
+    "user_id": "user_019"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000057",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "milk",
+    "salad_dressing",
+    "wine_bottle"
+  ],
+  "language": "Put the objects belonging to user_019 into the wooden_tray in this order: wine_bottle, milk, salad_dressing",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "milk": true,
+    "salad_dressing": true,
+    "wine_bottle": false
+  },
+  "ownership": {
+    "user_019": [
+      "milk",
+      "salad_dressing",
+      "wine_bottle"
+    ]
+  },
+  "participating_users": [
+    "user_019"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.23,
+      "object_type": "milk",
+      "ordinal_position": 1,
+      "x": 0.0937,
+      "y": 0.21
+    },
+    {
+      "distance_to_tray": 0.2316,
+      "object_type": "salad_dressing",
+      "ordinal_position": 2,
+      "x": -0.231,
+      "y": 0.0164
+    },
+    {
+      "distance_to_tray": 0.1963,
+      "object_type": "wine_bottle",
+      "ordinal_position": 3,
+      "x": 0.0859,
+      "y": -0.1765
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "wine_bottle",
+    "milk",
+    "salad_dressing"
+  ],
+  "target_user": "user_019",
+  "task_type": "consistency"
+}

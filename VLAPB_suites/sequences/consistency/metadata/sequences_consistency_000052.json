@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000052.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "chocolate_pudding",
+      "orange_juice"
+    ],
+    "unseen_object": "white_yellow_mug",
+    "user_id": "user_018"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000052",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "chocolate_pudding",
+    "orange_juice",
+    "white_yellow_mug"
+  ],
+  "language": "Put the objects belonging to user_018 into the wooden_tray in this order: white_yellow_mug, orange_juice, chocolate_pudding",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "chocolate_pudding": true,
+    "orange_juice": true,
+    "white_yellow_mug": false
+  },
+  "ownership": {
+    "user_018": [
+      "chocolate_pudding",
+      "orange_juice",
+      "white_yellow_mug"
+    ]
+  },
+  "participating_users": [
+    "user_018"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "sequence_strategy": "reverse_alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2104,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 1,
+      "x": 0.0491,
+      "y": 0.2046
+    },
+    {
+      "distance_to_tray": 0.2231,
+      "object_type": "orange_juice",
+      "ordinal_position": 2,
+      "x": -0.2217,
+      "y": -0.0253
+    },
+    {
+      "distance_to_tray": 0.1931,
+      "object_type": "white_yellow_mug",
+      "ordinal_position": 3,
+      "x": 0.1149,
+      "y": -0.1552
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "white_yellow_mug",
+    "orange_juice",
+    "chocolate_pudding"
+  ],
+  "target_user": "user_018",
+  "task_type": "consistency"
+}

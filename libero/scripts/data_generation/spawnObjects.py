@@ -48,6 +48,7 @@ DEFAULT_SUMMARY = DOCS_DIR / "libero_objects_summary.md"
 DEFAULT_OBJECTS = DOCS_DIR / "libero_objects.json"
 DEFAULT_POSSIBLE_DIR = Path(__file__).resolve().parent / "possible_spawn_positions"
 DEFAULT_HOLDED_DIR = Path(__file__).resolve().parent / "holded_spawn_positions"
+FLOOR_SCENE = "FLOOR_SCENE"
 
 FIXED_TYPE_ALIASES = {
     "white_cabinet": "cabinet",
@@ -74,11 +75,15 @@ LOCATION_BY_FIXED_AND_LABEL = {
     ("wooden_tray", "in"): "wooden_tray.inside",
     ("wooden_tray", "contain"): "wooden_tray.inside",
     ("wooden_two_layer_shelf", "top"): "wooden_two_layer_shelf.top_shelf",
-    ("wooden_two_layer_shelf", "on"): "wooden_two_layer_shelf.top_shelf",
+    ("wooden_two_layer_shelf", "on"): "wooden_two_layer_shelf.top_surface",
     ("wooden_two_layer_shelf", "bottom"): "wooden_two_layer_shelf.bottom_shelf",
     ("wooden_two_layer_shelf", "in"): "wooden_two_layer_shelf.bottom_shelf",
+    ("wooden_cabinet", "on"): "cabinet.top_surface",
+    ("white_cabinet", "on"): "cabinet.top_surface",
     ("wooden_cabinet", "top"): "cabinet.top_drawer.inside",
     ("white_cabinet", "top"): "cabinet.top_drawer.inside",
+    ("wooden_cabinet", "middle"): "cabinet.middle_drawer.inside",
+    ("white_cabinet", "middle"): "cabinet.middle_drawer.inside",
     ("wooden_cabinet", "bottom"): "cabinet.bottom_drawer.inside",
     ("white_cabinet", "bottom"): "cabinet.bottom_drawer.inside",
     ("wooden_cabinet", "in"): "cabinet.bottom_drawer.inside",
@@ -86,13 +91,14 @@ LOCATION_BY_FIXED_AND_LABEL = {
 }
 
 SIDE_LABELS = ("front", "back", "left", "right")
-DRAWER_ONLY_LABELS = {"top", "bottom"}
-TOP_BOTTOM_EXCLUDED = {"basket", "desk_caddy", "flat_stove", "kitchen_table", "living_room_table", "study_table", "plate", "wooden_tray"}
+DRAWER_ONLY_LABELS = {"top", "middle", "bottom"}
+TOP_BOTTOM_EXCLUDED = {"basket", "desk_caddy", "flat_stove", "floor", "kitchen_table", "living_room_table", "study_table", "plate", "wooden_tray"}
 NON_FIXED_TARGET_TYPES = {"akita_black_bowl"}
 FIXED_OBJECT_TYPES = {
     "basket",
     "desk_caddy",
     "flat_stove",
+    "floor",
     "kitchen_table",
     "living_room_table",
     "microwave",
@@ -149,6 +155,8 @@ def read_required_inputs(args: argparse.Namespace) -> tuple[str, str, dict[str, 
 
 def scene_area(scene: str | None, dataset: str) -> str:
     if scene:
+        if scene == FLOOR_SCENE:
+            return "floor"
         if scene.startswith("KITCHEN_"):
             return "kitchen"
         if scene.startswith("LIVING_ROOM_"):
@@ -218,8 +226,8 @@ def fixed_contexts(objects: dict[str, Any]) -> list[dict[str, str]]:
         if fixed_type == "wine_rack":
             # User policy: do not use wine rack for generated spawn candidates.
             continue
-        scene = coupling.get("scene")
         table = coupling.get("table")
+        scene = coupling.get("scene") or (FLOOR_SCENE if table == "floor" else None)
         dataset = coupling.get("dataset", "")
         fixed_side = str(coupling.get("fixed_object", {}).get("side") or "")
         if not scene or not table:
@@ -232,6 +240,15 @@ def fixed_contexts(objects: dict[str, Any]) -> list[dict[str, str]]:
             "fixed_type": fixed_type,
             "fixed_side": fixed_side,
         }
+        if table == "floor":
+            floor_key = (scene, table, "floor", "")
+            contexts[floor_key] = {
+                "scene": scene,
+                "table": table,
+                "area": scene_area(scene, dataset),
+                "fixed_type": "floor",
+                "fixed_side": "",
+            }
     return sorted(contexts.values(), key=lambda item: (item["scene"], item["fixed_type"], item["fixed_side"], item["table"]))
 
 
@@ -249,6 +266,15 @@ def is_forbidden_case(scene: str, fixed_type: str, fixed_side: str, label: str, 
 
 
 def candidate_labels_for_fixed(fixed_type: str) -> list[str]:
+    if fixed_type == "floor":
+        return ["back", "front", "left", "on", "right"]
+    if fixed_type in {"wooden_cabinet", "white_cabinet"}:
+        drawer_labels = {
+            f"{drawer}_{side}"
+            for drawer in ("top", "middle", "bottom")
+            for side in SIDE_LABELS
+        }
+        return sorted({"on", "in", *SIDE_LABELS, *DRAWER_ONLY_LABELS, *drawer_labels})
     labels = {"on", "in", *SIDE_LABELS}
     if fixed_type not in TOP_BOTTOM_EXCLUDED:
         labels.update(DRAWER_ONLY_LABELS)
@@ -261,6 +287,12 @@ def candidate_labels_for_fixed(fixed_type: str) -> list[str]:
 
 def location_for(fixed_type: str, label: str) -> str | None:
     label = "in" if label == "contain" else "on" if label == "cook" else label
+    if fixed_type in {"wooden_cabinet", "white_cabinet"}:
+        match = re.fullmatch(r"(top|middle|bottom)_(front|back|left|right)", label)
+        if match:
+            drawer, side = match.groups()
+            side_location = "back_side" if side == "front" else "front_side" if side == "back" else f"{side}_side"
+            return f"cabinet.{drawer}_drawer.{side_location}"
     direct = LOCATION_BY_FIXED_AND_LABEL.get((fixed_type, label))
     if direct:
         return direct
@@ -272,6 +304,8 @@ def location_for(fixed_type: str, label: str) -> str | None:
             return f"{canonical}.front_side"
         return f"{canonical}.{label}_side"
     if label == "on":
+        if fixed_type == "floor":
+            return "floor.center"
         if fixed_type.endswith("_table"):
             return f"{fixed_type}.center"
         if fixed_type == "wine_rack":
@@ -359,6 +393,16 @@ def skipped_result(case: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+
+def is_height_drop_only_auto_possible(result: dict[str, Any]) -> bool:
+    reason_parts = {part for part in str(result.get("reason", "")).split("+") if part}
+    return (
+        result.get("status") == "review"
+        and reason_parts == {"height_drop"}
+        and bool(result.get("velocity_stable"))
+        and float(result.get("final_speed", 999.0)) <= FINAL_SPEED_REVIEW_THRESHOLD
+    )
+
 def run_case(case: dict[str, Any], args: argparse.Namespace) -> tuple[Path, dict[str, Any]]:
     result = simulate_pose(
         scene=case["scene"],
@@ -371,7 +415,14 @@ def run_case(case: dict[str, Any], args: argparse.Namespace) -> tuple[Path, dict
         sim_fps=args.sim_fps,
         force_safe_object_init=True,
     )
-    stable = bool(result.get("velocity_stable")) and float(result.get("final_speed", 999.0)) <= FINAL_SPEED_REVIEW_THRESHOLD
+    stable = (
+        (
+            result.get("status") == "auto_possible"
+            and bool(result.get("velocity_stable"))
+            and float(result.get("final_speed", 999.0)) <= FINAL_SPEED_REVIEW_THRESHOLD
+        )
+        or is_height_drop_only_auto_possible(result)
+    )
     root = args.possible_dir if stable else args.holded_dir
     payload = {
         **case,

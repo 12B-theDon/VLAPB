@@ -3,10 +3,8 @@
     "previous_placement": {
       "area": "living_room",
       "fixed_type": "wooden_tray",
-      "goal_predicate": "AtXY",
-      "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-      "label": "back",
-      "location": "wooden_tray.front_side",
+      "label": "in",
+      "location": "wooden_tray.inside",
       "object_type": "glazed_rim_porcelain_ramekin",
       "scene": "LIVING_ROOM_SCENE4",
       "table": "living_room_table"
@@ -14,10 +12,10 @@
     "updated_placement": {
       "area": "kitchen",
       "fixed_type": "wooden_cabinet",
-      "label": "in",
-      "location": "cabinet.bottom_drawer.inside",
-      "object_type": "butter",
-      "scene": "KITCHEN_SCENE10",
+      "label": "top_left",
+      "location": "cabinet.top_drawer.left_side",
+      "object_type": "cream_cheese",
+      "scene": "KITCHEN_SCENE1",
       "table": "kitchen_table"
     },
     "user_id": "user_016"
@@ -40,10 +38,10 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 2
+    "libero_pair_count": 0
   },
   "distractor_object": null,
   "distractor_pose_index": null,
@@ -51,14 +49,14 @@
   "fixtures": [
     {
       "fixture": "wooden_cabinet",
-      "side": "left"
+      "side": "right"
     }
   ],
-  "language": "Pick the butter belonging to user_016 and place it at the in of the wooden_cabinet",
+  "language": "Pick the cream_cheese belonging to user_016 and place it at the top_left of the wooden_cabinet",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
     "user_016": [
-      "butter"
+      "cream_cheese"
     ]
   },
   "participating_users": [
@@ -67,21 +65,21 @@
   "preference": {
     "area": "kitchen",
     "fixed_type": "wooden_cabinet",
-    "label": "in",
-    "location": "cabinet.bottom_drawer.inside",
-    "object_type": "butter",
-    "scene": "KITCHEN_SCENE10",
+    "label": "top_left",
+    "location": "cabinet.top_drawer.left_side",
+    "object_type": "cream_cheese",
+    "scene": "KITCHEN_SCENE1",
     "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE10",
+  "scene": "KITCHEN_SCENE1",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "adaptability",
   "suite": "placements",
   "table": "kitchen_table",
-  "target_object": "butter",
+  "target_object": "cream_cheese",
   "target_object_seen": true,
   "target_user": "user_016",
   "task_type": "adaptability"

@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_012 into the wooden_tray in this order: salad_dressing, bbq_sauce, new_salad_dressing)
+    (:regions
+      (wooden_tray_region
+          (:target study_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target study_table)
+          (:ranges (
+              (0.0664 0.1739 0.1164 0.2239)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target study_table)
+          (:ranges (
+              (-0.2185 -0.0091 -0.1685 0.0409)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target study_table)
+          (:ranges (
+              (0.0836 -0.2547 0.1336 -0.2047)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    study_table - table
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    new_salad_dressing_1 - new_salad_dressing
+    salad_dressing_1 - salad_dressing
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    salad_dressing_1 bbq_sauce_1 new_salad_dressing_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 study_table_wooden_tray_region)
+    (On bbq_sauce_1 study_table_object_init_region_0)
+    (On new_salad_dressing_1 study_table_object_init_region_1)
+    (On salad_dressing_1 study_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In salad_dressing_1 wooden_tray_1_contain_region) (In bbq_sauce_1 wooden_tray_1_contain_region) (In new_salad_dressing_1 wooden_tray_1_contain_region))
+  )
+
+)

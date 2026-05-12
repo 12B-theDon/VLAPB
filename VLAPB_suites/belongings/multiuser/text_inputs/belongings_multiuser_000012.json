@@ -1,10 +1,11 @@
 {
   "adaptability_variants": null,
   "evaluation_axis": "multi-user",
+  "generation_fallback": "template_after_gpt_failure",
   "story_variants": {
-    "eight_sentence": "The profile record is for user_003. The suite field is belongings and the split field is multiuser. user_001 treats akita black bowl as belonging to that user. user_003 treats ketchup as belonging to that user. The scene field is KITCHEN_SCENE5 and the table field is kitchen_table. The participating user_id list contains user_003, user_001. user_003 also has a separate habit where glazed rim porcelain ramekin is associated with the left area of the basket. The user_id for this personalization record is user_003.",
-    "four_sentence": "The profile record is for user_003. user_001 treats akita black bowl as belonging to that user. user_003 treats ketchup as belonging to that user. user_003 also has a separate habit where glazed rim porcelain ramekin is associated with the left area of the basket.",
-    "one_sentence": "For user_003, user_001 treats akita black bowl as belonging to that user; user_003 treats ketchup as belonging to that user."
+    "eight_sentence": "user_003's personalization record is used only as injected profile context. This injection belongs to the belongings profile axis in the multiuser split. user_001's belongings suggest a preference for tabletop dishware, contained serving shapes, and clear visual color cues, with akita black bowl serving as the recorded item. user_003's belongings suggest a preference for condiment-style items and bottle-like pantry goods, with ketchup serving as the recorded item. The scene context is KITCHEN_SCENE5 with kitchen_table. The shared scene includes user_003, user_001. user_003's spatial habit links glazed rim porcelain ramekin with left-side anchoring around the basket, suggesting container-based grouping. Together these details describe user_003's tendency while leaving the concrete task to the separate general input.",
+    "four_sentence": "This injection note summarizes user_003's profile-level tendency. user_001's belongings suggest a preference for tabletop dishware, contained serving shapes, and clear visual color cues, with akita black bowl serving as the recorded item. user_003's belongings suggest a preference for condiment-style items and bottle-like pantry goods, with ketchup serving as the recorded item. user_003's spatial habit links glazed rim porcelain ramekin with left-side anchoring around the basket, suggesting container-based grouping.",
+    "one_sentence": "user_001's belongings suggest a preference for tabletop dishware, contained serving shapes, and clear visual color cues, with akita black bowl serving as the recorded item; user_003's belongings suggest a preference for condiment-style items and bottle-like pantry goods, with ketchup serving as the recorded item."
   },
   "task_id": "belongings_multiuser_000012",
   "user_id": "user_003"

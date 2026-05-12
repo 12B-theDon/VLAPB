@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the glazed_rim_porcelain_ramekin belonging to user_007 and place it at the front of the basket)
+  (:language Pick the orange_juice belonging to user_004 and place it at the left of the basket)
     (:regions
       (basket_right_right_region
           (:target living_room_table)
@@ -34,7 +34,7 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.0200 0.2600 0.4200)
+              (-0.1400 -0.1700 0.1400 0.1900)
             )
           )
       )
@@ -46,23 +46,23 @@
   )
 
   (:objects
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    orange_juice_1 - orange_juice
     basket_right - basket
   )
 
   (:obj_of_interest
-    glazed_rim_porcelain_ramekin_1
+    orange_juice_1
     basket_right
   )
 
   (:init
     (On basket_right living_room_table_basket_right_right_region)
     (On wooden_cabinet_left living_room_table_wooden_cabinet_left_left_region)
-    (On glazed_rim_porcelain_ramekin_1 living_room_table_target_object_init_region)
+    (On orange_juice_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY glazed_rim_porcelain_ramekin_1 living_room_table_placement_goal_region))
+    (And (AtXY orange_juice_1 living_room_table_placement_goal_region))
   )
 
 )

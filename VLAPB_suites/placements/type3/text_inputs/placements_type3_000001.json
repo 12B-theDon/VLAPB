@@ -1,10 +1,16 @@
 {
   "adaptability_variants": null,
   "evaluation_axis": "selectivity",
+  "generation_fallback": "template_after_gpt_failure",
+  "profile_injection_variants": {
+    "keyword": "user_001: bottom back wooden cabinet",
+    "paragraph": "user_001's spatial habit links akita black bowl with back-row storage and lower-compartment stability around the wooden cabinet, suggesting structured storage. The relevant object carries tabletop dishware, contained serving shapes, and clear visual color cues as profile-level cues. The scene context is KITCHEN_SCENE1 with kitchen_table. The shared scene includes user_001. user_001's belongings suggest a preference for food-oriented items and kitchen consumables, with alphabet soup serving as the recorded item. This injection belongs to the placements profile axis in the type3 split. The profile note should help identify the relevant user tendency. The concrete robot action remains defined by the separate task command.",
+    "sentence": "user_001's spatial habit links akita black bowl with back-row storage and lower-compartment stability around the wooden cabinet, suggesting structured storage."
+  },
   "story_variants": {
-    "eight_sentence": "The profile record is for user_001. The suite field is placements and the split field is type3. user_001's placement habit says bbq sauce is associated with the back area of the basket. The target_object field lists bbq sauce. The scene field is LIVING_ROOM_SCENE1 and the table field is living_room_table. The participating user_id list contains user_001. user_001 also keeps akita black bowl as a personal belonging. The user_id for this personalization record is user_001.",
-    "four_sentence": "The profile record is for user_001. user_001's placement habit says bbq sauce is associated with the back area of the basket. The target_object field lists bbq sauce. user_001 also keeps akita black bowl as a personal belonging.",
-    "one_sentence": "For user_001, user_001's placement habit says bbq sauce is associated with the back area of the basket."
+    "eight_sentence": "user_001's spatial habit links akita black bowl with back-row storage and lower-compartment stability around the wooden cabinet, suggesting structured storage. The relevant object carries tabletop dishware, contained serving shapes, and clear visual color cues as profile-level cues. The scene context is KITCHEN_SCENE1 with kitchen_table. The shared scene includes user_001. user_001's belongings suggest a preference for food-oriented items and kitchen consumables, with alphabet soup serving as the recorded item. This injection belongs to the placements profile axis in the type3 split. The profile note should help identify the relevant user tendency. The concrete robot action remains defined by the separate task command.",
+    "four_sentence": "user_001's spatial habit links akita black bowl with back-row storage and lower-compartment stability around the wooden cabinet, suggesting structured storage. The relevant object carries tabletop dishware, contained serving shapes, and clear visual color cues as profile-level cues. user_001's belongings suggest a preference for food-oriented items and kitchen consumables, with alphabet soup serving as the recorded item. These profile cues are separate from the concrete task command.",
+    "one_sentence": "user_001's spatial habit links akita black bowl with back-row storage and lower-compartment stability around the wooden cabinet, suggesting structured storage."
   },
   "task_id": "placements_type3_000001",
   "user_id": "user_001"

@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_016, pick the glazed_rim_porcelain_ramekin and place it at the back of the wooden_tray, for user_005, pick the red_coffee_mug and place it at the back of the wooden_cabinet.)
+  (:language For user_016, pick the glazed_rim_porcelain_ramekin and place it at the in of the wooden_tray, for user_013, pick the bbq_sauce and place it at the in of the basket.)
     (:regions
       (wooden_tray_left_left_region
           (:target living_room_table)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (wooden_cabinet_right_right_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -38,47 +38,39 @@
             )
           )
       )
-      (placement_goal_region
-          (:target living_room_table)
-          (:ranges (
-              (-0.1900 -0.3000 -0.0500 -0.1400)
-            )
-          )
+      (contain_region
+          (:target wooden_tray_left)
       )
-      (secondary_placement_goal_region
-          (:target living_room_table)
-          (:ranges (
-              (-0.1900 0.2200 -0.0500 0.3800)
-            )
-          )
+      (contain_region
+          (:target basket_right)
       )
     )
 
   (:fixtures
     living_room_table - living_room_table
-    wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
+    bbq_sauce_1 - bbq_sauce
     glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
-    red_coffee_mug_1 - red_coffee_mug
     wooden_tray_left - wooden_tray
+    basket_right - basket
   )
 
   (:obj_of_interest
-    glazed_rim_porcelain_ramekin_1 red_coffee_mug_1
-    wooden_tray_left wooden_cabinet_right
+    glazed_rim_porcelain_ramekin_1 bbq_sauce_1
+    wooden_tray_left basket_right
   )
 
   (:init
     (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
+    (On basket_right living_room_table_basket_right_right_region)
     (On glazed_rim_porcelain_ramekin_1 living_room_table_target_object_init_region)
-    (On red_coffee_mug_1 living_room_table_secondary_object_init_region)
+    (On bbq_sauce_1 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (AtXY glazed_rim_porcelain_ramekin_1 living_room_table_placement_goal_region) (AtXY red_coffee_mug_1 living_room_table_secondary_placement_goal_region))
+    (And (In glazed_rim_porcelain_ramekin_1 wooden_tray_left_contain_region) (In bbq_sauce_1 basket_right_contain_region))
   )
 
 )

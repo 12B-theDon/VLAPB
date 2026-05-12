@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_018, pick the chocolate_pudding and place it at the in of the wooden_tray, for user_005, pick the red_coffee_mug and place it at the back of the wooden_cabinet.)
+  (:language For user_018, pick the chocolate_pudding and place it at the in of the wooden_tray, for user_016, pick the cream_cheese and place it at the top_left of the wooden_cabinet.)
     (:regions
       (wooden_tray_left_left_region
           (:target living_room_table)
@@ -41,12 +41,8 @@
       (contain_region
           (:target wooden_tray_left)
       )
-      (secondary_placement_goal_region
-          (:target living_room_table)
-          (:ranges (
-              (-0.2800 0.0800 0.0400 0.5200)
-            )
-          )
+      (top_region
+          (:target wooden_cabinet_right)
       )
     )
 
@@ -57,12 +53,12 @@
 
   (:objects
     chocolate_pudding_1 - chocolate_pudding
-    red_coffee_mug_1 - red_coffee_mug
+    cream_cheese_1 - cream_cheese
     wooden_tray_left - wooden_tray
   )
 
   (:obj_of_interest
-    chocolate_pudding_1 red_coffee_mug_1
+    chocolate_pudding_1 cream_cheese_1
     wooden_tray_left wooden_cabinet_right
   )
 
@@ -70,11 +66,11 @@
     (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
     (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
     (On chocolate_pudding_1 living_room_table_target_object_init_region)
-    (On red_coffee_mug_1 living_room_table_secondary_object_init_region)
+    (On cream_cheese_1 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In chocolate_pudding_1 wooden_tray_left_contain_region) (AtXY red_coffee_mug_1 living_room_table_secondary_placement_goal_region))
+    (And (In chocolate_pudding_1 wooden_tray_left_contain_region) (In cream_cheese_1 wooden_cabinet_right_top_region))
   )
 
 )

@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000047.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "butter",
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "unseen_object": "orange_juice",
+    "user_id": "user_016"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000047",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "glazed_rim_porcelain_ramekin",
+    "orange_juice"
+  ],
+  "language": "Put the objects belonging to user_016 into the wooden_tray in this order: glazed_rim_porcelain_ramekin, butter, orange_juice",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "glazed_rim_porcelain_ramekin": true,
+    "orange_juice": false
+  },
+  "ownership": {
+    "user_016": [
+      "butter",
+      "glazed_rim_porcelain_ramekin",
+      "orange_juice"
+    ]
+  },
+  "participating_users": [
+    "user_016"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE1",
+  "sequence_strategy": "even_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2418,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.0815,
+      "y": 0.2276
+    },
+    {
+      "distance_to_tray": 0.2011,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 2,
+      "x": -0.2011,
+      "y": -0.0011
+    },
+    {
+      "distance_to_tray": 0.1872,
+      "object_type": "orange_juice",
+      "ordinal_position": 3,
+      "x": 0.0945,
+      "y": -0.1616
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "glazed_rim_porcelain_ramekin",
+    "butter",
+    "orange_juice"
+  ],
+  "target_user": "user_016",
+  "task_type": "consistency"
+}

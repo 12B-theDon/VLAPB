@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "living_room",
+  "area": "floor",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000441.bddl",
   "consistency": null,
   "constraints": {
@@ -18,7 +18,7 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "libero_pair_count": 3
@@ -36,45 +36,45 @@
       "side": "right"
     }
   ],
-  "language": "For user_015, pick the butter and place it at the in of the basket, for user_002, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet.",
+  "language": "For user_015, pick the butter and place it at the in of the basket, for user_016, pick the cream_cheese and place it at the top_left of the wooden_cabinet.",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_002": [
-      "akita_black_bowl"
-    ],
     "user_015": [
       "butter"
+    ],
+    "user_016": [
+      "cream_cheese"
     ]
   },
   "participating_users": [
     "user_015",
-    "user_002"
+    "user_016"
   ],
   "preference": {
-    "area": "living_room",
+    "area": "floor",
     "fixed_type": "basket",
     "label": "in",
     "location": "basket.inside",
     "object_type": "butter",
-    "scene": "LIVING_ROOM_SCENE1",
-    "table": "living_room_table"
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE1",
-  "secondary_object": "akita_black_bowl",
+  "scene": "FLOOR_SCENE",
+  "secondary_object": "cream_cheese",
   "secondary_preference": {
-    "area": "living_room",
+    "area": "floor",
     "fixed_type": "wooden_cabinet",
-    "label": "bottom",
-    "location": "cabinet.bottom_drawer.inside",
-    "object_type": "akita_black_bowl",
-    "scene": "LIVING_ROOM_SCENE1",
-    "table": "living_room_table"
+    "label": "top_left",
+    "location": "cabinet.top_drawer.left_side",
+    "object_type": "cream_cheese",
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
-  "secondary_user": "user_002",
+  "secondary_user": "user_016",
   "split": "multiuser",
   "suite": "placements",
-  "table": "living_room_table",
+  "table": "floor",
   "target_object": "butter",
   "target_object_seen": true,
   "target_user": "user_015",

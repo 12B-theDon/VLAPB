@@ -1,31 +1,38 @@
 {
-  "clean_stale": true,
+  "clean_stale": false,
+  "clean_stale_with_max_episodes": false,
   "distribution": {
     "belongings": {
-      "adaptability": 100,
-      "multiuser": 100,
-      "type1": 300,
-      "type2": 300,
-      "type3": 300
+      "multiuser": 1,
+      "type1": 1,
+      "type2": 1,
+      "type3": 1
     },
     "placements": {
-      "adaptability": 16,
-      "consistency": 5,
-      "multiuser": 49,
-      "type1": 21,
-      "type2": 115,
-      "type3": 345,
-      "type4": 115
+      "adaptability": 1,
+      "consistency": 1,
+      "multiuser": 1,
+      "type1": 1,
+      "type2": 1,
+      "type3": 1,
+      "type4": 1
     },
     "sequences": {
-      "adaptability": 10,
-      "consistency": 30,
-      "type1": 40,
-      "type2": 40
+      "adaptability": 1,
+      "consistency": 1,
+      "type1": 1,
+      "type2": 1
     }
   },
   "dry_run": false,
+  "generation_mode": "template",
+  "gpt_failures": 0,
+  "max_episodes": null,
+  "max_episodes_per_suite": null,
+  "openai_api_key_file": null,
+  "openai_model": null,
   "overwrite": true,
+  "preset": "full-designed",
   "profiles": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
   "prompt_html": "/home/artemis/Documents/VLAPB/libero/scripts/suites/granularity_story_prompt.html",
   "removed_stale": 0,
@@ -36,7 +43,26 @@
     "story_variants": "one-, four-, and eight-sentence personalization stories",
     "task_id": "metadata episode_id"
   },
+  "split_quotas": {
+    "belongings:adaptability": 1,
+    "belongings:multiuser": 1,
+    "belongings:type1": 1,
+    "belongings:type2": 1,
+    "belongings:type3": 1,
+    "placements:adaptability": 1,
+    "placements:consistency": 1,
+    "placements:multiuser": 1,
+    "placements:type1": 1,
+    "placements:type2": 1,
+    "placements:type3": 1,
+    "placements:type4": 1,
+    "sequences:adaptability": 1,
+    "sequences:consistency": 1,
+    "sequences:type1": 1,
+    "sequences:type2": 1
+  },
+  "story_template": "/home/artemis/Documents/VLAPB/libero/scripts/suites/granularity_story_template.json",
   "suite_root": "/home/artemis/Documents/VLAPB/VLAPB_suites",
-  "total_metadata": 1886,
-  "written": 1886
+  "total_metadata": 15,
+  "written": 15
 }

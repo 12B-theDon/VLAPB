@@ -1,0 +1,80 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_013, pick the bbq_sauce and place it at the in of the basket, for user_012, pick the cream_cheese and place it at the back of the wooden_tray.)
+    (:regions
+      (basket_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 -0.2400 0.0200 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (wooden_tray_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target floor)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_left)
+      )
+      (secondary_placement_goal_region
+          (:target floor)
+          (:ranges (
+              (-0.2800 0.0000 0.0400 0.4400)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    cream_cheese_1 - cream_cheese
+    basket_left - basket
+    wooden_tray_right - wooden_tray
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1 cream_cheese_1
+    basket_left wooden_tray_right
+  )
+
+  (:init
+    (On basket_left floor_basket_left_left_region)
+    (On wooden_tray_right floor_wooden_tray_right_right_region)
+    (On bbq_sauce_1 floor_target_object_init_region)
+    (On cream_cheese_1 floor_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 basket_left_contain_region) (AtXY cream_cheese_1 floor_secondary_placement_goal_region))
+  )
+
+)

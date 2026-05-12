@@ -1,0 +1,82 @@
+{
+  "adaptation": null,
+  "area": "kitchen",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000117.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
+  },
+  "debug": {
+    "libero_pair_count": 5
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_multiuser_000117",
+  "fixtures": [
+    {
+      "fixture": "wooden_cabinet",
+      "side": "left"
+    },
+    {
+      "fixture": "basket",
+      "side": "right"
+    }
+  ],
+  "language": "For user_004, pick the akita_black_bowl and place it at the bottom_left of the wooden_cabinet, for user_002, pick the chocolate_pudding and place it at the in of the basket.",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_002": [
+      "chocolate_pudding"
+    ],
+    "user_004": [
+      "akita_black_bowl"
+    ]
+  },
+  "participating_users": [
+    "user_004",
+    "user_002"
+  ],
+  "preference": {
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "bottom_left",
+    "location": "cabinet.bottom_drawer.left_side",
+    "object_type": "akita_black_bowl",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "KITCHEN_SCENE1",
+  "secondary_object": "chocolate_pudding",
+  "secondary_preference": {
+    "area": "kitchen",
+    "fixed_type": "basket",
+    "label": "in",
+    "location": "basket.inside",
+    "object_type": "chocolate_pudding",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
+  },
+  "secondary_user": "user_002",
+  "split": "multiuser",
+  "suite": "placements",
+  "table": "kitchen_table",
+  "target_object": "akita_black_bowl",
+  "target_object_seen": true,
+  "target_user": "user_004",
+  "task_type": "multiuser"
+}

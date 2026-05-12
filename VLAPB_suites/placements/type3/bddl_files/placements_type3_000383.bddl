@@ -1,8 +1,8 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the cream_cheese belonging to user_009 and place it at the right of the basket)
+  (:language Pick the chocolate_pudding belonging to user_007 and place it at the front of the wooden_tray)
     (:regions
-      (basket_left_left_region
+      (wooden_tray_left_left_region
           (:target living_room_table)
           (:ranges (
               (-0.0200 -0.2400 0.0200 -0.2000)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (flat_stove_right_right_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.1400 0.2000 -0.1000 0.2400)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -41,7 +41,7 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (-0.1400 -0.1900 0.1400 0.1700)
+              (-0.0200 -0.4200 0.2600 -0.0200)
             )
           )
       )
@@ -49,29 +49,29 @@
 
   (:fixtures
     living_room_table - living_room_table
-    flat_stove_right - flat_stove
   )
 
   (:objects
     bbq_sauce_1 - bbq_sauce
-    cream_cheese_1 - cream_cheese
-    basket_left - basket
+    chocolate_pudding_1 - chocolate_pudding
+    wooden_tray_left - wooden_tray
+    basket_right - basket
   )
 
   (:obj_of_interest
-    cream_cheese_1
-    basket_left
+    chocolate_pudding_1
+    wooden_tray_left
   )
 
   (:init
-    (On basket_left living_room_table_basket_left_left_region)
-    (On flat_stove_right living_room_table_flat_stove_right_right_region)
-    (On cream_cheese_1 living_room_table_target_object_init_region)
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On chocolate_pudding_1 living_room_table_target_object_init_region)
     (On bbq_sauce_1 living_room_table_distractor_object_init_region)
   )
 
   (:goal
-    (And (AtXY cream_cheese_1 living_room_table_placement_goal_region))
+    (And (AtXY chocolate_pudding_1 living_room_table_placement_goal_region))
   )
 
 )

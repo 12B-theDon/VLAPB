@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000033.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "cookies",
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "unseen_object": "red_coffee_mug",
+    "user_id": "user_011"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000033",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "cookies",
+    "glazed_rim_porcelain_ramekin",
+    "red_coffee_mug"
+  ],
+  "language": "Put the objects belonging to user_011 into the wooden_tray in this order: red_coffee_mug, cookies, glazed_rim_porcelain_ramekin",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "cookies": true,
+    "glazed_rim_porcelain_ramekin": true,
+    "red_coffee_mug": false
+  },
+  "ownership": {
+    "user_011": [
+      "cookies",
+      "glazed_rim_porcelain_ramekin",
+      "red_coffee_mug"
+    ]
+  },
+  "participating_users": [
+    "user_011"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2494,
+      "object_type": "cookies",
+      "ordinal_position": 1,
+      "x": 0.041,
+      "y": 0.246
+    },
+    {
+      "distance_to_tray": 0.2527,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 2,
+      "x": -0.2484,
+      "y": -0.0462
+    },
+    {
+      "distance_to_tray": 0.2163,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 3,
+      "x": 0.1406,
+      "y": -0.1644
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "red_coffee_mug",
+    "cookies",
+    "glazed_rim_porcelain_ramekin"
+  ],
+  "target_user": "user_011",
+  "task_type": "consistency"
+}

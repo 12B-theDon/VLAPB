@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Use user_016's sequence preference and put the objects into the wooden_tray in this order: chefmate_8_frypan, black_book, yellow_book)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.0243 0.1562 0.0743 0.2062)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.3923 -0.0557 -0.3423 -0.0057)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (0.1105 -0.2202 0.1605 -0.1702)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+  )
+
+  (:objects
+    black_book_1 - black_book
+    chefmate_8_frypan_1 - chefmate_8_frypan
+    yellow_book_1 - yellow_book
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    chefmate_8_frypan_1 black_book_1 yellow_book_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On black_book_1 kitchen_table_object_init_region_0)
+    (On chefmate_8_frypan_1 kitchen_table_object_init_region_1)
+    (On yellow_book_1 kitchen_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In chefmate_8_frypan_1 wooden_tray_1_contain_region) (In black_book_1 wooden_tray_1_contain_region) (In yellow_book_1 wooden_tray_1_contain_region))
+  )
+
+)

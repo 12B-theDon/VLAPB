@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "living_room",
+  "area": "kitchen",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type3/bddl_files/placements_type3_000364.bddl",
   "consistency": null,
   "constraints": {
@@ -18,53 +18,53 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 5
+    "libero_pair_count": 0
   },
   "distractor_object": "akita_black_bowl",
   "distractor_pose_index": 0,
   "episode_id": "placements_type3_000364",
   "fixtures": [
     {
-      "fixture": "basket",
-      "side": "right"
+      "fixture": "wooden_cabinet",
+      "side": "left"
     },
     {
-      "fixture": "microwave",
-      "side": "left"
+      "fixture": "basket",
+      "side": "right"
     }
   ],
-  "language": "Pick the alphabet_soup belonging to user_009 and place it at the in of the basket",
+  "language": "Pick the glazed_rim_porcelain_ramekin belonging to user_007 and place it at the middle_front of the wooden_cabinet",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_009": [
-      "alphabet_soup"
+    "user_007": [
+      "glazed_rim_porcelain_ramekin"
     ]
   },
   "participating_users": [
-    "user_009"
+    "user_007"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "basket",
-    "label": "in",
-    "location": "basket.inside",
-    "object_type": "alphabet_soup",
-    "scene": "LIVING_ROOM_SCENE2",
-    "table": "living_room_table"
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "middle_front",
+    "location": "cabinet.middle_drawer.back_side",
+    "object_type": "glazed_rim_porcelain_ramekin",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE2",
+  "scene": "KITCHEN_SCENE1",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type3",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "alphabet_soup",
+  "table": "kitchen_table",
+  "target_object": "glazed_rim_porcelain_ramekin",
   "target_object_seen": true,
-  "target_user": "user_009",
+  "target_user": "user_007",
   "task_type": "type3"
 }

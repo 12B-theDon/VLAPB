@@ -2,27 +2,29 @@
   "adaptation": {
     "previous_placement": {
       "area": "living_room",
-      "fixed_type": "basket",
-      "label": "in",
-      "location": "basket.inside",
-      "object_type": "alphabet_soup",
-      "scene": "LIVING_ROOM_SCENE2",
+      "fixed_type": "wooden_tray",
+      "goal_predicate": "AtXY",
+      "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+      "label": "back",
+      "location": "wooden_tray.front_side",
+      "object_type": "new_salad_dressing",
+      "scene": "LIVING_ROOM_SCENE4",
       "table": "living_room_table"
     },
     "updated_placement": {
-      "area": "living_room",
-      "fixed_type": "basket",
+      "area": "kitchen",
+      "fixed_type": "wooden_two_layer_shelf",
       "goal_predicate": "AtXY",
       "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-      "label": "right",
-      "location": "basket.right_side",
-      "object_type": "cream_cheese",
-      "scene": "LIVING_ROOM_SCENE2",
-      "table": "living_room_table"
+      "label": "back",
+      "location": "wooden_two_layer_shelf.front_side",
+      "object_type": "orange_juice",
+      "scene": "KITCHEN_SCENE9",
+      "table": "kitchen_table"
     },
-    "user_id": "user_009"
+    "user_id": "user_004"
   },
-  "area": "living_room",
+  "area": "kitchen",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/adaptability/bddl_files/placements_adaptability_000024.bddl",
   "consistency": null,
   "constraints": {
@@ -40,51 +42,51 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 4
+    "libero_pair_count": 0
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_adaptability_000024",
   "fixtures": [
     {
-      "fixture": "basket",
-      "side": "left"
+      "fixture": "wooden_two_layer_shelf",
+      "side": "right"
     }
   ],
-  "language": "Pick the cream_cheese belonging to user_009 and place it at the right of the basket",
+  "language": "Pick the orange_juice belonging to user_004 and place it at the back of the wooden_two_layer_shelf",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_009": [
-      "cream_cheese"
+    "user_004": [
+      "orange_juice"
     ]
   },
   "participating_users": [
-    "user_009"
+    "user_004"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "basket",
+    "area": "kitchen",
+    "fixed_type": "wooden_two_layer_shelf",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "right",
-    "location": "basket.right_side",
-    "object_type": "cream_cheese",
-    "scene": "LIVING_ROOM_SCENE2",
-    "table": "living_room_table"
+    "label": "back",
+    "location": "wooden_two_layer_shelf.front_side",
+    "object_type": "orange_juice",
+    "scene": "KITCHEN_SCENE9",
+    "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE2",
+  "scene": "KITCHEN_SCENE9",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "adaptability",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "cream_cheese",
+  "table": "kitchen_table",
+  "target_object": "orange_juice",
   "target_object_seen": true,
-  "target_user": "user_009",
+  "target_user": "user_004",
   "task_type": "adaptability"
 }

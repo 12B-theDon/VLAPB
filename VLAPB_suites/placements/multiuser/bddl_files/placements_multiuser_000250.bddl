@@ -1,0 +1,80 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_010, pick the chocolate_pudding and place it at the middle_left of the wooden_cabinet, for user_012, pick the cream_cheese and place it at the back of the wooden_tray.)
+    (:regions
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (wooden_tray_right_right_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (middle_region
+          (:target wooden_cabinet_left)
+      )
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2800 0.0000 0.0400 0.4400)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    cream_cheese_1 - cream_cheese
+    wooden_tray_right - wooden_tray
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1 cream_cheese_1
+    wooden_cabinet_left wooden_tray_right
+  )
+
+  (:init
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
+    (On chocolate_pudding_1 kitchen_table_target_object_init_region)
+    (On cream_cheese_1 kitchen_table_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (In chocolate_pudding_1 wooden_cabinet_left_middle_region) (AtXY cream_cheese_1 kitchen_table_secondary_placement_goal_region))
+  )
+
+)

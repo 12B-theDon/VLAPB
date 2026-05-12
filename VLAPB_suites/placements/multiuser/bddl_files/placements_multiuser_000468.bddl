@@ -1,8 +1,8 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_015, pick the butter and place it at the in of the basket, for user_013, pick the orange_juice and place it at the in of the wooden_tray.)
+  (:language For user_016, pick the glazed_rim_porcelain_ramekin and place it at the in of the wooden_tray, for user_003, pick the glazed_rim_porcelain_ramekin and place it at the left of the basket.)
     (:regions
-      (basket_left_left_region
+      (wooden_tray_left_left_region
           (:target living_room_table)
           (:ranges (
               (-0.0200 -0.2400 0.0200 -0.2000)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (wooden_tray_right_right_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
@@ -39,10 +39,14 @@
           )
       )
       (contain_region
-          (:target basket_left)
+          (:target wooden_tray_left)
       )
-      (contain_region
-          (:target wooden_tray_right)
+      (secondary_placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1600 -0.1900 0.1600 0.2100)
+            )
+          )
       )
     )
 
@@ -51,26 +55,25 @@
   )
 
   (:objects
-    butter_1 - butter
-    orange_juice_1 - orange_juice
-    basket_left - basket
-    wooden_tray_right - wooden_tray
+    glazed_rim_porcelain_ramekin_1 glazed_rim_porcelain_ramekin_2 - glazed_rim_porcelain_ramekin
+    wooden_tray_left - wooden_tray
+    basket_right - basket
   )
 
   (:obj_of_interest
-    butter_1 orange_juice_1
-    basket_left wooden_tray_right
+    glazed_rim_porcelain_ramekin_1 glazed_rim_porcelain_ramekin_2
+    wooden_tray_left basket_right
   )
 
   (:init
-    (On basket_left living_room_table_basket_left_left_region)
-    (On wooden_tray_right living_room_table_wooden_tray_right_right_region)
-    (On butter_1 living_room_table_target_object_init_region)
-    (On orange_juice_1 living_room_table_secondary_object_init_region)
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On glazed_rim_porcelain_ramekin_1 living_room_table_target_object_init_region)
+    (On glazed_rim_porcelain_ramekin_2 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In butter_1 basket_left_contain_region) (In orange_juice_1 wooden_tray_right_contain_region))
+    (And (In glazed_rim_porcelain_ramekin_1 wooden_tray_left_contain_region) (AtXY glazed_rim_porcelain_ramekin_2 living_room_table_secondary_placement_goal_region))
   )
 
 )

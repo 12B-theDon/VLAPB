@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000066.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000066",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "ketchup",
+    "white_bowl"
+  ],
+  "language": "Put the objects belonging to user_017 into the wooden_tray in this order: butter, ketchup, white_bowl",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "ketchup": true,
+    "white_bowl": false
+  },
+  "ownership": {
+    "user_017": [
+      "butter",
+      "ketchup",
+      "white_bowl"
+    ]
+  },
+  "participating_users": [
+    "user_017"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE3",
+  "sequence_strategy": "alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2418,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.0721,
+      "y": 0.2308
+    },
+    {
+      "distance_to_tray": 0.1885,
+      "object_type": "ketchup",
+      "ordinal_position": 2,
+      "x": -0.1883,
+      "y": -0.0087
+    },
+    {
+      "distance_to_tray": 0.2118,
+      "object_type": "white_bowl",
+      "ordinal_position": 3,
+      "x": 0.1143,
+      "y": -0.1783
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "butter",
+    "ketchup",
+    "white_bowl"
+  ],
+  "target_user": "user_017",
+  "task_type": "type2"
+}

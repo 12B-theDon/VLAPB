@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000034.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "bbq_sauce",
+      "cream_cheese"
+    ],
+    "unseen_object": "salad_dressing",
+    "user_id": "user_012"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000034",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "cream_cheese",
+    "salad_dressing"
+  ],
+  "language": "Put the objects belonging to user_012 into the wooden_tray in this order: salad_dressing, cream_cheese, bbq_sauce",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "cream_cheese": true,
+    "salad_dressing": false
+  },
+  "ownership": {
+    "user_012": [
+      "bbq_sauce",
+      "cream_cheese",
+      "salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_012"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "sequence_strategy": "fixed_far_to_near",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2089,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0775,
+      "y": 0.194
+    },
+    {
+      "distance_to_tray": 0.2175,
+      "object_type": "cream_cheese",
+      "ordinal_position": 2,
+      "x": -0.2174,
+      "y": 0.0068
+    },
+    {
+      "distance_to_tray": 0.2451,
+      "object_type": "salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.1159,
+      "y": -0.216
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "salad_dressing",
+    "cream_cheese",
+    "bbq_sauce"
+  ],
+  "target_user": "user_012",
+  "task_type": "consistency"
+}

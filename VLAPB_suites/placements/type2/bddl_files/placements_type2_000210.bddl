@@ -1,11 +1,11 @@
-(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+(define (problem LIBERO_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the milk belonging to user_013 and place it at the bottom of the wooden_cabinet)
+  (:language Pick the bbq_sauce belonging to user_013 and place it at the in of the basket)
     (:regions
-      (wooden_cabinet_right_right_region
-          (:target kitchen_table)
+      (basket_right_right_region
+          (:target floor)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -13,52 +13,52 @@
             )
           )
       )
-      (basket_left_left_region
-          (:target kitchen_table)
+      (wooden_cabinet_left_left_region
+          (:target floor)
           (:ranges (
-              (-0.0200 -0.2400 0.0200 -0.2000)
+              (-0.0200 -0.3200 0.0200 -0.2800)
             )
           )
           (:yaw_rotation (
-              (0.0000 0.0000)
+              (-3.1416 -3.1416)
             )
           )
       )
       (target_object_init_region
-          (:target kitchen_table)
+          (:target floor)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
-      (bottom_region
-          (:target wooden_cabinet_right)
+      (contain_region
+          (:target basket_right)
       )
     )
 
   (:fixtures
-    kitchen_table - kitchen_table
-    wooden_cabinet_right - wooden_cabinet
+    floor - floor
+    wooden_cabinet_left - wooden_cabinet
   )
 
   (:objects
-    milk_1 - milk
-    basket_left - basket
+    bbq_sauce_1 - bbq_sauce
+    basket_right - basket
   )
 
   (:obj_of_interest
-    milk_1
-    wooden_cabinet_right
+    bbq_sauce_1
+    basket_right
   )
 
   (:init
-    (On wooden_cabinet_right kitchen_table_wooden_cabinet_right_right_region)
-    (On basket_left kitchen_table_basket_left_left_region)
-    (On milk_1 kitchen_table_target_object_init_region)
+    (On basket_right floor_basket_right_right_region)
+    (On wooden_cabinet_left floor_wooden_cabinet_left_left_region)
+    (On bbq_sauce_1 floor_target_object_init_region)
   )
 
   (:goal
-    (And (In milk_1 wooden_cabinet_right_bottom_region))
+    (And (In bbq_sauce_1 basket_right_contain_region))
   )
 
 )

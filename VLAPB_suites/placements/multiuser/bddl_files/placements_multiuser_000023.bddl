@@ -1,22 +1,22 @@
-(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_007, pick the glazed_rim_porcelain_ramekin and place it at the front of the basket, for user_005, pick the red_coffee_mug and place it at the back of the wooden_cabinet.)
+  (:language For user_001, pick the akita_black_bowl and place it at the bottom_back of the wooden_cabinet, for user_009, pick the alphabet_soup and place it at the front of the wooden_tray.)
     (:regions
-      (basket_left_left_region
-          (:target living_room_table)
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
           (:ranges (
-              (-0.0200 -0.2400 0.0200 -0.2000)
+              (-0.0200 -0.3200 0.0200 -0.2800)
             )
           )
           (:yaw_rotation (
-              (0.0000 0.0000)
+              (-3.1416 -3.1416)
             )
           )
       )
-      (wooden_cabinet_right_right_region
-          (:target living_room_table)
+      (wooden_tray_right_right_region
+          (:target kitchen_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -25,60 +25,56 @@
           )
       )
       (target_object_init_region
-          (:target living_room_table)
+          (:target kitchen_table)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
       (secondary_object_init_region
-          (:target living_room_table)
+          (:target kitchen_table)
           (:ranges (
               (0.1300 -0.0200 0.1800 0.0300)
             )
           )
       )
-      (placement_goal_region
-          (:target living_room_table)
-          (:ranges (
-              (0.0500 -0.3000 0.1900 -0.1400)
-            )
-          )
+      (bottom_region
+          (:target wooden_cabinet_left)
       )
       (secondary_placement_goal_region
-          (:target living_room_table)
+          (:target kitchen_table)
           (:ranges (
-              (-0.1900 0.2200 -0.0500 0.3800)
+              (-0.0400 0.0000 0.2800 0.4400)
             )
           )
       )
     )
 
   (:fixtures
-    living_room_table - living_room_table
-    wooden_cabinet_right - wooden_cabinet
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
   )
 
   (:objects
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
-    red_coffee_mug_1 - red_coffee_mug
-    basket_left - basket
+    akita_black_bowl_1 - akita_black_bowl
+    alphabet_soup_1 - alphabet_soup
+    wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    glazed_rim_porcelain_ramekin_1 red_coffee_mug_1
-    basket_left wooden_cabinet_right
+    akita_black_bowl_1 alphabet_soup_1
+    wooden_cabinet_left wooden_tray_right
   )
 
   (:init
-    (On basket_left living_room_table_basket_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
-    (On glazed_rim_porcelain_ramekin_1 living_room_table_target_object_init_region)
-    (On red_coffee_mug_1 living_room_table_secondary_object_init_region)
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
+    (On akita_black_bowl_1 kitchen_table_target_object_init_region)
+    (On alphabet_soup_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (AtXY glazed_rim_porcelain_ramekin_1 living_room_table_placement_goal_region) (AtXY red_coffee_mug_1 living_room_table_secondary_placement_goal_region))
+    (And (In akita_black_bowl_1 wooden_cabinet_left_bottom_region) (AtXY alphabet_soup_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

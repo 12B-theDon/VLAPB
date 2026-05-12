@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "living_room",
+  "area": "kitchen",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type4/bddl_files/placements_type4_000296.bddl",
   "consistency": null,
   "constraints": {
@@ -18,54 +18,56 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "fixture_state": {},
-    "libero_pair_count": 1
+    "fixture_state": {
+      "top_drawer": "open"
+    },
+    "libero_pair_count": 2
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_type4_000296",
   "fixtures": [
     {
-      "fixture": "wooden_tray",
+      "fixture": "wooden_cabinet",
       "side": "right"
     },
     {
-      "fixture": "microwave",
+      "fixture": "wooden_tray",
       "side": "left"
     }
   ],
-  "language": "Pick the chocolate_pudding belonging to user_018 and place it at the in of the wooden_tray",
+  "language": "Pick the butter belonging to user_017 and place it at the top_left of the wooden_cabinet",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_018": [
-      "chocolate_pudding"
+    "user_017": [
+      "butter"
     ]
   },
   "participating_users": [
-    "user_018"
+    "user_017"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "wooden_tray",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "chocolate_pudding",
-    "scene": "LIVING_ROOM_SCENE4",
-    "table": "living_room_table"
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "top_left",
+    "location": "cabinet.top_drawer.left_side",
+    "object_type": "butter",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE4",
+  "scene": "KITCHEN_SCENE1",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type4",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "chocolate_pudding",
+  "table": "kitchen_table",
+  "target_object": "butter",
   "target_object_seen": true,
-  "target_user": "user_018",
+  "target_user": "user_017",
   "task_type": "type4"
 }

@@ -26,7 +26,7 @@
     "min_structural_per_user": 1,
     "objects_per_user": 4,
     "pairwise_overlap_limit": 1,
-    "placement_count": 3761,
+    "placement_count": 4241,
     "source_files": {
       "config": "/home/artemis/Documents/VLAPB/libero/teleop_moveit/episode_selection.yaml",
       "holded_dir": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/holded_spawn_positions",
@@ -39,8 +39,8 @@
   "profiles": [
     {
       "areas": [
-        "kitchen",
-        "living_room"
+        "floor",
+        "kitchen"
       ],
       "belongings": [
         "akita_black_bowl",
@@ -52,14 +52,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.0045,
-            "y": -0.0037,
-            "z": 0.9063
+            "x": -0.0133,
+            "y": 0.0075,
+            "z": 0.0154
           },
-          "area": "kitchen",
-          "fixed_type": "plate",
-          "label": "on",
-          "location": "plate.center",
+          "area": "floor",
+          "fixed_type": "basket",
+          "label": "in",
+          "location": "basket.inside",
           "modified": false,
           "object_type": "akita_black_bowl",
           "order": 1,
@@ -67,24 +67,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0045,
-            "y": -0.0037,
+            "x": -0.0133,
+            "y": 0.0075,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/plate/on.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/in.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
             "x": 0.1403,
             "y": 0.0001,
-            "z": 0.9384
+            "z": 0.0384
           },
-          "area": "kitchen",
-          "fixed_type": "plate",
+          "area": "floor",
+          "fixed_type": "basket",
           "label": "front",
-          "location": "plate.back_side",
+          "location": "basket.back_side",
           "modified": false,
           "object_type": "alphabet_soup",
           "order": 2,
@@ -96,20 +96,20 @@
             "y": 0.0001,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/plate/front.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/front.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
             "x": -0.14,
-            "y": 0.0,
-            "z": 0.4914
+            "y": -0.0,
+            "z": 0.9546
           },
-          "area": "living_room",
-          "fixed_type": "basket",
+          "area": "kitchen",
+          "fixed_type": "plate",
           "label": "back",
-          "location": "basket.front_side",
+          "location": "plate.front_side",
           "modified": false,
           "object_type": "bbq_sauce",
           "order": 3,
@@ -118,25 +118,141 @@
             "p": 0.0,
             "r": 0.0,
             "x": -0.14,
+            "y": -0.0,
+            "z": 0.1
+          },
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/plate/back.json",
+          "table": "kitchen_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.14,
+            "y": 0.0,
+            "z": 0.9087
+          },
+          "area": "kitchen",
+          "fixed_type": "plate",
+          "label": "front",
+          "location": "plate.back_side",
+          "modified": false,
+          "object_type": "butter",
+          "order": 4,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.14,
             "y": 0.0,
             "z": 0.1
           },
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/plate/front.json",
+          "table": "kitchen_table"
+        }
+      ],
+      "user_id": "user_001"
+    },
+    {
+      "areas": [
+        "floor",
+        "living_room"
+      ],
+      "belongings": [
+        "akita_black_bowl",
+        "chocolate_pudding",
+        "cookies",
+        "cream_cheese"
+      ],
+      "placement_order_strategy": "reverse_alphabetical",
+      "placements": [
+        {
+          "actual_pose": {
+            "x": -0.0,
+            "y": -0.14,
+            "z": 0.4457
+          },
+          "area": "living_room",
+          "fixed_type": "basket",
+          "label": "left",
+          "location": "basket.left_side",
+          "modified": false,
+          "object_type": "cream_cheese",
+          "order": 1,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": -0.0,
+            "y": -0.14,
+            "z": 0.1
+          },
           "scene": "LIVING_ROOM_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE1/basket/back.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE1/basket/left.json",
           "table": "living_room_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.0139,
+            "y": 0.0161,
+            "z": 0.0301
+          },
+          "area": "floor",
+          "fixed_type": "basket",
+          "label": "in",
+          "location": "basket.inside",
+          "modified": false,
+          "object_type": "chocolate_pudding",
+          "order": 2,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.0139,
+            "y": 0.0161,
+            "z": 0.1
+          },
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/in.json",
+          "table": "floor"
+        },
+        {
+          "actual_pose": {
+            "x": 0.14,
+            "y": -0.0001,
+            "z": -0.0016
+          },
+          "area": "floor",
+          "fixed_type": "basket",
+          "label": "front",
+          "location": "basket.back_side",
+          "modified": false,
+          "object_type": "akita_black_bowl",
+          "order": 3,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.14,
+            "y": -0.0001,
+            "z": 0.1
+          },
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/front.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
             "x": 0.14,
             "y": -0.0,
-            "z": 0.4455
+            "z": 0.4462
           },
           "area": "living_room",
           "fixed_type": "basket",
           "label": "front",
           "location": "basket.back_side",
           "modified": false,
-          "object_type": "butter",
+          "object_type": "cookies",
           "order": 4,
           "pose": {
             "h": 0.0,
@@ -151,127 +267,11 @@
           "table": "living_room_table"
         }
       ],
-      "user_id": "user_001"
-    },
-    {
-      "areas": [
-        "kitchen",
-        "study"
-      ],
-      "belongings": [
-        "akita_black_bowl",
-        "chocolate_pudding",
-        "cookies",
-        "cream_cheese"
-      ],
-      "placement_order_strategy": "reverse_alphabetical",
-      "placements": [
-        {
-          "actual_pose": {
-            "x": -0.2,
-            "y": -0.28,
-            "z": 0.8941
-          },
-          "area": "study",
-          "fixed_type": "desk_caddy",
-          "label": "left",
-          "location": "desk_caddy.left_side",
-          "modified": false,
-          "object_type": "cream_cheese",
-          "order": 1,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.0,
-            "y": -0.14,
-            "z": 0.1
-          },
-          "scene": "STUDY_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/desk_caddy/left.json",
-          "table": "study_table"
-        },
-        {
-          "actual_pose": {
-            "x": -0.0,
-            "y": -0.14,
-            "z": 0.9131
-          },
-          "area": "kitchen",
-          "fixed_type": "plate",
-          "label": "left",
-          "location": "plate.left_side",
-          "modified": false,
-          "object_type": "chocolate_pudding",
-          "order": 2,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": -0.0,
-            "y": -0.14,
-            "z": 0.1
-          },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/plate/left.json",
-          "table": "kitchen_table"
-        },
-        {
-          "actual_pose": {
-            "x": 0.2349,
-            "y": -0.2344,
-            "z": 0.8984
-          },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "bottom",
-          "location": "cabinet.bottom_drawer.inside",
-          "modified": false,
-          "object_type": "akita_black_bowl",
-          "order": 3,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.2349,
-            "y": 0.0656,
-            "z": 0.1
-          },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/bottom.json",
-          "table": "kitchen_table"
-        },
-        {
-          "actual_pose": {
-            "x": -0.34,
-            "y": -0.14,
-            "z": 0.9705
-          },
-          "area": "study",
-          "fixed_type": "desk_caddy",
-          "label": "front",
-          "location": "desk_caddy.front_side",
-          "modified": false,
-          "object_type": "cookies",
-          "order": 4,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": -0.14,
-            "y": 0.0,
-            "z": 0.1
-          },
-          "scene": "STUDY_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/desk_caddy/front.json",
-          "table": "study_table"
-        }
-      ],
       "user_id": "user_002"
     },
     {
       "areas": [
-        "living_room",
+        "floor",
         "study"
       ],
       "belongings": [
@@ -284,11 +284,11 @@
       "placements": [
         {
           "actual_pose": {
-            "x": -0.002,
-            "y": 0.0029,
-            "z": 0.4522
+            "x": -0.0133,
+            "y": 0.0075,
+            "z": 0.0154
           },
-          "area": "living_room",
+          "area": "floor",
           "fixed_type": "basket",
           "label": "in",
           "location": "basket.inside",
@@ -299,21 +299,21 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.002,
-            "y": 0.0029,
+            "x": -0.0133,
+            "y": 0.0075,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE1/basket/in.json",
-          "table": "living_room_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/in.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
             "x": 0.0,
             "y": -0.14,
-            "z": 0.4361
+            "z": -0.0007
           },
-          "area": "living_room",
+          "area": "floor",
           "fixed_type": "basket",
           "label": "left",
           "location": "basket.left_side",
@@ -328,9 +328,9 @@
             "y": -0.14,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE1/basket/left.json",
-          "table": "living_room_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/left.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
@@ -400,8 +400,8 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.0009,
-            "y": 0.1453,
+            "x": 0.001,
+            "y": 0.1455,
             "z": 0.4344
           },
           "area": "living_room",
@@ -415,8 +415,8 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0009,
-            "y": 0.1453,
+            "x": 0.001,
+            "y": 0.1455,
             "z": 0.1
           },
           "scene": "LIVING_ROOM_SCENE1",
@@ -475,14 +475,14 @@
         },
         {
           "actual_pose": {
-            "x": 0.0045,
-            "y": -0.0037,
-            "z": 0.9063
+            "x": -0.0003,
+            "y": -0.434,
+            "z": 1.0451
           },
           "area": "kitchen",
-          "fixed_type": "plate",
-          "label": "on",
-          "location": "plate.center",
+          "fixed_type": "wooden_cabinet",
+          "label": "bottom_left",
+          "location": "cabinet.bottom_drawer.left_side",
           "modified": false,
           "object_type": "akita_black_bowl",
           "order": 4,
@@ -490,12 +490,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0045,
-            "y": -0.0037,
+            "x": -0.0003,
+            "y": -0.134,
             "z": 0.1
           },
           "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/plate/on.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/bottom_left.json",
           "table": "kitchen_table"
         }
       ],
@@ -516,31 +516,6 @@
       "placements": [
         {
           "actual_pose": {
-            "x": -1.3405,
-            "y": -0.5887,
-            "z": 0.0498
-          },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "back",
-          "location": "cabinet.front_side",
-          "modified": false,
-          "object_type": "red_coffee_mug",
-          "order": 1,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": -1.3405,
-            "y": -0.2887,
-            "z": 0.1
-          },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/back.json",
-          "table": "kitchen_table"
-        },
-        {
-          "actual_pose": {
             "x": -0.14,
             "y": 0.0,
             "z": 0.9578
@@ -551,7 +526,7 @@
           "location": "study_table.front_side",
           "modified": false,
           "object_type": "salad_dressing",
-          "order": 2,
+          "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
@@ -576,7 +551,7 @@
           "location": "study_table.back_side",
           "modified": false,
           "object_type": "tomato_sauce",
-          "order": 3,
+          "order": 2,
           "pose": {
             "h": 0.0,
             "p": 0.0,
@@ -591,8 +566,33 @@
         },
         {
           "actual_pose": {
-            "x": 0.2241,
-            "y": -0.231,
+            "x": 0.2245,
+            "y": -0.2643,
+            "z": 0.9018
+          },
+          "area": "kitchen",
+          "fixed_type": "wooden_cabinet",
+          "label": "bottom",
+          "location": "cabinet.bottom_drawer.inside",
+          "modified": false,
+          "object_type": "red_coffee_mug",
+          "order": 3,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.2245,
+            "y": 0.0357,
+            "z": 0.1
+          },
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/bottom.json",
+          "table": "kitchen_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.2618,
+            "y": -0.2479,
             "z": 0.8984
           },
           "area": "kitchen",
@@ -606,12 +606,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2241,
-            "y": 0.069,
+            "x": 0.2618,
+            "y": 0.0521,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/bottom.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/bottom.json",
           "table": "kitchen_table"
         }
       ],
@@ -632,28 +632,28 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.1402,
-            "y": 0.0,
-            "z": 0.8852
+            "x": 0.0039,
+            "y": 0.003,
+            "z": 0.443
           },
-          "area": "study",
-          "fixed_type": "study_table",
-          "label": "front",
-          "location": "study_table.back_side",
+          "area": "living_room",
+          "fixed_type": "plate",
+          "label": "on",
+          "location": "plate.center",
           "modified": false,
-          "object_type": "white_yellow_mug",
+          "object_type": "akita_black_bowl",
           "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.1402,
-            "y": 0.0,
+            "x": 0.0039,
+            "y": 0.003,
             "z": 0.1
           },
-          "scene": "STUDY_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/study_table/front.json",
-          "table": "study_table"
+          "scene": "LIVING_ROOM_SCENE6",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE6/plate/on.json",
+          "table": "living_room_table"
         },
         {
           "actual_pose": {
@@ -682,6 +682,31 @@
         },
         {
           "actual_pose": {
+            "x": 0.0002,
+            "y": -0.14,
+            "z": 0.8852
+          },
+          "area": "study",
+          "fixed_type": "study_table",
+          "label": "left",
+          "location": "study_table.left_side",
+          "modified": false,
+          "object_type": "white_yellow_mug",
+          "order": 3,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.0002,
+            "y": -0.14,
+            "z": 0.1
+          },
+          "scene": "STUDY_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/study_table/left.json",
+          "table": "study_table"
+        },
+        {
+          "actual_pose": {
             "x": 0.0,
             "y": -0.14,
             "z": 0.884
@@ -692,7 +717,7 @@
           "location": "study_table.left_side",
           "modified": false,
           "object_type": "wine_bottle",
-          "order": 3,
+          "order": 4,
           "pose": {
             "h": 0.0,
             "p": 0.0,
@@ -704,39 +729,14 @@
           "scene": "STUDY_SCENE1",
           "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/study_table/left.json",
           "table": "study_table"
-        },
-        {
-          "actual_pose": {
-            "x": 0.2549,
-            "y": -0.264,
-            "z": 0.4352
-          },
-          "area": "living_room",
-          "fixed_type": "living_room_table",
-          "label": "on",
-          "location": "living_room_table.center",
-          "modified": false,
-          "object_type": "akita_black_bowl",
-          "order": 4,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.2549,
-            "y": -0.264,
-            "z": 0.1
-          },
-          "scene": "LIVING_ROOM_SCENE6",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE6/living_room_table/on.json",
-          "table": "living_room_table"
         }
       ],
       "user_id": "user_006"
     },
     {
       "areas": [
-        "kitchen",
-        "living_room"
+        "floor",
+        "kitchen"
       ],
       "belongings": [
         "alphabet_soup",
@@ -748,14 +748,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.2282,
-            "y": -0.2156,
-            "z": 0.9384
+            "x": 0.1403,
+            "y": 0.0001,
+            "z": 0.0384
           },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "bottom",
-          "location": "cabinet.bottom_drawer.inside",
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "front",
+          "location": "floor.back_side",
           "modified": false,
           "object_type": "alphabet_soup",
           "order": 1,
@@ -763,8 +763,33 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2282,
-            "y": 0.0844,
+            "x": 0.1403,
+            "y": 0.0001,
+            "z": 0.1
+          },
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/front.json",
+          "table": "floor"
+        },
+        {
+          "actual_pose": {
+            "x": 0.2517,
+            "y": -0.2629,
+            "z": 0.8993
+          },
+          "area": "kitchen",
+          "fixed_type": "wooden_cabinet",
+          "label": "bottom",
+          "location": "cabinet.bottom_drawer.inside",
+          "modified": false,
+          "object_type": "glazed_rim_porcelain_ramekin",
+          "order": 2,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.2517,
+            "y": 0.0371,
             "z": 0.1
           },
           "scene": "KITCHEN_SCENE1",
@@ -773,39 +798,14 @@
         },
         {
           "actual_pose": {
-            "x": 0.14,
-            "y": 0.0,
-            "z": 0.4361
-          },
-          "area": "living_room",
-          "fixed_type": "basket",
-          "label": "front",
-          "location": "basket.back_side",
-          "modified": false,
-          "object_type": "glazed_rim_porcelain_ramekin",
-          "order": 2,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.14,
-            "y": 0.0,
-            "z": 0.1
-          },
-          "scene": "LIVING_ROOM_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE2/basket/front.json",
-          "table": "living_room_table"
-        },
-        {
-          "actual_pose": {
-            "x": 1.2435,
-            "y": -0.2987,
+            "x": -0.0,
+            "y": -0.14,
             "z": 0.0131
           },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "front",
-          "location": "cabinet.back_side",
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "left",
+          "location": "floor.left_side",
           "modified": false,
           "object_type": "chocolate_pudding",
           "order": 3,
@@ -813,24 +813,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 1.2435,
-            "y": 0.0013,
+            "x": -0.0,
+            "y": -0.14,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/front.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/left.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": 0.0009,
-            "y": -0.0016,
-            "z": 0.4765
+            "x": -0.0,
+            "y": -0.44,
+            "z": 0.9227
           },
-          "area": "living_room",
-          "fixed_type": "basket",
-          "label": "in",
-          "location": "basket.inside",
+          "area": "kitchen",
+          "fixed_type": "wooden_cabinet",
+          "label": "bottom_left",
+          "location": "cabinet.bottom_drawer.left_side",
           "modified": false,
           "object_type": "new_salad_dressing",
           "order": 4,
@@ -838,21 +838,21 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0009,
-            "y": -0.0016,
+            "x": -0.0,
+            "y": -0.14,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE2/basket/in.json",
-          "table": "living_room_table"
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/bottom_left.json",
+          "table": "kitchen_table"
         }
       ],
       "user_id": "user_007"
     },
     {
       "areas": [
-        "kitchen",
-        "study"
+        "floor",
+        "living_room"
       ],
       "belongings": [
         "alphabet_soup",
@@ -864,14 +864,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.2506,
-            "y": -0.2594,
-            "z": 0.9094
+            "x": 0.24,
+            "y": -0.24,
+            "z": 0.0094
           },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "in",
-          "location": "cabinet.bottom_drawer.inside",
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "on",
+          "location": "floor.center",
           "modified": false,
           "object_type": "cookies",
           "order": 1,
@@ -879,142 +879,26 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2506,
-            "y": 0.0406,
+            "x": 0.24,
+            "y": -0.24,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/in.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/on.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
             "x": -0.0,
             "y": 0.14,
-            "z": 0.9549
-          },
-          "area": "study",
-          "fixed_type": "study_table",
-          "label": "right",
-          "location": "study_table.right_side",
-          "modified": false,
-          "object_type": "orange_juice",
-          "order": 2,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": -0.0,
-            "y": 0.14,
-            "z": 0.1
-          },
-          "scene": "STUDY_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/study_table/right.json",
-          "table": "study_table"
-        },
-        {
-          "actual_pose": {
-            "x": 0.1416,
-            "y": -0.2997,
-            "z": 1.05
-          },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "front",
-          "location": "cabinet.back_side",
-          "modified": false,
-          "object_type": "alphabet_soup",
-          "order": 3,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.1416,
-            "y": 0.0003,
-            "z": 0.1
-          },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/front.json",
-          "table": "kitchen_table"
-        },
-        {
-          "actual_pose": {
-            "x": 0.0291,
-            "y": -0.252,
-            "z": 0.9575
-          },
-          "area": "study",
-          "fixed_type": "study_table",
-          "label": "on",
-          "location": "study_table.center",
-          "modified": false,
-          "object_type": "ketchup",
-          "order": 4,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.0291,
-            "y": -0.252,
-            "z": 0.1
-          },
-          "scene": "STUDY_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE1/study_table/on.json",
-          "table": "study_table"
-        }
-      ],
-      "user_id": "user_008"
-    },
-    {
-      "areas": [
-        "living_room",
-        "study"
-      ],
-      "belongings": [
-        "alphabet_soup",
-        "cream_cheese",
-        "milk",
-        "porcelain_mug"
-      ],
-      "placement_order_strategy": "alphabetical",
-      "placements": [
-        {
-          "actual_pose": {
-            "x": 0.0026,
-            "y": -0.0035,
-            "z": 0.4922
-          },
-          "area": "living_room",
-          "fixed_type": "basket",
-          "label": "in",
-          "location": "basket.inside",
-          "modified": false,
-          "object_type": "alphabet_soup",
-          "order": 1,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.0026,
-            "y": -0.0035,
-            "z": 0.1
-          },
-          "scene": "LIVING_ROOM_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE2/basket/in.json",
-          "table": "living_room_table"
-        },
-        {
-          "actual_pose": {
-            "x": -0.0,
-            "y": 0.14,
-            "z": 0.4457
+            "z": 0.5065
           },
           "area": "living_room",
           "fixed_type": "basket",
           "label": "right",
           "location": "basket.right_side",
           "modified": false,
-          "object_type": "cream_cheese",
+          "object_type": "orange_juice",
           "order": 2,
           "pose": {
             "h": 0.0,
@@ -1027,6 +911,122 @@
           "scene": "LIVING_ROOM_SCENE2",
           "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE2/basket/right.json",
           "table": "living_room_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.0003,
+            "y": -0.1399,
+            "z": 0.0384
+          },
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "left",
+          "location": "floor.left_side",
+          "modified": false,
+          "object_type": "alphabet_soup",
+          "order": 3,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.0003,
+            "y": -0.1399,
+            "z": 0.1
+          },
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/left.json",
+          "table": "floor"
+        },
+        {
+          "actual_pose": {
+            "x": -0.0,
+            "y": -0.14,
+            "z": 0.5092
+          },
+          "area": "living_room",
+          "fixed_type": "basket",
+          "label": "left",
+          "location": "basket.left_side",
+          "modified": false,
+          "object_type": "ketchup",
+          "order": 4,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": -0.0,
+            "y": -0.14,
+            "z": 0.1
+          },
+          "scene": "LIVING_ROOM_SCENE2",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE2/basket/left.json",
+          "table": "living_room_table"
+        }
+      ],
+      "user_id": "user_008"
+    },
+    {
+      "areas": [
+        "floor",
+        "study"
+      ],
+      "belongings": [
+        "alphabet_soup",
+        "cream_cheese",
+        "milk",
+        "porcelain_mug"
+      ],
+      "placement_order_strategy": "alphabetical",
+      "placements": [
+        {
+          "actual_pose": {
+            "x": 0.2403,
+            "y": -0.2399,
+            "z": 0.0384
+          },
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "on",
+          "location": "floor.center",
+          "modified": false,
+          "object_type": "alphabet_soup",
+          "order": 1,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.2403,
+            "y": -0.2399,
+            "z": 0.1
+          },
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/on.json",
+          "table": "floor"
+        },
+        {
+          "actual_pose": {
+            "x": -0.0,
+            "y": 0.14,
+            "z": 0.0089
+          },
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "right",
+          "location": "floor.right_side",
+          "modified": false,
+          "object_type": "cream_cheese",
+          "order": 2,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": -0.0,
+            "y": 0.14,
+            "z": 0.1
+          },
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/right.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
@@ -1096,14 +1096,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.219,
-            "y": -0.2186,
+            "x": -0.0,
+            "y": -0.44,
             "z": 0.9546
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "in",
-          "location": "cabinet.bottom_drawer.inside",
+          "label": "bottom_left",
+          "location": "cabinet.bottom_drawer.left_side",
           "modified": false,
           "object_type": "bbq_sauce",
           "order": 1,
@@ -1111,24 +1111,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.219,
-            "y": 0.0814,
+            "x": -0.0,
+            "y": -0.14,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE2/wooden_cabinet/in.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/bottom_left.json",
           "table": "kitchen_table"
         },
         {
           "actual_pose": {
             "x": -0.0,
-            "y": -0.16,
+            "y": -0.44,
             "z": 0.9131
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "right",
-          "location": "cabinet.right_side",
+          "label": "middle_left",
+          "location": "cabinet.middle_drawer.left_side",
           "modified": false,
           "object_type": "chocolate_pudding",
           "order": 2,
@@ -1137,23 +1137,23 @@
             "p": 0.0,
             "r": 0.0,
             "x": -0.0,
-            "y": 0.14,
+            "y": -0.14,
             "z": 0.1
           },
           "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/right.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/middle_left.json",
           "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": -0.1178,
-            "y": 0.0134,
-            "z": 0.4848
+            "x": 0.1625,
+            "y": 0.0116,
+            "z": 0.4773
           },
           "area": "living_room",
           "fixed_type": "wooden_tray",
-          "label": "back",
-          "location": "wooden_tray.front_side",
+          "label": "front",
+          "location": "wooden_tray.back_side",
           "modified": false,
           "object_type": "porcelain_mug",
           "order": 3,
@@ -1161,24 +1161,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.1178,
-            "y": 0.0134,
+            "x": 0.1625,
+            "y": 0.0116,
             "z": 0.1
           },
           "scene": "LIVING_ROOM_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/back.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/front.json",
           "table": "living_room_table"
         },
         {
           "actual_pose": {
-            "x": -0.0,
-            "y": 0.14,
-            "z": 0.5092
+            "x": 0.14,
+            "y": 0.0,
+            "z": 0.5245
           },
           "area": "living_room",
-          "fixed_type": "basket",
-          "label": "right",
-          "location": "basket.right_side",
+          "fixed_type": "wooden_tray",
+          "label": "front",
+          "location": "wooden_tray.back_side",
           "modified": false,
           "object_type": "ketchup",
           "order": 4,
@@ -1186,12 +1186,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0,
-            "y": 0.14,
+            "x": 0.14,
+            "y": 0.0,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE2/basket/right.json",
+          "scene": "LIVING_ROOM_SCENE3",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/front.json",
           "table": "living_room_table"
         }
       ],
@@ -1212,59 +1212,9 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.0,
-            "y": -0.16,
-            "z": 0.9546
-          },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "right",
-          "location": "cabinet.right_side",
-          "modified": false,
-          "object_type": "bbq_sauce",
-          "order": 1,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.0,
-            "y": 0.14,
-            "z": 0.1
-          },
-          "scene": "KITCHEN_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/right.json",
-          "table": "kitchen_table"
-        },
-        {
-          "actual_pose": {
-            "x": -0.2,
-            "y": -0.2801,
-            "z": 0.887
-          },
-          "area": "study",
-          "fixed_type": "desk_caddy",
-          "label": "left",
-          "location": "desk_caddy.left_side",
-          "modified": false,
-          "object_type": "red_coffee_mug",
-          "order": 2,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 0.0,
-            "y": -0.1401,
-            "z": 0.1
-          },
-          "scene": "STUDY_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE2/desk_caddy/left.json",
-          "table": "study_table"
-        },
-        {
-          "actual_pose": {
-            "x": -0.3403,
-            "y": -0.14,
-            "z": 0.9597
+            "x": -0.3361,
+            "y": -0.1407,
+            "z": 0.9594
           },
           "area": "study",
           "fixed_type": "desk_caddy",
@@ -1272,13 +1222,13 @@
           "location": "desk_caddy.front_side",
           "modified": false,
           "object_type": "glazed_rim_porcelain_ramekin",
-          "order": 3,
+          "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.1403,
-            "y": 0.0,
+            "x": -0.1361,
+            "y": -0.0007,
             "z": 0.1
           },
           "scene": "STUDY_SCENE2",
@@ -1287,8 +1237,58 @@
         },
         {
           "actual_pose": {
-            "x": 0.2332,
-            "y": -0.2169,
+            "x": -0.2,
+            "y": -0.0001,
+            "z": 0.887
+          },
+          "area": "study",
+          "fixed_type": "desk_caddy",
+          "label": "right",
+          "location": "desk_caddy.right_side",
+          "modified": false,
+          "object_type": "red_coffee_mug",
+          "order": 2,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.0,
+            "y": 0.1399,
+            "z": 0.1
+          },
+          "scene": "STUDY_SCENE2",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE2/desk_caddy/right.json",
+          "table": "study_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.14,
+            "y": -0.3,
+            "z": 0.9546
+          },
+          "area": "kitchen",
+          "fixed_type": "wooden_cabinet",
+          "label": "front",
+          "location": "cabinet.back_side",
+          "modified": false,
+          "object_type": "bbq_sauce",
+          "order": 3,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": 0.14,
+            "y": -0.0,
+            "z": 0.1
+          },
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/front.json",
+          "table": "kitchen_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.2331,
+            "y": -0.2566,
             "z": 0.9094
           },
           "area": "kitchen",
@@ -1302,8 +1302,8 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2332,
-            "y": 0.0831,
+            "x": 0.2331,
+            "y": 0.0434,
             "z": 0.1
           },
           "scene": "KITCHEN_SCENE1",
@@ -1328,31 +1328,6 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 3.0498,
-            "y": -0.0262,
-            "z": 0.0145
-          },
-          "area": "living_room",
-          "fixed_type": "wooden_tray",
-          "label": "front",
-          "location": "wooden_tray.back_side",
-          "modified": false,
-          "object_type": "bbq_sauce",
-          "order": 1,
-          "pose": {
-            "h": 0.0,
-            "p": 0.0,
-            "r": 0.0,
-            "x": 3.0498,
-            "y": -0.0262,
-            "z": 0.1
-          },
-          "scene": "LIVING_ROOM_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/front.json",
-          "table": "living_room_table"
-        },
-        {
-          "actual_pose": {
             "x": -0.2,
             "y": -0.28,
             "z": 0.9078
@@ -1363,7 +1338,7 @@
           "location": "desk_caddy.left_side",
           "modified": false,
           "object_type": "new_salad_dressing",
-          "order": 2,
+          "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
@@ -1388,7 +1363,7 @@
           "location": "desk_caddy.right_side",
           "modified": false,
           "object_type": "salad_dressing",
-          "order": 3,
+          "order": 2,
           "pose": {
             "h": 0.0,
             "p": 0.0,
@@ -1403,27 +1378,52 @@
         },
         {
           "actual_pose": {
-            "x": -0.0041,
-            "y": -0.003,
-            "z": 0.4534
+            "x": -0.1358,
+            "y": 0.0002,
+            "z": 0.4951
           },
           "area": "living_room",
           "fixed_type": "wooden_tray",
-          "label": "in",
-          "location": "wooden_tray.inside",
+          "label": "back",
+          "location": "wooden_tray.front_side",
           "modified": false,
           "object_type": "cream_cheese",
+          "order": 3,
+          "pose": {
+            "h": 0.0,
+            "p": 0.0,
+            "r": 0.0,
+            "x": -0.1358,
+            "y": 0.0002,
+            "z": 0.1
+          },
+          "scene": "LIVING_ROOM_SCENE4",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/back.json",
+          "table": "living_room_table"
+        },
+        {
+          "actual_pose": {
+            "x": 0.0039,
+            "y": 0.0004,
+            "z": 0.4992
+          },
+          "area": "living_room",
+          "fixed_type": "plate",
+          "label": "on",
+          "location": "plate.center",
+          "modified": false,
+          "object_type": "bbq_sauce",
           "order": 4,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0041,
-            "y": -0.003,
+            "x": 0.0039,
+            "y": 0.0004,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/in.json",
+          "scene": "LIVING_ROOM_SCENE5",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE5/plate/on.json",
           "table": "living_room_table"
         }
       ],
@@ -1431,8 +1431,8 @@
     },
     {
       "areas": [
-        "kitchen",
-        "living_room"
+        "floor",
+        "kitchen"
       ],
       "belongings": [
         "bbq_sauce",
@@ -1444,102 +1444,102 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.0003,
+            "x": 0.0,
             "y": -0.14,
-            "z": 0.4752
+            "z": 0.0697
           },
-          "area": "living_room",
-          "fixed_type": "wooden_tray",
+          "area": "floor",
+          "fixed_type": "basket",
           "label": "left",
-          "location": "wooden_tray.left_side",
+          "location": "basket.left_side",
           "modified": false,
-          "object_type": "tomato_sauce",
+          "object_type": "milk",
           "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0003,
+            "x": 0.0,
             "y": -0.14,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/left.json",
-          "table": "living_room_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/left.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": -0.1486,
-            "y": -0.3,
-            "z": 0.9546
+            "x": 0.2111,
+            "y": -0.3004,
+            "z": 0.9384
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "back",
-          "location": "cabinet.front_side",
+          "label": "middle_front",
+          "location": "cabinet.middle_drawer.back_side",
           "modified": false,
-          "object_type": "bbq_sauce",
+          "object_type": "tomato_sauce",
           "order": 2,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.1486,
-            "y": 0.0,
+            "x": 0.2111,
+            "y": -0.0004,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/back.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/middle_front.json",
           "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": -0.0022,
-            "y": 0.0014,
-            "z": 0.5142
+            "x": -0.0112,
+            "y": 0.0006,
+            "z": 0.0716
           },
-          "area": "living_room",
-          "fixed_type": "wooden_tray",
+          "area": "floor",
+          "fixed_type": "basket",
           "label": "in",
-          "location": "wooden_tray.inside",
+          "location": "basket.inside",
           "modified": false,
-          "object_type": "orange_juice",
+          "object_type": "bbq_sauce",
           "order": 3,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0022,
-            "y": 0.0014,
+            "x": -0.0112,
+            "y": 0.0006,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/in.json",
-          "table": "living_room_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/in.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": 0.259,
-            "y": -0.2338,
+            "x": 0.2268,
+            "y": -0.2351,
             "z": 0.9697
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "bottom",
-          "location": "cabinet.bottom_drawer.inside",
+          "label": "on",
+          "location": "cabinet.top_surface",
           "modified": false,
-          "object_type": "milk",
+          "object_type": "orange_juice",
           "order": 4,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.259,
-            "y": 0.0662,
+            "x": 0.2268,
+            "y": 0.0649,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/bottom.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/on.json",
           "table": "kitchen_table"
         }
       ],
@@ -1547,8 +1547,8 @@
     },
     {
       "areas": [
-        "kitchen",
-        "study"
+        "floor",
+        "living_room"
       ],
       "belongings": [
         "butter",
@@ -1560,110 +1560,110 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.2451,
-            "y": -0.2505,
-            "z": 0.9087
+            "x": -0.0,
+            "y": 0.14,
+            "z": 0.0131
           },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "bottom",
-          "location": "cabinet.bottom_drawer.inside",
+          "area": "floor",
+          "fixed_type": "basket",
+          "label": "right",
+          "location": "basket.right_side",
           "modified": false,
-          "object_type": "butter",
+          "object_type": "chocolate_pudding",
           "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2451,
-            "y": 0.0495,
+            "x": -0.0,
+            "y": 0.14,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/bottom.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/right.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": -0.3386,
-            "y": -0.1399,
-            "z": 0.9633
+            "x": 0.003,
+            "y": -0.0009,
+            "z": 0.5142
           },
-          "area": "study",
-          "fixed_type": "desk_caddy",
-          "label": "front",
-          "location": "desk_caddy.front_side",
+          "area": "living_room",
+          "fixed_type": "wooden_tray",
+          "label": "in",
+          "location": "wooden_tray.inside",
           "modified": false,
-          "object_type": "red_coffee_mug",
+          "object_type": "milk",
           "order": 2,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.1386,
-            "y": 0.0001,
+            "x": 0.003,
+            "y": -0.0009,
             "z": 0.1
           },
-          "scene": "STUDY_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/desk_caddy/front.json",
-          "table": "study_table"
+          "scene": "LIVING_ROOM_SCENE4",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/in.json",
+          "table": "living_room_table"
         },
         {
           "actual_pose": {
-            "x": 1.1795,
-            "y": -0.3,
-            "z": 0.0131
+            "x": -0.1236,
+            "y": -0.0096,
+            "z": 0.4725
           },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "front",
-          "location": "cabinet.back_side",
+          "area": "living_room",
+          "fixed_type": "wooden_tray",
+          "label": "back",
+          "location": "wooden_tray.front_side",
           "modified": false,
-          "object_type": "chocolate_pudding",
+          "object_type": "red_coffee_mug",
           "order": 3,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 1.1795,
-            "y": 0.0,
+            "x": -0.1236,
+            "y": -0.0096,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/front.json",
-          "table": "kitchen_table"
+          "scene": "LIVING_ROOM_SCENE4",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/back.json",
+          "table": "living_room_table"
         },
         {
           "actual_pose": {
-            "x": -0.06,
+            "x": 0.0,
             "y": -0.14,
-            "z": 0.9549
+            "z": 0.0087
           },
-          "area": "study",
-          "fixed_type": "desk_caddy",
-          "label": "back",
-          "location": "desk_caddy.back_side",
+          "area": "floor",
+          "fixed_type": "basket",
+          "label": "left",
+          "location": "basket.left_side",
           "modified": false,
-          "object_type": "milk",
+          "object_type": "butter",
           "order": 4,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.14,
-            "y": -0.0,
+            "x": 0.0,
+            "y": -0.14,
             "z": 0.1
           },
-          "scene": "STUDY_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/desk_caddy/back.json",
-          "table": "study_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/left.json",
+          "table": "floor"
         }
       ],
       "user_id": "user_014"
     },
     {
       "areas": [
-        "living_room",
+        "floor",
         "study"
       ],
       "belongings": [
@@ -1676,11 +1676,11 @@
       "placements": [
         {
           "actual_pose": {
-            "x": -0.0037,
-            "y": 0.0044,
-            "z": 0.4625
+            "x": -0.0043,
+            "y": 0.0164,
+            "z": 0.0257
           },
-          "area": "living_room",
+          "area": "floor",
           "fixed_type": "basket",
           "label": "in",
           "location": "basket.inside",
@@ -1691,19 +1691,19 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0037,
-            "y": 0.0044,
+            "x": -0.0043,
+            "y": 0.0164,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE1",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE1/basket/in.json",
-          "table": "living_room_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/in.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": -0.3533,
+            "x": -0.3568,
             "y": -0.14,
-            "z": 0.9711
+            "z": 0.9729
           },
           "area": "study",
           "fixed_type": "desk_caddy",
@@ -1716,7 +1716,7 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.1533,
+            "x": -0.1568,
             "y": 0.0,
             "z": 0.1
           },
@@ -1726,14 +1726,14 @@
         },
         {
           "actual_pose": {
-            "x": -0.1401,
-            "y": 0.0001,
-            "z": 0.5272
+            "x": -0.14,
+            "y": -0.0,
+            "z": 0.0094
           },
-          "area": "living_room",
-          "fixed_type": "wooden_tray",
+          "area": "floor",
+          "fixed_type": "floor",
           "label": "back",
-          "location": "wooden_tray.front_side",
+          "location": "floor.front_side",
           "modified": false,
           "object_type": "cookies",
           "order": 3,
@@ -1741,24 +1741,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.1401,
-            "y": 0.0001,
+            "x": -0.14,
+            "y": -0.0,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/back.json",
-          "table": "living_room_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/back.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
             "x": -0.1997,
-            "y": -0.2799,
+            "y": 0.0001,
             "z": 0.9235
           },
           "area": "study",
           "fixed_type": "desk_caddy",
-          "label": "left",
-          "location": "desk_caddy.left_side",
+          "label": "right",
+          "location": "desk_caddy.right_side",
           "modified": false,
           "object_type": "tomato_sauce",
           "order": 4,
@@ -1767,11 +1767,11 @@
             "p": 0.0,
             "r": 0.0,
             "x": 0.0003,
-            "y": -0.1399,
+            "y": 0.1401,
             "z": 0.1
           },
           "scene": "STUDY_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/desk_caddy/left.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/desk_caddy/right.json",
           "table": "study_table"
         }
       ],
@@ -1798,8 +1798,8 @@
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "left",
-          "location": "cabinet.left_side",
+          "label": "top_left",
+          "location": "cabinet.top_drawer.left_side",
           "modified": false,
           "object_type": "cream_cheese",
           "order": 1,
@@ -1811,20 +1811,20 @@
             "y": -0.14,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/left.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/top_left.json",
           "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": 4.9419,
-            "y": -0.1174,
-            "z": 0.0262
+            "x": -0.0,
+            "y": 0.14,
+            "z": 0.5065
           },
           "area": "living_room",
           "fixed_type": "wooden_tray",
-          "label": "front",
-          "location": "wooden_tray.back_side",
+          "label": "right",
+          "location": "wooden_tray.right_side",
           "modified": false,
           "object_type": "orange_juice",
           "order": 2,
@@ -1832,24 +1832,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 4.9419,
-            "y": -0.1174,
+            "x": -0.0,
+            "y": 0.14,
             "z": 0.1
           },
           "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/front.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/right.json",
           "table": "living_room_table"
         },
         {
           "actual_pose": {
-            "x": 0.2451,
-            "y": -0.2505,
-            "z": 0.9087
+            "x": 0.1493,
+            "y": -0.3,
+            "z": 0.9278
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "in",
-          "location": "cabinet.bottom_drawer.inside",
+          "label": "top_front",
+          "location": "cabinet.top_drawer.back_side",
           "modified": false,
           "object_type": "butter",
           "order": 3,
@@ -1857,24 +1857,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2451,
-            "y": 0.0495,
+            "x": 0.1493,
+            "y": 0.0,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/in.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/top_front.json",
           "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": 0.0062,
-            "y": -0.0315,
-            "z": 0.4537
+            "x": 0.0049,
+            "y": -0.0021,
+            "z": 0.444
           },
           "area": "living_room",
           "fixed_type": "wooden_tray",
-          "label": "back",
-          "location": "wooden_tray.front_side",
+          "label": "in",
+          "location": "wooden_tray.inside",
           "modified": false,
           "object_type": "glazed_rim_porcelain_ramekin",
           "order": 4,
@@ -1882,12 +1882,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0062,
-            "y": -0.0315,
+            "x": 0.0049,
+            "y": -0.0021,
             "z": 0.1
           },
           "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/back.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/in.json",
           "table": "living_room_table"
         }
       ],
@@ -1908,14 +1908,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": -0.0035,
-            "y": -0.0039,
-            "z": 0.9184
+            "x": 0.0,
+            "y": -0.44,
+            "z": 0.9087
           },
           "area": "kitchen",
-          "fixed_type": "plate",
-          "label": "on",
-          "location": "plate.center",
+          "fixed_type": "wooden_cabinet",
+          "label": "top_left",
+          "location": "cabinet.top_drawer.left_side",
           "modified": false,
           "object_type": "butter",
           "order": 1,
@@ -1923,24 +1923,24 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0035,
-            "y": -0.0039,
+            "x": 0.0,
+            "y": -0.14,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE5",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE5/plate/on.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/top_left.json",
           "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": -0.0,
-            "y": -0.16,
+            "x": 0.1696,
+            "y": -0.3,
             "z": 0.9724
           },
           "area": "kitchen",
           "fixed_type": "wooden_cabinet",
-          "label": "right",
-          "location": "cabinet.right_side",
+          "label": "top_front",
+          "location": "cabinet.top_drawer.back_side",
           "modified": false,
           "object_type": "ketchup",
           "order": 2,
@@ -1948,12 +1948,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0,
-            "y": 0.14,
+            "x": 0.1696,
+            "y": 0.0,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/right.json",
+          "scene": "KITCHEN_SCENE1",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE1/wooden_cabinet/top_front.json",
           "table": "kitchen_table"
         },
         {
@@ -2024,14 +2024,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": -0.0,
-            "y": -0.14,
+            "x": 0.14,
+            "y": 0.0,
             "z": 0.5065
           },
           "area": "living_room",
-          "fixed_type": "wooden_tray",
-          "label": "left",
-          "location": "wooden_tray.left_side",
+          "fixed_type": "plate",
+          "label": "front",
+          "location": "plate.back_side",
           "modified": false,
           "object_type": "orange_juice",
           "order": 1,
@@ -2039,18 +2039,18 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0,
-            "y": -0.14,
+            "x": 0.14,
+            "y": 0.0,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/left.json",
+          "scene": "LIVING_ROOM_SCENE5",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE5/plate/front.json",
           "table": "living_room_table"
         },
         {
           "actual_pose": {
-            "x": -0.0039,
-            "y": 0.0012,
+            "x": 0.0009,
+            "y": -0.0008,
             "z": 0.4576
           },
           "area": "living_room",
@@ -2064,12 +2064,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0039,
-            "y": 0.0012,
+            "x": 0.0009,
+            "y": -0.0008,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/in.json",
+          "scene": "LIVING_ROOM_SCENE3",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE3/wooden_tray/in.json",
           "table": "living_room_table"
         },
         {
@@ -2099,14 +2099,14 @@
         },
         {
           "actual_pose": {
-            "x": 0.1402,
-            "y": 0.0,
+            "x": 0.0002,
+            "y": 0.14,
             "z": 0.8852
           },
           "area": "study",
           "fixed_type": "study_table",
-          "label": "front",
-          "location": "study_table.back_side",
+          "label": "right",
+          "location": "study_table.right_side",
           "modified": false,
           "object_type": "white_yellow_mug",
           "order": 4,
@@ -2114,12 +2114,12 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.1402,
-            "y": 0.0,
+            "x": 0.0002,
+            "y": 0.14,
             "z": 0.1
           },
           "scene": "STUDY_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/study_table/front.json",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/study_table/right.json",
           "table": "study_table"
         }
       ],
@@ -2127,8 +2127,8 @@
     },
     {
       "areas": [
-        "kitchen",
-        "living_room"
+        "floor",
+        "kitchen"
       ],
       "belongings": [
         "cookies",
@@ -2140,14 +2140,14 @@
       "placements": [
         {
           "actual_pose": {
-            "x": -0.14,
-            "y": -0.0,
-            "z": 0.9697
+            "x": 0.0,
+            "y": 0.14,
+            "z": 0.0697
           },
-          "area": "kitchen",
-          "fixed_type": "plate",
-          "label": "back",
-          "location": "plate.front_side",
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "right",
+          "location": "floor.right_side",
           "modified": false,
           "object_type": "milk",
           "order": 1,
@@ -2155,74 +2155,74 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.14,
-            "y": -0.0,
+            "x": 0.0,
+            "y": 0.14,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE2/plate/back.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/right.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": -0.0,
-            "y": -0.14,
-            "z": 0.5095
+            "x": -0.1513,
+            "y": -0.3029,
+            "z": 0.8989
           },
-          "area": "living_room",
-          "fixed_type": "wooden_tray",
-          "label": "left",
-          "location": "wooden_tray.left_side",
+          "area": "kitchen",
+          "fixed_type": "wooden_cabinet",
+          "label": "bottom_back",
+          "location": "cabinet.bottom_drawer.front_side",
           "modified": false,
-          "object_type": "salad_dressing",
+          "object_type": "wine_bottle",
           "order": 2,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": -0.0,
-            "y": -0.14,
+            "x": -0.1513,
+            "y": -0.0029,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/left.json",
-          "table": "living_room_table"
+          "scene": "KITCHEN_SCENE10",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/bottom_back.json",
+          "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": 0.0,
-            "y": 0.14,
-            "z": 0.4356
+            "x": 0.2546,
+            "y": -0.2521,
+            "z": 0.9727
           },
-          "area": "living_room",
-          "fixed_type": "wooden_tray",
-          "label": "right",
-          "location": "wooden_tray.right_side",
+          "area": "kitchen",
+          "fixed_type": "wooden_cabinet",
+          "label": "bottom",
+          "location": "cabinet.bottom_drawer.inside",
           "modified": false,
-          "object_type": "wine_bottle",
+          "object_type": "salad_dressing",
           "order": 3,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0,
-            "y": 0.14,
+            "x": 0.2546,
+            "y": 0.0479,
             "z": 0.1
           },
-          "scene": "LIVING_ROOM_SCENE4",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE4/wooden_tray/right.json",
-          "table": "living_room_table"
+          "scene": "KITCHEN_SCENE10",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/bottom.json",
+          "table": "kitchen_table"
         },
         {
           "actual_pose": {
-            "x": 0.2603,
-            "y": -0.2533,
-            "z": 0.9094
+            "x": 0.24,
+            "y": -0.24,
+            "z": 0.0094
           },
-          "area": "kitchen",
-          "fixed_type": "wooden_cabinet",
-          "label": "top",
-          "location": "cabinet.top_drawer.inside",
+          "area": "floor",
+          "fixed_type": "floor",
+          "label": "on",
+          "location": "floor.center",
           "modified": false,
           "object_type": "cookies",
           "order": 4,
@@ -2230,21 +2230,21 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.2603,
-            "y": 0.0467,
+            "x": 0.24,
+            "y": -0.24,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE10",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE10/wooden_cabinet/top.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/on.json",
+          "table": "floor"
         }
       ],
       "user_id": "user_019"
     },
     {
       "areas": [
-        "kitchen",
-        "study"
+        "floor",
+        "living_room"
       ],
       "belongings": [
         "cream_cheese",
@@ -2256,39 +2256,39 @@
       "placements": [
         {
           "actual_pose": {
-            "x": 0.0209,
-            "y": -0.2612,
-            "z": 0.8852
+            "x": 0.2369,
+            "y": -0.24,
+            "z": 0.0089
           },
-          "area": "study",
-          "fixed_type": "study_table",
+          "area": "floor",
+          "fixed_type": "floor",
           "label": "on",
-          "location": "study_table.center",
+          "location": "floor.center",
           "modified": false,
-          "object_type": "white_yellow_mug",
+          "object_type": "cream_cheese",
           "order": 1,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0209,
-            "y": -0.2612,
+            "x": 0.2369,
+            "y": -0.24,
             "z": 0.1
           },
-          "scene": "STUDY_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/study_table/on.json",
-          "table": "study_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/floor/on.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": 0.0,
-            "y": -0.1401,
-            "z": 0.887
+            "x": -0.14,
+            "y": -0.0001,
+            "z": 0.4386
           },
-          "area": "study",
-          "fixed_type": "study_table",
-          "label": "left",
-          "location": "study_table.left_side",
+          "area": "living_room",
+          "fixed_type": "plate",
+          "label": "back",
+          "location": "plate.front_side",
           "modified": false,
           "object_type": "red_coffee_mug",
           "order": 2,
@@ -2296,63 +2296,63 @@
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.0,
-            "y": -0.1401,
+            "x": -0.14,
+            "y": -0.0001,
             "z": 0.1
           },
-          "scene": "STUDY_SCENE3",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/STUDY_SCENE3/study_table/left.json",
-          "table": "study_table"
+          "scene": "LIVING_ROOM_SCENE5",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE5/plate/back.json",
+          "table": "living_room_table"
         },
         {
           "actual_pose": {
             "x": -0.14,
-            "y": 0.0,
-            "z": 0.9089
+            "y": -0.0,
+            "z": 0.0724
           },
-          "area": "kitchen",
-          "fixed_type": "plate",
+          "area": "floor",
+          "fixed_type": "basket",
           "label": "back",
-          "location": "plate.front_side",
+          "location": "basket.front_side",
           "modified": false,
-          "object_type": "cream_cheese",
+          "object_type": "ketchup",
           "order": 3,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
             "x": -0.14,
-            "y": 0.0,
+            "y": -0.0,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE2/plate/back.json",
-          "table": "kitchen_table"
+          "scene": "FLOOR_SCENE",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/FLOOR_SCENE/basket/back.json",
+          "table": "floor"
         },
         {
           "actual_pose": {
-            "x": 0.14,
+            "x": -0.1399,
             "y": -0.0,
-            "z": 0.9724
+            "z": 0.4369
           },
-          "area": "kitchen",
-          "fixed_type": "plate",
-          "label": "front",
-          "location": "plate.back_side",
+          "area": "living_room",
+          "fixed_type": "living_room_table",
+          "label": "back",
+          "location": "living_room_table.front_side",
           "modified": false,
-          "object_type": "ketchup",
+          "object_type": "white_yellow_mug",
           "order": 4,
           "pose": {
             "h": 0.0,
             "p": 0.0,
             "r": 0.0,
-            "x": 0.14,
+            "x": -0.1399,
             "y": -0.0,
             "z": 0.1
           },
-          "scene": "KITCHEN_SCENE2",
-          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/KITCHEN_SCENE2/plate/front.json",
-          "table": "kitchen_table"
+          "scene": "LIVING_ROOM_SCENE6",
+          "source_file": "/home/artemis/Documents/VLAPB/libero/scripts/data_generation/possible_spawn_positions/LIVING_ROOM_SCENE6/living_room_table/back.json",
+          "table": "living_room_table"
         }
       ],
       "user_id": "user_020"

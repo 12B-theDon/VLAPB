@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the bbq_sauce belonging to user_012 and place it at the front of the wooden_tray)
+  (:language Pick the alphabet_soup belonging to user_009 and place it at the front of the wooden_tray)
     (:regions
       (wooden_tray_left_left_region
           (:target living_room_table)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (wooden_cabinet_right_right_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -49,29 +49,29 @@
 
   (:fixtures
     living_room_table - living_room_table
-    wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
     akita_black_bowl_1 - akita_black_bowl
-    bbq_sauce_1 - bbq_sauce
+    alphabet_soup_1 - alphabet_soup
     wooden_tray_left - wooden_tray
+    basket_right - basket
   )
 
   (:obj_of_interest
-    bbq_sauce_1
+    alphabet_soup_1
     wooden_tray_left
   )
 
   (:init
     (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
-    (On bbq_sauce_1 living_room_table_target_object_init_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On alphabet_soup_1 living_room_table_target_object_init_region)
     (On akita_black_bowl_1 living_room_table_distractor_object_init_region)
   )
 
   (:goal
-    (And (AtXY bbq_sauce_1 living_room_table_placement_goal_region))
+    (And (AtXY alphabet_soup_1 living_room_table_placement_goal_region))
   )
 
 )

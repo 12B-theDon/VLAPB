@@ -1,11 +1,11 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the cookies belonging to user_015 and place it at the back of the wooden_tray)
+  (:language Pick the milk belonging to user_014 and place it at the in of the wooden_tray)
     (:regions
-      (wooden_tray_left_left_region
+      (wooden_tray_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.2400 0.0200 -0.2000)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -13,10 +13,10 @@
             )
           )
       )
-      (white_cabinet_right_right_region
+      (basket_left_left_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
@@ -31,38 +31,34 @@
             )
           )
       )
-      (placement_goal_region
-          (:target living_room_table)
-          (:ranges (
-              (-0.1900 -0.3000 -0.0500 -0.1400)
-            )
-          )
+      (contain_region
+          (:target wooden_tray_right)
       )
     )
 
   (:fixtures
     living_room_table - living_room_table
-    white_cabinet_right - white_cabinet
   )
 
   (:objects
-    cookies_1 - cookies
-    wooden_tray_left - wooden_tray
+    milk_1 - milk
+    wooden_tray_right - wooden_tray
+    basket_left - basket
   )
 
   (:obj_of_interest
-    cookies_1
-    wooden_tray_left
+    milk_1
+    wooden_tray_right
   )
 
   (:init
-    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
-    (On white_cabinet_right living_room_table_white_cabinet_right_right_region)
-    (On cookies_1 living_room_table_target_object_init_region)
+    (On wooden_tray_right living_room_table_wooden_tray_right_right_region)
+    (On basket_left living_room_table_basket_left_left_region)
+    (On milk_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY cookies_1 living_room_table_placement_goal_region))
+    (And (In milk_1 wooden_tray_right_contain_region))
   )
 
 )

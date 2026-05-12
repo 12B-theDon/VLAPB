@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_002, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet, for user_018, pick the chocolate_pudding and place it at the in of the wooden_tray.)
+  (:language For user_002, pick the cookies and place it at the front of the microwave, for user_007, pick the chocolate_pudding and place it at the front of the wooden_tray.)
     (:regions
-      (wooden_cabinet_left_left_region
+      (microwave_left_left_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 -0.3200 0.0200 -0.2800)
@@ -38,39 +38,47 @@
             )
           )
       )
-      (bottom_region
-          (:target wooden_cabinet_left)
+      (placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.5000 0.2600 -0.1000)
+            )
+          )
       )
-      (contain_region
-          (:target wooden_tray_right)
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0400 0.0000 0.2800 0.4400)
+            )
+          )
       )
     )
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
+    microwave_left - microwave
   )
 
   (:objects
-    akita_black_bowl_1 - akita_black_bowl
     chocolate_pudding_1 - chocolate_pudding
+    cookies_1 - cookies
     wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    akita_black_bowl_1 chocolate_pudding_1
-    wooden_cabinet_left wooden_tray_right
+    cookies_1 chocolate_pudding_1
+    microwave_left wooden_tray_right
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On microwave_left kitchen_table_microwave_left_left_region)
     (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
-    (On akita_black_bowl_1 kitchen_table_target_object_init_region)
+    (On cookies_1 kitchen_table_target_object_init_region)
     (On chocolate_pudding_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In akita_black_bowl_1 wooden_cabinet_left_bottom_region) (In chocolate_pudding_1 wooden_tray_right_contain_region))
+    (And (AtXY cookies_1 kitchen_table_placement_goal_region) (AtXY chocolate_pudding_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

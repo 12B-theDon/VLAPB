@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the cookies belonging to user_011 and place it at the top of the wooden_cabinet)
+  (:language Pick the alphabet_soup belonging to user_008 and place it at the bottom_back of the white_cabinet)
     (:regions
-      (wooden_cabinet_left_left_region
+      (white_cabinet_left_left_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 -0.3200 0.0200 -0.2800)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (flat_stove_right_right_region
+      (basket_right_right_region
           (:target kitchen_table)
           (:ranges (
-              (-0.1400 0.2000 -0.1000 0.2400)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -38,36 +38,36 @@
             )
           )
       )
-      (top_region
-          (:target wooden_cabinet_left)
+      (bottom_region
+          (:target white_cabinet_left)
       )
     )
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
-    flat_stove_right - flat_stove
+    white_cabinet_left - white_cabinet
   )
 
   (:objects
+    alphabet_soup_1 - alphabet_soup
     butter_1 - butter
-    cookies_1 - cookies
+    basket_right - basket
   )
 
   (:obj_of_interest
-    cookies_1
-    wooden_cabinet_left
+    alphabet_soup_1
+    white_cabinet_left
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On flat_stove_right kitchen_table_flat_stove_right_right_region)
-    (On cookies_1 kitchen_table_target_object_init_region)
+    (On white_cabinet_left kitchen_table_white_cabinet_left_left_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On alphabet_soup_1 kitchen_table_target_object_init_region)
     (On butter_1 kitchen_table_distractor_object_init_region)
   )
 
   (:goal
-    (And (In cookies_1 wooden_cabinet_left_top_region))
+    (And (In alphabet_soup_1 white_cabinet_left_bottom_region))
   )
 
 )

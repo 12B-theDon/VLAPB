@@ -37,8 +37,43 @@ TASK_FAMILY = {
     "sequences": "sequence",
 }
 
-TEXT_VARIANT_ORDER = ("one_sentence", "four_sentence", "eight_sentence")
-DEFAULT_TEXT_VARIANTS = ("one_sentence",)
+TEXT_VARIANT_ORDER = ("keyword", "sentence", "paragraph", "one_sentence", "four_sentence", "eight_sentence")
+DEFAULT_TEXT_VARIANTS = ("sentence",)
+TEXT_VARIANT_ALIASES = {
+    "keyword": "keyword",
+    "sentence": "sentence",
+    "paragraph": "paragraph",
+    "one_sentence": "sentence",
+    "four_sentence": "paragraph",
+    "eight_sentence": "paragraph",
+}
+SPLIT_ORDER = (
+    "type1",
+    "type2",
+    "type3",
+    "type4",
+    "adaptability",
+    "multiuser",
+    "consistency",
+)
+FULL_DESIGNED_SPLIT_QUOTAS = {
+    ("belongings", "type1"): 1,
+    ("belongings", "type2"): 1,
+    ("belongings", "type3"): 1,
+    ("belongings", "adaptability"): 1,
+    ("belongings", "multiuser"): 1,
+    ("placements", "type1"): 1,
+    ("placements", "type2"): 1,
+    ("placements", "type3"): 1,
+    ("placements", "type4"): 1,
+    ("placements", "adaptability"): 1,
+    ("placements", "multiuser"): 1,
+    ("placements", "consistency"): 1,
+    ("sequences", "type1"): 1,
+    ("sequences", "type2"): 1,
+    ("sequences", "adaptability"): 1,
+    ("sequences", "consistency"): 1,
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -67,6 +102,50 @@ def existing_path(path: Path) -> str | None:
 
 def compact_object_name(name: str | None) -> str | None:
     return name.replace("_", " ") if isinstance(name, str) else name
+
+
+def object_token(name: str | None) -> str:
+    return str(name or "object")
+
+
+def fixture_token(name: str | None) -> str:
+    return str(name or "target")
+
+
+def placement_preposition(relation: str | None, fixture: str | None = None) -> str:
+    relation_text = str(relation or "").lower()
+    fixture_text = str(fixture or "").lower()
+    if relation_text == "in" or any(token in fixture_text for token in ("basket", "tray", "cabinet", "drawer", "shelf", "microwave")):
+        return "in"
+    return "on"
+
+
+def direct_task_input(metadata: dict[str, Any]) -> str:
+    suite = metadata.get("suite")
+    if suite == "sequences":
+        sequence = metadata.get("target_sequence") or metadata.get("graspable_objects") or []
+        sequence_text = ", ".join(object_token(item) for item in sequence)
+        fixture = fixture_token(metadata.get("fixture"))
+        prep = placement_preposition(metadata.get("relation"), fixture)
+        return f"Put the objects {prep} the {fixture} in this order: {sequence_text}"
+
+    target = object_token(metadata.get("target_object"))
+    if suite == "placements":
+        preference = metadata.get("preference") or {}
+        label = preference.get("label")
+        fixture = fixture_token(preference.get("fixed_type") or metadata.get("fixture"))
+        if label:
+            label_text = str(label)
+            if label_text in {"in", "inside"}:
+                return f"Pick the {target} and place it in the {fixture}"
+            if label_text in {"on", "top"}:
+                return f"Pick the {target} and place it on the {fixture}"
+            return f"Pick the {target} and place it at the {label} of the {fixture}"
+        return f"Pick the {target} and place it near the {fixture}"
+
+    fixture = fixture_token(metadata.get("fixture"))
+    prep = placement_preposition(metadata.get("relation"), fixture)
+    return f"Pick the {target} and place it {prep} the {fixture}"
 
 
 def expected_from_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
@@ -136,6 +215,64 @@ def visual_reference_items(visual: dict[str, Any] | None) -> list[dict[str, Any]
     return items
 
 
+def compact_keyword_injection(metadata: dict[str, Any]) -> str:
+    user = metadata.get("target_user")
+    suite = metadata.get("suite")
+    if suite == "belongings" and metadata.get("target_object"):
+        return f"{user}: {compact_object_name(metadata['target_object'])}"
+    if suite == "placements":
+        preference = metadata.get("preference") or {}
+        label = preference.get("label")
+        fixed_type = preference.get("fixed_type")
+        if label and fixed_type:
+            return f"{user}: {compact_object_name(label)} {compact_object_name(fixed_type)}"
+    if suite == "sequences" and metadata.get("sequence_strategy"):
+        return f"{user}: {compact_object_name(metadata['sequence_strategy'])}"
+    return f"{user}: profile cue"
+
+
+def profile_injection_variants(metadata: dict[str, Any], text: dict[str, Any] | None) -> dict[str, str]:
+    story_variants = (text or {}).get("story_variants") or {}
+    sentence = story_variants.get("one_sentence") or story_variants.get("sentence") or ""
+    paragraph = story_variants.get("eight_sentence") or story_variants.get("four_sentence") or sentence
+    keyword = story_variants.get("keyword") or compact_keyword_injection(metadata)
+    return {
+        "keyword": keyword,
+        "sentence": sentence,
+        "paragraph": paragraph,
+    }
+
+
+def normalize_text_variant(variant: str) -> str:
+    if variant not in TEXT_VARIANT_ALIASES:
+        raise ValueError(f"Unknown text variant {variant!r}; expected one of {TEXT_VARIANT_ORDER}")
+    return TEXT_VARIANT_ALIASES[variant]
+
+
+def visual_label_injection(visual: dict[str, Any] | None) -> str | None:
+    items = visual_reference_items(visual)
+    labels = [item["label"] for item in items if item.get("label")]
+    if not labels:
+        return None
+    return "Visual labels: " + ", ".join(labels)
+
+
+def compose_prompt(
+    task_input: str,
+    *,
+    profile_text: str | None = None,
+    profile_text_granularity: str | None = None,
+    visual_label: str | None = None,
+) -> str:
+    parts = [task_input]
+    if profile_text:
+        label = f"Profile injection ({profile_text_granularity})" if profile_text_granularity else "Profile injection"
+        parts.append(f"{label}: {profile_text}")
+    if visual_label:
+        parts.append(f"Visual injection: {visual_label}")
+    return "\n\n".join(parts)
+
+
 def make_condition(
     *,
     episode_id: str,
@@ -147,9 +284,11 @@ def make_condition(
     visual_path: Path | None,
     text_variant: str | None = None,
     textual_injection: str | None = None,
+    visual_label: str | None = None,
     visual: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     suffix = condition_type if text_variant is None else f"{condition_type}_{text_variant}"
+    task_input = direct_task_input(metadata)
     condition = {
         "condition_id": f"{episode_id}_{suffix}",
         "condition_type": condition_type,
@@ -162,7 +301,20 @@ def make_condition(
         "user_id": metadata.get("target_user"),
         "target_object": metadata.get("target_object"),
         "target_sequence": metadata.get("target_sequence"),
-        "task_instruction": metadata.get("language"),
+        "task_instruction": task_input,
+        "source_task_instruction": metadata.get("language"),
+        "general_task_input": task_input,
+        "profile_text_injection": textual_injection,
+        "profile_text_granularity": text_variant,
+        "visual_label_injection": visual_label,
+        "input_format": {
+            "general_task_input": task_input,
+            "profile_text_injection": textual_injection,
+            "profile_text_granularity": text_variant,
+            "visual_label_injection": visual_label,
+            "has_profile_text": textual_injection is not None,
+            "has_visual_label": visual_label is not None,
+        },
         "prompt": prompt,
         "text_variant": text_variant,
         "personalization_injection": textual_injection,
@@ -180,11 +332,14 @@ def make_condition(
             "reference_panel": None,
         }
         condition["reference_items"] = visual_reference_items(visual)
-    return {key: value for key, value in condition.items() if value is not None}
-
-
-def condition_prompt_with_text(task: str, injection: str) -> str:
-    return f"{injection}\n\n{task}" if injection else task
+    keep_null_keys = {
+        "profile_text_injection",
+        "profile_text_granularity",
+        "visual_label_injection",
+        "text_variant",
+        "personalization_injection",
+    }
+    return {key: value for key, value in condition.items() if value is not None or key in keep_null_keys}
 
 
 def conditions_for_episode(
@@ -198,7 +353,8 @@ def conditions_for_episode(
     text_variants: list[str],
 ) -> list[dict[str, Any]]:
     episode_id = metadata["episode_id"]
-    task = metadata.get("language") or ""
+    task = direct_task_input(metadata)
+    visual_label = visual_label_injection(visual)
     conditions = [
         make_condition(
             episode_id=episode_id,
@@ -211,51 +367,65 @@ def conditions_for_episode(
         )
     ]
 
-    story_variants = (text or {}).get("story_variants") or {}
+    injection_variants = profile_injection_variants(metadata, text)
     for variant in text_variants:
-        if variant not in story_variants:
+        granularity = normalize_text_variant(variant)
+        if granularity not in injection_variants or not injection_variants[granularity]:
             continue
-        injection = story_variants[variant]
+        injection = injection_variants[granularity]
         conditions.append(
             make_condition(
                 episode_id=episode_id,
                 condition_type="textual",
-                prompt=condition_prompt_with_text(task, injection),
+                prompt=compose_prompt(task, profile_text=injection, profile_text_granularity=granularity),
                 metadata=metadata,
                 metadata_path=metadata_path,
                 text_path=text_path,
                 visual_path=visual_path,
-                text_variant=variant,
+                text_variant=granularity,
                 textual_injection=injection,
             )
         )
 
     if visual:
-        visual_prompt = visual.get("general_input") or task
         conditions.append(
             make_condition(
                 episode_id=episode_id,
                 condition_type="visual",
-                prompt=visual_prompt,
+                prompt=compose_prompt(task, visual_label=visual_label),
                 metadata=metadata,
                 metadata_path=metadata_path,
                 text_path=text_path,
                 visual_path=visual_path,
+                visual_label=visual_label,
                 visual=visual,
             )
         )
-        conditions.append(
-            make_condition(
-                episode_id=episode_id,
-                condition_type="visual_textual",
-                prompt=visual.get("visual_textual_input") or visual_prompt,
-                metadata=metadata,
-                metadata_path=metadata_path,
-                text_path=text_path,
-                visual_path=visual_path,
-                visual=visual,
+        for variant in text_variants:
+            granularity = normalize_text_variant(variant)
+            if granularity not in injection_variants or not injection_variants[granularity]:
+                continue
+            injection = injection_variants[granularity]
+            conditions.append(
+                make_condition(
+                    episode_id=episode_id,
+                    condition_type="visual_textual",
+                    prompt=compose_prompt(
+                        task,
+                        profile_text=injection,
+                        profile_text_granularity=granularity,
+                        visual_label=visual_label,
+                    ),
+                    metadata=metadata,
+                    metadata_path=metadata_path,
+                    text_path=text_path,
+                    visual_path=visual_path,
+                    text_variant=granularity,
+                    textual_injection=injection,
+                    visual_label=visual_label,
+                    visual=visual,
+                )
             )
-        )
     return conditions
 
 
@@ -265,13 +435,88 @@ def iter_metadata_files(root: Path, suites: set[str]) -> list[Path]:
         suite_root = root / suite
         if not suite_root.exists():
             continue
-        paths.extend(sorted(suite_root.glob("*/metadata/*.json")))
+        seen_splits: set[str] = set()
+        for split in SPLIT_ORDER:
+            metadata_dir = suite_root / split / "metadata"
+            if not metadata_dir.exists():
+                continue
+            seen_splits.add(split)
+            paths.extend(sorted(metadata_dir.glob("*.json")))
+        for metadata_dir in sorted(suite_root.glob("*/metadata")):
+            if metadata_dir.parent.name in seen_splits:
+                continue
+            paths.extend(sorted(metadata_dir.glob("*.json")))
     return paths
+
+
+def regroup_episodes(episodes: list[dict[str, Any]]) -> dict[str, dict[str, list[dict[str, Any]]]]:
+    grouped: dict[str, dict[str, list[dict[str, Any]]]] = defaultdict(lambda: defaultdict(list))
+    for episode in episodes:
+        grouped[episode["task_family"]][episode["split"]].append(episode)
+    return grouped
+
+
+def parse_split_quotas(values: list[str] | None, preset: str | None = None) -> dict[tuple[str, str], int]:
+    quotas: dict[tuple[str, str], int] = {}
+    if preset == "full-designed":
+        quotas.update(FULL_DESIGNED_SPLIT_QUOTAS)
+    for value in values or []:
+        try:
+            suite_split, raw_count = value.split("=", 1)
+            suite, split = suite_split.split(":", 1)
+        except ValueError as exc:
+            raise ValueError(f"--split-quota must be formatted as suite:split=count, got {value!r}") from exc
+        count = int(raw_count)
+        if count < 0:
+            raise ValueError(f"--split-quota count must be non-negative, got {value!r}")
+        quotas[(normalize_suite(suite), split)] = count
+    return quotas
+
+
+def trim_episodes(
+    episodes: list[dict[str, Any]],
+    all_conditions: list[dict[str, Any]],
+    *,
+    limit: int | None,
+    limit_per_suite: int | None,
+    split_quotas: dict[tuple[str, str], int] | None,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, dict[str, list[dict[str, Any]]]]]:
+    if split_quotas:
+        counts: Counter[tuple[str, str]] = Counter()
+        trimmed = []
+        for episode in episodes:
+            key = (episode["suite"], episode["split"])
+            quota = split_quotas.get(key)
+            if quota is None or counts[key] >= quota:
+                continue
+            trimmed.append(episode)
+            counts[key] += 1
+        episodes = trimmed
+
+    if limit_per_suite is not None and limit_per_suite > 0:
+        counts: Counter[str] = Counter()
+        trimmed = []
+        for episode in episodes:
+            suite = episode["suite"]
+            if counts[suite] >= limit_per_suite:
+                continue
+            trimmed.append(episode)
+            counts[suite] += 1
+        episodes = trimmed
+
+    if limit is not None and limit > 0:
+        episodes = episodes[:limit]
+
+    allowed = {episode["episode_id"] for episode in episodes}
+    all_conditions = [condition for condition in all_conditions if condition["episode_id"] in allowed]
+    grouped = regroup_episodes(episodes)
+    return episodes, all_conditions, grouped
 
 
 def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
     suites = {normalize_suite(suite) for suite in args.suites}
     text_variants = args.text_variants or list(DEFAULT_TEXT_VARIANTS)
+    split_quotas = parse_split_quotas(args.split_quota, args.preset)
 
     episodes = []
     grouped: dict[str, dict[str, list[dict[str, Any]]]] = defaultdict(lambda: defaultdict(list))
@@ -332,20 +577,21 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
         except Exception as exc:  # keep builder useful on partially generated suites.
             skipped.append({"metadata_file": str(metadata_path), "reason": repr(exc)})
 
-    if args.limit is not None and args.limit > 0:
-        episodes = episodes[: args.limit]
-        allowed = {episode["episode_id"] for episode in episodes}
-        all_conditions = [condition for condition in all_conditions if condition["episode_id"] in allowed]
-        trimmed_grouped: dict[str, dict[str, list[dict[str, Any]]]] = defaultdict(lambda: defaultdict(list))
-        for episode in episodes:
-            trimmed_grouped[episode["task_family"]][episode["split"]].append(episode)
-        grouped = trimmed_grouped
+    episodes, all_conditions, grouped = trim_episodes(
+        episodes,
+        all_conditions,
+        limit=args.limit,
+        limit_per_suite=args.limit_per_suite,
+        split_quotas=split_quotas,
+    )
 
     summary = summarize_manifest(episodes, all_conditions, skipped)
     return {
         "schema_version": "vlapb_eval_manifest_v1",
         "suites_root": str(args.suites_root),
         "selected_suites": sorted(suites),
+        "preset": args.preset,
+        "split_quotas": {f"{suite}:{split}": count for (suite, split), count in sorted(split_quotas.items())},
         "text_variants": text_variants,
         "summary": summary,
         "episodes": episodes,
@@ -407,9 +653,27 @@ def parse_args() -> argparse.Namespace:
         default=list(DEFAULT_TEXT_VARIANTS),
         choices=list(TEXT_VARIANT_ORDER),
     )
+    parser.add_argument(
+        "--preset",
+        choices=("full-designed",),
+        default=None,
+        help="Use a named episode selection preset. full-designed selects one episode from every designed split.",
+    )
     parser.add_argument("--require-text", action="store_true")
     parser.add_argument("--require-visual", action="store_true")
     parser.add_argument("--limit", type=int, default=None, help="Optional global episode limit for smoke manifests.")
+    parser.add_argument(
+        "--limit-per-suite",
+        type=int,
+        default=None,
+        help="Optional per-suite episode limit, useful for balanced smoke manifests such as 5 per suite.",
+    )
+    parser.add_argument(
+        "--split-quota",
+        action="append",
+        default=None,
+        help="Select N episodes from one designed split, formatted as suite:split=count. May be repeated.",
+    )
     return parser.parse_args()
 
 

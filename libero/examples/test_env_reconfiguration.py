@@ -58,6 +58,7 @@ WORKSPACE_TYPES = {
     "living_room_table",
     "study_table",
     "coffee_table",
+    "floor",
 }
 
 # Prefer small / medium movable objects that already appear across LIBERO tasks.

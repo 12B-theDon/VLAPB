@@ -2,10 +2,10 @@
   "config": "/home/artemis/Documents/VLAPB/libero/scripts/suites/VLAPB_config.yaml",
   "configured_total_episodes": 1000,
   "counts": {
-    "adaptability": 10,
-    "consistency": 30,
-    "type1": 40,
-    "type2": 40
+    "adaptability": 20,
+    "consistency": 60,
+    "type1": 80,
+    "type2": 80
   },
   "hyperparameters": {
     "adaptation_strategy_pairs": {
@@ -40,44 +40,71 @@
       ],
       "bbq_sauce": [
         "user_001",
-        "user_010"
+        "user_010",
+        "user_011",
+        "user_012",
+        "user_013"
       ],
       "butter": [
-        "user_001"
+        "user_001",
+        "user_014",
+        "user_015",
+        "user_016",
+        "user_017"
       ],
       "chocolate_pudding": [
         "user_002",
         "user_007",
-        "user_010"
+        "user_010",
+        "user_014",
+        "user_018"
       ],
       "cookies": [
         "user_002",
-        "user_008"
+        "user_008",
+        "user_011",
+        "user_015",
+        "user_019"
       ],
       "cream_cheese": [
         "user_002",
-        "user_009"
+        "user_009",
+        "user_012",
+        "user_016",
+        "user_020"
       ],
       "glazed_rim_porcelain_ramekin": [
         "user_003",
-        "user_007"
+        "user_007",
+        "user_011",
+        "user_016"
       ],
       "ketchup": [
         "user_003",
         "user_008",
-        "user_010"
+        "user_010",
+        "user_017",
+        "user_020"
       ],
       "milk": [
         "user_003",
-        "user_009"
+        "user_009",
+        "user_013",
+        "user_014",
+        "user_019"
       ],
       "new_salad_dressing": [
         "user_004",
-        "user_007"
+        "user_007",
+        "user_012",
+        "user_015"
       ],
       "orange_juice": [
         "user_004",
-        "user_008"
+        "user_008",
+        "user_013",
+        "user_016",
+        "user_018"
       ],
       "porcelain_mug": [
         "user_004",
@@ -85,22 +112,35 @@
         "user_010"
       ],
       "red_coffee_mug": [
-        "user_005"
+        "user_005",
+        "user_011",
+        "user_014",
+        "user_020"
       ],
       "salad_dressing": [
-        "user_005"
+        "user_005",
+        "user_012",
+        "user_017",
+        "user_018",
+        "user_019"
       ],
       "tomato_sauce": [
-        "user_005"
+        "user_005",
+        "user_013",
+        "user_015"
       ],
       "white_bowl": [
-        "user_006"
+        "user_006",
+        "user_017"
       ],
       "white_yellow_mug": [
-        "user_006"
+        "user_006",
+        "user_018",
+        "user_020"
       ],
       "wine_bottle": [
-        "user_006"
+        "user_006",
+        "user_019"
       ]
     },
     "scene_variants": [
@@ -137,25 +177,25 @@
   "libero_objects": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "output_root": "/home/artemis/Documents/VLAPB/VLAPB_suites",
   "planned_counts": {
-    "adaptability": 10,
-    "consistency": 30,
-    "type1": 40,
-    "type2": 40
+    "adaptability": 20,
+    "consistency": 60,
+    "type1": 80,
+    "type2": 80
   },
-  "planned_total": 120,
+  "planned_total": 240,
   "profiles": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
   "strategy_counts": {
-    "alphabetical": 2,
-    "even_positions_first": 1,
-    "fixed_far_to_near": 1,
-    "fixed_near_to_far": 1,
-    "left_to_right": 1,
-    "odd_positions_first": 1,
-    "reverse_alphabetical": 2,
-    "right_to_left": 1
+    "alphabetical": 3,
+    "even_positions_first": 2,
+    "fixed_far_to_near": 3,
+    "fixed_near_to_far": 3,
+    "left_to_right": 2,
+    "odd_positions_first": 2,
+    "reverse_alphabetical": 3,
+    "right_to_left": 2
   },
   "suite": "sequences",
-  "total": 120,
+  "total": 240,
   "user_seen_unseen_counts": {
     "user_001": {
       "seen": 3,
@@ -196,7 +236,47 @@
     "user_010": {
       "seen": 3,
       "unseen": 1
+    },
+    "user_011": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_012": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_013": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_014": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_015": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_016": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_017": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_018": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_019": {
+      "seen": 3,
+      "unseen": 1
+    },
+    "user_020": {
+      "seen": 3,
+      "unseen": 1
     }
   },
-  "written": 120
+  "written": 240
 }

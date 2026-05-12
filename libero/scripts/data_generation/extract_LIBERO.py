@@ -28,6 +28,7 @@ DEFAULT_DATA_ROOT = Path("/home/artemis/libero_data")
 DEFAULT_BDDL_ROOT = LIBERO_REPO_ROOT / "libero" / "libero" / "bddl_files"
 DEFAULT_OUTPUT = VLAPB_LIBERO_ROOT / "docs" / "libero_objects.json"
 DEFAULT_SUMMARY_OUTPUT = VLAPB_LIBERO_ROOT / "docs" / "libero_objects_summary.md"
+FLOOR_SCENE = "FLOOR_SCENE"
 
 DATASETS = {
     "libero_10": DEFAULT_DATA_ROOT / "libero_10",
@@ -363,6 +364,8 @@ def relation_marks(predicate: str, target_ref: str, fixed: Entity | None) -> lis
 def build_task(dataset: str, hdf5_path: Path, bddl_path: Path, attrs: dict[str, Any], parsed: dict[str, Any]) -> dict[str, Any]:
     task_id = f"{dataset}:{strip_demo_suffix(hdf5_path)}"
     scene = normalize_scene(strip_demo_suffix(hdf5_path))
+    if scene is None and parsed.get("problem") == "LIBERO_Floor_Manipulation":
+        scene = FLOOR_SCENE
     entities: dict[str, Entity] = parsed["entities"]
     regions = parsed["regions"]
     locations = init_locations(parsed["init"], regions, entities)
@@ -456,6 +459,8 @@ def aggregate_objects(tasks: list[dict[str, Any]]) -> tuple[list[dict[str, Any]]
 
 def scene_area(scene: str | None, dataset: str) -> str:
     if scene:
+        if scene == FLOOR_SCENE:
+            return "floor"
         if scene.startswith("KITCHEN_"):
             return "kitchen"
         if scene.startswith("STUDY_"):

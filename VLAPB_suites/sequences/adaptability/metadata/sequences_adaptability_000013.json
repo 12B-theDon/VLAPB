@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "orange_juice",
+      "milk",
+      "bbq_sauce"
+    ],
+    "previous_strategy": "left_to_right",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "bbq_sauce",
+      "milk",
+      "orange_juice"
+    ],
+    "same_scene": "KITCHEN_SCENE1",
+    "same_table": "kitchen_table",
+    "updated_sequence": [
+      "bbq_sauce",
+      "milk",
+      "orange_juice"
+    ],
+    "updated_strategy": "right_to_left",
+    "user_id": "user_013"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000013.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000013",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "milk",
+    "orange_juice"
+  ],
+  "language": "After user_013's sequence preference changes from orange_juice, milk, bbq_sauce to bbq_sauce, milk, orange_juice, put the same objects into the wooden_tray in the new order: bbq_sauce, milk, orange_juice",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "milk": true,
+    "orange_juice": true
+  },
+  "ownership": {
+    "user_013": [
+      "bbq_sauce",
+      "milk",
+      "orange_juice"
+    ]
+  },
+  "participating_users": [
+    "user_013"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "right_to_left",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2331,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0418,
+      "y": 0.2293
+    },
+    {
+      "distance_to_tray": 0.2057,
+      "object_type": "milk",
+      "ordinal_position": 2,
+      "x": -0.2028,
+      "y": -0.0346
+    },
+    {
+      "distance_to_tray": 0.2382,
+      "object_type": "orange_juice",
+      "ordinal_position": 3,
+      "x": 0.1521,
+      "y": -0.1833
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "bbq_sauce",
+    "milk",
+    "orange_juice"
+  ],
+  "target_user": "user_013",
+  "task_type": "adaptability"
+}

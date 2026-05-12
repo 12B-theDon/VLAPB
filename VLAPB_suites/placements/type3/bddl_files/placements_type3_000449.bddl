@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the bbq_sauce belonging to user_011 and place it at the right of the wooden_cabinet)
+  (:language Pick the alphabet_soup belonging to user_008 and place it at the bottom_back of the white_cabinet)
     (:regions
-      (wooden_cabinet_left_left_region
+      (white_cabinet_left_left_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 -0.3200 0.0200 -0.2800)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (basket_right_right_region
+      (wooden_tray_right_right_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
@@ -38,40 +38,36 @@
             )
           )
       )
-      (placement_goal_region
-          (:target kitchen_table)
-          (:ranges (
-              (-0.1400 -0.2700 0.1400 0.0900)
-            )
-          )
+      (bottom_region
+          (:target white_cabinet_left)
       )
     )
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
+    white_cabinet_left - white_cabinet
   )
 
   (:objects
     alphabet_soup_1 - alphabet_soup
     bbq_sauce_1 - bbq_sauce
-    basket_right - basket
+    wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    bbq_sauce_1
-    wooden_cabinet_left
+    alphabet_soup_1
+    white_cabinet_left
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On basket_right kitchen_table_basket_right_right_region)
-    (On bbq_sauce_1 kitchen_table_target_object_init_region)
-    (On alphabet_soup_1 kitchen_table_distractor_object_init_region)
+    (On white_cabinet_left kitchen_table_white_cabinet_left_left_region)
+    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
+    (On alphabet_soup_1 kitchen_table_target_object_init_region)
+    (On bbq_sauce_1 kitchen_table_distractor_object_init_region)
   )
 
   (:goal
-    (And (AtXY bbq_sauce_1 kitchen_table_placement_goal_region))
+    (And (In alphabet_soup_1 white_cabinet_left_bottom_region))
   )
 
 )

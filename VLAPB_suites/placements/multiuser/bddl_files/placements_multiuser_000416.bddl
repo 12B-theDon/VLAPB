@@ -1,0 +1,80 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_014, pick the chocolate_pudding and place it at the right of the basket, for user_016, pick the cream_cheese and place it at the top_left of the wooden_cabinet.)
+    (:regions
+      (basket_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 -0.2400 0.0200 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (wooden_cabinet_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2800 0.0200 0.3200)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target floor)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target floor)
+          (:ranges (
+              (-0.1400 -0.1900 0.1400 0.1700)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_right)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+    wooden_cabinet_right - wooden_cabinet
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    cream_cheese_1 - cream_cheese
+    basket_left - basket
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1 cream_cheese_1
+    basket_left wooden_cabinet_right
+  )
+
+  (:init
+    (On basket_left floor_basket_left_left_region)
+    (On wooden_cabinet_right floor_wooden_cabinet_right_right_region)
+    (On chocolate_pudding_1 floor_target_object_init_region)
+    (On cream_cheese_1 floor_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY chocolate_pudding_1 floor_placement_goal_region) (In cream_cheese_1 wooden_cabinet_right_top_region))
+  )
+
+)

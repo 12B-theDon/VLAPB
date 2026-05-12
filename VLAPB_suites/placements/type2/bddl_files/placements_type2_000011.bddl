@@ -1,11 +1,11 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the bbq_sauce belonging to user_001 and place it at the back of the basket)
+  (:language Pick the alphabet_soup belonging to user_001 and place it at the front of the wooden_tray)
     (:regions
-      (basket_right_right_region
+      (wooden_tray_left_left_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2000 0.0200 0.2400)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
@@ -13,14 +13,14 @@
             )
           )
       )
-      (white_cabinet_left_left_region
+      (white_cabinet_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.3200 0.0200 -0.2800)
+              (-0.0200 0.2800 0.0200 0.3200)
             )
           )
           (:yaw_rotation (
-              (-3.1416 -3.1416)
+              (0.0000 0.0000)
             )
           )
       )
@@ -34,7 +34,7 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (-0.1900 0.1400 -0.0500 0.3000)
+              (-0.0200 -0.4200 0.2600 -0.0200)
             )
           )
       )
@@ -42,27 +42,27 @@
 
   (:fixtures
     living_room_table - living_room_table
-    white_cabinet_left - white_cabinet
+    white_cabinet_right - white_cabinet
   )
 
   (:objects
-    bbq_sauce_1 - bbq_sauce
-    basket_right - basket
+    alphabet_soup_1 - alphabet_soup
+    wooden_tray_left - wooden_tray
   )
 
   (:obj_of_interest
-    bbq_sauce_1
-    basket_right
+    alphabet_soup_1
+    wooden_tray_left
   )
 
   (:init
-    (On basket_right living_room_table_basket_right_right_region)
-    (On white_cabinet_left living_room_table_white_cabinet_left_left_region)
-    (On bbq_sauce_1 living_room_table_target_object_init_region)
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On white_cabinet_right living_room_table_white_cabinet_right_right_region)
+    (On alphabet_soup_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY bbq_sauce_1 living_room_table_placement_goal_region))
+    (And (AtXY alphabet_soup_1 living_room_table_placement_goal_region))
   )
 
 )

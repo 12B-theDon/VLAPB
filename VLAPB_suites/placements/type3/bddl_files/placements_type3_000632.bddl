@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the butter belonging to user_014 and place it at the bottom of the wooden_cabinet)
+  (:language Pick the ketchup belonging to user_010 and place it at the back of the wooden_two_layer_shelf)
     (:regions
-      (wooden_cabinet_right_right_region
+      (wooden_two_layer_shelf_right_right_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 0.2800 0.0200 0.3200)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (flat_stove_left_left_region
+      (basket_left_left_region
           (:target kitchen_table)
           (:ranges (
-              (-0.1400 -0.2400 -0.1000 -0.2000)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
@@ -38,36 +38,40 @@
             )
           )
       )
-      (bottom_region
-          (:target wooden_cabinet_right)
+      (placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2600 0.1000 0.0200 0.5000)
+            )
+          )
       )
     )
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_right - wooden_cabinet
-    flat_stove_left - flat_stove
+    wooden_two_layer_shelf_right - wooden_two_layer_shelf
   )
 
   (:objects
     alphabet_soup_1 - alphabet_soup
-    butter_1 - butter
+    ketchup_1 - ketchup
+    basket_left - basket
   )
 
   (:obj_of_interest
-    butter_1
-    wooden_cabinet_right
+    ketchup_1
+    wooden_two_layer_shelf_right
   )
 
   (:init
-    (On wooden_cabinet_right kitchen_table_wooden_cabinet_right_right_region)
-    (On flat_stove_left kitchen_table_flat_stove_left_left_region)
-    (On butter_1 kitchen_table_target_object_init_region)
+    (On wooden_two_layer_shelf_right kitchen_table_wooden_two_layer_shelf_right_right_region)
+    (On basket_left kitchen_table_basket_left_left_region)
+    (On ketchup_1 kitchen_table_target_object_init_region)
     (On alphabet_soup_1 kitchen_table_distractor_object_init_region)
   )
 
   (:goal
-    (And (In butter_1 wooden_cabinet_right_bottom_region))
+    (And (AtXY ketchup_1 kitchen_table_placement_goal_region))
   )
 
 )

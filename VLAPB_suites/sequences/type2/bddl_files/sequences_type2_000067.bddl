@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_017 into the wooden_tray in this order: butter, salad_dressing, white_bowl)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.0659 0.1617 0.1159 0.2117)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2396 -0.0026 -0.1896 0.0474)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (0.0759 -0.2510 0.1259 -0.2010)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+  )
+
+  (:objects
+    butter_1 - butter
+    salad_dressing_1 - salad_dressing
+    white_bowl_1 - white_bowl
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    butter_1 salad_dressing_1 white_bowl_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On butter_1 kitchen_table_object_init_region_0)
+    (On salad_dressing_1 kitchen_table_object_init_region_1)
+    (On white_bowl_1 kitchen_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In butter_1 wooden_tray_1_contain_region) (In salad_dressing_1 wooden_tray_1_contain_region) (In white_bowl_1 wooden_tray_1_contain_region))
+  )
+
+)

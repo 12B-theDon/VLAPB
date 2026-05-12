@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000043.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000043",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "glazed_rim_porcelain_ramekin",
+    "red_coffee_mug"
+  ],
+  "language": "Put the objects belonging to user_011 into the wooden_tray in this order: bbq_sauce, red_coffee_mug, glazed_rim_porcelain_ramekin",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "glazed_rim_porcelain_ramekin": true,
+    "red_coffee_mug": false
+  },
+  "ownership": {
+    "user_011": [
+      "bbq_sauce",
+      "glazed_rim_porcelain_ramekin",
+      "red_coffee_mug"
+    ]
+  },
+  "participating_users": [
+    "user_011"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2181,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.04,
+      "y": 0.2144
+    },
+    {
+      "distance_to_tray": 0.2617,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 2,
+      "x": -0.2582,
+      "y": -0.0429
+    },
+    {
+      "distance_to_tray": 0.2254,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 3,
+      "x": 0.1432,
+      "y": -0.1741
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "bbq_sauce",
+    "red_coffee_mug",
+    "glazed_rim_porcelain_ramekin"
+  ],
+  "target_user": "user_011",
+  "task_type": "type2"
+}

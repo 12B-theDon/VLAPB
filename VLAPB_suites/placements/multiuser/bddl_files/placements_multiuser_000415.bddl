@@ -1,20 +1,20 @@
-(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_013, pick the milk and place it at the bottom of the wooden_cabinet, for user_009, pick the alphabet_soup and place it at the in of the basket.)
+  (:language For user_014, pick the milk and place it at the in of the wooden_tray, for user_015, pick the butter and place it at the in of the basket.)
     (:regions
-      (wooden_cabinet_left_left_region
-          (:target kitchen_table)
+      (wooden_tray_left_left_region
+          (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.3200 0.0200 -0.2800)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
-              (-3.1416 -3.1416)
+              (0.0000 0.0000)
             )
           )
       )
       (basket_right_right_region
-          (:target kitchen_table)
+          (:target living_room_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
             )
@@ -25,21 +25,21 @@
           )
       )
       (target_object_init_region
-          (:target kitchen_table)
+          (:target living_room_table)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
       (secondary_object_init_region
-          (:target kitchen_table)
+          (:target living_room_table)
           (:ranges (
               (0.1300 -0.0200 0.1800 0.0300)
             )
           )
       )
-      (bottom_region
-          (:target wooden_cabinet_left)
+      (contain_region
+          (:target wooden_tray_left)
       )
       (contain_region
           (:target basket_right)
@@ -47,30 +47,30 @@
     )
 
   (:fixtures
-    kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
+    living_room_table - living_room_table
   )
 
   (:objects
-    alphabet_soup_1 - alphabet_soup
+    butter_1 - butter
     milk_1 - milk
+    wooden_tray_left - wooden_tray
     basket_right - basket
   )
 
   (:obj_of_interest
-    milk_1 alphabet_soup_1
-    wooden_cabinet_left basket_right
+    milk_1 butter_1
+    wooden_tray_left basket_right
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On basket_right kitchen_table_basket_right_right_region)
-    (On milk_1 kitchen_table_target_object_init_region)
-    (On alphabet_soup_1 kitchen_table_secondary_object_init_region)
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On milk_1 living_room_table_target_object_init_region)
+    (On butter_1 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In milk_1 wooden_cabinet_left_bottom_region) (In alphabet_soup_1 basket_right_contain_region))
+    (And (In milk_1 wooden_tray_left_contain_region) (In butter_1 basket_right_contain_region))
   )
 
 )

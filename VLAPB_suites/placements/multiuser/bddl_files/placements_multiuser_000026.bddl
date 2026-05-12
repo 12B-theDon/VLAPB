@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_002, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet, for user_003, pick the akita_black_bowl and place it at the in of the basket.)
+  (:language For user_001, pick the bbq_sauce and place it at the back of the wooden_two_layer_shelf, for user_009, pick the cream_cheese and place it at the front of the wooden_tray.)
     (:regions
-      (wooden_cabinet_left_left_region
+      (wooden_two_layer_shelf_left_left_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 -0.3200 0.0200 -0.2800)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (basket_right_right_region
+      (wooden_tray_right_right_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
@@ -38,38 +38,47 @@
             )
           )
       )
-      (bottom_region
-          (:target wooden_cabinet_left)
+      (placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2600 -0.5000 0.0200 -0.1000)
+            )
+          )
       )
-      (contain_region
-          (:target basket_right)
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0400 0.0000 0.2800 0.4400)
+            )
+          )
       )
     )
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
+    wooden_two_layer_shelf_left - wooden_two_layer_shelf
   )
 
   (:objects
-    akita_black_bowl_1 akita_black_bowl_2 - akita_black_bowl
-    basket_right - basket
+    bbq_sauce_1 - bbq_sauce
+    cream_cheese_1 - cream_cheese
+    wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    akita_black_bowl_1 akita_black_bowl_2
-    wooden_cabinet_left basket_right
+    bbq_sauce_1 cream_cheese_1
+    wooden_two_layer_shelf_left wooden_tray_right
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On basket_right kitchen_table_basket_right_right_region)
-    (On akita_black_bowl_1 kitchen_table_target_object_init_region)
-    (On akita_black_bowl_2 kitchen_table_secondary_object_init_region)
+    (On wooden_two_layer_shelf_left kitchen_table_wooden_two_layer_shelf_left_left_region)
+    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
+    (On bbq_sauce_1 kitchen_table_target_object_init_region)
+    (On cream_cheese_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In akita_black_bowl_1 wooden_cabinet_left_bottom_region) (In akita_black_bowl_2 basket_right_contain_region))
+    (And (AtXY bbq_sauce_1 kitchen_table_placement_goal_region) (AtXY cream_cheese_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

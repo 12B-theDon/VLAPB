@@ -1,11 +1,11 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the butter belonging to user_001 and place it at the front of the basket)
+  (:language Pick the porcelain_mug belonging to user_004 and place it at the right of the basket)
     (:regions
-      (basket_right_right_region
+      (basket_left_left_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2000 0.0200 0.2400)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
@@ -23,7 +23,7 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (0.0500 0.1400 0.1900 0.3000)
+              (-0.1400 -0.1900 0.1400 0.1700)
             )
           )
       )
@@ -34,22 +34,22 @@
   )
 
   (:objects
-    butter_1 - butter
-    basket_right - basket
+    porcelain_mug_1 - porcelain_mug
+    basket_left - basket
   )
 
   (:obj_of_interest
-    butter_1
-    basket_right
+    porcelain_mug_1
+    basket_left
   )
 
   (:init
-    (On basket_right living_room_table_basket_right_right_region)
-    (On butter_1 living_room_table_target_object_init_region)
+    (On basket_left living_room_table_basket_left_left_region)
+    (On porcelain_mug_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY butter_1 living_room_table_placement_goal_region))
+    (And (AtXY porcelain_mug_1 living_room_table_placement_goal_region))
   )
 
 )

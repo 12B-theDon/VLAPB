@@ -195,6 +195,92 @@ Multi-user setting:
 
 - Multi-user sequence tasks are not included for this suite.
 
+# Full Designed-Split Evaluation Set
+
+Use this workflow when you want to go through the originally designed task settings instead of taking the first five episodes from each suite. The smoke set below uses one episode from each selected split:
+
+- `belongings`: `type1`, `type2`, `type3`, `adaptability`, `multiuser`
+- `placements`: `type1`, `type2`, `type3`, `type4`, `adaptability`, `multiuser`, `consistency`
+- `sequences`: `type1`, `type2`, `adaptability`, `consistency`
+- Total: 16 tasks
+
+First generate or overwrite textual injection inputs for the same designed set:
+
+```bash
+python3 /home/artemis/Documents/VLAPB/libero/scripts/suites/generate_granularity_input.py \
+  --suites belongings placements sequences \
+  --preset full-designed \
+  --generation-mode gpt \
+  --gpt-fallback-template \
+  --overwrite \
+  --no-clean-stale \
+  --all-existing-metadata \
+  --verbose
+```
+
+Then build a designed-split manifest:
+
+```bash
+python3 /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/build_vlapb_manifest.py \
+  --suites object placement sequence \
+  --preset full-designed \
+  --text-variants one_sentence four_sentence eight_sentence \
+  --require-text \
+  --output /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/manifest_vlapb_full_designed.json
+```
+
+Inspect the selected tasks before launching policy evaluation:
+
+```bash
+python3 - <<'PY'
+import json
+from pathlib import Path
+
+manifest = json.loads(Path("/home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/manifest_vlapb_full_designed.json").read_text())
+for index, episode in enumerate(manifest["episodes"], start=1):
+    expected = episode.get("expected", {})
+    print(
+        f"{index:02d} {episode['episode_id']} "
+        f"suite={episode['suite']} split={episode['split']} "
+        f"target={expected.get('target_object') or expected.get('target_sequence')} "
+        f"fixture={expected.get('fixture')}"
+    )
+PY
+```
+
+Run all 16 tasks for one textual variant:
+
+```bash
+python3 /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/evaluation_pi05.py \
+  --manifest /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/manifest_vlapb_full_designed.json \
+  --checkpoint /home/artemis/libero_data/pi_checkpoints/openpi-assets/checkpoints/pi05_libero \
+  --output-dir /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/zeroshot_results/pi05 \
+  --run-id pi05_full_designed_one_sentence \
+  --modes plain textual \
+  --text-variant one_sentence \
+  --limit-trials 0 \
+  --save-videos none \
+  --no-resume
+```
+
+To go through each task one by one, pass one `--episode-id` at a time:
+
+```bash
+python3 /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/evaluation_pi05.py \
+  --manifest /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/manifest_vlapb_full_designed.json \
+  --checkpoint /home/artemis/libero_data/pi_checkpoints/openpi-assets/checkpoints/pi05_libero \
+  --output-dir /home/artemis/Documents/VLAPB/libero/evaluations/compare_injection_methods/zeroshot_results/pi05 \
+  --run-id pi05_belongings_type1_000001_one_sentence \
+  --modes plain textual \
+  --text-variant one_sentence \
+  --episode-id belongings_type1_000001 \
+  --limit-trials 0 \
+  --save-videos none \
+  --no-resume
+```
+
+Change only `--episode-id`, `--run-id`, and optionally `--text-variant` when stepping through the 16 tasks.
+
 # Future Work
 
 - Control the granularity of textual personal information, such as keyword-level, sentence-level, or paragraph-level descriptions.

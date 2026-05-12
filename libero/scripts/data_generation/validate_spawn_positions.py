@@ -28,6 +28,7 @@ for path in (TOOLS_DIR, EXAMPLES_DIR):
 
 from validate_profile_tools import (  # noqa: E402
     FINAL_SPEED_REVIEW_THRESHOLD,
+    click_anchor_pose,
     normalize_pose,
     render_pose_png,
     setup_logging,
@@ -95,6 +96,16 @@ def corrected_location(entry: dict[str, Any], fallback: str) -> str:
     return location
 
 
+
+def is_height_drop_only_auto_possible(result: dict[str, Any]) -> bool:
+    reason_parts = {part for part in str(result.get("reason", "")).split("+") if part}
+    return (
+        result.get("status") == "review"
+        and reason_parts == {"height_drop"}
+        and bool(result.get("velocity_stable"))
+        and float(result.get("final_speed", 999.0)) <= FINAL_SPEED_REVIEW_THRESHOLD
+    )
+
 class SpawnReviewStore:
     def __init__(
         self,
@@ -122,7 +133,7 @@ class SpawnReviewStore:
 
     def list_entries(self, source: str = "holded") -> list[dict[str, Any]]:
         root = self.source_root(source)
-        entries = []
+        groups: dict[tuple[str, str, str, str], dict[str, Any]] = {}
         for path in sorted(root.glob("*/*/*.json")):
             if path.name.startswith("_"):
                 continue
@@ -136,21 +147,37 @@ class SpawnReviewStore:
             for object_type, entry in sorted(data.items()):
                 if object_type.startswith("_") or not isinstance(entry, dict):
                     continue
-                entries.append(
-                    {
-                        "source": source,
-                        "path": str(rel),
-                        "scene": entry.get("scene", scene),
-                        "fixed_type": entry.get("fixed_type", fixed_type),
-                        "label": entry.get("label", label),
-                        "location": corrected_location(entry, f"{fixed_type}.{label}"),
-                        "object_type": entry.get("object_type", object_type),
-                        "status": entry.get("status"),
-                        "reason": entry.get("reason") or entry.get("simulation", {}).get("reason"),
-                        "pose": pose_from_entry(entry),
-                    }
-                )
-        return entries
+                reason = entry.get("reason") or entry.get("simulation", {}).get("reason") or ""
+                item = {
+                    "source": source,
+                    "path": str(rel),
+                    "scene": entry.get("scene", scene),
+                    "fixed_type": entry.get("fixed_type", fixed_type),
+                    "label": entry.get("label", label),
+                    "location": corrected_location(entry, f"{fixed_type}.{label}"),
+                    "object_type": entry.get("object_type", object_type),
+                    "status": entry.get("status"),
+                    "reason": reason,
+                    "pose": pose_from_entry(entry),
+                }
+                key = (str(item["fixed_type"]), str(item["label"]), str(item["object_type"]), str(reason))
+                member = {
+                    "source": source,
+                    "path": str(rel),
+                    "scene": item["scene"],
+                    "object_type": item["object_type"],
+                }
+                if key not in groups:
+                    item["group_key"] = "|".join(key)
+                    item["group_count"] = 0
+                    item["group_members"] = []
+                    item["group_scenes"] = []
+                    groups[key] = item
+                groups[key]["group_members"].append(member)
+                groups[key]["group_count"] += 1
+                if item["scene"] not in groups[key]["group_scenes"]:
+                    groups[key]["group_scenes"].append(item["scene"])
+        return list(groups.values())
 
     def load_entry(self, source: str, rel_path: str, object_type: str) -> tuple[Path, dict[str, Any]]:
         path = self.source_root(source) / rel_path
@@ -180,6 +207,32 @@ class SpawnReviewStore:
             "entry": {**entry, "location": location},
         }
 
+    def click_pose(
+        self,
+        source: str,
+        rel_path: str,
+        object_type: str,
+        pose: dict[str, float],
+        pixel_x: float,
+        pixel_y: float,
+    ) -> dict[str, Any]:
+        _path, entry = self.load_entry(source, rel_path, object_type)
+        pose = normalize_pose(pose)
+        location = corrected_location(entry, str(entry.get("location", "")))
+        new_pose = click_anchor_pose(
+            scene=str(entry["scene"]),
+            location=location,
+            object_type=str(entry["object_type"]),
+            current_pose=pose,
+            pixel_x=float(pixel_x),
+            pixel_y=float(pixel_y),
+            camera_name=self.camera_name,
+            image_size=self.image_size,
+            force_safe_object_init=True,
+        )
+        rendered = self.render(source, rel_path, object_type, new_pose)
+        return {**rendered, "pose": new_pose}
+
     def settle(self, source: str, rel_path: str, object_type: str, pose: dict[str, float]) -> dict[str, Any]:
         _source_path, entry = self.load_entry(source, rel_path, object_type)
         pose = normalize_pose(pose)
@@ -199,7 +252,14 @@ class SpawnReviewStore:
                 force_safe_object_init=True,
             )
             final_png = final_image_path.read_bytes()
-        stable = bool(result.get("velocity_stable")) and float(result.get("final_speed", 999.0)) <= FINAL_SPEED_REVIEW_THRESHOLD
+        stable = (
+            (
+                result.get("status") == "auto_possible"
+                and bool(result.get("velocity_stable"))
+                and float(result.get("final_speed", 999.0)) <= FINAL_SPEED_REVIEW_THRESHOLD
+            )
+            or is_height_drop_only_auto_possible(result)
+        )
         payload = {
             **entry,
             "location": location,
@@ -214,6 +274,7 @@ class SpawnReviewStore:
             "actual_pose": result.get("final_pose"),
             "start_pose": result.get("start_pose"),
             "simulation": result,
+            "height_drop_only_auto_accepted": is_height_drop_only_auto_possible(result),
             "timestamp": time.time(),
         }
         return {
@@ -222,26 +283,92 @@ class SpawnReviewStore:
             "image": "data:image/png;base64," + base64.b64encode(final_png).decode("ascii"),
         }
 
-    def confirm_save(self, source: str, rel_path: str, object_type: str, result: dict[str, Any]) -> dict[str, Any]:
-        source_path, entry = self.load_entry(source, rel_path, object_type)
-        payload = dict(result)
-        payload.setdefault("modified_from", {"source": source, "path": rel_path, "object_type": object_type})
-        stable = payload.get("status") == "possible"
-        if stable:
-            target_path = self.modified_dir / safe_name(str(entry["scene"])) / safe_name(str(entry["fixed_type"])) / f"{safe_name(str(entry['label']))}.json"
-            target_data = read_json(target_path)
-            target_data[str(entry["object_type"])] = payload
-            write_json(target_path, target_data)
-            if source == "holded":
-                source_data = read_json(source_path)
-                source_data.pop(object_type, None)
-                write_json(source_path, source_data)
-        else:
-            target_path = self.holded_dir / rel_path
-            target_data = read_json(target_path)
-            target_data[str(entry["object_type"])] = payload
-            write_json(target_path, target_data)
-        return {"stable": stable, "path": str(target_path), "result": payload}
+    def apply_group_result(
+        self,
+        source: str,
+        rel_path: str,
+        object_type: str,
+        result: dict[str, Any],
+        group_members: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
+        members = group_members or [{"source": source, "path": rel_path, "object_type": object_type}]
+        saved_paths = []
+        status = str(dict(result).get("status", "holded"))
+        stable = status == "possible"
+        impossible = status == "impossible"
+        for member in members:
+            member_source = str(member.get("source", source))
+            member_path = str(member.get("path", rel_path))
+            member_object = str(member.get("object_type", object_type))
+            source_path, entry = self.load_entry(member_source, member_path, member_object)
+            payload = {**entry, **dict(result)}
+            payload["scene"] = entry.get("scene")
+            payload["fixed_type"] = entry.get("fixed_type")
+            payload["label"] = entry.get("label")
+            payload["location"] = corrected_location(entry, str(entry.get("location", "")))
+            payload["object_type"] = entry.get("object_type", member_object)
+            payload["modified_from"] = {
+                "source": member_source,
+                "path": member_path,
+                "object_type": member_object,
+                "group_applied": len(members) > 1,
+            }
+            if stable:
+                target_path = self.modified_dir / safe_name(str(entry["scene"])) / safe_name(str(entry["fixed_type"])) / f"{safe_name(str(entry['label']))}.json"
+                target_data = read_json(target_path)
+                target_data[str(entry["object_type"])] = payload
+                write_json(target_path, target_data)
+                if member_source == "holded":
+                    source_data = read_json(source_path)
+                    source_data.pop(member_object, None)
+                    if source_data:
+                        write_json(source_path, source_data)
+                    elif source_path.exists():
+                        source_path.unlink()
+            else:
+                target_path = self.holded_dir / member_path
+                target_data = read_json(target_path)
+                target_data[str(entry["object_type"])] = payload
+                write_json(target_path, target_data)
+            saved_paths.append(str(target_path))
+        return {
+            "stable": stable,
+            "impossible": impossible,
+            "path": saved_paths[0] if saved_paths else "",
+            "paths": saved_paths,
+            "count": len(saved_paths),
+            "result": result,
+        }
+
+    def confirm_save(
+        self,
+        source: str,
+        rel_path: str,
+        object_type: str,
+        result: dict[str, Any],
+        group_members: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
+        return self.apply_group_result(source, rel_path, object_type, result, group_members)
+
+    def mark_impossible(
+        self,
+        source: str,
+        rel_path: str,
+        object_type: str,
+        group_members: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
+        _source_path, entry = self.load_entry(source, rel_path, object_type)
+        payload = {
+            **entry,
+            "status": "impossible",
+            "reason": "human_marked_impossible",
+            "human_review": {
+                "decision": "impossible",
+                "timestamp": time.time(),
+            },
+            "timestamp": time.time(),
+        }
+        return self.apply_group_result(source, rel_path, object_type, payload, group_members)
 
 
 HTML = r"""
@@ -264,6 +391,17 @@ HTML = r"""
     .pose { display: grid; grid-template-columns: repeat(6, 1fr); max-width: 720px; gap: 6px; }
     .pose div { background: #1d1d1d; padding: 8px; }
     .status { white-space: pre-wrap; color: #b7e3ff; }
+    .progress { display: none; max-width: 720px; margin: 10px 0; }
+    .progress.active { display: block; }
+    .progress-track { height: 8px; overflow: hidden; background: #242424; border: 1px solid #444; }
+    .progress-bar { width: 35%; height: 100%; background: #6db6ff; animation: loading-slide 1.1s ease-in-out infinite; }
+    .progress-label { margin-top: 6px; color: #b7e3ff; font-size: 14px; }
+    button:disabled { opacity: 0.45; cursor: wait; }
+    @keyframes loading-slide {
+      0% { transform: translateX(-110%); }
+      50% { transform: translateX(95%); }
+      100% { transform: translateX(310%); }
+    }
   </style>
 </head>
 <body>
@@ -277,15 +415,20 @@ HTML = r"""
   </aside>
   <section>
     <h2 id="title">Select an entry</h2>
-    <p>Keyboard: <code>W/A/S/D</code> move XY by 0.1m, <code>Z/X</code> move Z, <code>R/F</code> roll, <code>P/O</code> pitch, <code>H/J</code> heading by 90 degrees. Press <code>Enter</code> to settle 5s, then confirm before saving. Mouse: click list item to auto-spawn + 5s check, click image to re-run 5s check.</p>
+    <p>Keyboard: <code>W/A/S/D</code> move XY by 0.1m, <code>Z/X</code> move Z, <code>R/F</code> roll, <code>P/O</code> pitch, <code>H/J</code> heading by 90 degrees. Press <code>Enter</code> to settle 5s, then confirm before saving. Mouse: click image to place the object at that rendered location.</p>
     <div class="pose" id="pose"></div>
     <div>
       <button onclick="renderCurrent()">Render</button>
       <button onclick="settleCurrent()">Settle 5s</button>
       <button onclick="confirmSave()">Confirm Save</button>
+      <button onclick="markImpossible()">Mark Impossible</button>
+    </div>
+    <div class="progress" id="progress">
+      <div class="progress-track"><div class="progress-bar"></div></div>
+      <div class="progress-label" id="progress-label">Working...</div>
     </div>
     <p class="status" id="status"></p>
-    <img id="image" onclick="settleCurrent()">
+    <img id="image" onclick="clickImage(event)">
   </section>
 </main>
 <script>
@@ -293,10 +436,41 @@ let entries = [];
 let current = null;
 let pose = {x:0,y:0,z:0,r:0,p:0,h:0};
 let pendingResult = null;
+let loadingStartedAt = null;
+let loadingTimer = null;
 const tStep = 0.1;
 const rStep = Math.PI / 2;
 
 function setStatus(msg) { document.getElementById('status').textContent = msg; }
+function setBusy(active, label='Working') {
+  const progress = document.getElementById('progress');
+  const progressLabel = document.getElementById('progress-label');
+  document.querySelectorAll('button').forEach(button => button.disabled = active);
+  if (!active) {
+    progress.classList.remove('active');
+    if (loadingTimer) clearInterval(loadingTimer);
+    loadingTimer = null;
+    loadingStartedAt = null;
+    return;
+  }
+  progress.classList.add('active');
+  loadingStartedAt = Date.now();
+  const update = () => {
+    const elapsed = ((Date.now() - loadingStartedAt) / 1000).toFixed(1);
+    progressLabel.textContent = `${label} ... ${elapsed}s`;
+  };
+  update();
+  if (loadingTimer) clearInterval(loadingTimer);
+  loadingTimer = setInterval(update, 100);
+}
+async function withBusy(label, fn) {
+  setBusy(true, label);
+  try {
+    return await fn();
+  } finally {
+    setBusy(false);
+  }
+}
 function poseHtml() {
   document.getElementById('pose').innerHTML = ['x','y','z','r','p','h']
     .map(k => `<div><b>${k}</b><br>${Number(pose[k] || 0).toFixed(4)}</div>`).join('');
@@ -311,10 +485,14 @@ async function api(path, payload=null) {
 async function loadList(source) {
   setStatus('Loading ' + source + '...');
   entries = await api('/api/list?source=' + source);
-  document.getElementById('list').innerHTML = entries.map((e,i) =>
-    `<div class="row" id="row-${i}" onclick="selectEntry(${i})"><b>${e.scene}</b><br>${e.fixed_type}/${e.label}/${e.object_type}<br>${e.status || ''} ${e.reason || ''}</div>`
-  ).join('');
-  setStatus(`Loaded ${entries.length} entries from ${source}`);
+  document.getElementById('list').innerHTML = entries.map((e,i) => {
+    const scenes = (e.group_scenes || [e.scene]).slice(0, 3).join(', ');
+    const more = e.group_scenes && e.group_scenes.length > 3 ? ` +${e.group_scenes.length - 3}` : '';
+    const count = e.group_count || 1;
+    return `<div class="row" id="row-${i}" onclick="selectEntry(${i})"><b>${e.fixed_type}/${e.label}/${e.object_type}</b><br>${count} scene entr${count === 1 ? 'y' : 'ies'}: ${scenes}${more}<br>${e.status || ''} ${e.reason || ''}</div>`;
+  }).join('');
+  const rawCount = entries.reduce((sum, e) => sum + (e.group_count || 1), 0);
+  setStatus(`Loaded ${entries.length} grouped entries from ${source} (${rawCount} raw scene entries)`);
 }
 async function selectEntry(i) {
   current = entries[i];
@@ -322,51 +500,89 @@ async function selectEntry(i) {
   pendingResult = null;
   document.querySelectorAll('.row').forEach(x => x.classList.remove('active'));
   document.getElementById('row-' + i).classList.add('active');
-  document.getElementById('title').textContent = `${current.scene} / ${current.fixed_type} / ${current.label} / ${current.object_type}`;
+  document.getElementById('title').textContent = `${current.fixed_type} / ${current.label} / ${current.object_type} (${current.group_count || 1} scene entr${(current.group_count || 1) === 1 ? 'y' : 'ies'})`;
   poseHtml();
-  // On mouse selection, immediately spawn and run 5-second stability check.
-  // For holded entries we do not auto-arm saving; user must explicitly settle again
-  // (or click Settle 5s / image) before Confirm Save.
-  if (current.source === 'possible') await settleCurrent(false);
-  else await settleCurrent(false);
+  await renderCurrent();
 }
 async function renderCurrent() {
   if (!current) return;
-  setStatus('Rendering...');
-  poseHtml();
-  const data = await api('/api/render', {...current, pose});
-  document.getElementById('image').src = data.image;
-  pose = data.pose;
-  poseHtml();
-  setStatus('Rendered.');
+  await withBusy('Rendering', async () => {
+    setStatus('Rendering...');
+    poseHtml();
+    const data = await api('/api/render', {...current, pose});
+    document.getElementById('image').src = data.image;
+    pose = data.pose;
+    poseHtml();
+    setStatus('Rendered.');
+  });
 }
 async function settleCurrent(allowConfirm=true) {
   if (!current) return;
+  await withBusy('Simulating 5 seconds', async () => {
   setStatus('Simulating 5 seconds...');
   const data = await api('/api/settle', {...current, pose});
   pendingResult = allowConfirm ? data.result : null;
   if (data.image) document.getElementById('image').src = data.image;
-  if (pendingResult.relative_scene_table_fixed_pose) {
-    pose = {...pendingResult.relative_scene_table_fixed_pose};
+  const sim = data.result && data.result.simulation ? data.result.simulation : {};
+  const finalPose = data.result && data.result.relative_scene_table_fixed_pose
+    ? `\nFinal anchor after settle: ${JSON.stringify(data.result.relative_scene_table_fixed_pose)}`
+    : '';
+  const checks = sim.post_settle_checks && Object.keys(sim.post_settle_checks).length
+    ? `\npost_settle_checks: ${JSON.stringify(sim.post_settle_checks)}`
+    : '';
+  const details = [
+    `simulation_status: ${sim.status ?? 'unknown'}`,
+    `reason: ${sim.reason ?? data.result.reason ?? 'none'}`,
+    `velocity_stable: ${sim.velocity_stable ?? 'unknown'}`,
+    `final_speed: ${sim.final_speed ?? 'unknown'}`,
+    `height_drop: ${sim.height_drop ?? 'unknown'}`,
+  ].join('\n');
+  const confirmText = allowConfirm ? ' Click Confirm Save only if this pose is acceptable.' : ' This entry was previewed after 5 seconds; nothing was saved.';
+  setStatus(`Stable: ${data.stable}\n${details}${checks}\nReview the rendered final result.${finalPose}${confirmText}`);
+  });
+}
+async function clickImage(ev) {
+  if (!current) return;
+  const img = document.getElementById('image');
+  if (!img.naturalWidth || !img.naturalHeight) return;
+  const rect = img.getBoundingClientRect();
+  const pixelX = (ev.clientX - rect.left) * (img.naturalWidth / rect.width);
+  const pixelY = (ev.clientY - rect.top) * (img.naturalHeight / rect.height);
+  await withBusy('Picking clicked point', async () => {
+    setStatus(`Picking clicked point (${pixelX.toFixed(1)}, ${pixelY.toFixed(1)})...`);
+    pendingResult = null;
+    const data = await api('/api/click-pose', {...current, pose, pixel_x: pixelX, pixel_y: pixelY});
+    pose = data.pose;
     poseHtml();
+    document.getElementById('image').src = data.image;
+    setStatus('Moved to clicked image point. Run Settle 5s when ready.');
+  });
+}
+async function markImpossible() {
+  if (!current) {
+    setStatus('No entry selected.');
+    return;
   }
-  if (!pendingResult && data.result && data.result.relative_scene_table_fixed_pose) {
-    pose = {...data.result.relative_scene_table_fixed_pose};
-    poseHtml();
-  }
-  const confirmText = allowConfirm ? ' Click Confirm Save only if this pose is acceptable.' : ' This possible entry was previewed after 5 seconds; nothing was saved.';
-  setStatus(`Stable: ${data.stable}\nReview the rendered final result.${confirmText}`);
+  await withBusy('Marking impossible', async () => {
+    setStatus('Marking grouped entries impossible...');
+    const data = await api('/api/mark-impossible', {...current, group_members: current.group_members || null});
+    setStatus(`Marked impossible: ${data.count || 1} grouped entr${(data.count || 1) === 1 ? 'y' : 'ies'}\nFirst path: ${data.path}`);
+    pendingResult = null;
+    if (current.source === 'holded') await loadList('holded');
+  });
 }
 async function confirmSave() {
   if (!current || !pendingResult) {
     setStatus('No settled result to save. Run Settle 5s first.');
     return;
   }
-  setStatus('Saving confirmed result...');
-  const data = await api('/api/confirm-save', {...current, result: pendingResult});
-  setStatus(`Stable: ${data.stable}\nSaved: ${data.path}`);
-  pendingResult = null;
-  if (data.stable && current.source === 'holded') await loadList('holded');
+  await withBusy('Saving confirmed result', async () => {
+    setStatus('Saving confirmed result...');
+    const data = await api('/api/confirm-save', {...current, result: pendingResult, group_members: current.group_members || null});
+    setStatus(`Stable: ${data.stable}\nSaved ${data.count || 1} grouped entr${(data.count || 1) === 1 ? 'y' : 'ies'}\nFirst path: ${data.path}`);
+    pendingResult = null;
+    if (data.stable && current.source === 'holded') await loadList('holded');
+  });
 }
 document.addEventListener('keydown', async (ev) => {
   if (!current) return;
@@ -437,8 +653,44 @@ def make_handler(store: SpawnReviewStore):
                 if self.path == "/api/settle":
                     json_response(self, HTTPStatus.OK, store.settle(payload["source"], payload["path"], payload["object_type"], payload["pose"]))
                     return
+                if self.path == "/api/click-pose":
+                    json_response(
+                        self,
+                        HTTPStatus.OK,
+                        store.click_pose(
+                            payload["source"],
+                            payload["path"],
+                            payload["object_type"],
+                            payload["pose"],
+                            float(payload["pixel_x"]),
+                            float(payload["pixel_y"]),
+                        ),
+                    )
+                    return
                 if self.path == "/api/confirm-save":
-                    json_response(self, HTTPStatus.OK, store.confirm_save(payload["source"], payload["path"], payload["object_type"], payload["result"]))
+                    json_response(
+                        self,
+                        HTTPStatus.OK,
+                        store.confirm_save(
+                            payload["source"],
+                            payload["path"],
+                            payload["object_type"],
+                            payload["result"],
+                            payload.get("group_members"),
+                        ),
+                    )
+                    return
+                if self.path == "/api/mark-impossible":
+                    json_response(
+                        self,
+                        HTTPStatus.OK,
+                        store.mark_impossible(
+                            payload["source"],
+                            payload["path"],
+                            payload["object_type"],
+                            payload.get("group_members"),
+                        ),
+                    )
                     return
                 json_response(self, HTTPStatus.NOT_FOUND, {"error": "not found"})
             except Exception as exc:

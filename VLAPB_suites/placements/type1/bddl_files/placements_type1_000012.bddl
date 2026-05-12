@@ -1,11 +1,11 @@
-(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the glazed_rim_porcelain_ramekin belonging to user_007 and place it at the front of the basket)
+  (:language Pick the cookies belonging to user_002 and place it at the front of the microwave)
     (:regions
-      (basket_right_right_region
-          (:target living_room_table)
+      (microwave_right_right_region
+          (:target kitchen_table)
           (:ranges (
-              (-0.0200 0.2000 0.0200 0.2400)
+              (-0.0200 0.2800 0.0200 0.3200)
             )
           )
           (:yaw_rotation (
@@ -14,42 +14,42 @@
           )
       )
       (target_object_init_region
-          (:target living_room_table)
+          (:target kitchen_table)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
       (placement_goal_region
-          (:target living_room_table)
+          (:target kitchen_table)
           (:ranges (
-              (0.0500 0.1400 0.1900 0.3000)
+              (-0.0200 0.1000 0.2600 0.5000)
             )
           )
       )
     )
 
   (:fixtures
-    living_room_table - living_room_table
+    kitchen_table - kitchen_table
+    microwave_right - microwave
   )
 
   (:objects
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
-    basket_right - basket
+    cookies_1 - cookies
   )
 
   (:obj_of_interest
-    glazed_rim_porcelain_ramekin_1
-    basket_right
+    cookies_1
+    microwave_right
   )
 
   (:init
-    (On basket_right living_room_table_basket_right_right_region)
-    (On glazed_rim_porcelain_ramekin_1 living_room_table_target_object_init_region)
+    (On microwave_right kitchen_table_microwave_right_right_region)
+    (On cookies_1 kitchen_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY glazed_rim_porcelain_ramekin_1 living_room_table_placement_goal_region))
+    (And (AtXY cookies_1 kitchen_table_placement_goal_region))
   )
 
 )

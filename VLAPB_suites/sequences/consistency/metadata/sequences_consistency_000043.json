@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000043.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "butter",
+      "cookies"
+    ],
+    "unseen_object": "tomato_sauce",
+    "user_id": "user_015"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000043",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "cookies",
+    "tomato_sauce"
+  ],
+  "language": "Put the objects belonging to user_015 into the wooden_tray in this order: butter, tomato_sauce, cookies",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "cookies": true,
+    "tomato_sauce": false
+  },
+  "ownership": {
+    "user_015": [
+      "butter",
+      "cookies",
+      "tomato_sauce"
+    ]
+  },
+  "participating_users": [
+    "user_015"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "odd_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2002,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.0347,
+      "y": 0.1972
+    },
+    {
+      "distance_to_tray": 0.2295,
+      "object_type": "cookies",
+      "ordinal_position": 2,
+      "x": -0.226,
+      "y": -0.0399
+    },
+    {
+      "distance_to_tray": 0.2244,
+      "object_type": "tomato_sauce",
+      "ordinal_position": 3,
+      "x": 0.1443,
+      "y": -0.1718
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "butter",
+    "tomato_sauce",
+    "cookies"
+  ],
+  "target_user": "user_015",
+  "task_type": "consistency"
+}

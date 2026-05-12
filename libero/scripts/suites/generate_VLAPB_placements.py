@@ -81,8 +81,10 @@ LEFT_MIRRORED_FIXTURES = {
 MUTUALLY_EXCLUDED_MULTIPLE_PAIRS = {
     frozenset(("microwave", "wooden_two_layer_shelf")),
 }
-STRUCTURAL_LABELS = {"in", "on", "top", "bottom"}
+STRUCTURAL_LABELS = {"in", "on", "top", "middle", "bottom"}
 SIDE_LABELS = {"left", "right", "front", "back"}
+DRAWER_LAYER_LABELS = {"top", "middle", "bottom"}
+DRAWER_SIDE_LABEL_RE = re.compile(r"^(top|middle|bottom)_(front|back|left|right)$")
 SPLIT_ORDER = ("type1", "type2", "type3", "type4", "adaptability", "multiuser", "consistency")
 PROBLEM_BY_AREA = {
     "kitchen": "LIBERO_Kitchen_Tabletop_Manipulation",
@@ -361,8 +363,21 @@ def side_allowed_for_preference(pref: PlacementPreference, fixture_side: str) ->
     return True
 
 
+def drawer_layer_for_label(label: str) -> str | None:
+    if label in DRAWER_LAYER_LABELS:
+        return label
+    match = DRAWER_SIDE_LABEL_RE.match(label)
+    if match:
+        return match.group(1)
+    return None
+
+
+def is_drawer_label(label: str) -> bool:
+    return drawer_layer_for_label(label) is not None
+
+
 def is_structural_preference(pref: PlacementPreference) -> bool:
-    return pref.label in STRUCTURAL_LABELS
+    return pref.label in STRUCTURAL_LABELS or is_drawer_label(pref.label)
 
 
 def is_preference_feasible(
@@ -391,12 +406,20 @@ def preference_pair_count(pref: PlacementPreference, libero_pair_stats: dict[tup
 def relation_for(pref: PlacementPreference) -> str:
     if pref.label in SIDE_LABELS:
         return "AtXY"
+    if pref.fixed_type in DRAWER_FIXTURES and (pref.label == "in" or is_drawer_label(pref.label)):
+        return "In"
     if pref.label in {"in", "top", "bottom"}:
         return "In"
     return "On"
 
 
 def goal_region_for(pref: PlacementPreference, fixture_id: str) -> str:
+    drawer_layer = drawer_layer_for_label(pref.label)
+    if pref.fixed_type in DRAWER_FIXTURES:
+        if pref.label == "in":
+            return f"{fixture_id}_bottom_region"
+        if drawer_layer:
+            return f"{fixture_id}_{drawer_layer}_region"
     if pref.label == "in":
         if pref.fixed_type == "microwave":
             return f"{fixture_id}_heating_region"
@@ -405,9 +428,13 @@ def goal_region_for(pref: PlacementPreference, fixture_id: str) -> str:
         return f"{fixture_id}_top_region"
     if pref.label == "bottom":
         return f"{fixture_id}_bottom_region"
+    if pref.label == "middle":
+        return f"{fixture_id}_middle_region"
     if pref.label == "on":
         if pref.fixed_type == "flat_stove":
             return f"{fixture_id}_cook_region"
+        if pref.fixed_type in DRAWER_FIXTURES or pref.fixed_type == "wooden_two_layer_shelf":
+            return f"{fixture_id}_top_side"
         return fixture_id
     if pref.label in SIDE_LABELS:
         return "placement_goal_region"
@@ -917,10 +944,13 @@ def fixture_state_for(pref: PlacementPreference) -> dict[str, str]:
     if pref.fixed_type == "microwave":
         return {"microwave_door": "open"}
     if pref.fixed_type in DRAWER_FIXTURES:
-        if pref.label == "top":
-            return {"top_drawer": "open"}
-        if pref.label == "bottom":
+        drawer_layer = drawer_layer_for_label(pref.label)
+        if pref.label == "in":
             return {"bottom_drawer": "open"}
+        if drawer_layer:
+            return {f"{drawer_layer}_drawer": "open"}
+        if pref.label == "on":
+            return {"drawer_or_door": "closed"}
         if pref.label == "front":
             return {"drawer_or_door": "closed"}
         return {"drawer_or_door": "open"}
@@ -1126,7 +1156,7 @@ def metadata_for(spec: EpisodeSpec, profiles_path: Path, libero_objects_path: Pa
         "constraints": {
             "allowed_fixtures": list(PLACEMENT_FIXTURES),
             "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
-            "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json",
+            "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence",
             "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
             "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
             "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",

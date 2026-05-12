@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_012, pick the bbq_sauce and place it at the front of the wooden_tray, for user_010, pick the bbq_sauce and place it at the in of the wooden_cabinet.)
+  (:language For user_012, pick the cream_cheese and place it at the back of the wooden_tray, for user_013, pick the milk and place it at the left of the basket.)
     (:regions
       (wooden_tray_left_left_region
           (:target living_room_table)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (wooden_cabinet_right_right_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -41,39 +41,44 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (0.0500 -0.3000 0.1900 -0.1400)
+              (-0.2600 -0.4200 0.0200 -0.0200)
             )
           )
       )
-      (contain_region
-          (:target wooden_cabinet_right)
+      (secondary_placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1600 -0.1900 0.1600 0.2100)
+            )
+          )
       )
     )
 
   (:fixtures
     living_room_table - living_room_table
-    wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
-    bbq_sauce_1 bbq_sauce_2 - bbq_sauce
+    cream_cheese_1 - cream_cheese
+    milk_1 - milk
     wooden_tray_left - wooden_tray
+    basket_right - basket
   )
 
   (:obj_of_interest
-    bbq_sauce_1 bbq_sauce_2
-    wooden_tray_left wooden_cabinet_right
+    cream_cheese_1 milk_1
+    wooden_tray_left basket_right
   )
 
   (:init
     (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
-    (On bbq_sauce_1 living_room_table_target_object_init_region)
-    (On bbq_sauce_2 living_room_table_secondary_object_init_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On cream_cheese_1 living_room_table_target_object_init_region)
+    (On milk_1 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (AtXY bbq_sauce_1 living_room_table_placement_goal_region) (In bbq_sauce_2 wooden_cabinet_right_contain_region))
+    (And (AtXY cream_cheese_1 living_room_table_placement_goal_region) (AtXY milk_1 living_room_table_secondary_placement_goal_region))
   )
 
 )

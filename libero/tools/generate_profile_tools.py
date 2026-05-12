@@ -24,6 +24,8 @@ DEFAULT_SPAWN_POSITIONS_DIR = DOCS_ROOT / "possible_spawn_positions"
 POSE_KEYS = ("x", "y", "z", "r", "p", "h")
 CANONICAL_LOCATION_ALIASES = {
     "cabinet.drawer.front_side": "cabinet.bottom_drawer.inside",
+    "wooden_two_layer_shelf.shelf": "wooden_two_layer_shelf.top_shelf",
+    "wooden_two_layer_shelf.under_shelf": "wooden_two_layer_shelf.bottom_shelf",
 }
 
 INSTRUCTION_FILES = {
@@ -73,6 +75,7 @@ STABLE_PLACEMENT_HINTS = (
     "to the front of the basket",
     "to the back of the basket",
     "in the bottom drawer",
+    "in the middle drawer",
     "in the top drawer",
     "to the front of the drawer",
     "in the microwave",
@@ -95,8 +98,9 @@ STABLE_PLACEMENT_OPTIONS = (
     {"hint": "to the front of the basket", "location": "basket.front_side", "fixed_item": "basket"},
     {"hint": "to the back of the basket", "location": "basket.back_side", "fixed_item": "basket"},
     {"hint": "in the bottom drawer", "location": "cabinet.bottom_drawer.inside", "fixed_item": "cabinet"},
+    {"hint": "in the middle drawer", "location": "cabinet.middle_drawer.inside", "fixed_item": "cabinet"},
     {"hint": "in the top drawer", "location": "cabinet.top_drawer.inside", "fixed_item": "cabinet"},
-    {"hint": "to the front of the drawer", "location": "cabinet.bottom_drawer.inside", "fixed_item": "cabinet"},
+    {"hint": "to the front of the drawer", "location": "cabinet.bottom_drawer.front_side", "fixed_item": "cabinet"},
     {"hint": "in the microwave", "location": "microwave.inside", "fixed_item": "microwave"},
     {"hint": "on top of the microwave", "location": "microwave.top_surface", "fixed_item": "microwave"},
     {"hint": "to the front of the microwave", "location": "microwave.front_side", "fixed_item": "microwave"},
@@ -288,24 +292,26 @@ def normalize_location(instruction: str, target_classes: Iterable[str]) -> str |
     if "on top of it" in text and "cabinet" in text:
         cabinet = "white_cabinet" if "white_cabinet" in targets else "wooden_cabinet"
         return f"{cabinet}.top_surface"
+    if "bottom drawer" in text or "middle drawer" in text or "middle layer" in text or "top drawer" in text or "top layer" in text:
+        side = "white_cabinet" if "white_cabinet" in targets else "wooden_cabinet"
     if "bottom drawer" in text:
-        side = "white_cabinet" if "white_cabinet" in targets else "wooden_cabinet"
         return f"{side}.bottom_drawer.inside"
+    if "middle drawer" in text or "middle layer" in text:
+        return f"{side}.middle_drawer.inside"
     if "top drawer" in text or "top layer" in text:
-        side = "white_cabinet" if "white_cabinet" in targets else "wooden_cabinet"
         if " at the front " in text:
-            return f"{side}.top_drawer.front"
+            return f"{side}.top_drawer.front_side"
         if " at the back " in text:
-            return f"{side}.top_drawer.back"
+            return f"{side}.top_drawer.back_side"
         return f"{side}.top_drawer.inside"
     if "in the microwave" in text:
         return "microwave.inside"
     if "on the stove" in text or " on it" in text and "stove" in text:
         return "flat_stove.surface"
     if "on the cabinet shelf" in text:
-        return "wooden_two_layer_shelf.shelf"
+        return "wooden_two_layer_shelf.top_shelf"
     if "under the cabinet shelf" in text:
-        return "wooden_two_layer_shelf.under_shelf"
+        return "wooden_two_layer_shelf.bottom_shelf"
     if "on top of the cabinet" in text or "on the wooden cabinet" in text:
         cabinet = "white_cabinet" if "white_cabinet" in targets else "wooden_cabinet"
         return f"{cabinet}.top_surface"
@@ -368,19 +374,23 @@ def location_from_fixed_item(target_class: str, relation: str, detail: str) -> s
             return f"{cabinet}.top_surface"
         if "bottom drawer" in detail:
             return f"{cabinet}.bottom_drawer.inside"
+        if "middle drawer" in detail or "middle layer" in detail:
+            return f"{cabinet}.middle_drawer.inside"
         if "top drawer" in detail or "top layer" in detail:
             if "front" in detail:
-                return f"{cabinet}.top_drawer.front"
+                return f"{cabinet}.top_drawer.front_side"
             if "back" in detail:
-                return f"{cabinet}.top_drawer.back"
+                return f"{cabinet}.top_drawer.back_side"
             return f"{cabinet}.top_drawer.inside"
         if relation == "under":
             return f"{cabinet}.under"
         return f"{cabinet}.top_surface"
     if target_class in {"wooden_two_layer_shelf", "shelf"}:
         if relation == "under":
-            return "wooden_two_layer_shelf.under_shelf"
-        return "wooden_two_layer_shelf.shelf"
+            return "wooden_two_layer_shelf.bottom_shelf"
+        if relation == "on" and "top" in detail:
+            return "wooden_two_layer_shelf.top_surface"
+        return "wooden_two_layer_shelf.top_shelf"
     if target_class == "plate":
         if relation == "to the right of":
             return "plate.right_side"

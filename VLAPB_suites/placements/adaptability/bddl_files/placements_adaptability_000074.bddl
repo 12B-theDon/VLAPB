@@ -1,0 +1,55 @@
+(define (problem LIBERO_Study_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the ketchup belonging to user_008 and place it at the back of the wooden_two_layer_shelf)
+    (:regions
+      (wooden_two_layer_shelf_right_right_region
+          (:target study_table)
+          (:ranges (
+              (-0.0200 0.2800 0.0200 0.3200)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target study_table)
+          (:ranges (
+              (-0.2600 0.1000 0.0200 0.5000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    study_table - study_table
+    wooden_two_layer_shelf_right - wooden_two_layer_shelf
+  )
+
+  (:objects
+    ketchup_1 - ketchup
+  )
+
+  (:obj_of_interest
+    ketchup_1
+    wooden_two_layer_shelf_right
+  )
+
+  (:init
+    (On wooden_two_layer_shelf_right study_table_wooden_two_layer_shelf_right_right_region)
+    (On ketchup_1 study_table_target_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY ketchup_1 study_table_placement_goal_region))
+  )
+
+)

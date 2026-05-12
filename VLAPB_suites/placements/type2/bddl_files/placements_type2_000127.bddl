@@ -1,11 +1,11 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the cream_cheese belonging to user_009 and place it at the right of the basket)
+  (:language Pick the white_bowl belonging to user_006 and place it at the front of the basket)
     (:regions
-      (basket_left_left_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.2400 0.0200 -0.2000)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -13,14 +13,14 @@
             )
           )
       )
-      (wooden_cabinet_right_right_region
+      (white_cabinet_left_left_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 -0.3200 0.0200 -0.2800)
             )
           )
           (:yaw_rotation (
-              (0.0000 0.0000)
+              (-3.1416 -3.1416)
             )
           )
       )
@@ -34,7 +34,7 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (-0.1400 -0.1900 0.1400 0.1700)
+              (-0.0200 0.0200 0.2600 0.4200)
             )
           )
       )
@@ -42,27 +42,27 @@
 
   (:fixtures
     living_room_table - living_room_table
-    wooden_cabinet_right - wooden_cabinet
+    white_cabinet_left - white_cabinet
   )
 
   (:objects
-    cream_cheese_1 - cream_cheese
-    basket_left - basket
+    white_bowl_1 - white_bowl
+    basket_right - basket
   )
 
   (:obj_of_interest
-    cream_cheese_1
-    basket_left
+    white_bowl_1
+    basket_right
   )
 
   (:init
-    (On basket_left living_room_table_basket_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
-    (On cream_cheese_1 living_room_table_target_object_init_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On white_cabinet_left living_room_table_white_cabinet_left_left_region)
+    (On white_bowl_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY cream_cheese_1 living_room_table_placement_goal_region))
+    (And (AtXY white_bowl_1 living_room_table_placement_goal_region))
   )
 
 )

@@ -1,0 +1,70 @@
+{
+  "adaptation": null,
+  "area": "kitchen",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type3/bddl_files/placements_type3_000353.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
+  },
+  "debug": {
+    "libero_pair_count": 0
+  },
+  "distractor_object": "bbq_sauce",
+  "distractor_pose_index": 1,
+  "episode_id": "placements_type3_000353",
+  "fixtures": [
+    {
+      "fixture": "wooden_cabinet",
+      "side": "left"
+    },
+    {
+      "fixture": "wooden_tray",
+      "side": "right"
+    }
+  ],
+  "language": "Pick the alphabet_soup belonging to user_007 and place it at the middle_back of the wooden_cabinet",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_007": [
+      "alphabet_soup"
+    ]
+  },
+  "participating_users": [
+    "user_007"
+  ],
+  "preference": {
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "middle_back",
+    "location": "cabinet.middle_drawer.front_side",
+    "object_type": "alphabet_soup",
+    "scene": "KITCHEN_SCENE10",
+    "table": "kitchen_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "KITCHEN_SCENE10",
+  "secondary_object": null,
+  "secondary_preference": null,
+  "secondary_user": null,
+  "split": "type3",
+  "suite": "placements",
+  "table": "kitchen_table",
+  "target_object": "alphabet_soup",
+  "target_object_seen": true,
+  "target_user": "user_007",
+  "task_type": "type3"
+}

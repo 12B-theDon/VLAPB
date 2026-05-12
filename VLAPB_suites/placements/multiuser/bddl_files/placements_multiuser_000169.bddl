@@ -1,6 +1,6 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_007, pick the alphabet_soup and place it at the bottom of the wooden_cabinet, for user_019, pick the salad_dressing and place it at the left of the wooden_tray.)
+  (:language For user_005, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet, for user_016, pick the glazed_rim_porcelain_ramekin and place it at the in of the wooden_tray.)
     (:regions
       (wooden_cabinet_left_left_region
           (:target kitchen_table)
@@ -41,12 +41,8 @@
       (bottom_region
           (:target wooden_cabinet_left)
       )
-      (secondary_placement_goal_region
-          (:target kitchen_table)
-          (:ranges (
-              (-0.1600 -0.1900 0.1600 0.2100)
-            )
-          )
+      (contain_region
+          (:target wooden_tray_right)
       )
     )
 
@@ -56,25 +52,25 @@
   )
 
   (:objects
-    alphabet_soup_1 - alphabet_soup
-    salad_dressing_1 - salad_dressing
+    akita_black_bowl_1 - akita_black_bowl
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
     wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    alphabet_soup_1 salad_dressing_1
+    akita_black_bowl_1 glazed_rim_porcelain_ramekin_1
     wooden_cabinet_left wooden_tray_right
   )
 
   (:init
     (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
     (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
-    (On alphabet_soup_1 kitchen_table_target_object_init_region)
-    (On salad_dressing_1 kitchen_table_secondary_object_init_region)
+    (On akita_black_bowl_1 kitchen_table_target_object_init_region)
+    (On glazed_rim_porcelain_ramekin_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In alphabet_soup_1 wooden_cabinet_left_bottom_region) (AtXY salad_dressing_1 kitchen_table_secondary_placement_goal_region))
+    (And (In akita_black_bowl_1 wooden_cabinet_left_bottom_region) (In glazed_rim_porcelain_ramekin_1 wooden_tray_right_contain_region))
   )
 
 )

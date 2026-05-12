@@ -1,6 +1,6 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_010, pick the bbq_sauce and place it at the in of the wooden_cabinet, for user_013, pick the orange_juice and place it at the in of the wooden_tray.)
+  (:language For user_011, pick the cookies and place it at the top of the wooden_cabinet, for user_001, pick the alphabet_soup and place it at the front of the basket.)
     (:regions
       (wooden_cabinet_left_left_region
           (:target kitchen_table)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (wooden_tray_right_right_region
+      (basket_right_right_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
@@ -38,11 +38,15 @@
             )
           )
       )
-      (contain_region
+      (top_region
           (:target wooden_cabinet_left)
       )
-      (contain_region
-          (:target wooden_tray_right)
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0400 0.0000 0.2800 0.4400)
+            )
+          )
       )
     )
 
@@ -52,25 +56,25 @@
   )
 
   (:objects
-    bbq_sauce_1 - bbq_sauce
-    orange_juice_1 - orange_juice
-    wooden_tray_right - wooden_tray
+    alphabet_soup_1 - alphabet_soup
+    cookies_1 - cookies
+    basket_right - basket
   )
 
   (:obj_of_interest
-    bbq_sauce_1 orange_juice_1
-    wooden_cabinet_left wooden_tray_right
+    cookies_1 alphabet_soup_1
+    wooden_cabinet_left basket_right
   )
 
   (:init
     (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
-    (On bbq_sauce_1 kitchen_table_target_object_init_region)
-    (On orange_juice_1 kitchen_table_secondary_object_init_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On cookies_1 kitchen_table_target_object_init_region)
+    (On alphabet_soup_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In bbq_sauce_1 wooden_cabinet_left_contain_region) (In orange_juice_1 wooden_tray_right_contain_region))
+    (And (In cookies_1 wooden_cabinet_left_top_region) (AtXY alphabet_soup_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

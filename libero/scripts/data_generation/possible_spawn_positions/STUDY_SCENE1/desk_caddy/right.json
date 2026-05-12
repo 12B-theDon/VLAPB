@@ -7,8 +7,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "akita_black_bowl",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694495
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__akita_black_bowl",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -39,7 +46,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00016,
+      "displacement": 0.00017,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -59,6 +66,7 @@
       "height_drop": 0.15346,
       "location": "desk_caddy.right_side",
       "object": "akita_black_bowl",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -67,7 +75,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960962.781754,
+      "timestamp": 1778086130.3403797,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -80,19 +88,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960962.9012027,
+    "timestamp": 1778086130.4033966,
     "velocity_threshold": 0.03
   },
   "alphabet_soup": {
     "actual_pose": {
       "x": -0.1997,
-      "y": 0.0,
+      "y": 0.0001,
       "z": 0.9235
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "alphabet_soup",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945014
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__alphabet_soup",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -110,7 +125,7 @@
       "p": 0.0,
       "r": 0.0,
       "x": 0.0003,
-      "y": 0.14,
+      "y": 0.1401,
       "z": 0.1
     },
     "scene": "STUDY_SCENE1",
@@ -123,19 +138,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00026,
+      "displacement": 0.0003,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
         "x": 0.0003,
-        "y": 0.14,
+        "y": 0.1401,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
         "x": -0.1997,
-        "y": 0.0,
+        "y": 0.0001,
         "z": 0.9235
       },
       "final_speed": 0.0,
@@ -143,6 +158,7 @@
       "height_drop": 0.09346,
       "location": "desk_caddy.right_side",
       "object": "alphabet_soup",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -151,7 +167,7 @@
         "z": 1.017
       },
       "status": "review",
-      "timestamp": 1777960964.898632,
+      "timestamp": 1778086131.7036881,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -164,19 +180,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960965.0087168,
+    "timestamp": 1778086131.7640195,
     "velocity_threshold": 0.03
   },
   "bbq_sauce": {
     "actual_pose": {
       "x": -0.2,
-      "y": -0.0,
+      "y": 0.0,
       "z": 0.9398
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "bbq_sauce",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694506
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__bbq_sauce",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -219,7 +242,7 @@
       "final_image_path": null,
       "final_pose": {
         "x": -0.2,
-        "y": -0.0,
+        "y": 0.0,
         "z": 0.9398
       },
       "final_speed": 0.0,
@@ -227,6 +250,7 @@
       "height_drop": 0.09723,
       "location": "desk_caddy.right_side",
       "object": "bbq_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -235,7 +259,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960966.8828716,
+      "timestamp": 1778086133.0260713,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -248,7 +272,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960966.980412,
+    "timestamp": 1778086133.091184,
     "velocity_threshold": 0.03
   },
   "black_book": {
@@ -268,7 +292,7 @@
     "scene": "STUDY_SCENE1",
     "status": "skipped",
     "table": "study_table",
-    "timestamp": 1777960966.981786
+    "timestamp": 1778086133.0917792
   },
   "butter": {
     "actual_pose": {
@@ -278,8 +302,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "butter",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.69451
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__butter",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -330,6 +361,7 @@
       "height_drop": 0.10316,
       "location": "desk_caddy.right_side",
       "object": "butter",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -338,7 +370,7 @@
         "z": 0.997
       },
       "status": "review",
-      "timestamp": 1777960968.817564,
+      "timestamp": 1778086134.360953,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -351,7 +383,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960968.8688748,
+    "timestamp": 1778086134.4225984,
     "velocity_threshold": 0.03
   },
   "chefmate_8_frypan": {
@@ -362,8 +394,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "chefmate_8_frypan",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945133
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__chefmate_8_frypan",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -414,6 +453,7 @@
       "height_drop": 0.15267,
       "location": "desk_caddy.right_side",
       "object": "chefmate_8_frypan",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -422,7 +462,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960970.2996209,
+      "timestamp": 1778086135.7037408,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -435,19 +475,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960970.3828197,
+    "timestamp": 1778086135.7688737,
     "velocity_threshold": 0.03
   },
   "chocolate_pudding": {
     "actual_pose": {
       "x": -0.2,
-      "y": -0.0,
+      "y": 0.0,
       "z": 0.8982
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "chocolate_pudding",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694517
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__chocolate_pudding",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -478,7 +525,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.0,
+      "displacement": 1e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -490,7 +537,7 @@
       "final_image_path": null,
       "final_pose": {
         "x": -0.2,
-        "y": -0.0,
+        "y": 0.0,
         "z": 0.8982
       },
       "final_speed": 0.0,
@@ -498,6 +545,7 @@
       "height_drop": 0.13879,
       "location": "desk_caddy.right_side",
       "object": "chocolate_pudding",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -506,7 +554,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960972.3083384,
+      "timestamp": 1778086137.0479534,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -519,7 +567,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960972.4108624,
+    "timestamp": 1778086137.1096516,
     "velocity_threshold": 0.03
   },
   "cookies": {
@@ -530,8 +578,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "cookies",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945205
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__cookies",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -582,6 +637,7 @@
       "height_drop": 0.14247,
       "location": "desk_caddy.right_side",
       "object": "cookies",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -590,7 +646,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960974.283229,
+      "timestamp": 1778086138.4029672,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -603,7 +659,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960974.3920069,
+    "timestamp": 1778086138.4687312,
     "velocity_threshold": 0.03
   },
   "cream_cheese": {
@@ -614,8 +670,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "cream_cheese",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945248
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__cream_cheese",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -666,6 +729,7 @@
       "height_drop": 0.10793,
       "location": "desk_caddy.right_side",
       "object": "cream_cheese",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -674,7 +738,7 @@
         "z": 1.002
       },
       "status": "review",
-      "timestamp": 1777960976.315848,
+      "timestamp": 1778086139.741187,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -687,7 +751,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960976.4268966,
+    "timestamp": 1778086139.8030362,
     "velocity_threshold": 0.03
   },
   "glazed_rim_porcelain_ramekin": {
@@ -698,8 +762,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945283
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__glazed_rim_porcelain_ramekin",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -750,6 +821,7 @@
       "height_drop": 0.15253,
       "location": "desk_caddy.right_side",
       "object": "glazed_rim_porcelain_ramekin",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -758,7 +830,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960978.3474302,
+      "timestamp": 1778086141.0851007,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -771,7 +843,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960978.4506814,
+    "timestamp": 1778086141.1534228,
     "velocity_threshold": 0.03
   },
   "ketchup": {
@@ -782,8 +854,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "ketchup",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945322
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__ketchup",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -834,6 +913,7 @@
       "height_drop": 0.07945,
       "location": "desk_caddy.right_side",
       "object": "ketchup",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -842,7 +922,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960980.3909478,
+      "timestamp": 1778086142.3837118,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -855,7 +935,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960980.4929419,
+    "timestamp": 1778086142.4511716,
     "velocity_threshold": 0.03
   },
   "milk": {
@@ -866,8 +946,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "milk",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945355
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__milk",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -918,6 +1005,7 @@
       "height_drop": 0.08212,
       "location": "desk_caddy.right_side",
       "object": "milk",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -926,7 +1014,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960982.4125447,
+      "timestamp": 1778086143.764476,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -939,7 +1027,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960982.5281432,
+    "timestamp": 1778086143.829202,
     "velocity_threshold": 0.03
   },
   "moka_pot": {
@@ -950,8 +1038,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "moka_pot",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694539
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__moka_pot",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1002,6 +1097,7 @@
       "height_drop": 0.08576,
       "location": "desk_caddy.right_side",
       "object": "moka_pot",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1010,7 +1106,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960984.46433,
+      "timestamp": 1778086145.1060355,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1023,7 +1119,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960984.56629,
+    "timestamp": 1778086145.1676626,
     "velocity_threshold": 0.03
   },
   "new_salad_dressing": {
@@ -1034,8 +1130,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "new_salad_dressing",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945426
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__new_salad_dressing",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1086,6 +1189,7 @@
       "height_drop": 0.12915,
       "location": "desk_caddy.right_side",
       "object": "new_salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1094,7 +1198,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960986.493199,
+      "timestamp": 1778086146.4563594,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1107,7 +1211,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960986.5978465,
+    "timestamp": 1778086146.5189803,
     "velocity_threshold": 0.03
   },
   "orange_juice": {
@@ -1118,8 +1222,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "orange_juice",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945462
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__orange_juice",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1170,6 +1281,7 @@
       "height_drop": 0.08212,
       "location": "desk_caddy.right_side",
       "object": "orange_juice",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1178,7 +1290,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960988.5356534,
+      "timestamp": 1778086147.8106818,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1191,7 +1303,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960988.6378524,
+    "timestamp": 1778086147.8735986,
     "velocity_threshold": 0.03
   },
   "porcelain_mug": {
@@ -1202,8 +1314,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "porcelain_mug",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945496
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__porcelain_mug",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1254,6 +1373,7 @@
       "height_drop": 0.15426,
       "location": "desk_caddy.right_side",
       "object": "porcelain_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1262,7 +1382,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960990.7610738,
+      "timestamp": 1778086149.2510257,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1275,7 +1395,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960990.8620076,
+    "timestamp": 1778086149.3137023,
     "velocity_threshold": 0.03
   },
   "red_coffee_mug": {
@@ -1286,8 +1406,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "red_coffee_mug",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945534
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__red_coffee_mug",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1318,7 +1445,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 8e-05,
+      "displacement": 0.00014,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1338,6 +1465,7 @@
       "height_drop": 0.15003,
       "location": "desk_caddy.right_side",
       "object": "red_coffee_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1346,7 +1474,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960993.094612,
+      "timestamp": 1778086150.6586182,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1359,7 +1487,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960993.1984122,
+    "timestamp": 1778086150.7200134,
     "velocity_threshold": 0.03
   },
   "salad_dressing": {
@@ -1370,8 +1498,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "salad_dressing",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694557
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__salad_dressing",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1402,7 +1537,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.0,
+      "displacement": 1e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1422,6 +1557,7 @@
       "height_drop": 0.07915,
       "location": "desk_caddy.right_side",
       "object": "salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1430,7 +1566,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960995.175987,
+      "timestamp": 1778086152.0103126,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1443,19 +1579,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960995.283621,
+    "timestamp": 1778086152.0768883,
     "velocity_threshold": 0.03
   },
   "tomato_sauce": {
     "actual_pose": {
       "x": -0.1997,
-      "y": 0.0,
+      "y": 0.0001,
       "z": 0.9235
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "tomato_sauce",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945605
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__tomato_sauce",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1473,7 +1616,7 @@
       "p": 0.0,
       "r": 0.0,
       "x": 0.0003,
-      "y": 0.14,
+      "y": 0.1401,
       "z": 0.1
     },
     "scene": "STUDY_SCENE1",
@@ -1486,19 +1629,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00026,
+      "displacement": 0.00029,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
         "x": 0.0003,
-        "y": 0.14,
+        "y": 0.1401,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
         "x": -0.1997,
-        "y": 0.0,
+        "y": 0.0001,
         "z": 0.9235
       },
       "final_speed": 0.0,
@@ -1506,6 +1649,7 @@
       "height_drop": 0.11346,
       "location": "desk_caddy.right_side",
       "object": "tomato_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1514,7 +1658,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960997.2270758,
+      "timestamp": 1778086153.3958478,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1527,7 +1671,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960997.3275769,
+    "timestamp": 1778086153.4631488,
     "velocity_threshold": 0.03
   },
   "white_bowl": {
@@ -1538,8 +1682,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "white_bowl",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694564
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__white_bowl",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1590,6 +1741,7 @@
       "height_drop": 0.15243,
       "location": "desk_caddy.right_side",
       "object": "white_bowl",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1598,7 +1750,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777960999.4607272,
+      "timestamp": 1778086154.7933195,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1611,7 +1763,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777960999.5825574,
+    "timestamp": 1778086154.856368,
     "velocity_threshold": 0.03
   },
   "white_yellow_mug": {
@@ -1622,8 +1774,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "white_yellow_mug",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6945677
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__white_yellow_mug",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1674,6 +1833,7 @@
       "height_drop": 0.15177,
       "location": "desk_caddy.right_side",
       "object": "white_yellow_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1682,7 +1842,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777961001.523902,
+      "timestamp": 1778086156.17271,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1695,7 +1855,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777961001.5797603,
+    "timestamp": 1778086156.2375462,
     "velocity_threshold": 0.03
   },
   "wine_bottle": {
@@ -1706,8 +1866,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "wine_bottle",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694571
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__wine_bottle",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1758,6 +1925,7 @@
       "height_drop": 0.15298,
       "location": "desk_caddy.right_side",
       "object": "wine_bottle",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1766,7 +1934,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777961003.2034352,
+      "timestamp": 1778086157.5274615,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1779,7 +1947,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777961003.3113592,
+    "timestamp": 1778086157.5906274,
     "velocity_threshold": 0.03
   },
   "yellow_book": {
@@ -1790,8 +1958,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "yellow_book",
+      "path": "STUDY_SCENE1/desk_caddy/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.694575
+    },
     "drop_z": 0.1,
     "fixed_type": "desk_caddy",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE1__desk_caddy__right__yellow_book",
     "label": "right",
     "location": "desk_caddy.right_side",
@@ -1822,7 +1997,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 1e-05,
+      "displacement": 3e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1842,6 +2017,7 @@
       "height_drop": 0.15384,
       "location": "desk_caddy.right_side",
       "object": "yellow_book",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE1",
       "start_pose": {
@@ -1850,7 +2026,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777961005.2377396,
+      "timestamp": 1778086158.8739657,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1863,7 +2039,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777961005.3446803,
+    "timestamp": 1778086158.943261,
     "velocity_threshold": 0.03
   }
 }

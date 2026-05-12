@@ -1,6 +1,6 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the cookies belonging to user_019 and place it at the top of the wooden_cabinet)
+  (:language Pick the butter belonging to user_017 and place it at the top_left of the wooden_cabinet)
     (:regions
       (wooden_cabinet_right_right_region
           (:target kitchen_table)
@@ -31,21 +31,21 @@
   )
 
   (:objects
-    cookies_1 - cookies
+    butter_1 - butter
   )
 
   (:obj_of_interest
-    cookies_1
+    butter_1
     wooden_cabinet_right
   )
 
   (:init
     (On wooden_cabinet_right kitchen_table_wooden_cabinet_right_right_region)
-    (On cookies_1 kitchen_table_target_object_init_region)
+    (On butter_1 kitchen_table_target_object_init_region)
   )
 
   (:goal
-    (And (In cookies_1 wooden_cabinet_right_top_region))
+    (And (In butter_1 wooden_cabinet_right_top_region))
   )
 
 )

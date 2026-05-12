@@ -1,0 +1,73 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the bbq_sauce belonging to user_010 and place it at the bottom_left of the wooden_cabinet)
+    (:regions
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (basket_right_right_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (distractor_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0250 -0.0250 0.0250 0.0250)
+            )
+          )
+      )
+      (bottom_region
+          (:target wooden_cabinet_left)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    bbq_sauce_1 - bbq_sauce
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+    wooden_cabinet_left
+  )
+
+  (:init
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On bbq_sauce_1 kitchen_table_target_object_init_region)
+    (On alphabet_soup_1 kitchen_table_distractor_object_init_region)
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 wooden_cabinet_left_bottom_region))
+  )
+
+)

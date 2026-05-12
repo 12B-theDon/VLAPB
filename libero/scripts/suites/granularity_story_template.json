@@ -1,0 +1,32 @@
+{
+  "description": "VLA-friendly injection-level templates used by generate_granularity_input.py. The facts are concise profile context inferred from profile data, not general task commands.",
+  "placeholders": {
+    "context_one": "Consistency context if available, otherwise scene/table context.",
+    "context_two": "Second consistency context if available, otherwise participating user context.",
+    "detail": "A second augmented tendency fact, adaptation fact, object characteristic fact, or update override note.",
+    "extra_or_participation": "An additional profile tendency when available, otherwise participating user context.",
+    "fact0": "The first augmented suite-specific tendency fact.",
+    "facts_joined": "All augmented profile tendency facts joined by semicolons.",
+    "suite_fact": "The injection axis and split metadata fact.",
+    "user_id": "The target user id."
+  },
+  "story_variants": {
+    "one_sentence": "{fact0}",
+    "four_sentence": [
+      "{fact0}",
+      "{detail}",
+      "{extra_or_participation}",
+      "These profile cues are separate from the concrete task command"
+    ],
+    "eight_sentence": [
+      "{fact0}",
+      "{detail}",
+      "{context_one}",
+      "{context_two}",
+      "{extra_or_participation}",
+      "{suite_fact}",
+      "The profile note should help identify the relevant user tendency",
+      "The concrete robot action remains defined by the separate task command"
+    ]
+  }
+}

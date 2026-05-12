@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000047.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000047",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "bbq_sauce",
+    "new_salad_dressing",
+    "salad_dressing"
+  ],
+  "language": "Put the objects belonging to user_012 into the wooden_tray in this order: salad_dressing, bbq_sauce, new_salad_dressing",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "bbq_sauce": true,
+    "new_salad_dressing": true,
+    "salad_dressing": false
+  },
+  "ownership": {
+    "user_012": [
+      "bbq_sauce",
+      "new_salad_dressing",
+      "salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_012"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE1",
+  "sequence_strategy": "fixed_far_to_near",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2189,
+      "object_type": "bbq_sauce",
+      "ordinal_position": 1,
+      "x": 0.0914,
+      "y": 0.1989
+    },
+    {
+      "distance_to_tray": 0.1942,
+      "object_type": "new_salad_dressing",
+      "ordinal_position": 2,
+      "x": -0.1935,
+      "y": 0.0159
+    },
+    {
+      "distance_to_tray": 0.2541,
+      "object_type": "salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.1086,
+      "y": -0.2297
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "salad_dressing",
+    "bbq_sauce",
+    "new_salad_dressing"
+  ],
+  "target_user": "user_012",
+  "task_type": "type2"
+}

@@ -1,14 +1,21 @@
 {
   "akita_black_bowl": {
     "actual_pose": {
-      "x": 0.2355,
-      "y": -0.2275,
+      "x": 0.2302,
+      "y": -0.2561,
       "z": 0.8984
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "akita_black_bowl",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416065
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__akita_black_bowl",
     "label": "in",
     "location": "microwave.inside",
@@ -25,8 +32,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2355,
-      "y": -0.5775,
+      "x": 0.2302,
+      "y": -0.6061,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -44,55 +51,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2355,
-        "y": -0.5775,
+        "x": 0.2302,
+        "y": -0.6061,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2355,
-        "y": -0.2275,
+        "x": 0.2302,
+        "y": -0.2561,
         "z": 0.8984
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.1667,
+      "height_drop": 0.16669,
       "location": "microwave.inside",
       "object": "akita_black_bowl",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2354,
-        "y": -0.2273,
+        "x": 0.2302,
+        "y": -0.2559,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957553.5399194,
+      "timestamp": 1778083848.4562962,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2354,
-      "y": -0.2273,
+      "x": 0.2302,
+      "y": -0.2559,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957553.68586,
+    "timestamp": 1778083848.517918,
     "velocity_threshold": 0.03
   },
   "alphabet_soup": {
     "actual_pose": {
-      "x": 0.2316,
-      "y": -0.247,
+      "x": 0.2399,
+      "y": -0.2612,
       "z": 0.9384
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "alphabet_soup",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416134
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__alphabet_soup",
     "label": "in",
     "location": "microwave.inside",
@@ -109,8 +153,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2316,
-      "y": -0.597,
+      "x": 0.2399,
+      "y": -0.6112,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -128,55 +172,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2316,
-        "y": -0.597,
+        "x": 0.2399,
+        "y": -0.6112,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2316,
-        "y": -0.247,
+        "x": 0.2399,
+        "y": -0.2612,
         "z": 0.9384
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.12672,
+      "height_drop": 0.12671,
       "location": "microwave.inside",
       "object": "alphabet_soup",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2313,
-        "y": -0.2471,
+        "x": 0.2396,
+        "y": -0.2612,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957557.6515305,
+      "timestamp": 1778083851.1790776,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2313,
-      "y": -0.2471,
+      "x": 0.2396,
+      "y": -0.2612,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957557.764101,
+    "timestamp": 1778083851.2394207,
     "velocity_threshold": 0.03
   },
   "bbq_sauce": {
     "actual_pose": {
-      "x": 0.2355,
-      "y": -0.2202,
+      "x": 0.2417,
+      "y": -0.2177,
       "z": 0.9546
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "bbq_sauce",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241618
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__bbq_sauce",
     "label": "in",
     "location": "microwave.inside",
@@ -193,8 +274,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2355,
-      "y": -0.5702,
+      "x": 0.2417,
+      "y": -0.5677,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -212,55 +293,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2355,
-        "y": -0.5702,
+        "x": 0.2417,
+        "y": -0.5677,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2355,
-        "y": -0.2202,
+        "x": 0.2417,
+        "y": -0.2177,
         "z": 0.9546
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.11049,
+      "height_drop": 0.11047,
       "location": "microwave.inside",
       "object": "bbq_sauce",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2355,
-        "y": -0.2202,
+        "x": 0.2417,
+        "y": -0.2177,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957561.0185177,
+      "timestamp": 1778083853.8621917,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2355,
-      "y": -0.2202,
+      "x": 0.2417,
+      "y": -0.2177,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957561.1471777,
+    "timestamp": 1778083853.92389,
     "velocity_threshold": 0.03
   },
   "black_book": {
     "actual_pose": {
-      "x": 0.2507,
-      "y": -0.2168,
+      "x": 0.2344,
+      "y": -0.2573,
       "z": 0.8978
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "black_book",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241622
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__black_book",
     "label": "in",
     "location": "microwave.inside",
@@ -277,8 +395,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2507,
-      "y": -0.5668,
+      "x": 0.2344,
+      "y": -0.6073,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -296,55 +414,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2507,
-        "y": -0.5668,
+        "x": 0.2344,
+        "y": -0.6073,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2507,
-        "y": -0.2168,
+        "x": 0.2344,
+        "y": -0.2573,
         "z": 0.8978
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.1673,
+      "height_drop": 0.16728,
       "location": "microwave.inside",
       "object": "black_book",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2506,
-        "y": -0.2168,
+        "x": 0.2343,
+        "y": -0.2573,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957564.8976378,
+      "timestamp": 1778083856.556031,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2506,
-      "y": -0.2168,
+      "x": 0.2343,
+      "y": -0.2573,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957564.999118,
+    "timestamp": 1778083856.618025,
     "velocity_threshold": 0.03
   },
   "butter": {
     "actual_pose": {
-      "x": 0.2581,
-      "y": -0.264,
+      "x": 0.258,
+      "y": -0.2386,
       "z": 0.9087
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "butter",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241626
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__butter",
     "label": "in",
     "location": "microwave.inside",
@@ -361,8 +516,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2581,
-      "y": -0.614,
+      "x": 0.258,
+      "y": -0.5886,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -380,55 +535,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2581,
-        "y": -0.614,
+        "x": 0.258,
+        "y": -0.5886,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2581,
-        "y": -0.264,
+        "x": 0.258,
+        "y": -0.2386,
         "z": 0.9087
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.15642,
+      "height_drop": 0.1564,
       "location": "microwave.inside",
       "object": "butter",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2581,
-        "y": -0.264,
+        "x": 0.258,
+        "y": -0.2386,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957568.845981,
+      "timestamp": 1778083859.283433,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2581,
-      "y": -0.264,
+      "x": 0.258,
+      "y": -0.2386,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957568.971545,
+    "timestamp": 1778083859.3463333,
     "velocity_threshold": 0.03
   },
   "chefmate_8_frypan": {
     "actual_pose": {
-      "x": 0.2519,
-      "y": -0.2404,
+      "x": 0.216,
+      "y": -0.2321,
       "z": 0.8992
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "chefmate_8_frypan",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416303
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__chefmate_8_frypan",
     "label": "in",
     "location": "microwave.inside",
@@ -445,8 +637,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2519,
-      "y": -0.5904,
+      "x": 0.216,
+      "y": -0.5821,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -464,55 +656,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2519,
-        "y": -0.5904,
+        "x": 0.216,
+        "y": -0.5821,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2519,
-        "y": -0.2404,
+        "x": 0.216,
+        "y": -0.2321,
         "z": 0.8992
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.16593,
+      "height_drop": 0.16591,
       "location": "microwave.inside",
       "object": "chefmate_8_frypan",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2519,
-        "y": -0.24,
+        "x": 0.216,
+        "y": -0.2317,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957572.7816978,
+      "timestamp": 1778083861.9928212,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2519,
-      "y": -0.24,
+      "x": 0.216,
+      "y": -0.2317,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957572.8909612,
+    "timestamp": 1778083862.056586,
     "velocity_threshold": 0.03
   },
   "chocolate_pudding": {
     "actual_pose": {
       "x": 0.2587,
-      "y": -0.2242,
+      "y": -0.2536,
       "z": 0.9131
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "chocolate_pudding",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416341
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__chocolate_pudding",
     "label": "in",
     "location": "microwave.inside",
@@ -530,7 +759,7 @@
       "p": 0.0,
       "r": 0.0,
       "x": 0.2587,
-      "y": -0.5742,
+      "y": -0.6036,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -549,29 +778,59 @@
         "p": 0.0,
         "r": 0.0,
         "x": 0.2587,
-        "y": -0.5742,
+        "y": -0.6036,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
         "x": 0.2587,
-        "y": -0.2242,
+        "y": -0.2536,
         "z": 0.9131
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.15205,
+      "height_drop": 0.15203,
       "location": "microwave.inside",
       "object": "chocolate_pudding",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
         "x": 0.2587,
-        "y": -0.2242,
+        "y": -0.2536,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957576.7257307,
+      "timestamp": 1778083864.706078,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -579,24 +838,31 @@
     "skip_reason": null,
     "start_pose": {
       "x": 0.2587,
-      "y": -0.2242,
+      "y": -0.2536,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957576.8236344,
+    "timestamp": 1778083864.768897,
     "velocity_threshold": 0.03
   },
   "cookies": {
     "actual_pose": {
-      "x": 0.2383,
-      "y": -0.2516,
+      "x": 0.2186,
+      "y": -0.2547,
       "z": 0.9094
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "cookies",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416377
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__cookies",
     "label": "in",
     "location": "microwave.inside",
@@ -613,8 +879,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2383,
-      "y": -0.6016,
+      "x": 0.2186,
+      "y": -0.6047,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -632,55 +898,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2383,
-        "y": -0.6016,
+        "x": 0.2186,
+        "y": -0.6047,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2383,
-        "y": -0.2516,
+        "x": 0.2186,
+        "y": -0.2547,
         "z": 0.9094
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.15573,
+      "height_drop": 0.15571,
       "location": "microwave.inside",
       "object": "cookies",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2383,
-        "y": -0.2516,
+        "x": 0.2186,
+        "y": -0.2547,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957580.6489785,
+      "timestamp": 1778083867.3926668,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2383,
-      "y": -0.2516,
+      "x": 0.2186,
+      "y": -0.2547,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957580.7418375,
+    "timestamp": 1778083867.4598832,
     "velocity_threshold": 0.03
   },
   "cream_cheese": {
     "actual_pose": {
-      "x": 0.231,
-      "y": -0.2453,
+      "x": 0.2644,
+      "y": -0.2336,
       "z": 0.9089
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "cream_cheese",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241641
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__cream_cheese",
     "label": "in",
     "location": "microwave.inside",
@@ -697,8 +1000,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.231,
-      "y": -0.5953,
+      "x": 0.2644,
+      "y": -0.5836,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -716,55 +1019,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.231,
-        "y": -0.5953,
+        "x": 0.2644,
+        "y": -0.5836,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.231,
-        "y": -0.2453,
+        "x": 0.2644,
+        "y": -0.2336,
         "z": 0.9089
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.15619,
+      "height_drop": 0.15618,
       "location": "microwave.inside",
       "object": "cream_cheese",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.231,
-        "y": -0.2453,
+        "x": 0.2644,
+        "y": -0.2336,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957584.609776,
+      "timestamp": 1778083870.1045887,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.231,
-      "y": -0.2453,
+      "x": 0.2644,
+      "y": -0.2336,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957584.7277377,
+    "timestamp": 1778083870.1666377,
     "velocity_threshold": 0.03
   },
   "glazed_rim_porcelain_ramekin": {
     "actual_pose": {
-      "x": 0.242,
-      "y": -0.2157,
+      "x": 0.2273,
+      "y": -0.2229,
       "z": 0.8993
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416444
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__glazed_rim_porcelain_ramekin",
     "label": "in",
     "location": "microwave.inside",
@@ -781,8 +1121,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.242,
-      "y": -0.5657,
+      "x": 0.2273,
+      "y": -0.5729,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -800,14 +1140,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.242,
-        "y": -0.5657,
+        "x": 0.2273,
+        "y": -0.5729,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.242,
-        "y": -0.2157,
+        "x": 0.2273,
+        "y": -0.2229,
         "z": 0.8993
       },
       "final_speed": 0.0,
@@ -815,40 +1155,77 @@
       "height_drop": 0.16576,
       "location": "microwave.inside",
       "object": "glazed_rim_porcelain_ramekin",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.242,
-        "y": -0.2158,
+        "x": 0.2273,
+        "y": -0.2229,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957588.6064072,
+      "timestamp": 1778083872.9678395,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.242,
-      "y": -0.2158,
+      "x": 0.2273,
+      "y": -0.2229,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957588.7270594,
+    "timestamp": 1778083873.0344663,
     "velocity_threshold": 0.03
   },
   "ketchup": {
     "actual_pose": {
-      "x": 0.2534,
-      "y": -0.2589,
+      "x": 0.2527,
+      "y": -0.2208,
       "z": 0.9724
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "ketchup",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416477
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__ketchup",
     "label": "in",
     "location": "microwave.inside",
@@ -865,8 +1242,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2534,
-      "y": -0.6089,
+      "x": 0.2527,
+      "y": -0.5708,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -884,55 +1261,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2534,
-        "y": -0.6089,
+        "x": 0.2527,
+        "y": -0.5708,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2534,
-        "y": -0.2589,
+        "x": 0.2527,
+        "y": -0.2208,
         "z": 0.9724
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.09271,
+      "height_drop": 0.09269,
       "location": "microwave.inside",
       "object": "ketchup",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2534,
-        "y": -0.2589,
+        "x": 0.2527,
+        "y": -0.2208,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957591.9463453,
+      "timestamp": 1778083875.6882327,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2534,
-      "y": -0.2589,
+      "x": 0.2527,
+      "y": -0.2208,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957592.0389628,
+    "timestamp": 1778083875.7496016,
     "velocity_threshold": 0.03
   },
   "milk": {
     "actual_pose": {
-      "x": 0.2328,
-      "y": -0.2249,
+      "x": 0.231,
+      "y": -0.2375,
       "z": 0.9697
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "milk",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416513
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__milk",
     "label": "in",
     "location": "microwave.inside",
@@ -949,8 +1363,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2328,
-      "y": -0.5749,
+      "x": 0.231,
+      "y": -0.5875,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -968,55 +1382,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2328,
-        "y": -0.5749,
+        "x": 0.231,
+        "y": -0.5875,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2328,
-        "y": -0.2249,
+        "x": 0.231,
+        "y": -0.2375,
         "z": 0.9697
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.09538,
+      "height_drop": 0.09536,
       "location": "microwave.inside",
       "object": "milk",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2328,
-        "y": -0.2249,
+        "x": 0.231,
+        "y": -0.2375,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957595.8834965,
+      "timestamp": 1778083878.4059384,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2328,
-      "y": -0.2249,
+      "x": 0.231,
+      "y": -0.2375,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957595.9805214,
+    "timestamp": 1778083878.4698167,
     "velocity_threshold": 0.03
   },
   "moka_pot": {
     "actual_pose": {
-      "x": 0.2258,
-      "y": -0.2182,
+      "x": 0.2493,
+      "y": -0.262,
       "z": 0.9661
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "moka_pot",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416546
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__moka_pot",
     "label": "in",
     "location": "microwave.inside",
@@ -1033,8 +1484,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2258,
-      "y": -0.5682,
+      "x": 0.2493,
+      "y": -0.612,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1052,14 +1503,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2258,
-        "y": -0.5682,
+        "x": 0.2493,
+        "y": -0.612,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2258,
-        "y": -0.2182,
+        "x": 0.2493,
+        "y": -0.262,
         "z": 0.9661
       },
       "final_speed": 0.0,
@@ -1067,40 +1518,77 @@
       "height_drop": 0.09899,
       "location": "microwave.inside",
       "object": "moka_pot",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2258,
-        "y": -0.2182,
+        "x": 0.2493,
+        "y": -0.262,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957599.839808,
+      "timestamp": 1778083881.2136948,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2258,
-      "y": -0.2182,
+      "x": 0.2493,
+      "y": -0.262,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957599.9693809,
+    "timestamp": 1778083881.2745972,
     "velocity_threshold": 0.03
   },
   "new_salad_dressing": {
     "actual_pose": {
-      "x": 0.2539,
-      "y": -0.2162,
+      "x": 0.2428,
+      "y": -0.2428,
       "z": 0.9227
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "new_salad_dressing",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416575
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__new_salad_dressing",
     "label": "in",
     "location": "microwave.inside",
@@ -1117,8 +1605,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2539,
-      "y": -0.5662,
+      "x": 0.2428,
+      "y": -0.5928,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1136,55 +1624,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2539,
-        "y": -0.5662,
+        "x": 0.2428,
+        "y": -0.5928,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2539,
-        "y": -0.2162,
+        "x": 0.2428,
+        "y": -0.2428,
         "z": 0.9227
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.14241,
+      "height_drop": 0.14239,
       "location": "microwave.inside",
       "object": "new_salad_dressing",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2539,
-        "y": -0.2162,
+        "x": 0.2428,
+        "y": -0.2428,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957603.8394847,
+      "timestamp": 1778083883.9603631,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2539,
-      "y": -0.2162,
+      "x": 0.2428,
+      "y": -0.2428,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957603.9700634,
+    "timestamp": 1778083884.0261743,
     "velocity_threshold": 0.03
   },
   "orange_juice": {
     "actual_pose": {
-      "x": 0.2443,
-      "y": -0.2203,
+      "x": 0.2285,
+      "y": -0.2313,
       "z": 0.9697
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "orange_juice",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241661
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__orange_juice",
     "label": "in",
     "location": "microwave.inside",
@@ -1201,8 +1726,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2443,
-      "y": -0.5703,
+      "x": 0.2285,
+      "y": -0.5813,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1220,55 +1745,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2443,
-        "y": -0.5703,
+        "x": 0.2285,
+        "y": -0.5813,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2443,
-        "y": -0.2203,
+        "x": 0.2285,
+        "y": -0.2313,
         "z": 0.9697
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.09538,
+      "height_drop": 0.09536,
       "location": "microwave.inside",
       "object": "orange_juice",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2443,
-        "y": -0.2203,
+        "x": 0.2285,
+        "y": -0.2313,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957607.8129308,
+      "timestamp": 1778083886.6990387,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2443,
-      "y": -0.2203,
+      "x": 0.2285,
+      "y": -0.2313,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957607.943961,
+    "timestamp": 1778083886.7605758,
     "velocity_threshold": 0.03
   },
   "porcelain_mug": {
     "actual_pose": {
-      "x": 0.2354,
-      "y": -0.2202,
+      "x": 0.22,
+      "y": -0.222,
       "z": 0.8976
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "porcelain_mug",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241665
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__porcelain_mug",
     "label": "in",
     "location": "microwave.inside",
@@ -1285,8 +1847,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2354,
-      "y": -0.5702,
+      "x": 0.22,
+      "y": -0.572,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1304,55 +1866,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2354,
-        "y": -0.5702,
+        "x": 0.22,
+        "y": -0.572,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2354,
-        "y": -0.2202,
+        "x": 0.22,
+        "y": -0.222,
         "z": 0.8976
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.1675,
+      "height_drop": 0.16749,
       "location": "microwave.inside",
       "object": "porcelain_mug",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2353,
-        "y": -0.2198,
+        "x": 0.2199,
+        "y": -0.2217,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957612.016428,
+      "timestamp": 1778083889.897783,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2353,
-      "y": -0.2198,
+      "x": 0.2199,
+      "y": -0.2217,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957612.1273565,
+    "timestamp": 1778083889.957779,
     "velocity_threshold": 0.03
   },
   "red_coffee_mug": {
     "actual_pose": {
-      "x": 0.2342,
-      "y": -0.2409,
+      "x": 0.227,
+      "y": -0.2641,
       "z": 0.9018
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "red_coffee_mug",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416677
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__red_coffee_mug",
     "label": "in",
     "location": "microwave.inside",
@@ -1369,8 +1968,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2342,
-      "y": -0.5909,
+      "x": 0.227,
+      "y": -0.6141,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1388,14 +1987,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2342,
-        "y": -0.5909,
+        "x": 0.227,
+        "y": -0.6141,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2342,
-        "y": -0.2409,
+        "x": 0.227,
+        "y": -0.2641,
         "z": 0.9018
       },
       "final_speed": 0.0,
@@ -1403,40 +2002,77 @@
       "height_drop": 0.16327,
       "location": "microwave.inside",
       "object": "red_coffee_mug",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2342,
-        "y": -0.2408,
+        "x": 0.227,
+        "y": -0.264,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957616.253103,
+      "timestamp": 1778083893.0186028,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2342,
-      "y": -0.2408,
+      "x": 0.227,
+      "y": -0.264,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957616.3615203,
+    "timestamp": 1778083893.0845387,
     "velocity_threshold": 0.03
   },
   "salad_dressing": {
     "actual_pose": {
-      "x": 0.2206,
-      "y": -0.2228,
+      "x": 0.2253,
+      "y": -0.234,
       "z": 0.9727
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "salad_dressing",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241671
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__salad_dressing",
     "label": "in",
     "location": "microwave.inside",
@@ -1453,8 +2089,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2206,
-      "y": -0.5728,
+      "x": 0.2253,
+      "y": -0.584,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1467,60 +2103,97 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 1e-05,
+      "displacement": 0.0,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2206,
-        "y": -0.5728,
+        "x": 0.2253,
+        "y": -0.584,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2206,
-        "y": -0.2228,
+        "x": 0.2253,
+        "y": -0.234,
         "z": 0.9727
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.09241,
+      "height_drop": 0.09239,
       "location": "microwave.inside",
       "object": "salad_dressing",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2206,
-        "y": -0.2228,
+        "x": 0.2253,
+        "y": -0.234,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957620.2347767,
+      "timestamp": 1778083895.783493,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2206,
-      "y": -0.2228,
+      "x": 0.2253,
+      "y": -0.234,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957620.3594756,
+    "timestamp": 1778083895.8523824,
     "velocity_threshold": 0.03
   },
   "tomato_sauce": {
     "actual_pose": {
-      "x": 0.2364,
-      "y": -0.2495,
+      "x": 0.2162,
+      "y": -0.2511,
       "z": 0.9384
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "tomato_sauce",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416744
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__tomato_sauce",
     "label": "in",
     "location": "microwave.inside",
@@ -1537,8 +2210,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2364,
-      "y": -0.5995,
+      "x": 0.2162,
+      "y": -0.6011,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1556,55 +2229,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2364,
-        "y": -0.5995,
+        "x": 0.2162,
+        "y": -0.6011,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2364,
-        "y": -0.2495,
+        "x": 0.2162,
+        "y": -0.2511,
         "z": 0.9384
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.12672,
+      "height_drop": 0.12671,
       "location": "microwave.inside",
       "object": "tomato_sauce",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2361,
-        "y": -0.2495,
+        "x": 0.2159,
+        "y": -0.2512,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957623.7010226,
+      "timestamp": 1778083898.545306,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2361,
-      "y": -0.2495,
+      "x": 0.2159,
+      "y": -0.2512,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957623.8210125,
+    "timestamp": 1778083898.6152747,
     "velocity_threshold": 0.03
   },
   "white_bowl": {
     "actual_pose": {
-      "x": 0.2248,
-      "y": -0.2592,
+      "x": 0.2318,
+      "y": -0.2157,
       "z": 0.8994
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "white_bowl",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416778
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__white_bowl",
     "label": "in",
     "location": "microwave.inside",
@@ -1621,8 +2331,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2248,
-      "y": -0.6092,
+      "x": 0.2318,
+      "y": -0.5657,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1640,43 +2350,73 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2248,
-        "y": -0.6092,
+        "x": 0.2318,
+        "y": -0.5657,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2248,
-        "y": -0.2592,
+        "x": 0.2318,
+        "y": -0.2157,
         "z": 0.8994
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.16569,
+      "height_drop": 0.16567,
       "location": "microwave.inside",
       "object": "white_bowl",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2247,
-        "y": -0.2589,
+        "x": 0.2317,
+        "y": -0.2155,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957628.0001698,
+      "timestamp": 1778083901.7245796,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2247,
-      "y": -0.2589,
+      "x": 0.2317,
+      "y": -0.2155,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957628.120563,
+    "timestamp": 1778083901.7890496,
     "velocity_threshold": 0.03
   },
   "white_yellow_mug": {
@@ -1696,18 +2436,25 @@
     "scene": "KITCHEN_SCENE6",
     "status": "skipped",
     "table": "kitchen_table",
-    "timestamp": 1777957628.1219301
+    "timestamp": 1778083901.7907732
   },
   "wine_bottle": {
     "actual_pose": {
-      "x": 0.2445,
-      "y": -0.2198,
+      "x": 0.2457,
+      "y": -0.2349,
       "z": 0.8989
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "wine_bottle",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.241681
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__wine_bottle",
     "label": "in",
     "location": "microwave.inside",
@@ -1724,8 +2471,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2445,
-      "y": -0.5698,
+      "x": 0.2457,
+      "y": -0.5849,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1743,55 +2490,92 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2445,
-        "y": -0.5698,
+        "x": 0.2457,
+        "y": -0.5849,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2445,
-        "y": -0.2198,
+        "x": 0.2457,
+        "y": -0.2349,
         "z": 0.8989
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.16624,
+      "height_drop": 0.16622,
       "location": "microwave.inside",
       "object": "wine_bottle",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2445,
-        "y": -0.2198,
+        "x": 0.2457,
+        "y": -0.2349,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957631.9141216,
+      "timestamp": 1778083904.4507737,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2445,
-      "y": -0.2198,
+      "x": 0.2457,
+      "y": -0.2349,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957632.0400088,
+    "timestamp": 1778083904.5156837,
     "velocity_threshold": 0.03
   },
   "yellow_book": {
     "actual_pose": {
-      "x": 0.2204,
-      "y": -0.2452,
+      "x": 0.254,
+      "y": -0.233,
       "z": 0.898
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "yellow_book",
+      "path": "KITCHEN_SCENE6/microwave/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold",
+      "timestamp": 1778221824.2416844
+    },
     "drop_z": 0.1,
     "fixed_type": "microwave",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE6__microwave__in__yellow_book",
     "label": "in",
     "location": "microwave.inside",
@@ -1808,8 +2592,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2204,
-      "y": -0.5952,
+      "x": 0.254,
+      "y": -0.583,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE6",
@@ -1827,43 +2611,73 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2204,
-        "y": -0.5952,
+        "x": 0.254,
+        "y": -0.583,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2204,
-        "y": -0.2452,
+        "x": 0.254,
+        "y": -0.233,
         "z": 0.898
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.1671,
+      "height_drop": 0.16708,
       "location": "microwave.inside",
       "object": "yellow_book",
+      "post_settle_checks": {
+        "microwave_close_check": {
+          "closed_tolerance": 0.015,
+          "displacement": 0.0,
+          "final_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "final_speed": 0.0,
+          "height_drop": 0.0,
+          "joint_errors": {
+            "microwave_1_microjoint": 0.0
+          },
+          "joints": [
+            "microwave_1_microjoint"
+          ],
+          "reason": "closed_stable",
+          "start_qpos": {
+            "microwave_1_microjoint": -1.697
+          },
+          "status": "closed",
+          "target_qpos": {
+            "microwave_1_microjoint": 0.0
+          },
+          "thresholds": {
+            "displacement": 0.04,
+            "final_speed": 0.03,
+            "height_drop": 0.03
+          }
+        }
+      },
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE6",
       "start_pose": {
-        "x": 0.2204,
-        "y": -0.2452,
+        "x": 0.254,
+        "y": -0.233,
         "z": 1.0651
       },
       "status": "review",
-      "timestamp": 1777957635.773555,
+      "timestamp": 1778083907.146893,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.2204,
-      "y": -0.2452,
+      "x": 0.254,
+      "y": -0.233,
       "z": 1.0651
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777957635.8841388,
+    "timestamp": 1778083907.212256,
     "velocity_threshold": 0.03
   }
 }

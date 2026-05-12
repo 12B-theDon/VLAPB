@@ -4,15 +4,16 @@
 - Objects per user: `4`
 - Maximum users possible: `21`
 - Graspable item count: `19`
-- Stable placement entries loaded: `3761`
+- Stable placement entries loaded: `4241`
 
 ## Area Coverage
 
 | Area | Profiles | Bar |
 | --- | ---: | --- |
-| `kitchen` | 14 | `#################.......` |
-| `living_room` | 13 | `################........` |
-| `study` | 13 | `################........` |
+| `floor` | 11 | `#############...........` |
+| `kitchen` | 10 | `############............` |
+| `living_room` | 10 | `############............` |
+| `study` | 9 | `###########.............` |
 
 ## Order Strategy Distribution
 

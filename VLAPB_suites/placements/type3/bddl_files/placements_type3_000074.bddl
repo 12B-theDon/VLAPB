@@ -1,9 +1,9 @@
-(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+(define (problem LIBERO_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the orange_juice belonging to user_004 and place it at the left of the basket)
+  (:language Pick the alphabet_soup belonging to user_001 and place it at the front of the basket)
     (:regions
       (basket_right_right_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
             )
@@ -14,7 +14,7 @@
           )
       )
       (white_cabinet_left_left_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.0200 -0.3200 0.0200 -0.2800)
             )
@@ -25,53 +25,53 @@
           )
       )
       (target_object_init_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
       (distractor_object_init_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.0250 -0.0250 0.0250 0.0250)
             )
           )
       )
       (placement_goal_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
-              (-0.0700 -0.0700 0.0700 0.0900)
+              (-0.0200 0.0200 0.2600 0.4200)
             )
           )
       )
     )
 
   (:fixtures
-    living_room_table - living_room_table
+    floor - floor
     white_cabinet_left - white_cabinet
   )
 
   (:objects
-    bbq_sauce_1 - bbq_sauce
-    orange_juice_1 - orange_juice
+    alphabet_soup_1 - alphabet_soup
+    cookies_1 - cookies
     basket_right - basket
   )
 
   (:obj_of_interest
-    orange_juice_1
+    alphabet_soup_1
     basket_right
   )
 
   (:init
-    (On basket_right living_room_table_basket_right_right_region)
-    (On white_cabinet_left living_room_table_white_cabinet_left_left_region)
-    (On orange_juice_1 living_room_table_target_object_init_region)
-    (On bbq_sauce_1 living_room_table_distractor_object_init_region)
+    (On basket_right floor_basket_right_right_region)
+    (On white_cabinet_left floor_white_cabinet_left_left_region)
+    (On alphabet_soup_1 floor_target_object_init_region)
+    (On cookies_1 floor_distractor_object_init_region)
   )
 
   (:goal
-    (And (AtXY orange_juice_1 living_room_table_placement_goal_region))
+    (And (AtXY alphabet_soup_1 floor_placement_goal_region))
   )
 
 )

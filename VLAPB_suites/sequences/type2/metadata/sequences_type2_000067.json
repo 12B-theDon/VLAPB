@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000067.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000067",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "salad_dressing",
+    "white_bowl"
+  ],
+  "language": "Put the objects belonging to user_017 into the wooden_tray in this order: butter, salad_dressing, white_bowl",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "salad_dressing": true,
+    "white_bowl": false
+  },
+  "ownership": {
+    "user_017": [
+      "butter",
+      "salad_dressing",
+      "white_bowl"
+    ]
+  },
+  "participating_users": [
+    "user_017"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2077,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.0909,
+      "y": 0.1867
+    },
+    {
+      "distance_to_tray": 0.2158,
+      "object_type": "salad_dressing",
+      "ordinal_position": 2,
+      "x": -0.2146,
+      "y": 0.0224
+    },
+    {
+      "distance_to_tray": 0.2475,
+      "object_type": "white_bowl",
+      "ordinal_position": 3,
+      "x": 0.1009,
+      "y": -0.226
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "butter",
+    "salad_dressing",
+    "white_bowl"
+  ],
+  "target_user": "user_017",
+  "task_type": "type2"
+}

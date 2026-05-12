@@ -1,22 +1,22 @@
-(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_005, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet, for user_004, pick the orange_juice and place it at the left of the basket.)
+  (:language For user_004, pick the new_salad_dressing and place it at the back of the wooden_tray, for user_005, pick the salad_dressing and place it at the back of the microwave.)
     (:regions
-      (wooden_cabinet_left_left_region
-          (:target kitchen_table)
+      (wooden_tray_left_left_region
+          (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.3200 0.0200 -0.2800)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
-              (-3.1416 -3.1416)
+              (0.0000 0.0000)
             )
           )
       )
-      (basket_right_right_region
-          (:target kitchen_table)
+      (microwave_right_right_region
+          (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2000 0.0200 0.2400)
+              (-0.0200 0.2800 0.0200 0.3200)
             )
           )
           (:yaw_rotation (
@@ -25,56 +25,60 @@
           )
       )
       (target_object_init_region
-          (:target kitchen_table)
+          (:target living_room_table)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
       (secondary_object_init_region
-          (:target kitchen_table)
+          (:target living_room_table)
           (:ranges (
               (0.1300 -0.0200 0.1800 0.0300)
             )
           )
       )
-      (bottom_region
-          (:target wooden_cabinet_left)
+      (placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.2600 -0.4200 0.0200 -0.0200)
+            )
+          )
       )
       (secondary_placement_goal_region
-          (:target kitchen_table)
+          (:target living_room_table)
           (:ranges (
-              (-0.1600 -0.1900 0.1600 0.2100)
+              (-0.2800 0.0800 0.0400 0.5200)
             )
           )
       )
     )
 
   (:fixtures
-    kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
+    living_room_table - living_room_table
+    microwave_right - microwave
   )
 
   (:objects
-    akita_black_bowl_1 - akita_black_bowl
-    orange_juice_1 - orange_juice
-    basket_right - basket
+    new_salad_dressing_1 - new_salad_dressing
+    salad_dressing_1 - salad_dressing
+    wooden_tray_left - wooden_tray
   )
 
   (:obj_of_interest
-    akita_black_bowl_1 orange_juice_1
-    wooden_cabinet_left basket_right
+    new_salad_dressing_1 salad_dressing_1
+    wooden_tray_left microwave_right
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On basket_right kitchen_table_basket_right_right_region)
-    (On akita_black_bowl_1 kitchen_table_target_object_init_region)
-    (On orange_juice_1 kitchen_table_secondary_object_init_region)
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On microwave_right living_room_table_microwave_right_right_region)
+    (On new_salad_dressing_1 living_room_table_target_object_init_region)
+    (On salad_dressing_1 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In akita_black_bowl_1 wooden_cabinet_left_bottom_region) (AtXY orange_juice_1 kitchen_table_secondary_placement_goal_region))
+    (And (AtXY new_salad_dressing_1 living_room_table_placement_goal_region) (AtXY salad_dressing_1 living_room_table_secondary_placement_goal_region))
   )
 
 )

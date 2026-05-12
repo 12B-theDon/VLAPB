@@ -1,6 +1,6 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_011, pick the cookies and place it at the top of the wooden_cabinet, for user_007, pick the glazed_rim_porcelain_ramekin and place it at the front of the basket.)
+  (:language For user_011, pick the cookies and place it at the top of the wooden_cabinet, for user_008, pick the ketchup and place it at the left of the basket.)
     (:regions
       (wooden_cabinet_left_left_region
           (:target kitchen_table)
@@ -44,7 +44,7 @@
       (secondary_placement_goal_region
           (:target kitchen_table)
           (:ranges (
-              (0.0500 0.1400 0.1900 0.3000)
+              (-0.1600 -0.1900 0.1600 0.2100)
             )
           )
       )
@@ -57,12 +57,12 @@
 
   (:objects
     cookies_1 - cookies
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    ketchup_1 - ketchup
     basket_right - basket
   )
 
   (:obj_of_interest
-    cookies_1 glazed_rim_porcelain_ramekin_1
+    cookies_1 ketchup_1
     wooden_cabinet_left basket_right
   )
 
@@ -70,11 +70,11 @@
     (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
     (On basket_right kitchen_table_basket_right_right_region)
     (On cookies_1 kitchen_table_target_object_init_region)
-    (On glazed_rim_porcelain_ramekin_1 kitchen_table_secondary_object_init_region)
+    (On ketchup_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In cookies_1 wooden_cabinet_left_top_region) (AtXY glazed_rim_porcelain_ramekin_1 kitchen_table_secondary_placement_goal_region))
+    (And (In cookies_1 wooden_cabinet_left_top_region) (AtXY ketchup_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

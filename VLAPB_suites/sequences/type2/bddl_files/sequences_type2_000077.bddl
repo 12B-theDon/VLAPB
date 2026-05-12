@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_020 into the wooden_tray in this order: cream_cheese, red_coffee_mug, ketchup)
+    (:regions
+      (wooden_tray_region
+          (:target study_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target study_table)
+          (:ranges (
+              (0.0866 0.1658 0.1366 0.2158)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target study_table)
+          (:ranges (
+              (-0.2415 0.0144 -0.1915 0.0644)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target study_table)
+          (:ranges (
+              (0.0492 -0.2324 0.0992 -0.1824)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    study_table - table
+  )
+
+  (:objects
+    cream_cheese_1 - cream_cheese
+    ketchup_1 - ketchup
+    red_coffee_mug_1 - red_coffee_mug
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    cream_cheese_1 red_coffee_mug_1 ketchup_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 study_table_wooden_tray_region)
+    (On cream_cheese_1 study_table_object_init_region_0)
+    (On ketchup_1 study_table_object_init_region_1)
+    (On red_coffee_mug_1 study_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In cream_cheese_1 wooden_tray_1_contain_region) (In red_coffee_mug_1 wooden_tray_1_contain_region) (In ketchup_1 wooden_tray_1_contain_region))
+  )
+
+)

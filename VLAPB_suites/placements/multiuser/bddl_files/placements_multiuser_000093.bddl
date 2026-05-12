@@ -1,0 +1,76 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_002, pick the chocolate_pudding and place it at the in of the basket, for user_019, pick the salad_dressing and place it at the bottom of the wooden_cabinet.)
+    (:regions
+      (basket_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 -0.2400 0.0200 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (wooden_cabinet_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2800 0.0200 0.3200)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target floor)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_left)
+      )
+      (bottom_region
+          (:target wooden_cabinet_right)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+    wooden_cabinet_right - wooden_cabinet
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    salad_dressing_1 - salad_dressing
+    basket_left - basket
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1 salad_dressing_1
+    basket_left wooden_cabinet_right
+  )
+
+  (:init
+    (On basket_left floor_basket_left_left_region)
+    (On wooden_cabinet_right floor_wooden_cabinet_right_right_region)
+    (On chocolate_pudding_1 floor_target_object_init_region)
+    (On salad_dressing_1 floor_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (In chocolate_pudding_1 basket_left_contain_region) (In salad_dressing_1 wooden_cabinet_right_bottom_region))
+  )
+
+)

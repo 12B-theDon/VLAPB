@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "butter",
+      "chocolate_pudding",
+      "milk"
+    ],
+    "previous_strategy": "right_to_left",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "butter",
+      "chocolate_pudding",
+      "milk"
+    ],
+    "same_scene": "KITCHEN_SCENE5",
+    "same_table": "kitchen_table",
+    "updated_sequence": [
+      "milk",
+      "chocolate_pudding",
+      "butter"
+    ],
+    "updated_strategy": "left_to_right",
+    "user_id": "user_014"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000014.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000014",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "chocolate_pudding",
+    "milk"
+  ],
+  "language": "After user_014's sequence preference changes from butter, chocolate_pudding, milk to milk, chocolate_pudding, butter, put the same objects into the wooden_tray in the new order: milk, chocolate_pudding, butter",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "chocolate_pudding": true,
+    "milk": true
+  },
+  "ownership": {
+    "user_014": [
+      "butter",
+      "chocolate_pudding",
+      "milk"
+    ]
+  },
+  "participating_users": [
+    "user_014"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "sequence_strategy": "left_to_right",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2317,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.0749,
+      "y": 0.2193
+    },
+    {
+      "distance_to_tray": 0.2408,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 2,
+      "x": -0.2408,
+      "y": -0.0048
+    },
+    {
+      "distance_to_tray": 0.1994,
+      "object_type": "milk",
+      "ordinal_position": 3,
+      "x": 0.1031,
+      "y": -0.1707
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "milk",
+    "chocolate_pudding",
+    "butter"
+  ],
+  "target_user": "user_014",
+  "task_type": "adaptability"
+}

@@ -6,11 +6,11 @@
     "rule": "consistency uses only user-local unseen belongings",
     "seen_objects": [
       "akita_black_bowl",
-      "alphabet_soup",
-      "bbq_sauce"
+      "chocolate_pudding",
+      "cookies"
     ],
-    "unseen_object": "butter",
-    "user_id": "user_001"
+    "unseen_object": "cream_cheese",
+    "user_id": "user_002"
   },
   "constraints": {
     "allowed_fixtures": [
@@ -27,10 +27,10 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 3
+    "libero_pair_count": 4
   },
   "distractor_object": null,
   "distractor_pose_index": null,
@@ -38,27 +38,27 @@
   "fixtures": [
     {
       "fixture": "basket",
-      "side": "left"
+      "side": "right"
     }
   ],
-  "language": "Pick the butter belonging to user_001 and place it at the front of the basket",
+  "language": "Pick the cream_cheese belonging to user_002 and place it at the left of the basket",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_001": [
-      "butter"
+    "user_002": [
+      "cream_cheese"
     ]
   },
   "participating_users": [
-    "user_001"
+    "user_002"
   ],
   "preference": {
     "area": "living_room",
     "fixed_type": "basket",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "front",
-    "location": "basket.back_side",
-    "object_type": "butter",
+    "label": "left",
+    "location": "basket.left_side",
+    "object_type": "cream_cheese",
     "scene": "LIVING_ROOM_SCENE1",
     "table": "living_room_table"
   },
@@ -70,8 +70,8 @@
   "split": "consistency",
   "suite": "placements",
   "table": "living_room_table",
-  "target_object": "butter",
+  "target_object": "cream_cheese",
   "target_object_seen": false,
-  "target_user": "user_001",
+  "target_user": "user_002",
   "task_type": "consistency"
 }

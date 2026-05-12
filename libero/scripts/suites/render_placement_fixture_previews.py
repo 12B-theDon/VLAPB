@@ -45,6 +45,7 @@ except ImportError:  # pragma: no cover - tqdm is optional.
 
 
 DEFAULT_POSSIBLE_DIR = VLAPB_LIBERO_ROOT / "scripts" / "data_generation" / "possible_spawn_positions"
+DEFAULT_HOLDED_DIR = VLAPB_LIBERO_ROOT / "scripts" / "data_generation" / "holded_spawn_positions"
 DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "placement_fixture_previews"
 DEFAULT_MANIFEST = DEFAULT_OUTPUT_DIR / "manifest.json"
 DEFAULT_LIBERO_OBJECTS = VLAPB_LIBERO_ROOT / "docs" / "libero_objects.json"
@@ -60,16 +61,25 @@ PLACEMENT_FIXTURES = (
     "wooden_tray",
     "wooden_two_layer_shelf",
 )
+FLOOR_FIXTURE = "floor"
+DEFAULT_PREVIEW_FIXTURES = (*PLACEMENT_FIXTURES, FLOOR_FIXTURE)
 SIDES = ("left", "right")
+FLOOR_LABELS = ("on", "front", "back", "left", "right")
+FLOOR_SINGLE_Y = {"left": -0.26, "right": 0.26, "center": 0.0}
+FLOOR_SINGLE_X = 0.0
+FLOOR_MULTIPLE_X = 0.0
+FLOOR_MULTIPLE_Y = {"left": -0.30, "right": 0.30}
 AREA_TABLES = {
     "kitchen": "kitchen_table",
     "living_room": "living_room_table",
     "study": "study_table",
+    "floor": "floor",
 }
 AREA_PROBLEMS = {
     "kitchen": "LIBERO_Kitchen_Tabletop_Manipulation",
     "living_room": "LIBERO_Living_Room_Tabletop_Manipulation",
     "study": "LIBERO_Study_Tabletop_Manipulation",
+    "floor": "LIBERO_Floor_Manipulation",
 }
 RENDER_TYPE_ALIASES = {
     "cabinet": "wooden_cabinet",
@@ -221,12 +231,13 @@ def replace_pose(source: PoseSource, pose: dict[str, float]) -> PoseSource:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--possible-dir", type=Path, default=DEFAULT_POSSIBLE_DIR)
+    parser.add_argument("--holded-dir", type=Path, default=DEFAULT_HOLDED_DIR)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--libero-objects", type=Path, default=DEFAULT_LIBERO_OBJECTS)
     parser.add_argument("--profiles", type=Path, default=DEFAULT_PROFILES)
     parser.add_argument("--camera-name", default="agentview")
     parser.add_argument("--image-size", type=int, default=512)
-    parser.add_argument("--fixtures", nargs="+", default=list(PLACEMENT_FIXTURES))
+    parser.add_argument("--fixtures", nargs="+", default=list(DEFAULT_PREVIEW_FIXTURES))
     parser.add_argument("--graspable-objects", nargs="+", default=None, help="Optional graspable object type filter.")
     parser.add_argument("--scenes", nargs="+", default=None, help="Optional numbered scene filter, e.g. KITCHEN_SCENE1.")
     parser.add_argument("--user-id", default=None, help="Optional profile user_id filter for --graspable-only.")
@@ -265,6 +276,8 @@ def setup_logging(verbose: bool) -> None:
 
 
 def area_for_scene(scene: str) -> str:
+    if scene == "FLOOR_SCENE":
+        return "floor"
     if scene.startswith("KITCHEN_SCENE"):
         return "kitchen"
     if scene.startswith("LIVING_ROOM_SCENE"):
@@ -819,6 +832,32 @@ def fixed_object_source(scene: str, fixed_type: str, libero_objects_path: Path) 
     )
 
 
+def floor_fixture_pose_source(fixture: str, side: str, *, multiple: bool = False) -> PoseSource:
+    if multiple:
+        pose = {"x": FLOOR_MULTIPLE_X, "y": FLOOR_MULTIPLE_Y.get(side, 0.0), "z": 0.1, "r": 0.0, "p": 0.0, "h": 0.0}
+    else:
+        pose = {"x": FLOOR_SINGLE_X, "y": FLOOR_SINGLE_Y.get(side, 0.0), "z": 0.1, "r": 0.0, "p": 0.0, "h": 0.0}
+    area = area_for_scene("FLOOR_SCENE")
+    return PoseSource(
+        requested_fixture=fixture,
+        source_fixture=fixture,
+        side=side,
+        scene="FLOOR_SCENE",
+        area=area,
+        pose=adjust_preview_pose(fixture, side, normalize_pose(pose), area),
+        path="floor_canonical_pose",
+        fallback="floor_canonical_pose",
+    )
+
+
+def floor_possible_path(possible_dir: Path, holded_dir: Path, fixed_type: str, label: str) -> Path | None:
+    for root in (possible_dir, holded_dir):
+        path = root / "FLOOR_SCENE" / fixed_type / f"{label}.json"
+        if path.exists():
+            return path
+    return None
+
+
 def has_drawer_preference(profile: dict[str, Any]) -> bool:
     return any(
         str(pref.get("fixed_type")) in DRAWER_FIXTURES or str(pref.get("label")) in {"top", "bottom"}
@@ -875,6 +914,65 @@ def pose_for_object_from_possible(path: Path, object_type: str) -> dict[str, flo
     if not isinstance(pose, dict):
         return None
     return normalize_pose(pose)
+
+
+def floor_pose_file(possible_dir: Path, holded_dir: Path, label: str) -> Path | None:
+    for root in (possible_dir, holded_dir):
+        path = root / "FLOOR_SCENE" / FLOOR_FIXTURE / f"{label}.json"
+        if path.exists():
+            return path
+    return None
+
+
+def floor_markers_from_file(path: Path, label: str, object_filter: list[str] | None = None) -> list[dict[str, Any]]:
+    data = read_json(path)
+    allowed = set(object_filter or [])
+    markers = []
+    for object_type in sorted(key for key in data if not str(key).startswith("_")):
+        if allowed and object_type not in allowed:
+            continue
+        pose = pose_for_object_from_possible(path, object_type)
+        if pose is None:
+            continue
+        markers.append(
+            graspable_object_marker(
+                object_type,
+                pose,
+                variant=f"floor_{safe_name(label)}",
+                label=label,
+                source_file=str(path),
+            )
+        )
+    return markers
+
+
+def build_floor_cases(
+    args: argparse.Namespace,
+    *,
+    kind: str = "floor",
+    output_group: str = "floor",
+) -> list[RenderCase]:
+    if args.scenes and "FLOOR_SCENE" not in set(args.scenes):
+        return []
+    cases = []
+    for label in FLOOR_LABELS:
+        path = floor_pose_file(args.possible_dir, args.holded_dir, label)
+        if path is None:
+            continue
+        for marker in floor_markers_from_file(path, label, args.graspable_objects):
+            output = args.output_dir / "floor" / "FLOOR_SCENE" / output_group / safe_name(label) / f"{safe_name(marker['object_type'])}.png"
+            cases.append(
+                RenderCase(
+                    kind,
+                    "floor",
+                    "FLOOR_SCENE",
+                    ((FLOOR_FIXTURE, label),),
+                    str(output),
+                    (),
+                    (marker,),
+                )
+            )
+    return cases
 
 
 def random_possible_markers(
@@ -943,6 +1041,36 @@ def build_manual_placement_cases(args: argparse.Namespace) -> list[RenderCase]:
     cases = []
     for raw_placement in args.manual_placements or []:
         fixed_type, label = parse_manual_placement(raw_placement)
+        if scene == "FLOOR_SCENE":
+            path = floor_possible_path(args.possible_dir, args.holded_dir, fixed_type, label)
+            if path is None:
+                raise FileNotFoundError(f"No floor scene placement file for {fixed_type}:{label}")
+            pose = pose_for_object_from_possible(path, object_type)
+            if pose is None:
+                raise ValueError(f"{object_type} has no {fixed_type}:{label} placement in {path}")
+            marker = graspable_object_marker(
+                object_type,
+                pose,
+                variant=f"{safe_name(fixed_type)}_{safe_name(label)}",
+                label=label,
+                fixed_type=fixed_type,
+                source_file=str(path),
+            )
+            fixture_sources = () if fixed_type == FLOOR_FIXTURE else (floor_fixture_pose_source(fixed_type, "center"),)
+            output = args.output_dir / "floor" / "FLOOR_SCENE" / "manual_placements" / safe_name(object_type) / f"{safe_name(fixed_type)}__{safe_name(label)}.png"
+            cases.append(
+                RenderCase(
+                    "manual_placement",
+                    "floor",
+                    "FLOOR_SCENE",
+                    ((fixed_type, label),),
+                    str(output),
+                    fixture_sources,
+                    (marker,),
+                )
+            )
+            continue
+
         path = args.possible_dir / scene / fixed_type / f"{label}.json"
         if not path.exists():
             raise FileNotFoundError(f"No possible placement file: {path}")
@@ -1039,13 +1167,37 @@ def build_profile_graspable_cases(args: argparse.Namespace) -> list[RenderCase]:
     return cases
 
 
+def build_floor_fixture_cases(args: argparse.Namespace, fixtures: list[str]) -> list[RenderCase]:
+    if args.scenes and "FLOOR_SCENE" not in set(args.scenes):
+        return []
+    cases = []
+    for fixture in fixtures:
+        for side in SIDES:
+            source = floor_fixture_pose_source(fixture, side)
+            output = args.output_dir / "floor" / "FLOOR_SCENE" / "single" / f"{fixture}__{side}.png"
+            cases.append(RenderCase("single", "floor", "FLOOR_SCENE", ((fixture, side),), str(output), (source,)))
+    for left_fixture, right_fixture in itertools.permutations(fixtures, 2):
+        if should_skip_multiple_pair(left_fixture, right_fixture):
+            continue
+        left = floor_fixture_pose_source(left_fixture, "left", multiple=True)
+        right = floor_fixture_pose_source(right_fixture, "right", multiple=True)
+        output = args.output_dir / "floor" / "FLOOR_SCENE" / "multiple" / f"{left_fixture}__left__{right_fixture}__right.png"
+        cases.append(RenderCase("multiple", "floor", "FLOOR_SCENE", ((left_fixture, "left"), (right_fixture, "right")), str(output), (left, right)))
+    return cases
+
+
 def build_cases(args: argparse.Namespace) -> list[RenderCase]:
+    requested_fixtures = list(dict.fromkeys(args.fixtures))
+    floor_requested = FLOOR_FIXTURE in requested_fixtures or (args.scenes and "FLOOR_SCENE" in set(args.scenes))
     if args.manual_placements:
         return build_manual_placement_cases(args)
     if args.graspable_only:
+        if floor_requested:
+            return build_floor_cases(args, kind="graspable_only", output_group="graspable_only")
         return build_profile_graspable_cases(args)
 
-    fixtures = list(args.fixtures)
+    include_floor = floor_requested
+    fixtures = [fixture for fixture in requested_fixtures if fixture != FLOOR_FIXTURE]
     pose_fixtures = available_pose_fixtures(args.possible_dir)
     cases = []
     for scene in available_scenes(args.possible_dir, args.scenes):
@@ -1063,6 +1215,9 @@ def build_cases(args: argparse.Namespace) -> list[RenderCase]:
             left, right = adjust_multiple_pose_sources(left, right)
             output = args.output_dir / area / scene / "multiple" / f"{left_fixture}__left__{right_fixture}__right.png"
             cases.append(RenderCase("multiple", area, scene, ((left_fixture, "left"), (right_fixture, "right")), str(output), (left, right)))
+    if include_floor and not args.only_left_mirrored:
+        cases.extend(build_floor_fixture_cases(args, fixtures))
+        cases.extend(build_floor_cases(args))
     if args.only_left_mirrored:
         cases = [
             case
@@ -1079,6 +1234,7 @@ def write_manifest(path: Path, cases: list[RenderCase], dry_run: bool) -> None:
         "case_count": len(cases),
         "single_count": sum(1 for case in cases if case.kind == "single"),
         "multiple_count": sum(1 for case in cases if case.kind == "multiple"),
+        "floor_count": sum(1 for case in cases if case.area == "floor" or any(fixture == FLOOR_FIXTURE for fixture, _label in case.fixtures)),
         "cases": [
             {
                 **{k: v for k, v in asdict(case).items() if k != "pose_sources"},
@@ -1132,13 +1288,13 @@ def main() -> None:
     args = parse_args()
     setup_logging(args.verbose)
     cases = build_cases(args)
-    filtered_run = bool(args.scenes or args.only_left_mirrored or args.graspable_only or args.fixtures != list(PLACEMENT_FIXTURES))
+    filtered_run = bool(args.scenes or args.only_left_mirrored or args.graspable_only or args.fixtures != list(DEFAULT_PREVIEW_FIXTURES))
     manifest_name = "manifest.filtered.json" if filtered_run else "manifest.json"
     write_manifest(args.output_dir / manifest_name, cases, args.dry_run)
 
     logging.info("scenes: %d", len(set(case.scene for case in cases)))
     logging.info("render cases: %d", len(cases))
-    logging.info("single: %d | multiple: %d", sum(1 for case in cases if case.kind == "single"), sum(1 for case in cases if case.kind == "multiple"))
+    logging.info("single: %d | multiple: %d | floor: %d", sum(1 for case in cases if case.kind == "single"), sum(1 for case in cases if case.kind == "multiple"), sum(1 for case in cases if case.area == "floor" or any(fixture == FLOOR_FIXTURE for fixture, _label in case.fixtures)))
     logging.info("output: %s", args.output_dir)
     logging.info("manifest: %s", args.output_dir / manifest_name)
     if args.dry_run:

@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the objects belonging to user_019 into the wooden_tray in this order: cookies, wine_bottle, milk)
+    (:regions
+      (wooden_tray_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target kitchen_table)
+          (:ranges (
+              (0.0211 0.1743 0.0711 0.2243)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2446 -0.0519 -0.1946 -0.0019)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target kitchen_table)
+          (:ranges (
+              (0.1067 -0.1999 0.1567 -0.1499)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - table
+  )
+
+  (:objects
+    cookies_1 - cookies
+    milk_1 - milk
+    wine_bottle_1 - wine_bottle
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    cookies_1 wine_bottle_1 milk_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 kitchen_table_wooden_tray_region)
+    (On cookies_1 kitchen_table_object_init_region_0)
+    (On milk_1 kitchen_table_object_init_region_1)
+    (On wine_bottle_1 kitchen_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In cookies_1 wooden_tray_1_contain_region) (In wine_bottle_1 wooden_tray_1_contain_region) (In milk_1 wooden_tray_1_contain_region))
+  )
+
+)

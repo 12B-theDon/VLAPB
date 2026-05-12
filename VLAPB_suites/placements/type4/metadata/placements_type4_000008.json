@@ -18,7 +18,7 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "fixture_state": {},
@@ -29,19 +29,19 @@
   "episode_id": "placements_type4_000008",
   "fixtures": [
     {
-      "fixture": "basket",
-      "side": "right"
+      "fixture": "wooden_tray",
+      "side": "left"
     },
     {
       "fixture": "cabinet",
-      "side": "left"
+      "side": "right"
     }
   ],
-  "language": "Pick the bbq_sauce belonging to user_001 and place it at the back of the basket",
+  "language": "Pick the alphabet_soup belonging to user_001 and place it at the front of the wooden_tray",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
     "user_001": [
-      "bbq_sauce"
+      "alphabet_soup"
     ]
   },
   "participating_users": [
@@ -49,24 +49,24 @@
   ],
   "preference": {
     "area": "living_room",
-    "fixed_type": "basket",
+    "fixed_type": "wooden_tray",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "back",
-    "location": "basket.front_side",
-    "object_type": "bbq_sauce",
-    "scene": "LIVING_ROOM_SCENE1",
+    "label": "front",
+    "location": "wooden_tray.back_side",
+    "object_type": "alphabet_soup",
+    "scene": "LIVING_ROOM_SCENE3",
     "table": "living_room_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE1",
+  "scene": "LIVING_ROOM_SCENE3",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type4",
   "suite": "placements",
   "table": "living_room_table",
-  "target_object": "bbq_sauce",
+  "target_object": "alphabet_soup",
   "target_object_seen": true,
   "target_user": "user_001",
   "task_type": "type4"

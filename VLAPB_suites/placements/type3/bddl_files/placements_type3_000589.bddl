@@ -1,0 +1,77 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the milk belonging to user_013 and place it at the left of the basket)
+    (:regions
+      (basket_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (flat_stove_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.1400 -0.2400 -0.1000 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (distractor_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.2050 -0.0250 -0.1550 0.0250)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target floor)
+          (:ranges (
+              (-0.1400 -0.1700 0.1400 0.1900)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    floor - floor
+    flat_stove_left - flat_stove
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    milk_1 - milk
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    milk_1
+    basket_right
+  )
+
+  (:init
+    (On basket_right floor_basket_right_right_region)
+    (On flat_stove_left floor_flat_stove_left_left_region)
+    (On milk_1 floor_target_object_init_region)
+    (On akita_black_bowl_1 floor_distractor_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY milk_1 floor_placement_goal_region))
+  )
+
+)

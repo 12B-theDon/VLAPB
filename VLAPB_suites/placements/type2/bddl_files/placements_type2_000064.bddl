@@ -1,11 +1,11 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the white_bowl belonging to user_006 and place it at the front of the basket)
+  (:language Pick the new_salad_dressing belonging to user_004 and place it at the back of the wooden_tray)
     (:regions
-      (basket_left_left_region
+      (wooden_tray_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.2400 0.0200 -0.2000)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -13,10 +13,10 @@
             )
           )
       )
-      (white_cabinet_right_right_region
+      (basket_left_left_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
@@ -34,7 +34,7 @@
       (placement_goal_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 -0.4200 0.2600 -0.0200)
+              (-0.2600 0.0200 0.0200 0.4200)
             )
           )
       )
@@ -42,27 +42,27 @@
 
   (:fixtures
     living_room_table - living_room_table
-    white_cabinet_right - white_cabinet
   )
 
   (:objects
-    white_bowl_1 - white_bowl
+    new_salad_dressing_1 - new_salad_dressing
+    wooden_tray_right - wooden_tray
     basket_left - basket
   )
 
   (:obj_of_interest
-    white_bowl_1
-    basket_left
+    new_salad_dressing_1
+    wooden_tray_right
   )
 
   (:init
+    (On wooden_tray_right living_room_table_wooden_tray_right_right_region)
     (On basket_left living_room_table_basket_left_left_region)
-    (On white_cabinet_right living_room_table_white_cabinet_right_right_region)
-    (On white_bowl_1 living_room_table_target_object_init_region)
+    (On new_salad_dressing_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY white_bowl_1 living_room_table_placement_goal_region))
+    (And (AtXY new_salad_dressing_1 living_room_table_placement_goal_region))
   )
 
 )

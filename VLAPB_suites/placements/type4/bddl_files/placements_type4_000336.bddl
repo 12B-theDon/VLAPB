@@ -1,0 +1,68 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the ketchup belonging to user_020 and place it at the back of the basket)
+    (:regions
+      (basket_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (wooden_two_layer_shelf_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target floor)
+          (:ranges (
+              (-0.2600 0.0200 0.0200 0.4200)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    floor - floor
+    wooden_two_layer_shelf_left - wooden_two_layer_shelf
+  )
+
+  (:objects
+    ketchup_1 - ketchup
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    ketchup_1
+    basket_right
+  )
+
+  (:init
+    (On basket_right floor_basket_right_right_region)
+    (On wooden_two_layer_shelf_left floor_wooden_two_layer_shelf_left_left_region)
+    (On ketchup_1 floor_target_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY ketchup_1 floor_placement_goal_region))
+  )
+
+)

@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "living_room",
+  "area": "floor",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type4/bddl_files/placements_type4_000090.bddl",
   "consistency": null,
   "constraints": {
@@ -18,7 +18,7 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "fixture_state": {},
@@ -33,41 +33,41 @@
       "side": "right"
     },
     {
-      "fixture": "microwave",
+      "fixture": "wooden_tray",
       "side": "left"
     }
   ],
-  "language": "Pick the glazed_rim_porcelain_ramekin belonging to user_007 and place it at the front of the basket",
+  "language": "Pick the glazed_rim_porcelain_ramekin belonging to user_003 and place it at the left of the basket",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_007": [
+    "user_003": [
       "glazed_rim_porcelain_ramekin"
     ]
   },
   "participating_users": [
-    "user_007"
+    "user_003"
   ],
   "preference": {
-    "area": "living_room",
+    "area": "floor",
     "fixed_type": "basket",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "front",
-    "location": "basket.back_side",
+    "label": "left",
+    "location": "basket.left_side",
     "object_type": "glazed_rim_porcelain_ramekin",
-    "scene": "LIVING_ROOM_SCENE2",
-    "table": "living_room_table"
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE2",
+  "scene": "FLOOR_SCENE",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type4",
   "suite": "placements",
-  "table": "living_room_table",
+  "table": "floor",
   "target_object": "glazed_rim_porcelain_ramekin",
   "target_object_seen": true,
-  "target_user": "user_007",
+  "target_user": "user_003",
   "task_type": "type4"
 }

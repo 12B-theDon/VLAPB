@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000056.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000056",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "chocolate_pudding",
+    "milk",
+    "red_coffee_mug"
+  ],
+  "language": "Put the objects belonging to user_014 into the wooden_tray in this order: chocolate_pudding, milk, red_coffee_mug",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "chocolate_pudding": true,
+    "milk": true,
+    "red_coffee_mug": false
+  },
+  "ownership": {
+    "user_014": [
+      "chocolate_pudding",
+      "milk",
+      "red_coffee_mug"
+    ]
+  },
+  "participating_users": [
+    "user_014"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "sequence_strategy": "right_to_left",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2402,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 1,
+      "x": 0.0938,
+      "y": 0.2211
+    },
+    {
+      "distance_to_tray": 0.2623,
+      "object_type": "milk",
+      "ordinal_position": 2,
+      "x": -0.2619,
+      "y": 0.0137
+    },
+    {
+      "distance_to_tray": 0.1873,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 3,
+      "x": 0.085,
+      "y": -0.1669
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "chocolate_pudding",
+    "milk",
+    "red_coffee_mug"
+  ],
+  "target_user": "user_014",
+  "task_type": "type2"
+}

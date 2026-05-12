@@ -1,0 +1,70 @@
+{
+  "adaptation": null,
+  "area": "living_room",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type2/bddl_files/placements_type2_000308.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
+  },
+  "debug": {
+    "libero_pair_count": 1
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_type2_000308",
+  "fixtures": [
+    {
+      "fixture": "wooden_tray",
+      "side": "left"
+    },
+    {
+      "fixture": "wooden_cabinet",
+      "side": "right"
+    }
+  ],
+  "language": "Pick the chocolate_pudding belonging to user_018 and place it at the in of the wooden_tray",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_018": [
+      "chocolate_pudding"
+    ]
+  },
+  "participating_users": [
+    "user_018"
+  ],
+  "preference": {
+    "area": "living_room",
+    "fixed_type": "wooden_tray",
+    "label": "in",
+    "location": "wooden_tray.inside",
+    "object_type": "chocolate_pudding",
+    "scene": "LIVING_ROOM_SCENE3",
+    "table": "living_room_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "LIVING_ROOM_SCENE3",
+  "secondary_object": null,
+  "secondary_preference": null,
+  "secondary_user": null,
+  "split": "type2",
+  "suite": "placements",
+  "table": "living_room_table",
+  "target_object": "chocolate_pudding",
+  "target_object_seen": true,
+  "target_user": "user_018",
+  "task_type": "type2"
+}

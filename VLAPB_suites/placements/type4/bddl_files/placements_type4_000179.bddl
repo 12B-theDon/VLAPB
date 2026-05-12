@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the cream_cheese belonging to user_012 and place it at the in of the wooden_tray)
+  (:language Pick the cream_cheese belonging to user_009 and place it at the front of the wooden_tray)
     (:regions
       (wooden_tray_left_left_region
           (:target living_room_table)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (wooden_two_layer_shelf_right_right_region
+      (wooden_cabinet_right_right_region
           (:target living_room_table)
           (:ranges (
               (-0.0200 0.2800 0.0200 0.3200)
@@ -31,14 +31,18 @@
             )
           )
       )
-      (contain_region
-          (:target wooden_tray_left)
+      (placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0200 -0.4200 0.2600 -0.0200)
+            )
+          )
       )
     )
 
   (:fixtures
     living_room_table - living_room_table
-    wooden_two_layer_shelf_right - wooden_two_layer_shelf
+    wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
@@ -53,12 +57,12 @@
 
   (:init
     (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
-    (On wooden_two_layer_shelf_right living_room_table_wooden_two_layer_shelf_right_right_region)
+    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
     (On cream_cheese_1 living_room_table_target_object_init_region)
   )
 
   (:goal
-    (And (In cream_cheese_1 wooden_tray_left_contain_region))
+    (And (AtXY cream_cheese_1 living_room_table_placement_goal_region))
   )
 
 )

@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_007, pick the chocolate_pudding and place it at the front of the wooden_cabinet, for user_016, pick the glazed_rim_porcelain_ramekin and place it at the back of the wooden_tray.)
+  (:language For user_008, pick the alphabet_soup and place it at the bottom_back of the white_cabinet, for user_009, pick the alphabet_soup and place it at the front of the wooden_tray.)
     (:regions
-      (wooden_cabinet_left_left_region
+      (white_cabinet_left_left_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 -0.3200 0.0200 -0.2800)
@@ -38,17 +38,13 @@
             )
           )
       )
-      (placement_goal_region
-          (:target kitchen_table)
-          (:ranges (
-              (-0.0200 -0.5000 0.2600 -0.1000)
-            )
-          )
+      (bottom_region
+          (:target white_cabinet_left)
       )
       (secondary_placement_goal_region
           (:target kitchen_table)
           (:ranges (
-              (-0.2800 0.0000 0.0400 0.4400)
+              (-0.0400 0.0000 0.2800 0.4400)
             )
           )
       )
@@ -56,29 +52,28 @@
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_left - wooden_cabinet
+    white_cabinet_left - white_cabinet
   )
 
   (:objects
-    chocolate_pudding_1 - chocolate_pudding
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    alphabet_soup_1 alphabet_soup_2 - alphabet_soup
     wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    chocolate_pudding_1 glazed_rim_porcelain_ramekin_1
-    wooden_cabinet_left wooden_tray_right
+    alphabet_soup_1 alphabet_soup_2
+    white_cabinet_left wooden_tray_right
   )
 
   (:init
-    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On white_cabinet_left kitchen_table_white_cabinet_left_left_region)
     (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
-    (On chocolate_pudding_1 kitchen_table_target_object_init_region)
-    (On glazed_rim_porcelain_ramekin_1 kitchen_table_secondary_object_init_region)
+    (On alphabet_soup_1 kitchen_table_target_object_init_region)
+    (On alphabet_soup_2 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (AtXY chocolate_pudding_1 kitchen_table_placement_goal_region) (AtXY glazed_rim_porcelain_ramekin_1 kitchen_table_secondary_placement_goal_region))
+    (And (In alphabet_soup_1 white_cabinet_left_bottom_region) (AtXY alphabet_soup_2 kitchen_table_secondary_placement_goal_region))
   )
 
 )

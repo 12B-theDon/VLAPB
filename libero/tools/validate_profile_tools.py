@@ -34,6 +34,7 @@ DEFAULT_SPAWN_DIR = VLAPB_LIBERO_ROOT / "docs" / "possible_spawn_positions"
 LIBERO_DATA_ROOT = Path("/home/artemis/libero_data")
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8787
+FLOOR_SCENE = "FLOOR_SCENE"
 POSE_KEYS = ("x", "y", "z", "r", "p", "h")
 CANONICAL_LOCATION_ALIASES = {
     "cabinet.drawer.front_side": "cabinet.bottom_drawer.inside",
@@ -48,6 +49,13 @@ CONTROL_FREQ = 20
 DISPLACEMENT_REVIEW_THRESHOLD = 0.08
 HEIGHT_DROP_REVIEW_THRESHOLD = 0.05
 FINAL_SPEED_REVIEW_THRESHOLD = 0.03
+CLOSE_CHECK_STEPS = 40
+CLOSE_SETTLE_STEPS = 20
+ARTICULATION_CLOSED_TOLERANCE = 0.015
+CLOSE_DISPLACEMENT_REVIEW_THRESHOLD = 0.04
+CLOSE_HEIGHT_DROP_REVIEW_THRESHOLD = 0.03
+SHELF_LAYER_MAX_OBJECT_HEIGHT = 0.18
+SHELF_LAYER_MAX_CENTER_Z_ABOVE_FIXED = 0.35
 REDROP_Z_OFFSET = 0.12
 REDROP_MIN_Z = 0.12
 FIXED_CENTER_LOCK_PREFIXES = ("basket.", "wooden_tray.", "plate.")
@@ -317,6 +325,10 @@ def ensure_anchor(data: dict[str, object], pose: dict[str, float]) -> dict[str, 
 
 def scene_bddl_candidates(scene: str) -> list[Path]:
     candidates: list[Path] = []
+    if scene == FLOOR_SCENE:
+        for bddl_dir in SUITE_BDDL_DIRS:
+            candidates.extend(path for path in sorted(bddl_dir.glob("*.bddl")) if "Floor_Manipulation" in path.read_text(encoding="utf-8", errors="ignore"))
+        return candidates
     for bddl_dir in SUITE_BDDL_DIRS:
         candidates.extend(sorted(bddl_dir.glob(f"{scene}_*.bddl")))
     return candidates
@@ -397,11 +409,24 @@ def is_microwave_inside(location: str) -> bool:
     return location == "microwave.inside"
 
 
+def is_shelf_layer_location(location: str) -> bool:
+    return location in {
+        "wooden_two_layer_shelf.top_shelf",
+        "wooden_two_layer_shelf.bottom_shelf",
+    }
+
+
+def requires_close_check(location: str) -> bool:
+    return is_drawer_location(location) or is_microwave_inside(location)
+
+
 def drawer_open_regions(location: str, fixed_instance: str) -> list[str]:
     if not is_drawer_location(location):
         return []
     if "bottom_drawer" in location:
         return [f"{fixed_instance}_bottom_region"]
+    if "middle_drawer" in location:
+        return [f"{fixed_instance}_middle_region"]
     if "top_drawer" in location:
         return [f"{fixed_instance}_top_region"]
     return []
@@ -514,11 +539,17 @@ def placement_site_for_location(location: str) -> tuple[str, str] | None:
         return "In", "heating_region"
     if location == "microwave.top_surface":
         return "On", "top_side"
-    if location == "cabinet.top_drawer.inside":
+    if location == "cabinet.top_surface":
+        return "On", "top_side"
+    if location.startswith("cabinet.top_drawer."):
         return "In", "top_region"
-    if location == "cabinet.bottom_drawer.inside":
+    if location.startswith("cabinet.middle_drawer."):
+        return "In", "middle_region"
+    if location.startswith("cabinet.bottom_drawer."):
         return "In", "bottom_region"
     if location == "wooden_two_layer_shelf.top_shelf":
+        return "In", "top_region"
+    if location == "wooden_two_layer_shelf.top_surface":
         return "On", "top_side"
     if location == "wooden_two_layer_shelf.bottom_shelf":
         return "In", "bottom_region"
@@ -526,27 +557,35 @@ def placement_site_for_location(location: str) -> tuple[str, str] | None:
 
 
 def needs_manual_site_spawn(location: str) -> bool:
-    return location in {
-        "cabinet.top_drawer.inside",
-        "cabinet.bottom_drawer.inside",
-        "microwave.inside",
-        "wooden_two_layer_shelf.top_shelf",
-        "wooden_two_layer_shelf.bottom_shelf",
-    }
+    return (
+        "drawer" in location
+        or location in {
+            "microwave.inside",
+            "wooden_two_layer_shelf.top_shelf",
+            "wooden_two_layer_shelf.bottom_shelf",
+        }
+    )
 
 
 def location_demo_keywords(location: str) -> tuple[str, ...]:
+    if location.startswith("cabinet.top_drawer."):
+        return ("in_the_top_drawer",)
+    if location.startswith("cabinet.middle_drawer."):
+        return ("middle_drawer", "middle_layer_of_the_drawer")
+    if location.startswith("cabinet.bottom_drawer."):
+        return ("in_the_bottom_drawer",)
     mapping = {
         "basket.inside": ("in_the_basket", "put_it_in_the_basket", "place_it_in_the_basket"),
         "wooden_tray.inside": ("in_the_tray", "put_it_in_the_tray", "place_it_in_the_tray"),
         "plate.center": ("on_the_plate",),
         "flat_stove.surface": ("on_the_stove", "on_it"),
-        "cabinet.top_drawer.inside": ("in_the_top_drawer",),
-        "cabinet.bottom_drawer.inside": ("in_the_bottom_drawer",),
+        "cabinet.top_surface": ("on_top_of_the_cabinet", "on_top_of_it"),
         "microwave.inside": ("in_the_microwave",),
         "microwave.top_surface": ("on_the_microwave", "on_top_of_the_microwave"),
-        "wooden_two_layer_shelf.top_shelf": ("on_top_of_the_shelf", "on_the_cabinet_shelf"),
+        "wooden_two_layer_shelf.top_shelf": ("on_the_cabinet_shelf",),
+        "wooden_two_layer_shelf.top_surface": ("on_top_of_the_shelf", "on_top_of_the_cabinet"),
         "wooden_two_layer_shelf.bottom_shelf": ("under_the_cabinet_shelf",),
+        "floor.center": ("place_it_in_the_basket", "put_it_in_the_basket"),
     }
     return mapping.get(location, ())
 
@@ -944,6 +983,8 @@ def drawer_joint_candidates(fixed_object, location: str) -> list[str]:
 
     if "top_drawer" in location:
         keys = ("top", "upper")
+    elif "middle_drawer" in location:
+        keys = ("middle", "center")
     elif "bottom_drawer" in location:
         keys = ("bottom", "lower")
     else:
@@ -959,6 +1000,8 @@ def drawer_joint_candidates(fixed_object, location: str) -> list[str]:
         return matched
     if "top_drawer" in location and len(joints) >= 1:
         return [joints[0]]
+    if "middle_drawer" in location and len(joints) >= 2:
+        return [joints[len(joints) // 2]]
     if "bottom_drawer" in location and len(joints) >= 2:
         return [joints[-1]]
 
@@ -1011,6 +1054,235 @@ def open_microwave_if_needed(env, fixed_instance: str, location: str) -> None:
 def open_articulated_if_needed(env, fixed_instance: str, location: str) -> None:
     open_drawer_if_needed(env, fixed_instance, location)
     open_microwave_if_needed(env, fixed_instance, location)
+
+
+def selected_articulation_joints(env, fixed_instance: str, location: str) -> list[str]:
+    try:
+        fixed_object = env.get_object(fixed_instance)
+    except Exception:
+        return []
+    if is_drawer_location(location):
+        return [joint for joint in drawer_joint_candidates(fixed_object, location) if joint in env.sim.model.joint_names]
+    if is_microwave_inside(location):
+        return [joint for joint in getattr(fixed_object, "joints", []) if joint in env.sim.model.joint_names]
+    return []
+
+
+def joint_closed_qpos(env, joint_name: str) -> float:
+    joint_id = env.sim.model.joint_name2id(joint_name)
+    limited = bool(env.sim.model.jnt_limited[joint_id])
+    if limited:
+        low, high = (float(value) for value in env.sim.model.jnt_range[joint_id])
+        return min(max(0.0, low), high)
+    return 0.0
+
+
+def joint_qpos(env, joint_name: str) -> float:
+    value = env.sim.data.get_joint_qpos(joint_name)
+    try:
+        return float(value)
+    except TypeError:
+        return float(np.asarray(value).reshape(-1)[0])
+
+
+def set_joint_scalar_qpos(env, joint_name: str, value: float) -> None:
+    current = env.sim.data.get_joint_qpos(joint_name)
+    if np.isscalar(current):
+        env.sim.data.set_joint_qpos(joint_name, float(value))
+        return
+    qpos = np.asarray(current, dtype=np.float64).copy()
+    qpos.reshape(-1)[0] = float(value)
+    env.sim.data.set_joint_qpos(joint_name, qpos)
+
+
+def object_body_ids(env, object_instance: str) -> set[int]:
+    body_ids = set()
+    for body_id, body_name in enumerate(env.sim.model.body_names):
+        if body_name and str(body_name).startswith(object_instance):
+            body_ids.add(body_id)
+    return body_ids
+
+
+def geom_radius(env, geom_id: int) -> np.ndarray:
+    # Conservative axis-aligned radius. MuJoCo geom_size has type-dependent
+    # semantics, so use the largest declared extent for each axis.
+    radius = float(np.max(env.sim.model.geom_size[geom_id]))
+    return np.array([radius, radius, radius], dtype=np.float64)
+
+
+def geom_bounding_box(env, object_instance: str) -> dict[str, object] | None:
+    mins = []
+    maxs = []
+    body_ids = object_body_ids(env, object_instance)
+    for geom_id, geom_name in enumerate(env.sim.model.geom_names):
+        geom_body_id = int(env.sim.model.geom_bodyid[geom_id])
+        name_matches = bool(geom_name and str(geom_name).startswith(object_instance))
+        if body_ids:
+            if geom_body_id not in body_ids:
+                continue
+        elif not name_matches:
+            continue
+        center = np.array(env.sim.data.geom_xpos[geom_id], dtype=np.float64)
+        radius = geom_radius(env, geom_id)
+        mins.append(center - radius)
+        maxs.append(center + radius)
+    if not mins:
+        return None
+    min_xyz = np.min(np.stack(mins), axis=0)
+    max_xyz = np.max(np.stack(maxs), axis=0)
+    size = max_xyz - min_xyz
+    return {
+        "min": [round(float(value), 5) for value in min_xyz],
+        "max": [round(float(value), 5) for value in max_xyz],
+        "size": [round(float(value), 5) for value in size],
+        "height": round(float(size[2]), 5),
+    }
+
+
+def close_articulation_check(env, fixed_instance: str, object_instance: str, location: str, action: np.ndarray) -> dict[str, object] | None:
+    if not requires_close_check(location):
+        return None
+    joints = selected_articulation_joints(env, fixed_instance, location)
+    if not joints:
+        return {"status": "blocked", "reason": "missing_articulation_joint", "joints": []}
+
+    start_pos = object_position(env, object_instance)
+    start_z = float(start_pos[2])
+    start_qpos = {joint: joint_qpos(env, joint) for joint in joints}
+    target_qpos = {joint: joint_closed_qpos(env, joint) for joint in joints}
+
+    for step in range(1, CLOSE_CHECK_STEPS + 1):
+        alpha = step / CLOSE_CHECK_STEPS
+        for joint in joints:
+            qpos = start_qpos[joint] + (target_qpos[joint] - start_qpos[joint]) * alpha
+            set_joint_scalar_qpos(env, joint, qpos)
+        env.sim.forward()
+        env.step(action)
+
+    for _ in range(CLOSE_SETTLE_STEPS):
+        env.step(action)
+
+    final_pos = object_position(env, object_instance)
+    final_speed = object_speed(env, object_instance)
+    displacement = float(np.linalg.norm(final_pos[:2] - start_pos[:2]))
+    height_drop = float(max(0.0, start_z - final_pos[2]))
+    final_qpos = {joint: joint_qpos(env, joint) for joint in joints}
+    joint_errors = {joint: abs(final_qpos[joint] - target_qpos[joint]) for joint in joints}
+    closed = all(error <= ARTICULATION_CLOSED_TOLERANCE for error in joint_errors.values())
+    stable = final_speed <= FINAL_SPEED_REVIEW_THRESHOLD
+    stayed_put = displacement <= CLOSE_DISPLACEMENT_REVIEW_THRESHOLD
+    no_drop = height_drop <= CLOSE_HEIGHT_DROP_REVIEW_THRESHOLD
+    ok = closed and stable and stayed_put and no_drop
+
+    reasons = []
+    if not closed:
+        reasons.append("not_closed")
+    if not stable:
+        reasons.append("object_unsettled_after_close")
+    if not stayed_put:
+        reasons.append("object_moved_during_close")
+    if not no_drop:
+        reasons.append("object_dropped_during_close")
+
+    return {
+        "status": "closed" if ok else "blocked",
+        "reason": "closed_stable" if ok else "+".join(reasons),
+        "joints": joints,
+        "start_qpos": {joint: round(float(value), 5) for joint, value in start_qpos.items()},
+        "target_qpos": {joint: round(float(value), 5) for joint, value in target_qpos.items()},
+        "final_qpos": {joint: round(float(value), 5) for joint, value in final_qpos.items()},
+        "joint_errors": {joint: round(float(value), 5) for joint, value in joint_errors.items()},
+        "closed_tolerance": ARTICULATION_CLOSED_TOLERANCE,
+        "displacement": round(displacement, 5),
+        "height_drop": round(height_drop, 5),
+        "final_speed": round(final_speed, 5),
+        "thresholds": {
+            "displacement": CLOSE_DISPLACEMENT_REVIEW_THRESHOLD,
+            "height_drop": CLOSE_HEIGHT_DROP_REVIEW_THRESHOLD,
+            "final_speed": FINAL_SPEED_REVIEW_THRESHOLD,
+        },
+    }
+
+
+def shelf_layer_check(env, fixed_instance: str, object_instance: str, location: str, layer_start_pos: np.ndarray, layer_final_pos: np.ndarray) -> dict[str, object] | None:
+    if not is_shelf_layer_location(location):
+        return None
+    object_box = geom_bounding_box(env, object_instance)
+    fixed_body = resolve_reference_body(env, fixed_instance, location)
+    fixed_body_id = env.sim.model.body_name2id(fixed_body)
+    fixed_z = float(env.sim.data.body_xpos[fixed_body_id][2])
+    center_z_above_fixed = float(layer_final_pos[2] - fixed_z)
+    displacement = float(np.linalg.norm(layer_final_pos[:2] - layer_start_pos[:2]))
+    height_drop = float(max(0.0, layer_start_pos[2] - layer_final_pos[2]))
+    object_height = float(object_box.get("height", 0.0)) if object_box else 0.0
+    ok = (
+        displacement <= DISPLACEMENT_REVIEW_THRESHOLD
+        and height_drop <= HEIGHT_DROP_REVIEW_THRESHOLD
+        and object_height <= SHELF_LAYER_MAX_OBJECT_HEIGHT
+        and center_z_above_fixed <= SHELF_LAYER_MAX_CENTER_Z_ABOVE_FIXED
+    )
+    reasons = []
+    if displacement > DISPLACEMENT_REVIEW_THRESHOLD:
+        reasons.append("large_displacement")
+    if height_drop > HEIGHT_DROP_REVIEW_THRESHOLD:
+        reasons.append("height_drop")
+    if object_height > SHELF_LAYER_MAX_OBJECT_HEIGHT:
+        reasons.append("object_too_tall_for_layer")
+    if center_z_above_fixed > SHELF_LAYER_MAX_CENTER_Z_ABOVE_FIXED:
+        reasons.append("object_above_layer_clearance")
+    return {
+        "status": "clear" if ok else "blocked",
+        "reason": "layer_clear" if ok else "+".join(reasons),
+        "object_bounds": object_box,
+        "center_z_above_fixed": round(center_z_above_fixed, 5),
+        "displacement": round(displacement, 5),
+        "height_drop": round(height_drop, 5),
+        "thresholds": {
+            "object_height": SHELF_LAYER_MAX_OBJECT_HEIGHT,
+            "center_z_above_fixed": SHELF_LAYER_MAX_CENTER_Z_ABOVE_FIXED,
+            "displacement": DISPLACEMENT_REVIEW_THRESHOLD,
+            "height_drop": HEIGHT_DROP_REVIEW_THRESHOLD,
+        },
+    }
+
+
+def apply_post_settle_checks(
+    env,
+    fixed_instance: str,
+    object_instance: str,
+    location: str,
+    action: np.ndarray,
+    settle_start_pos: np.ndarray,
+    settle_final_pos: np.ndarray,
+) -> tuple[dict[str, object], list[str]]:
+    checks: dict[str, object] = {}
+    blocking_reasons: list[str] = []
+    shelf_check = shelf_layer_check(env, fixed_instance, object_instance, location, settle_start_pos, settle_final_pos)
+    if shelf_check is not None:
+        checks["shelf_layer_check"] = shelf_check
+        if shelf_check.get("status") != "clear":
+            blocking_reasons.append(f"shelf_layer_{shelf_check.get('reason', 'blocked')}")
+    close_check = close_articulation_check(env, fixed_instance, object_instance, location, action)
+    if close_check is not None:
+        key = "microwave_close_check" if is_microwave_inside(location) else "drawer_close_check"
+        checks[key] = close_check
+        if close_check.get("status") != "closed":
+            blocking_reasons.append(f"{key}_{close_check.get('reason', 'blocked')}")
+    return checks, blocking_reasons
+
+
+def post_settle_checks_blocked(result: dict[str, object]) -> bool:
+    checks = result.get("post_settle_checks")
+    if not isinstance(checks, dict):
+        return False
+    shelf_check = checks.get("shelf_layer_check")
+    if isinstance(shelf_check, dict) and shelf_check.get("status") != "clear":
+        return True
+    for key in ("drawer_close_check", "microwave_close_check"):
+        close_check = checks.get(key)
+        if isinstance(close_check, dict) and close_check.get("status") != "closed":
+            return True
+    return False
 
 
 def render_pose_png(
@@ -1252,6 +1524,27 @@ def simulate_pose(
                 f"{final_speed:.5f} > {FINAL_SPEED_REVIEW_THRESHOLD:.5f}"
             )
             status, reason = status_from_motion(displacement, height_drop, final_speed)
+            post_checks, post_check_reasons = apply_post_settle_checks(
+                env,
+                fixed_instance,
+                object_instance,
+                location,
+                action,
+                start_pos,
+                final_pos,
+            )
+            if post_check_reasons:
+                status = "review"
+                reason = "+".join([reason, *post_check_reasons]) if reason != "settled" else "+".join(post_check_reasons)
+                final_pos = object_position(env, object_instance)
+                final_speed = object_speed(env, object_instance)
+                displacement = float(np.linalg.norm(final_pos[:2] - start_pos[:2]))
+                height_drop = float(max(0.0, start_pos[2] - final_pos[2]))
+                velocity_stable = final_speed <= FINAL_SPEED_REVIEW_THRESHOLD
+                velocity_warning = "" if velocity_stable else (
+                    f"Object velocity is not stable after post-settle checks: "
+                    f"{final_speed:.5f} > {FINAL_SPEED_REVIEW_THRESHOLD:.5f}"
+                )
             final_anchor_pose = dict(normalize_pose(pose))
             final_anchor_pose["x"] = round(float(final_pos[0] - anchor_xy[0]), 4)
             final_anchor_pose["y"] = round(float(final_pos[1] - anchor_xy[1]), 4)
@@ -1283,6 +1576,7 @@ def simulate_pose(
                 "velocity_stable": velocity_stable,
                 "velocity_warning": velocity_warning,
                 "velocity_threshold": FINAL_SPEED_REVIEW_THRESHOLD,
+                "post_settle_checks": post_checks,
                 "status": status,
                 "reason": reason,
                 "gif_path": str(gif_path) if gif_path is not None else None,
@@ -1905,6 +2199,7 @@ class SpawnStore:
     def redrop_result_is_stable(self, result: dict[str, object]) -> bool:
         return (
             result.get("status") != "failed_render"
+            and not post_settle_checks_blocked(result)
             and float(result.get("displacement", 999.0)) <= DISPLACEMENT_REVIEW_THRESHOLD
             and result.get("velocity_stable") is not False
         )
@@ -1924,6 +2219,8 @@ class SpawnStore:
                 reasons.append("unsettled")
             if result.get("status") == "failed_render":
                 reasons.append("failed_render")
+            if post_settle_checks_blocked(result):
+                reasons.append("post_settle_check_blocked")
             result["status"] = "review"
             result["reason"] = "redrop_" + ("+".join(reasons) if reasons else "needs_review")
         return result

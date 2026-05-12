@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "kitchen",
+  "area": "floor",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000077.bddl",
   "consistency": null,
   "constraints": {
@@ -18,67 +18,65 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 0
+    "libero_pair_count": 1
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_multiuser_000077",
   "fixtures": [
     {
-      "fixture": "wooden_cabinet",
+      "fixture": "basket",
       "side": "left"
     },
     {
-      "fixture": "basket",
+      "fixture": "wooden_tray",
       "side": "right"
     }
   ],
-  "language": "For user_005, pick the red_coffee_mug and place it at the back of the wooden_cabinet, for user_009, pick the alphabet_soup and place it at the in of the basket.",
+  "language": "For user_002, pick the chocolate_pudding and place it at the in of the basket, for user_016, pick the glazed_rim_porcelain_ramekin and place it at the in of the wooden_tray.",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_005": [
-      "red_coffee_mug"
+    "user_002": [
+      "chocolate_pudding"
     ],
-    "user_009": [
-      "alphabet_soup"
+    "user_016": [
+      "glazed_rim_porcelain_ramekin"
     ]
   },
   "participating_users": [
-    "user_005",
-    "user_009"
+    "user_002",
+    "user_016"
   ],
   "preference": {
-    "area": "kitchen",
-    "fixed_type": "wooden_cabinet",
-    "goal_predicate": "AtXY",
-    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "back",
-    "location": "cabinet.front_side",
-    "object_type": "red_coffee_mug",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
-  },
-  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE1",
-  "secondary_object": "alphabet_soup",
-  "secondary_preference": {
-    "area": "kitchen",
+    "area": "floor",
     "fixed_type": "basket",
     "label": "in",
     "location": "basket.inside",
-    "object_type": "alphabet_soup",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
+    "object_type": "chocolate_pudding",
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
-  "secondary_user": "user_009",
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "FLOOR_SCENE",
+  "secondary_object": "glazed_rim_porcelain_ramekin",
+  "secondary_preference": {
+    "area": "floor",
+    "fixed_type": "wooden_tray",
+    "label": "in",
+    "location": "wooden_tray.inside",
+    "object_type": "glazed_rim_porcelain_ramekin",
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
+  },
+  "secondary_user": "user_016",
   "split": "multiuser",
   "suite": "placements",
-  "table": "kitchen_table",
-  "target_object": "red_coffee_mug",
+  "table": "floor",
+  "target_object": "chocolate_pudding",
   "target_object_seen": true,
-  "target_user": "user_005",
+  "target_user": "user_002",
   "task_type": "multiuser"
 }

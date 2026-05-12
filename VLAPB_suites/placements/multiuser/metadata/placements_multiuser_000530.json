@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "living_room",
+  "area": "kitchen",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000530.bddl",
   "consistency": null,
   "constraints": {
@@ -18,17 +18,17 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 1
+    "libero_pair_count": 0
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_multiuser_000530",
   "fixtures": [
     {
-      "fixture": "wooden_tray",
+      "fixture": "wooden_cabinet",
       "side": "left"
     },
     {
@@ -36,49 +36,49 @@
       "side": "right"
     }
   ],
-  "language": "For user_018, pick the chocolate_pudding and place it at the in of the wooden_tray, for user_006, pick the white_bowl and place it at the front of the basket.",
+  "language": "For user_017, pick the ketchup and place it at the top_front of the wooden_cabinet, for user_006, pick the white_bowl and place it at the front of the basket.",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
     "user_006": [
       "white_bowl"
     ],
-    "user_018": [
-      "chocolate_pudding"
+    "user_017": [
+      "ketchup"
     ]
   },
   "participating_users": [
-    "user_018",
+    "user_017",
     "user_006"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "wooden_tray",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "chocolate_pudding",
-    "scene": "LIVING_ROOM_SCENE4",
-    "table": "living_room_table"
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "top_front",
+    "location": "cabinet.top_drawer.back_side",
+    "object_type": "ketchup",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE4",
+  "scene": "KITCHEN_SCENE1",
   "secondary_object": "white_bowl",
   "secondary_preference": {
-    "area": "living_room",
+    "area": "kitchen",
     "fixed_type": "basket",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
     "label": "front",
     "location": "basket.back_side",
     "object_type": "white_bowl",
-    "scene": "LIVING_ROOM_SCENE4",
-    "table": "living_room_table"
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
   },
   "secondary_user": "user_006",
   "split": "multiuser",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "chocolate_pudding",
+  "table": "kitchen_table",
+  "target_object": "ketchup",
   "target_object_seen": true,
-  "target_user": "user_018",
+  "target_user": "user_017",
   "task_type": "multiuser"
 }

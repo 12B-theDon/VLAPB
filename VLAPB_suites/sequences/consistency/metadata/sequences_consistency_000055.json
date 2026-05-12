@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000055.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "cookies",
+      "milk"
+    ],
+    "unseen_object": "wine_bottle",
+    "user_id": "user_019"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000055",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "cookies",
+    "milk",
+    "wine_bottle"
+  ],
+  "language": "Put the objects belonging to user_019 into the wooden_tray in this order: cookies, wine_bottle, milk",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "cookies": true,
+    "milk": true,
+    "wine_bottle": false
+  },
+  "ownership": {
+    "user_019": [
+      "cookies",
+      "milk",
+      "wine_bottle"
+    ]
+  },
+  "participating_users": [
+    "user_019"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2046,
+      "object_type": "cookies",
+      "ordinal_position": 1,
+      "x": 0.0461,
+      "y": 0.1993
+    },
+    {
+      "distance_to_tray": 0.2212,
+      "object_type": "milk",
+      "ordinal_position": 2,
+      "x": -0.2196,
+      "y": -0.0269
+    },
+    {
+      "distance_to_tray": 0.2189,
+      "object_type": "wine_bottle",
+      "ordinal_position": 3,
+      "x": 0.1317,
+      "y": -0.1749
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "cookies",
+    "wine_bottle",
+    "milk"
+  ],
+  "target_user": "user_019",
+  "task_type": "consistency"
+}

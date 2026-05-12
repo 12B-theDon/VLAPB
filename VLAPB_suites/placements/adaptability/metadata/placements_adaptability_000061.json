@@ -3,26 +3,24 @@
     "previous_placement": {
       "area": "living_room",
       "fixed_type": "wooden_tray",
-      "goal_predicate": "AtXY",
-      "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-      "label": "back",
-      "location": "wooden_tray.front_side",
-      "object_type": "cookies",
+      "label": "in",
+      "location": "wooden_tray.inside",
+      "object_type": "glazed_rim_porcelain_ramekin",
       "scene": "LIVING_ROOM_SCENE4",
       "table": "living_room_table"
     },
     "updated_placement": {
-      "area": "living_room",
-      "fixed_type": "basket",
-      "label": "in",
-      "location": "basket.inside",
-      "object_type": "butter",
-      "scene": "LIVING_ROOM_SCENE1",
-      "table": "living_room_table"
+      "area": "kitchen",
+      "fixed_type": "wooden_cabinet",
+      "label": "top_left",
+      "location": "cabinet.top_drawer.left_side",
+      "object_type": "cream_cheese",
+      "scene": "KITCHEN_SCENE1",
+      "table": "kitchen_table"
     },
-    "user_id": "user_015"
+    "user_id": "user_016"
   },
-  "area": "living_room",
+  "area": "kitchen",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/adaptability/bddl_files/placements_adaptability_000061.bddl",
   "consistency": null,
   "constraints": {
@@ -40,49 +38,49 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 3
+    "libero_pair_count": 0
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_adaptability_000061",
   "fixtures": [
     {
-      "fixture": "basket",
-      "side": "right"
+      "fixture": "wooden_cabinet",
+      "side": "left"
     }
   ],
-  "language": "Pick the butter belonging to user_015 and place it at the in of the basket",
+  "language": "Pick the cream_cheese belonging to user_016 and place it at the top_left of the wooden_cabinet",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_015": [
-      "butter"
+    "user_016": [
+      "cream_cheese"
     ]
   },
   "participating_users": [
-    "user_015"
+    "user_016"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "basket",
-    "label": "in",
-    "location": "basket.inside",
-    "object_type": "butter",
-    "scene": "LIVING_ROOM_SCENE1",
-    "table": "living_room_table"
+    "area": "kitchen",
+    "fixed_type": "wooden_cabinet",
+    "label": "top_left",
+    "location": "cabinet.top_drawer.left_side",
+    "object_type": "cream_cheese",
+    "scene": "KITCHEN_SCENE1",
+    "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE1",
+  "scene": "KITCHEN_SCENE1",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "adaptability",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "butter",
+  "table": "kitchen_table",
+  "target_object": "cream_cheese",
   "target_object_seen": true,
-  "target_user": "user_015",
+  "target_user": "user_016",
   "task_type": "adaptability"
 }

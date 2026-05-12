@@ -1,8 +1,8 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the bbq_sauce belonging to user_013 and place it at the back of the wooden_cabinet)
+  (:language Pick the bbq_sauce belonging to user_010 and place it at the back of the wooden_two_layer_shelf)
     (:regions
-      (wooden_cabinet_right_right_region
+      (wooden_two_layer_shelf_right_right_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 0.2800 0.0200 0.3200)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (flat_stove_left_left_region
+      (basket_left_left_region
           (:target kitchen_table)
           (:ranges (
-              (-0.1400 -0.2400 -0.1000 -0.2000)
+              (-0.0200 -0.2400 0.0200 -0.2000)
             )
           )
           (:yaw_rotation (
@@ -42,22 +42,22 @@
 
   (:fixtures
     kitchen_table - kitchen_table
-    wooden_cabinet_right - wooden_cabinet
-    flat_stove_left - flat_stove
+    wooden_two_layer_shelf_right - wooden_two_layer_shelf
   )
 
   (:objects
     bbq_sauce_1 - bbq_sauce
+    basket_left - basket
   )
 
   (:obj_of_interest
     bbq_sauce_1
-    wooden_cabinet_right
+    wooden_two_layer_shelf_right
   )
 
   (:init
-    (On wooden_cabinet_right kitchen_table_wooden_cabinet_right_right_region)
-    (On flat_stove_left kitchen_table_flat_stove_left_left_region)
+    (On wooden_two_layer_shelf_right kitchen_table_wooden_two_layer_shelf_right_right_region)
+    (On basket_left kitchen_table_basket_left_left_region)
     (On bbq_sauce_1 kitchen_table_target_object_init_region)
   )
 

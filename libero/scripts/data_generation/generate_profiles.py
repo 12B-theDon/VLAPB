@@ -42,7 +42,8 @@ ORDER_STRATEGIES = (
     "odd_positions_first",
     "even_positions_first",
 )
-STRUCTURAL_LABELS = {"in", "on", "top", "bottom"}
+STRUCTURAL_LABELS = {"in", "on", "top", "middle", "bottom"}
+DRAWER_SIDE_LABEL_RE = re.compile(r"^(top|middle|bottom)_(front|back|left|right)$")
 
 
 def parse_args() -> argparse.Namespace:
@@ -226,7 +227,8 @@ def choose_two_area_placements(items: tuple[str, ...], grouped: dict[str, dict[s
 
 
 def has_structural_label(placement: dict[str, Any]) -> bool:
-    return str(placement.get("label") or "").lower() in STRUCTURAL_LABELS
+    label = str(placement.get("label") or "").lower()
+    return label in STRUCTURAL_LABELS or DRAWER_SIDE_LABEL_RE.match(label) is not None
 
 
 def ensure_structural_minimum(

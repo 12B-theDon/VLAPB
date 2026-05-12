@@ -10,9 +10,10 @@
 </head>
 <body>
   <h1>VLAPB Granularity Story Prompt</h1>
-  <pre>Generate three textual injection stories from the given JSON for a personalized VLA benchmark.
+  <pre>Generate three textual injection notes from the given JSON for a personalized VLA benchmark.
 
-The stories are used before task execution. They register user-specific preferences, ownership, object-order rules, and placement habits. They must not be written as task commands.
+The notes are used as profile context after a separate task command. They register user-specific preferences, ownership, object-order rules, and placement habits. They must not be written as task commands.
+Write them as concise VLA-friendly profile notes that explain the user&#x27;s tendency, not like the general task input and not like instructions for an agent.
 
 Generate:
 - one_sentence_story: exactly 1 sentence
@@ -20,12 +21,19 @@ Generate:
 - eight_sentence_story: exactly 8 sentences
 
 All three versions must imply the same expected target.
-Longer stories may add context or controlled distractors, but must not reveal the target action more directly than the shorter story.
+Longer notes may add context or controlled distractors, but must keep the target-relevant cue easy to read.
 Do not add facts not present in the JSON.
 Do not contradict the JSON.
 Do not introduce new task-relevant objects.
-Do not use imperative robot commands such as &quot;put&quot;, &quot;place&quot;, &quot;move&quot;, or &quot;pick up&quot; as direct instructions.
+Do not restate the general task command; the concrete task input is provided separately.
+Do not use imperative robot commands or task verbs such as &quot;put&quot;, &quot;place&quot;, &quot;move&quot;, or &quot;pick up&quot;.
 Do not say &quot;the correct action is&quot; or &quot;the robot should.&quot;
+Keep wording short, concrete, and low-fluff; avoid storytelling, emotional language, and vague scene description.
+Prefer varied natural wording over repeating the same sentence frame.
+Use the profile_story_facts field as the main source; episode_context is only supporting context.
+For belongings, infer favored object characteristics from the user&#x27;s items, such as material, shape, category, container-like form, food-like role, or tabletop use.
+For placements, infer spatial organization habits from the preference label and fixture, such as edge anchoring, lower/back storage, visible access, containment, or surface organization.
+For sequences, infer ordering tendencies from the strategy, such as scanning left to right, sweeping right to left, nearest-first cleanup, farthest-first planning, alphabetical indexing, or alternating by position.
 
 Axis rules:
 - Sensitivity: express the target user&#x27;s relevant preference; keep counterfactual variants parallel.

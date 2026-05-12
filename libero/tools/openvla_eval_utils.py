@@ -4,15 +4,23 @@
 from __future__ import annotations
 
 import json
+import inspect
 import os
 import random
 import sys
 import time
+import types
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 os.environ.setdefault("MUJOCO_GL", "egl")
+os.environ.setdefault("NUMBA_CACHE_DIR", "/tmp/numba_cache")
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib")
+
+robosuite_macros_private = types.ModuleType("robosuite.macros_private")
+robosuite_macros_private.CACHE_NUMBA = False
+sys.modules.setdefault("robosuite.macros_private", robosuite_macros_private)
 
 import numpy as np
 import torch
@@ -37,6 +45,7 @@ from experiments.robot.robot_utils import (  # noqa: E402
     normalize_gripper_action,
 )
 from libero.envs import TASK_MAPPING  # noqa: E402
+from libero.envs.base_object import OBJECTS_DICT  # noqa: E402
 
 from test_env_reconfiguration import (  # noqa: E402
     build_env_kwargs,
@@ -50,6 +59,51 @@ DEFAULT_EVAL_DIR = VLAPB_LIBERO_ROOT / "evaluations" / "compare_injection_method
 DEFAULT_MANIFEST = DEFAULT_EVAL_DIR / "manifest.json"
 DEFAULT_OUTPUT_DIR = DEFAULT_EVAL_DIR / "openvla_results"
 DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")
+
+
+def patch_libero_object_constructors() -> None:
+    """Allow LIBERO fixtures to pass joints=None to fixed scanned objects."""
+
+    def wrapped_object_fn(object_fn):
+        def wrapper(*args, **kwargs):
+            joints = kwargs.get("joints")
+            try:
+                return object_fn(*args, **kwargs)
+            except TypeError as exc:
+                if "unexpected keyword argument 'joints'" not in str(exc):
+                    raise
+                if not inspect.isclass(object_fn) or len(object_fn.__mro__) < 2:
+                    kwargs = dict(kwargs)
+                    kwargs.pop("joints", None)
+                    return object_fn(*args, **kwargs)
+                signature = inspect.signature(object_fn)
+                name = kwargs.get("name")
+                obj_name = kwargs.get("obj_name")
+                if name is None and "name" in signature.parameters:
+                    default = signature.parameters["name"].default
+                    name = default if default is not inspect.Parameter.empty else None
+                if obj_name is None and "obj_name" in signature.parameters:
+                    default = signature.parameters["obj_name"].default
+                    obj_name = default if default is not inspect.Parameter.empty else name
+                if name is None:
+                    raise
+                if obj_name is None:
+                    obj_name = name
+                instance = object_fn.__new__(object_fn)
+                object_fn.__mro__[1].__init__(instance, name=name, obj_name=obj_name, joints=joints)
+                return instance
+
+        return wrapper
+
+    for category_name, object_fn in list(OBJECTS_DICT.items()):
+        if getattr(object_fn, "_vlapb_joints_compat", False):
+            continue
+        wrapper = wrapped_object_fn(object_fn)
+        wrapper._vlapb_joints_compat = True
+        OBJECTS_DICT[category_name] = wrapper
+
+
+patch_libero_object_constructors()
 
 
 @dataclass

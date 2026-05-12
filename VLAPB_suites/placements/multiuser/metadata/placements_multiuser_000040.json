@@ -18,17 +18,17 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 5
+    "libero_pair_count": 0
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_multiuser_000040",
   "fixtures": [
     {
-      "fixture": "wooden_cabinet",
+      "fixture": "microwave",
       "side": "left"
     },
     {
@@ -36,48 +36,50 @@
       "side": "right"
     }
   ],
-  "language": "For user_002, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet, for user_019, pick the salad_dressing and place it at the left of the wooden_tray.",
+  "language": "For user_002, pick the chocolate_pudding and place it at the front of the microwave, for user_009, pick the alphabet_soup and place it at the front of the wooden_tray.",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
     "user_002": [
-      "akita_black_bowl"
+      "chocolate_pudding"
     ],
-    "user_019": [
-      "salad_dressing"
+    "user_009": [
+      "alphabet_soup"
     ]
   },
   "participating_users": [
     "user_002",
-    "user_019"
+    "user_009"
   ],
   "preference": {
     "area": "kitchen",
-    "fixed_type": "wooden_cabinet",
-    "label": "bottom",
-    "location": "cabinet.bottom_drawer.inside",
-    "object_type": "akita_black_bowl",
-    "scene": "KITCHEN_SCENE1",
+    "fixed_type": "microwave",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "front",
+    "location": "microwave.back_side",
+    "object_type": "chocolate_pudding",
+    "scene": "KITCHEN_SCENE6",
     "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE1",
-  "secondary_object": "salad_dressing",
+  "scene": "KITCHEN_SCENE6",
+  "secondary_object": "alphabet_soup",
   "secondary_preference": {
     "area": "kitchen",
     "fixed_type": "wooden_tray",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "left",
-    "location": "wooden_tray.left_side",
-    "object_type": "salad_dressing",
-    "scene": "KITCHEN_SCENE1",
+    "label": "front",
+    "location": "wooden_tray.back_side",
+    "object_type": "alphabet_soup",
+    "scene": "KITCHEN_SCENE6",
     "table": "kitchen_table"
   },
-  "secondary_user": "user_019",
+  "secondary_user": "user_009",
   "split": "multiuser",
   "suite": "placements",
   "table": "kitchen_table",
-  "target_object": "akita_black_bowl",
+  "target_object": "chocolate_pudding",
   "target_object_seen": true,
   "target_user": "user_002",
   "task_type": "multiuser"

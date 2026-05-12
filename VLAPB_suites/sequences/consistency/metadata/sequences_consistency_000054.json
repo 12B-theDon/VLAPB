@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000054.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "orange_juice",
+      "salad_dressing"
+    ],
+    "unseen_object": "white_yellow_mug",
+    "user_id": "user_018"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000054",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "orange_juice",
+    "salad_dressing",
+    "white_yellow_mug"
+  ],
+  "language": "Put the objects belonging to user_018 into the wooden_tray in this order: white_yellow_mug, salad_dressing, orange_juice",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "orange_juice": true,
+    "salad_dressing": true,
+    "white_yellow_mug": false
+  },
+  "ownership": {
+    "user_018": [
+      "orange_juice",
+      "salad_dressing",
+      "white_yellow_mug"
+    ]
+  },
+  "participating_users": [
+    "user_018"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE3",
+  "sequence_strategy": "reverse_alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2474,
+      "object_type": "orange_juice",
+      "ordinal_position": 1,
+      "x": 0.1112,
+      "y": 0.221
+    },
+    {
+      "distance_to_tray": 0.2072,
+      "object_type": "salad_dressing",
+      "ordinal_position": 2,
+      "x": -0.2058,
+      "y": 0.0242
+    },
+    {
+      "distance_to_tray": 0.1927,
+      "object_type": "white_yellow_mug",
+      "ordinal_position": 3,
+      "x": 0.0762,
+      "y": -0.177
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "white_yellow_mug",
+    "salad_dressing",
+    "orange_juice"
+  ],
+  "target_user": "user_018",
+  "task_type": "consistency"
+}

@@ -1,0 +1,73 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the salad_dressing belonging to user_019 and place it at the bottom of the wooden_cabinet)
+    (:regions
+      (wooden_cabinet_left_left_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 -0.3200 0.0200 -0.2800)
+            )
+          )
+          (:yaw_rotation (
+              (-3.1416 -3.1416)
+            )
+          )
+      )
+      (wooden_tray_right_right_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (distractor_object_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2050 -0.0250 -0.1550 0.0250)
+            )
+          )
+      )
+      (bottom_region
+          (:target wooden_cabinet_left)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_left - wooden_cabinet
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    salad_dressing_1 - salad_dressing
+    wooden_tray_right - wooden_tray
+  )
+
+  (:obj_of_interest
+    salad_dressing_1
+    wooden_cabinet_left
+  )
+
+  (:init
+    (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
+    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
+    (On salad_dressing_1 kitchen_table_target_object_init_region)
+    (On akita_black_bowl_1 kitchen_table_distractor_object_init_region)
+  )
+
+  (:goal
+    (And (In salad_dressing_1 wooden_cabinet_left_bottom_region))
+  )
+
+)

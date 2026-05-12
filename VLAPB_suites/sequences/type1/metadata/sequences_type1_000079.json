@@ -1,0 +1,73 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type1/bddl_files/sequences_type1_000079.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three unique graspable objects not owned by any profile user"
+  },
+  "episode_id": "sequences_type1_000079",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "black_book",
+    "moka_pot",
+    "yellow_book"
+  ],
+  "language": "Use user_020's sequence preference and put the objects into the wooden_tray in this order: black_book, moka_pot, yellow_book",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "black_book": false,
+    "moka_pot": false,
+    "yellow_book": false
+  },
+  "ownership": {},
+  "participating_users": [
+    "user_020"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "fixed_far_to_near",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2326,
+      "object_type": "black_book",
+      "ordinal_position": 1,
+      "x": 0.1024,
+      "y": 0.2088
+    },
+    {
+      "distance_to_tray": 0.2072,
+      "object_type": "moka_pot",
+      "ordinal_position": 2,
+      "x": -0.206,
+      "y": 0.0221
+    },
+    {
+      "distance_to_tray": 0.1951,
+      "object_type": "yellow_book",
+      "ordinal_position": 3,
+      "x": 0.079,
+      "y": -0.1784
+    }
+  ],
+  "split": "type1",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "black_book",
+    "moka_pot",
+    "yellow_book"
+  ],
+  "target_user": "user_020",
+  "task_type": "type1"
+}

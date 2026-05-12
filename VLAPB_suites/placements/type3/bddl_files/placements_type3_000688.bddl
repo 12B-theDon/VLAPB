@@ -1,8 +1,8 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the butter belonging to user_015 and place it at the in of the basket)
+  (:language Pick the milk belonging to user_014 and place it at the in of the wooden_tray)
     (:regions
-      (basket_left_left_region
+      (wooden_tray_left_left_region
           (:target living_room_table)
           (:ranges (
               (-0.0200 -0.2400 0.0200 -0.2000)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (wooden_tray_right_right_region
+      (basket_right_right_region
           (:target living_room_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
@@ -39,7 +39,7 @@
           )
       )
       (contain_region
-          (:target basket_left)
+          (:target wooden_tray_left)
       )
     )
 
@@ -49,25 +49,25 @@
 
   (:objects
     akita_black_bowl_1 - akita_black_bowl
-    butter_1 - butter
-    basket_left - basket
-    wooden_tray_right - wooden_tray
+    milk_1 - milk
+    wooden_tray_left - wooden_tray
+    basket_right - basket
   )
 
   (:obj_of_interest
-    butter_1
-    basket_left
+    milk_1
+    wooden_tray_left
   )
 
   (:init
-    (On basket_left living_room_table_basket_left_left_region)
-    (On wooden_tray_right living_room_table_wooden_tray_right_right_region)
-    (On butter_1 living_room_table_target_object_init_region)
+    (On wooden_tray_left living_room_table_wooden_tray_left_left_region)
+    (On basket_right living_room_table_basket_right_right_region)
+    (On milk_1 living_room_table_target_object_init_region)
     (On akita_black_bowl_1 living_room_table_distractor_object_init_region)
   )
 
   (:goal
-    (And (In butter_1 basket_left_contain_region))
+    (And (In milk_1 wooden_tray_left_contain_region))
   )
 
 )

@@ -8,17 +8,25 @@ can be passed as extra images instead of falling back to a concatenated panel.
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 import os
 import random
 import sys
 import time
+import types
 from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 os.environ.setdefault("MUJOCO_GL", "egl")
+os.environ.setdefault("NUMBA_CACHE_DIR", "/tmp/numba_cache")
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib")
+
+robosuite_macros_private = types.ModuleType("robosuite.macros_private")
+robosuite_macros_private.CACHE_NUMBA = False
+sys.modules.setdefault("robosuite.macros_private", robosuite_macros_private)
 
 import numpy as np
 import torch
@@ -57,6 +65,7 @@ from experiments.robot.robot_utils import (  # noqa: E402
     set_seed_everywhere,
 )
 from libero.envs import TASK_MAPPING  # noqa: E402
+from libero.envs.base_object import OBJECTS_DICT  # noqa: E402
 from prismatic.vla.constants import NUM_ACTIONS_CHUNK, PROPRIO_DIM  # noqa: E402
 from test_env_reconfiguration import (  # noqa: E402
     build_env_kwargs,
@@ -66,6 +75,8 @@ from test_env_reconfiguration import (  # noqa: E402
 from vlapb_eval_common import (  # noqa: E402
     DEFAULT_VLAPB_MANIFEST,
     add_vlapb_selection_args,
+    apply_prompt_style_to_conditions,
+    filter_conditions_by_plain_success,
     filter_completed_conditions,
     is_vlapb_manifest,
     normalize_modes as normalize_vlapb_modes,
@@ -79,6 +90,51 @@ DEFAULT_MANIFEST = DEFAULT_VLAPB_MANIFEST
 DEFAULT_OUTPUT_DIR = DEFAULT_EVAL_DIR / "openvlaOFT_results"
 DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")
 ORDERED_MODES = ["plain", "textual", "visual", "visual_textual"]
+
+
+def patch_libero_object_constructors() -> None:
+    """Allow LIBERO fixtures to pass joints=None to fixed scanned objects."""
+
+    def wrapped_object_fn(object_fn):
+        def wrapper(*args, **kwargs):
+            joints = kwargs.get("joints")
+            try:
+                return object_fn(*args, **kwargs)
+            except TypeError as exc:
+                if "unexpected keyword argument 'joints'" not in str(exc):
+                    raise
+                if not inspect.isclass(object_fn) or len(object_fn.__mro__) < 2:
+                    kwargs = dict(kwargs)
+                    kwargs.pop("joints", None)
+                    return object_fn(*args, **kwargs)
+                signature = inspect.signature(object_fn)
+                name = kwargs.get("name")
+                obj_name = kwargs.get("obj_name")
+                if name is None and "name" in signature.parameters:
+                    default = signature.parameters["name"].default
+                    name = default if default is not inspect.Parameter.empty else None
+                if obj_name is None and "obj_name" in signature.parameters:
+                    default = signature.parameters["obj_name"].default
+                    obj_name = default if default is not inspect.Parameter.empty else name
+                if name is None:
+                    raise
+                if obj_name is None:
+                    obj_name = name
+                instance = object_fn.__new__(object_fn)
+                object_fn.__mro__[1].__init__(instance, name=name, obj_name=obj_name, joints=joints)
+                return instance
+
+        return wrapper
+
+    for category_name, object_fn in list(OBJECTS_DICT.items()):
+        if getattr(object_fn, "_vlapb_joints_compat", False):
+            continue
+        wrapper = wrapped_object_fn(object_fn)
+        wrapper._vlapb_joints_compat = True
+        OBJECTS_DICT[category_name] = wrapper
+
+
+patch_libero_object_constructors()
 
 
 @dataclass
@@ -544,6 +600,8 @@ def main() -> None:
 
     manifest = load_json(args.manifest)
     conditions = build_conditions(args, manifest)
+    conditions, plain_success_keys = filter_conditions_by_plain_success(conditions, args.require_plain_success_from)
+    conditions = apply_prompt_style_to_conditions(conditions, args.prompt_style)
     run_dir = args.output_dir / f"openvla_oft_compare_pickup_{args.run_id or DATE_TIME}"
     run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -556,6 +614,9 @@ def main() -> None:
         "text_selectivity": args.text_selectivity,
         "visual_condition": args.visual_condition,
         "visual_source": args.visual_source,
+        "prompt_style": args.prompt_style,
+        "plain_success_episode_count": len(plain_success_keys),
+        "num_conditions_after_plain_filter": len(conditions),
         "wrist_camera_name": args.wrist_camera_name,
         "save_videos": args.save_videos,
         "video_every": args.video_every,

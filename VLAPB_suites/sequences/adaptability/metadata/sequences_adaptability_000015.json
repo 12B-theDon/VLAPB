@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "butter",
+      "new_salad_dressing",
+      "cookies"
+    ],
+    "previous_strategy": "odd_positions_first",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "butter",
+      "cookies",
+      "new_salad_dressing"
+    ],
+    "same_scene": "LIVING_ROOM_SCENE1",
+    "same_table": "living_room_table",
+    "updated_sequence": [
+      "cookies",
+      "butter",
+      "new_salad_dressing"
+    ],
+    "updated_strategy": "even_positions_first",
+    "user_id": "user_015"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000015.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000015",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "cookies",
+    "new_salad_dressing"
+  ],
+  "language": "After user_015's sequence preference changes from butter, new_salad_dressing, cookies to cookies, butter, new_salad_dressing, put the same objects into the wooden_tray in the new order: cookies, butter, new_salad_dressing",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "cookies": true,
+    "new_salad_dressing": true
+  },
+  "ownership": {
+    "user_015": [
+      "butter",
+      "cookies",
+      "new_salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_015"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE1",
+  "sequence_strategy": "even_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2333,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.1198,
+      "y": 0.2002
+    },
+    {
+      "distance_to_tray": 0.2394,
+      "object_type": "cookies",
+      "ordinal_position": 2,
+      "x": -0.2351,
+      "y": 0.0452
+    },
+    {
+      "distance_to_tray": 0.2486,
+      "object_type": "new_salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.0813,
+      "y": -0.2349
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "cookies",
+    "butter",
+    "new_salad_dressing"
+  ],
+  "target_user": "user_015",
+  "task_type": "adaptability"
+}

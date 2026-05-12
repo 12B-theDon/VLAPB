@@ -1,0 +1,65 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language After user_018's sequence preference changes from salad_dressing, orange_juice, chocolate_pudding to chocolate_pudding, orange_juice, salad_dressing, put the same objects into the wooden_tray in the new order: chocolate_pudding, orange_juice, salad_dressing)
+    (:regions
+      (wooden_tray_region
+          (:target study_table)
+          (:ranges (
+              (-0.0300 -0.0300 0.0300 0.0300)
+            )
+          )
+      )
+      (object_init_region_0
+          (:target study_table)
+          (:ranges (
+              (0.0728 0.1494 0.1228 0.1994)
+            )
+          )
+      )
+      (object_init_region_1
+          (:target study_table)
+          (:ranges (
+              (-0.2833 0.0173 -0.2333 0.0673)
+            )
+          )
+      )
+      (object_init_region_2
+          (:target study_table)
+          (:ranges (
+              (0.0481 -0.2183 0.0981 -0.1683)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    study_table - table
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    orange_juice_1 - orange_juice
+    salad_dressing_1 - salad_dressing
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1 orange_juice_1 salad_dressing_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On wooden_tray_1 study_table_wooden_tray_region)
+    (On chocolate_pudding_1 study_table_object_init_region_0)
+    (On orange_juice_1 study_table_object_init_region_1)
+    (On salad_dressing_1 study_table_object_init_region_2)
+  )
+
+  (:goal
+    (And (In chocolate_pudding_1 wooden_tray_1_contain_region) (In orange_juice_1 wooden_tray_1_contain_region) (In salad_dressing_1 wooden_tray_1_contain_region))
+  )
+
+)

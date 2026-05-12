@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "cream_cheese",
+      "red_coffee_mug",
+      "ketchup"
+    ],
+    "previous_strategy": "fixed_far_to_near",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "cream_cheese",
+      "ketchup",
+      "red_coffee_mug"
+    ],
+    "same_scene": "KITCHEN_SCENE5",
+    "same_table": "kitchen_table",
+    "updated_sequence": [
+      "ketchup",
+      "red_coffee_mug",
+      "cream_cheese"
+    ],
+    "updated_strategy": "fixed_near_to_far",
+    "user_id": "user_020"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000020.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000020",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "cream_cheese",
+    "ketchup",
+    "red_coffee_mug"
+  ],
+  "language": "After user_020's sequence preference changes from cream_cheese, red_coffee_mug, ketchup to ketchup, red_coffee_mug, cream_cheese, put the same objects into the wooden_tray in the new order: ketchup, red_coffee_mug, cream_cheese",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "cream_cheese": true,
+    "ketchup": true,
+    "red_coffee_mug": true
+  },
+  "ownership": {
+    "user_020": [
+      "cream_cheese",
+      "ketchup",
+      "red_coffee_mug"
+    ]
+  },
+  "participating_users": [
+    "user_020"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE5",
+  "sequence_strategy": "fixed_near_to_far",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2437,
+      "object_type": "cream_cheese",
+      "ordinal_position": 1,
+      "x": 0.095,
+      "y": 0.2244
+    },
+    {
+      "distance_to_tray": 0.1919,
+      "object_type": "ketchup",
+      "ordinal_position": 2,
+      "x": -0.1916,
+      "y": 0.0099
+    },
+    {
+      "distance_to_tray": 0.2315,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 3,
+      "x": 0.1053,
+      "y": -0.2062
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "ketchup",
+    "red_coffee_mug",
+    "cream_cheese"
+  ],
+  "target_user": "user_020",
+  "task_type": "adaptability"
+}

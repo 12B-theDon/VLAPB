@@ -1,9 +1,9 @@
 {
   "akita_black_bowl": {
     "actual_pose": {
-      "x": 0.1391,
-      "y": -0.2995,
-      "z": 1.0649
+      "x": 0.1475,
+      "y": -0.2989,
+      "z": 1.0674
     },
     "already_in_libero": false,
     "area": "kitchen",
@@ -25,8 +25,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1391,
-      "y": 0.0005,
+      "x": 0.1475,
+      "y": 0.0011,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -39,26 +39,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.00098,
+      "displacement": 0.00758,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1391,
-        "y": 0.0005,
+        "x": 0.1475,
+        "y": 0.0011,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1391,
-        "y": -0.2995,
-        "z": 1.0649
+        "x": 0.1475,
+        "y": -0.2989,
+        "z": 1.0674
       },
-      "final_speed": 1e-05,
+      "final_speed": 0.00012,
       "gif_path": null,
-      "height_drop": 0.00511,
+      "height_drop": 0.00265,
       "location": "cabinet.back_side",
       "object": "akita_black_bowl",
+      "post_settle_checks": {},
       "reason": "settled",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -67,7 +68,7 @@
         "z": 1.07
       },
       "status": "auto_possible",
-      "timestamp": 1777956342.5326707,
+      "timestamp": 1778081903.1553793,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -80,91 +81,7 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956342.6296966,
-    "velocity_threshold": 0.03
-  },
-  "alphabet_soup": {
-    "actual_pose": {
-      "x": 0.1394,
-      "y": -0.2996,
-      "z": 1.0499
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__alphabet_soup",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "alphabet_soup",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.1394,
-      "y": 0.0004,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.00076,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.1394,
-        "y": 0.0004,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.1394,
-        "y": -0.2996,
-        "z": 1.0499
-      },
-      "final_speed": 1e-05,
-      "gif_path": null,
-      "height_drop": 0.0001,
-      "location": "cabinet.back_side",
-      "object": "alphabet_soup",
-      "reason": "settled",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.05
-      },
-      "status": "auto_possible",
-      "timestamp": 1777956344.2558794,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.05
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956344.3608072,
+    "timestamp": 1778081903.223315,
     "velocity_threshold": 0.03
   },
   "bbq_sauce": {
@@ -175,8 +92,15 @@
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "bbq_sauce",
+      "path": "KITCHEN_SCENE4/white_cabinet/front.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.59561
+    },
     "drop_z": 0.1,
     "fixed_type": "white_cabinet",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE4__white_cabinet__front__bbq_sauce",
     "label": "front",
     "location": "cabinet.back_side",
@@ -194,7 +118,7 @@
       "p": 0.0,
       "r": 0.0,
       "x": 0.14,
-      "y": 0.0,
+      "y": -0.0,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -213,7 +137,7 @@
         "p": 0.0,
         "r": 0.0,
         "x": 0.14,
-        "y": 0.0,
+        "y": -0.0,
         "z": 0.1
       },
       "final_image_path": null,
@@ -224,9 +148,10 @@
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.11539,
+      "height_drop": 0.11537,
       "location": "cabinet.back_side",
       "object": "bbq_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -235,7 +160,7 @@
         "z": 1.07
       },
       "status": "review",
-      "timestamp": 1777956345.8545191,
+      "timestamp": 1778081905.206148,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -248,182 +173,14 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956345.9496198,
-    "velocity_threshold": 0.03
-  },
-  "black_book": {
-    "actual_pose": {
-      "x": 3.0156,
-      "y": -0.3161,
-      "z": 0.0673
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__black_book",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "black_book",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 3.0156,
-      "y": -0.0161,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 2.87561,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 3.0156,
-        "y": -0.0161,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 3.0156,
-        "y": -0.3161,
-        "z": 0.0673
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 1.00267,
-      "location": "cabinet.back_side",
-      "object": "black_book",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956347.395993,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956347.4985237,
-    "velocity_threshold": 0.03
-  },
-  "butter": {
-    "actual_pose": {
-      "x": 0.2704,
-      "y": -0.3,
-      "z": 0.9087
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__butter",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "butter",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.2704,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.1304,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.2704,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.2704,
-        "y": -0.3,
-        "z": 0.9087
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.12132,
-      "location": "cabinet.back_side",
-      "object": "butter",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.03
-      },
-      "status": "review",
-      "timestamp": 1777956349.0060003,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.03
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956349.1296983,
+    "timestamp": 1778081905.271654,
     "velocity_threshold": 0.03
   },
   "chefmate_8_frypan": {
     "actual_pose": {
-      "x": 0.1548,
-      "y": -0.283,
-      "z": 1.0573
+      "x": 0.1601,
+      "y": -0.2804,
+      "z": 1.0524
     },
     "already_in_libero": false,
     "area": "kitchen",
@@ -445,8 +202,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1548,
-      "y": 0.017,
+      "x": 0.1601,
+      "y": 0.0196,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -459,26 +216,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.02253,
+      "displacement": 0.02802,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1548,
-        "y": 0.017,
+        "x": 0.1601,
+        "y": 0.0196,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1548,
-        "y": -0.283,
-        "z": 1.0573
+        "x": 0.1601,
+        "y": -0.2804,
+        "z": 1.0524
       },
-      "final_speed": 0.0021,
+      "final_speed": 0.00165,
       "gif_path": null,
-      "height_drop": 0.01267,
+      "height_drop": 0.01758,
       "location": "cabinet.back_side",
       "object": "chefmate_8_frypan",
+      "post_settle_checks": {},
       "reason": "settled",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -487,7 +245,7 @@
         "z": 1.07
       },
       "status": "auto_possible",
-      "timestamp": 1777956350.7081447,
+      "timestamp": 1778081908.4554029,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -500,264 +258,12 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956350.8300729,
-    "velocity_threshold": 0.03
-  },
-  "chocolate_pudding": {
-    "actual_pose": {
-      "x": 0.2877,
-      "y": -0.3,
-      "z": 0.9131
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__chocolate_pudding",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "chocolate_pudding",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.2877,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.14765,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.2877,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.2877,
-        "y": -0.3,
-        "z": 0.9131
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.15695,
-      "location": "cabinet.back_side",
-      "object": "chocolate_pudding",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956352.3126397,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956352.4387922,
-    "velocity_threshold": 0.03
-  },
-  "cookies": {
-    "actual_pose": {
-      "x": 5.3925,
-      "y": -0.3538,
-      "z": 0.0094
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__cookies",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "cookies",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 5.3925,
-      "y": -0.0538,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 5.25277,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 5.3925,
-        "y": -0.0538,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 5.3925,
-        "y": -0.3538,
-        "z": 0.0094
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 1.06061,
-      "location": "cabinet.back_side",
-      "object": "cookies",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956353.943854,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956354.0512328,
-    "velocity_threshold": 0.03
-  },
-  "cream_cheese": {
-    "actual_pose": {
-      "x": 0.2834,
-      "y": -0.3,
-      "z": 0.9089
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__cream_cheese",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "cream_cheese",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.2834,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.14343,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.2834,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.2834,
-        "y": -0.3,
-        "z": 0.9089
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.12609,
-      "location": "cabinet.back_side",
-      "object": "cream_cheese",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.035
-      },
-      "status": "review",
-      "timestamp": 1777956355.5747712,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.035
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956355.70807,
+    "timestamp": 1778081908.5214145,
     "velocity_threshold": 0.03
   },
   "glazed_rim_porcelain_ramekin": {
     "actual_pose": {
-      "x": 0.139,
+      "x": 0.1377,
       "y": -0.3008,
       "z": 1.0659
     },
@@ -781,7 +287,7 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.139,
+      "x": 0.1377,
       "y": -0.0008,
       "z": 0.1
     },
@@ -795,26 +301,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.00127,
+      "displacement": 0.00242,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.139,
+        "x": 0.1377,
         "y": -0.0008,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.139,
+        "x": 0.1377,
         "y": -0.3008,
         "z": 1.0659
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.00407,
+      "height_drop": 0.00411,
       "location": "cabinet.back_side",
       "object": "glazed_rim_porcelain_ramekin",
+      "post_settle_checks": {},
       "reason": "settled",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -823,7 +330,7 @@
         "z": 1.07
       },
       "status": "auto_possible",
-      "timestamp": 1777956357.231345,
+      "timestamp": 1778081912.6037312,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -836,19 +343,26 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956357.3188848,
+    "timestamp": 1778081912.6699834,
     "velocity_threshold": 0.03
   },
   "ketchup": {
     "actual_pose": {
-      "x": 0.2535,
+      "x": 0.14,
       "y": -0.3,
-      "z": 0.9192
+      "z": 0.9724
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "ketchup",
+      "path": "KITCHEN_SCENE4/white_cabinet/front.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.5956185
+    },
     "drop_z": 0.1,
     "fixed_type": "white_cabinet",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE4__white_cabinet__front__ketchup",
     "label": "front",
     "location": "cabinet.back_side",
@@ -865,8 +379,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2535,
-      "y": 0.0,
+      "x": 0.14,
+      "y": -0.0,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -879,27 +393,28 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.11349,
+      "displacement": 0.0,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2535,
-        "y": 0.0,
+        "x": 0.14,
+        "y": -0.0,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2535,
+        "x": 0.14,
         "y": -0.3,
-        "z": 0.9192
+        "z": 0.9724
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.15077,
+      "height_drop": 0.09759,
       "location": "cabinet.back_side",
       "object": "ketchup",
-      "reason": "large_displacement+height_drop",
+      "post_settle_checks": {},
+      "reason": "height_drop",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
         "x": 0.14,
@@ -907,7 +422,7 @@
         "z": 1.07
       },
       "status": "review",
-      "timestamp": 1777956358.8446646,
+      "timestamp": 1778081913.6211996,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -920,187 +435,26 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956358.968309,
-    "velocity_threshold": 0.03
-  },
-  "milk": {
-    "actual_pose": {
-      "x": 0.2527,
-      "y": -0.3002,
-      "z": 0.9262
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__milk",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "milk",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.2527,
-      "y": -0.0002,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.11266,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.2527,
-        "y": -0.0002,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.2527,
-        "y": -0.3002,
-        "z": 0.9262
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.14378,
-      "location": "cabinet.back_side",
-      "object": "milk",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956360.4954789,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956360.6283295,
-    "velocity_threshold": 0.03
-  },
-  "moka_pot": {
-    "actual_pose": {
-      "x": 2.164,
-      "y": -0.0579,
-      "z": 0.0604
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__moka_pot",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "moka_pot",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 2.164,
-      "y": 0.2421,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 2.0384,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 2.164,
-        "y": 0.2421,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 2.164,
-        "y": -0.0579,
-        "z": 0.0604
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 1.00959,
-      "location": "cabinet.back_side",
-      "object": "moka_pot",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956362.085675,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956362.1475046,
+    "timestamp": 1778081913.6891787,
     "velocity_threshold": 0.03
   },
   "new_salad_dressing": {
     "actual_pose": {
-      "x": 0.1749,
-      "y": -0.2999,
-      "z": 0.9176
+      "x": 0.14,
+      "y": -0.3,
+      "z": 0.9227
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "new_salad_dressing",
+      "path": "KITCHEN_SCENE4/white_cabinet/front.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.5956235
+    },
     "drop_z": 0.1,
     "fixed_type": "white_cabinet",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE4__white_cabinet__front__new_salad_dressing",
     "label": "front",
     "location": "cabinet.back_side",
@@ -1117,8 +471,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1749,
-      "y": 0.0001,
+      "x": 0.14,
+      "y": 0.0,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -1131,26 +485,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.03487,
+      "displacement": 1e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1749,
-        "y": 0.0001,
+        "x": 0.14,
+        "y": 0.0,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1749,
-        "y": -0.2999,
-        "z": 0.9176
+        "x": 0.14,
+        "y": -0.3,
+        "z": 0.9227
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.15244,
+      "height_drop": 0.14729,
       "location": "cabinet.back_side",
       "object": "new_salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -1159,7 +514,7 @@
         "z": 1.07
       },
       "status": "review",
-      "timestamp": 1777956363.2862728,
+      "timestamp": 1778081916.6704943,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1172,97 +527,13 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956363.338631,
-    "velocity_threshold": 0.03
-  },
-  "orange_juice": {
-    "actual_pose": {
-      "x": 0.2537,
-      "y": -0.2958,
-      "z": 0.9262
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__orange_juice",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "orange_juice",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.2537,
-      "y": 0.0042,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.11379,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.2537,
-        "y": 0.0042,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.2537,
-        "y": -0.2958,
-        "z": 0.9262
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.14378,
-      "location": "cabinet.back_side",
-      "object": "orange_juice",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956364.8453588,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956364.9735563,
+    "timestamp": 1778081916.7324362,
     "velocity_threshold": 0.03
   },
   "porcelain_mug": {
     "actual_pose": {
-      "x": 0.1587,
-      "y": -0.2901,
+      "x": 0.1567,
+      "y": -0.29,
       "z": 1.0843
     },
     "already_in_libero": false,
@@ -1285,8 +556,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1587,
-      "y": 0.0099,
+      "x": 0.1567,
+      "y": 0.01,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -1299,26 +570,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.02111,
+      "displacement": 0.01941,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1587,
-        "y": 0.0099,
+        "x": 0.1567,
+        "y": 0.01,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1587,
-        "y": -0.2901,
+        "x": 0.1567,
+        "y": -0.29,
         "z": 1.0843
       },
-      "final_speed": 0.01052,
+      "final_speed": 0.00811,
       "gif_path": null,
       "height_drop": 0.0,
       "location": "cabinet.back_side",
       "object": "porcelain_mug",
+      "post_settle_checks": {},
       "reason": "settled",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -1327,7 +599,7 @@
         "z": 1.07
       },
       "status": "auto_possible",
-      "timestamp": 1777696572.7247422,
+      "timestamp": 1778081919.2216725,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1340,182 +612,14 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777696572.7993965,
-    "velocity_threshold": 0.03
-  },
-  "red_coffee_mug": {
-    "actual_pose": {
-      "x": 1.1377,
-      "y": -0.3413,
-      "z": 0.0356
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__red_coffee_mug",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "red_coffee_mug",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 1.1377,
-      "y": -0.0413,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.99858,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 1.1377,
-        "y": -0.0413,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 1.1377,
-        "y": -0.3413,
-        "z": 0.0356
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 1.03438,
-      "location": "cabinet.back_side",
-      "object": "red_coffee_mug",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956368.7483375,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956368.881078,
-    "velocity_threshold": 0.03
-  },
-  "salad_dressing": {
-    "actual_pose": {
-      "x": 0.1394,
-      "y": -0.3001,
-      "z": 0.9727
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__salad_dressing",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "salad_dressing",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.1394,
-      "y": -0.0001,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.00059,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.1394,
-        "y": -0.0001,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.1394,
-        "y": -0.3001,
-        "z": 0.9727
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.09731,
-      "location": "cabinet.back_side",
-      "object": "salad_dressing",
-      "reason": "height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956370.4071586,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956370.533107,
+    "timestamp": 1778081919.2870097,
     "velocity_threshold": 0.03
   },
   "tomato_sauce": {
     "actual_pose": {
-      "x": 0.1417,
+      "x": 0.142,
       "y": -0.2995,
-      "z": 1.0702
+      "z": 1.0701
     },
     "already_in_libero": false,
     "area": "kitchen",
@@ -1537,7 +641,7 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1417,
+      "x": 0.142,
       "y": 0.0005,
       "z": 0.1
     },
@@ -1551,26 +655,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.0018,
+      "displacement": 0.00201,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1417,
+        "x": 0.142,
         "y": 0.0005,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1417,
+        "x": 0.142,
         "y": -0.2995,
-        "z": 1.0702
+        "z": 1.0701
       },
-      "final_speed": 1e-05,
+      "final_speed": 0.0,
       "gif_path": null,
       "height_drop": 0.0,
       "location": "cabinet.back_side",
       "object": "tomato_sauce",
+      "post_settle_checks": {},
       "reason": "settled",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -1579,7 +684,7 @@
         "z": 1.07
       },
       "status": "auto_possible",
-      "timestamp": 1777956372.1759892,
+      "timestamp": 1778081922.875254,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1592,14 +697,14 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956372.3050041,
+    "timestamp": 1778081922.937425,
     "velocity_threshold": 0.03
   },
   "white_bowl": {
     "actual_pose": {
-      "x": 0.1453,
+      "x": 0.1428,
       "y": -0.2992,
-      "z": 1.067
+      "z": 1.0669
     },
     "already_in_libero": false,
     "area": "kitchen",
@@ -1621,7 +726,7 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1453,
+      "x": 0.1428,
       "y": 0.0008,
       "z": 0.1
     },
@@ -1635,26 +740,27 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.00533,
+      "displacement": 0.00292,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1453,
+        "x": 0.1428,
         "y": 0.0008,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1453,
+        "x": 0.1428,
         "y": -0.2992,
-        "z": 1.067
+        "z": 1.0669
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.00297,
+      "height_drop": 0.00309,
       "location": "cabinet.back_side",
       "object": "white_bowl",
+      "post_settle_checks": {},
       "reason": "settled",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
@@ -1663,7 +769,7 @@
         "z": 1.07
       },
       "status": "auto_possible",
-      "timestamp": 1777956374.1534612,
+      "timestamp": 1778081924.3402388,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1676,103 +782,26 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956374.2662327,
-    "velocity_threshold": 0.03
-  },
-  "white_yellow_mug": {
-    "actual_pose": {
-      "x": 0.23,
-      "y": -0.3174,
-      "z": 0.9322
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__white_yellow_mug",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "white_yellow_mug",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.23,
-      "y": -0.0174,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.09165,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.23,
-        "y": -0.0174,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.23,
-        "y": -0.3174,
-        "z": 0.9322
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.13779,
-      "location": "cabinet.back_side",
-      "object": "white_yellow_mug",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956376.0822659,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956376.212993,
+    "timestamp": 1778081924.4022565,
     "velocity_threshold": 0.03
   },
   "wine_bottle": {
     "actual_pose": {
-      "x": 0.3266,
-      "y": -0.2765,
-      "z": 0.9205
+      "x": 0.1681,
+      "y": -0.3046,
+      "z": 0.8989
     },
     "already_in_libero": false,
     "area": "kitchen",
+    "auto_promoted_from_holded": {
+      "object_type": "wine_bottle",
+      "path": "KITCHEN_SCENE4/white_cabinet/front.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.5956292
+    },
     "drop_z": 0.1,
     "fixed_type": "white_cabinet",
+    "height_drop_only_auto_accepted": true,
     "id": "KITCHEN_SCENE4__white_cabinet__front__wine_bottle",
     "label": "front",
     "location": "cabinet.back_side",
@@ -1789,8 +818,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.3266,
-      "y": 0.0235,
+      "x": 0.1681,
+      "y": -0.0046,
       "z": 0.1
     },
     "scene": "KITCHEN_SCENE4",
@@ -1803,27 +832,28 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.18811,
+      "displacement": 0.02844,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.3266,
-        "y": 0.0235,
+        "x": 0.1681,
+        "y": -0.0046,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.3266,
-        "y": -0.2765,
-        "z": 0.9205
+        "x": 0.1681,
+        "y": -0.3046,
+        "z": 0.8989
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.14951,
+      "height_drop": 0.17112,
       "location": "cabinet.back_side",
       "object": "wine_bottle",
-      "reason": "large_displacement+height_drop",
+      "post_settle_checks": {},
+      "reason": "height_drop",
       "scene": "KITCHEN_SCENE4",
       "start_pose": {
         "x": 0.14,
@@ -1831,7 +861,7 @@
         "z": 1.07
       },
       "status": "review",
-      "timestamp": 1777956377.634184,
+      "timestamp": 1778081926.762976,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1844,91 +874,7 @@
     },
     "status": "possible",
     "table": "kitchen_table",
-    "timestamp": 1777956377.7231479,
-    "velocity_threshold": 0.03
-  },
-  "yellow_book": {
-    "actual_pose": {
-      "x": 2.0074,
-      "y": -0.7919,
-      "z": 0.0489
-    },
-    "already_in_libero": false,
-    "area": "kitchen",
-    "drop_z": 0.1,
-    "fixed_type": "white_cabinet",
-    "id": "KITCHEN_SCENE4__white_cabinet__front__yellow_book",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "yellow_book",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.14,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 2.0074,
-      "y": -0.4919,
-      "z": 0.1
-    },
-    "scene": "KITCHEN_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.14,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 1.93106,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 2.0074,
-        "y": -0.4919,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 2.0074,
-        "y": -0.7919,
-        "z": 0.0489
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 1.02106,
-      "location": "cabinet.back_side",
-      "object": "yellow_book",
-      "reason": "large_displacement+height_drop",
-      "scene": "KITCHEN_SCENE4",
-      "start_pose": {
-        "x": 0.14,
-        "y": -0.3,
-        "z": 1.07
-      },
-      "status": "review",
-      "timestamp": 1777956379.130458,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.14,
-      "y": -0.3,
-      "z": 1.07
-    },
-    "status": "possible",
-    "table": "kitchen_table",
-    "timestamp": 1777956379.2220204,
+    "timestamp": 1778081926.8260467,
     "velocity_threshold": 0.03
   }
 }

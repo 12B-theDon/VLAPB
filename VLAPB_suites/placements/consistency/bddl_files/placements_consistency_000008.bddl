@@ -1,11 +1,11 @@
-(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language Pick the tomato_sauce belonging to user_013 and place it at the left of the wooden_tray)
+  (:language Pick the porcelain_mug belonging to user_004 and place it at the middle_front of the wooden_cabinet)
     (:regions
-      (wooden_tray_right_right_region
-          (:target living_room_table)
+      (wooden_cabinet_right_right_region
+          (:target kitchen_table)
           (:ranges (
-              (-0.0200 0.2000 0.0200 0.2400)
+              (-0.0200 0.2800 0.0200 0.3200)
             )
           )
           (:yaw_rotation (
@@ -14,42 +14,38 @@
           )
       )
       (target_object_init_region
-          (:target living_room_table)
+          (:target kitchen_table)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
-      (placement_goal_region
-          (:target living_room_table)
-          (:ranges (
-              (-0.1400 -0.1700 0.1400 0.1900)
-            )
-          )
+      (middle_region
+          (:target wooden_cabinet_right)
       )
     )
 
   (:fixtures
-    living_room_table - living_room_table
+    kitchen_table - kitchen_table
+    wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
-    tomato_sauce_1 - tomato_sauce
-    wooden_tray_right - wooden_tray
+    porcelain_mug_1 - porcelain_mug
   )
 
   (:obj_of_interest
-    tomato_sauce_1
-    wooden_tray_right
+    porcelain_mug_1
+    wooden_cabinet_right
   )
 
   (:init
-    (On wooden_tray_right living_room_table_wooden_tray_right_right_region)
-    (On tomato_sauce_1 living_room_table_target_object_init_region)
+    (On wooden_cabinet_right kitchen_table_wooden_cabinet_right_right_region)
+    (On porcelain_mug_1 kitchen_table_target_object_init_region)
   )
 
   (:goal
-    (And (AtXY tomato_sauce_1 living_room_table_placement_goal_region))
+    (And (In porcelain_mug_1 wooden_cabinet_right_middle_region))
   )
 
 )

@@ -1,0 +1,80 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language For user_020, pick the ketchup and place it at the back of the basket, for user_017, pick the butter and place it at the top_left of the wooden_cabinet.)
+    (:regions
+      (basket_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 -0.2400 0.0200 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (wooden_cabinet_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2800 0.0200 0.3200)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (secondary_object_init_region
+          (:target floor)
+          (:ranges (
+              (0.1300 -0.0200 0.1800 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target floor)
+          (:ranges (
+              (-0.2600 -0.4200 0.0200 -0.0200)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_right)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+    wooden_cabinet_right - wooden_cabinet
+  )
+
+  (:objects
+    butter_1 - butter
+    ketchup_1 - ketchup
+    basket_left - basket
+  )
+
+  (:obj_of_interest
+    ketchup_1 butter_1
+    basket_left wooden_cabinet_right
+  )
+
+  (:init
+    (On basket_left floor_basket_left_left_region)
+    (On wooden_cabinet_right floor_wooden_cabinet_right_right_region)
+    (On ketchup_1 floor_target_object_init_region)
+    (On butter_1 floor_secondary_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY ketchup_1 floor_placement_goal_region) (In butter_1 wooden_cabinet_right_top_region))
+  )
+
+)

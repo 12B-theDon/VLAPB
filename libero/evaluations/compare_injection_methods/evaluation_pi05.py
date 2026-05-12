@@ -5,13 +5,24 @@ from __future__ import annotations
 
 import argparse
 import collections
+import inspect
+import json
+import math
 import os
 import random
 import sys
+import time
+import types
 from pathlib import Path
 from typing import Any
 
 os.environ.setdefault("MUJOCO_GL", "egl")
+os.environ.setdefault("NUMBA_CACHE_DIR", "/tmp/numba_cache")
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib")
+
+robosuite_macros_private = types.ModuleType("robosuite.macros_private")
+robosuite_macros_private.CACHE_NUMBA = False
+sys.modules.setdefault("robosuite.macros_private", robosuite_macros_private)
 
 import numpy as np
 
@@ -40,28 +51,17 @@ for path in (
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from experiments.robot.libero.libero_utils import quat2axisangle  # noqa: E402
 from libero.envs import TASK_MAPPING  # noqa: E402
+from libero.envs.base_object import OBJECTS_DICT  # noqa: E402
 from openpi_client import image_tools  # noqa: E402
 from openpi.policies import policy_config as openpi_policy_config  # noqa: E402
 from openpi.training import config as openpi_config  # noqa: E402
-from openvla_eval_utils import (  # noqa: E402
-    DATE_TIME,
-    DEFAULT_MANIFEST,
-    choose_textual_condition,
-    choose_visual_condition,
-    compose_multimodal_condition,
-    load_condition,
-    load_json,
-    make_condition_from_scene,
-    save_rollout_video,
-    write_json,
-    write_jsonl,
-)
 from test_env_reconfiguration import build_env_kwargs, get_action_dim, reset_with_retries  # noqa: E402
 from vlapb_eval_common import (  # noqa: E402
     DEFAULT_VLAPB_MANIFEST,
     add_vlapb_selection_args,
+    apply_prompt_style_to_conditions,
+    filter_conditions_by_plain_success,
     filter_completed_conditions,
     is_vlapb_manifest,
     normalize_modes as normalize_vlapb_modes,
@@ -72,6 +72,103 @@ from vlapb_eval_common import (  # noqa: E402
 DEFAULT_CHECKPOINT = Path("/home/artemis/libero_data/pi_checkpoints/openpi-assets/checkpoints/pi05_libero")
 DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "pi05_results"
 ORDERED_MODES = ["plain", "textual", "visual", "visual_textual"]
+DATE_TIME = time.strftime("%Y_%m_%d-%H_%M_%S")
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, sort_keys=True) + "\n")
+
+
+def save_rollout_video(frames: list[np.ndarray], path: Path, fps: int = 20) -> str | None:
+    if not frames:
+        return None
+    try:
+        import imageio
+    except ImportError:
+        return None
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with imageio.get_writer(str(path), fps=fps) as writer:
+        for frame in frames:
+            writer.append_data(frame)
+    return str(path)
+
+
+def quat2axisangle(quat: np.ndarray) -> np.ndarray:
+    quat = np.asarray(quat, dtype=np.float64).copy()
+    quat[3] = np.clip(quat[3], -1.0, 1.0)
+    den = np.sqrt(1.0 - quat[3] * quat[3])
+    if math.isclose(float(den), 0.0):
+        return np.zeros(3)
+    return (quat[:3] * 2.0 * math.acos(float(quat[3]))) / den
+
+
+def as_jsonable(value: Any) -> Any:
+    if isinstance(value, np.ndarray):
+        return value.round(5).tolist()
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, (list, tuple)):
+        return [as_jsonable(item) for item in value]
+    if isinstance(value, dict):
+        return {key: as_jsonable(item) for key, item in value.items()}
+    return value
+
+
+def patch_libero_object_constructors() -> None:
+    """Allow LIBERO fixtures to pass joints=None to fixed scanned objects."""
+
+    def wrapped_object_fn(object_fn):
+        def wrapper(*args, **kwargs):
+            joints = kwargs.get("joints")
+            try:
+                return object_fn(*args, **kwargs)
+            except TypeError as exc:
+                if "unexpected keyword argument 'joints'" not in str(exc):
+                    raise
+                if not inspect.isclass(object_fn) or len(object_fn.__mro__) < 2:
+                    kwargs = dict(kwargs)
+                    kwargs.pop("joints", None)
+                    return object_fn(*args, **kwargs)
+                signature = inspect.signature(object_fn)
+                name = kwargs.get("name")
+                obj_name = kwargs.get("obj_name")
+                if name is None and "name" in signature.parameters:
+                    default = signature.parameters["name"].default
+                    name = default if default is not inspect.Parameter.empty else None
+                if obj_name is None and "obj_name" in signature.parameters:
+                    default = signature.parameters["obj_name"].default
+                    obj_name = default if default is not inspect.Parameter.empty else name
+                if name is None:
+                    raise
+                if obj_name is None:
+                    obj_name = name
+                instance = object_fn.__new__(object_fn)
+                object_fn.__mro__[1].__init__(instance, name=name, obj_name=obj_name, joints=joints)
+                return instance
+
+        return wrapper
+
+    for category_name, object_fn in list(OBJECTS_DICT.items()):
+        if getattr(object_fn, "_vlapb_joints_compat", False):
+            continue
+        wrapper = wrapped_object_fn(object_fn)
+        wrapper._vlapb_joints_compat = True
+        OBJECTS_DICT[category_name] = wrapper
+
+
+patch_libero_object_constructors()
 
 
 def parse_args() -> argparse.Namespace:
@@ -116,11 +213,59 @@ def selected_trials(manifest: dict, trial_ids: list[str] | None, limit: int | No
     return trials[:limit] if limit is not None and limit > 0 else trials
 
 
+def choose_legacy_condition(manifest: dict[str, Any], trial_id: str, suffix: str) -> Path:
+    for item in manifest.get("conditions", []):
+        if item.get("trial_id") == trial_id and item.get("condition_id", "").endswith(suffix):
+            return Path(item["path"])
+    raise FileNotFoundError(f"No legacy condition for trial={trial_id}, suffix={suffix!r}")
+
+
+def choose_textual_condition(manifest: dict[str, Any], trial_id: str, granularity: str, selectivity: str) -> Path:
+    return choose_legacy_condition(manifest, trial_id, f"_text_{granularity}_{selectivity}")
+
+
+def choose_visual_condition(manifest: dict[str, Any], trial_id: str, visual_condition: str) -> Path:
+    return choose_legacy_condition(manifest, trial_id, f"_visual_{visual_condition}")
+
+
+def load_condition(path: Path) -> dict[str, Any]:
+    payload = load_json(path)
+    scene_path = Path(payload["scene_config"])
+    scene = load_json(scene_path)
+    payload["scene"] = scene
+    payload["bddl_file"] = scene["bddl_file"]
+    return payload
+
+
 def make_plain_condition(scene_path: Path) -> dict:
-    condition = make_condition_from_scene(scene_path, "libero_style")
-    condition["condition_id"] = f"{condition['trial_id']}_plain"
-    condition["condition_type"] = "plain"
-    return condition
+    scene = load_json(scene_path)
+    target_object = str(scene["target_object"]).replace("_", " ")
+    task = f"Pick up the {target_object} and put it in the basket."
+    return {
+        "condition_id": f"{scene['trial_id']}_plain",
+        "condition_type": "plain",
+        "trial_id": scene["trial_id"],
+        "user_id": scene.get("user_id"),
+        "task_instruction": task,
+        "prompt": task,
+        "expected": scene.get("expected", {}),
+        "scene_config": str(scene_path),
+        "scene": scene,
+        "bddl_file": scene["bddl_file"],
+        "target_object": scene.get("target_object"),
+    }
+
+
+def compose_multimodal_condition(textual: dict[str, Any], visual: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(visual)
+    merged["condition_id"] = f"{visual['trial_id']}_visual_textual"
+    merged["condition_type"] = "visual_textual"
+    merged["task_instruction"] = textual["task_instruction"]
+    merged["personalization_injection"] = textual.get("personalization_injection", "")
+    merged["prompt"] = prompt_for(textual)
+    merged["textual_condition_id"] = textual["condition_id"]
+    merged["visual_condition_id"] = visual["condition_id"]
+    return merged
 
 
 def build_conditions(args: argparse.Namespace, manifest: dict) -> list[dict]:
@@ -165,7 +310,13 @@ def prompt_preview(prompt: str, max_chars: int = 120) -> str:
 def condition_task_info(condition: dict) -> str:
     expected = condition.get("expected", {})
     target = expected.get("object") or condition.get("target_object") or "unknown"
-    receptacle = expected.get("target_receptacle", "basket")
+    receptacle = (
+        expected.get("target_receptacle")
+        or expected.get("fixture")
+        or condition.get("target_receptacle")
+        or condition.get("fixture")
+        or "unknown"
+    )
     return f"mode={condition['condition_type']} trial={condition['trial_id']} target={target} -> {receptacle}"
 
 
@@ -248,14 +399,56 @@ def load_pi05_policy(args: argparse.Namespace, log_file) -> Any:
     )
 
 
+def collect_goal_debug(env: Any) -> dict[str, Any]:
+    predicates = []
+    object_states = getattr(env, "object_states_dict", {})
+    for state in getattr(env, "parsed_problem", {}).get("goal_state", []):
+        entry: dict[str, Any] = {"state": list(state), "value": None, "objects": {}}
+        try:
+            entry["value"] = bool(env._eval_predicate(state))
+        except Exception as exc:
+            entry["error"] = repr(exc)
+        for object_name in state[1:]:
+            object_state = object_states.get(object_name)
+            if object_state is None:
+                continue
+            try:
+                entry["objects"][object_name] = {
+                    "type": getattr(object_state, "object_state_type", None),
+                    "pos": as_jsonable(object_state.get_geom_state()["pos"]),
+                }
+            except Exception as exc:
+                entry["objects"][object_name] = {"error": repr(exc)}
+        if len(state) == 3:
+            predicate_name, object_1_name, object_2_name = state
+            object_1_state = object_states.get(object_1_name)
+            object_2_state = object_states.get(object_2_name)
+            if object_1_state is not None and object_2_state is not None:
+                checks = {}
+                try:
+                    if predicate_name.lower() == "in":
+                        checks["contact"] = bool(object_2_state.check_contact(object_1_state))
+                        checks["contain"] = bool(object_2_state.check_contain(object_1_state))
+                    elif predicate_name.lower() == "on":
+                        checks["ontop"] = bool(object_2_state.check_ontop(object_1_state))
+                except Exception as exc:
+                    checks["error"] = repr(exc)
+                if checks:
+                    entry["checks"] = checks
+        predicates.append(entry)
+    return {"check_success": bool(env._check_success()), "predicates": predicates}
+
+
 def rollout_pi05_condition(condition: dict[str, Any], policy: Any, args: argparse.Namespace, video_path: Path, record_video: bool) -> dict[str, Any]:
-    env = build_pi05_env(Path(condition["bddl_file"]), args.camera_name, args.wrist_camera_name, args.image_size)
+    env = None
     replay_images: list[np.ndarray] = []
     action_plan: collections.deque[np.ndarray] = collections.deque()
     done = False
     steps = 0
     error = None
+    goal_debug = None
     try:
+        env = build_pi05_env(Path(condition["bddl_file"]), args.camera_name, args.wrist_camera_name, args.image_size)
         obs = reset_with_retries(env, max_attempts=args.max_reset_attempts)
         dummy_action = np.zeros(get_action_dim(env), dtype=np.float32)
         if dummy_action.shape[0] >= 7:
@@ -277,7 +470,15 @@ def rollout_pi05_condition(condition: dict[str, Any], policy: Any, args: argpars
     except Exception as exc:
         error = repr(exc)
     finally:
-        env.close()
+        if env is not None:
+            try:
+                goal_debug = collect_goal_debug(env)
+            except Exception as exc:
+                goal_debug = {"error": repr(exc)}
+        else:
+            goal_debug = {"error": "Environment construction failed"}
+        if env is not None:
+            env.close()
     saved_video = save_rollout_video(replay_images, video_path, args.video_fps) if record_video else None
     return {
         "condition_id": condition["condition_id"],
@@ -291,6 +492,7 @@ def rollout_pi05_condition(condition: dict[str, Any], policy: Any, args: argpars
         "success": bool(done),
         "steps": int(steps),
         "error": error,
+        "goal_debug": goal_debug,
         "recorded_frames": len(replay_images),
         "video_path": saved_video,
     }
@@ -302,9 +504,13 @@ def main() -> None:
     random.seed(args.seed)
     np.random.seed(args.seed)
     conditions = build_conditions(args, load_json(args.manifest))
+    conditions, plain_success_keys = filter_conditions_by_plain_success(conditions, args.require_plain_success_from)
+    conditions = apply_prompt_style_to_conditions(conditions, args.prompt_style)
     run_dir = args.output_dir / f"pi05_compare_pickup_{args.run_id or DATE_TIME}"
     run_dir.mkdir(parents=True, exist_ok=True)
     metadata = {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}
+    metadata["plain_success_episode_count"] = len(plain_success_keys)
+    metadata["num_conditions_after_plain_filter"] = len(conditions)
     write_json(run_dir / "run_config.json", metadata)
     write_json(run_dir / "conditions.json", {"conditions": conditions})
     log_file = (run_dir / "run.log").open("w", encoding="utf-8")

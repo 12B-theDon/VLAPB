@@ -1,6 +1,6 @@
 (define (problem LIBERO_Living_Room_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_003, pick the akita_black_bowl and place it at the in of the basket, for user_016, pick the butter and place it at the in of the wooden_cabinet.)
+  (:language For user_002, pick the cookies and place it at the front of the basket, for user_010, pick the ketchup and place it at the front of the wooden_tray.)
     (:regions
       (basket_left_left_region
           (:target living_room_table)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (wooden_cabinet_right_right_region
+      (wooden_tray_right_right_region
           (:target living_room_table)
           (:ranges (
-              (-0.0200 0.2800 0.0200 0.3200)
+              (-0.0200 0.2000 0.0200 0.2400)
             )
           )
           (:yaw_rotation (
@@ -38,39 +38,47 @@
             )
           )
       )
-      (contain_region
-          (:target basket_left)
+      (placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0200 -0.4200 0.2600 -0.0200)
+            )
+          )
       )
-      (contain_region
-          (:target wooden_cabinet_right)
+      (secondary_placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0400 0.0000 0.2800 0.4400)
+            )
+          )
       )
     )
 
   (:fixtures
     living_room_table - living_room_table
-    wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
-    akita_black_bowl_1 - akita_black_bowl
-    butter_1 - butter
+    cookies_1 - cookies
+    ketchup_1 - ketchup
     basket_left - basket
+    wooden_tray_right - wooden_tray
   )
 
   (:obj_of_interest
-    akita_black_bowl_1 butter_1
-    basket_left wooden_cabinet_right
+    cookies_1 ketchup_1
+    basket_left wooden_tray_right
   )
 
   (:init
     (On basket_left living_room_table_basket_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
-    (On akita_black_bowl_1 living_room_table_target_object_init_region)
-    (On butter_1 living_room_table_secondary_object_init_region)
+    (On wooden_tray_right living_room_table_wooden_tray_right_right_region)
+    (On cookies_1 living_room_table_target_object_init_region)
+    (On ketchup_1 living_room_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In akita_black_bowl_1 basket_left_contain_region) (In butter_1 wooden_cabinet_right_contain_region))
+    (And (AtXY cookies_1 living_room_table_placement_goal_region) (AtXY ketchup_1 living_room_table_secondary_placement_goal_region))
   )
 
 )

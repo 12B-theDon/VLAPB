@@ -1,0 +1,79 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/type2/bddl_files/sequences_type2_000071.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": {
+    "object_policy": "three objects sampled only from target user's belongings"
+  },
+  "episode_id": "sequences_type2_000071",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "chocolate_pudding",
+    "salad_dressing",
+    "white_yellow_mug"
+  ],
+  "language": "Put the objects belonging to user_018 into the wooden_tray in this order: white_yellow_mug, salad_dressing, chocolate_pudding",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "chocolate_pudding": true,
+    "salad_dressing": true,
+    "white_yellow_mug": false
+  },
+  "ownership": {
+    "user_018": [
+      "chocolate_pudding",
+      "salad_dressing",
+      "white_yellow_mug"
+    ]
+  },
+  "participating_users": [
+    "user_018"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE1",
+  "sequence_strategy": "reverse_alphabetical",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2021,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 1,
+      "x": 0.0363,
+      "y": 0.1988
+    },
+    {
+      "distance_to_tray": 0.2319,
+      "object_type": "salad_dressing",
+      "ordinal_position": 2,
+      "x": -0.2286,
+      "y": -0.0389
+    },
+    {
+      "distance_to_tray": 0.2573,
+      "object_type": "white_yellow_mug",
+      "ordinal_position": 3,
+      "x": 0.1642,
+      "y": -0.1981
+    }
+  ],
+  "split": "type2",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "white_yellow_mug",
+    "salad_dressing",
+    "chocolate_pudding"
+  ],
+  "target_user": "user_018",
+  "task_type": "type2"
+}

@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "kitchen",
+  "area": "study",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type2/bddl_files/placements_type2_000158.bddl",
   "consistency": null,
   "constraints": {
@@ -18,7 +18,7 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "libero_pair_count": 0
@@ -28,43 +28,45 @@
   "episode_id": "placements_type2_000158",
   "fixtures": [
     {
-      "fixture": "wooden_cabinet",
+      "fixture": "wooden_two_layer_shelf",
       "side": "right"
     },
     {
-      "fixture": "wooden_tray",
+      "fixture": "flat_stove",
       "side": "left"
     }
   ],
-  "language": "Pick the cookies belonging to user_011 and place it at the top of the wooden_cabinet",
+  "language": "Pick the ketchup belonging to user_008 and place it at the back of the wooden_two_layer_shelf",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_011": [
-      "cookies"
+    "user_008": [
+      "ketchup"
     ]
   },
   "participating_users": [
-    "user_011"
+    "user_008"
   ],
   "preference": {
-    "area": "kitchen",
-    "fixed_type": "wooden_cabinet",
-    "label": "top",
-    "location": "cabinet.top_drawer.inside",
-    "object_type": "cookies",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
+    "area": "study",
+    "fixed_type": "wooden_two_layer_shelf",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "back",
+    "location": "wooden_two_layer_shelf.front_side",
+    "object_type": "ketchup",
+    "scene": "STUDY_SCENE4",
+    "table": "study_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE1",
+  "scene": "STUDY_SCENE4",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type2",
   "suite": "placements",
-  "table": "kitchen_table",
-  "target_object": "cookies",
+  "table": "study_table",
+  "target_object": "ketchup",
   "target_object_seen": true,
-  "target_user": "user_011",
+  "target_user": "user_008",
   "task_type": "type2"
 }

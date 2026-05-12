@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "cream_cheese",
+      "butter",
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "previous_strategy": "even_positions_first",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "butter",
+      "cream_cheese",
+      "glazed_rim_porcelain_ramekin"
+    ],
+    "same_scene": "LIVING_ROOM_SCENE6",
+    "same_table": "living_room_table",
+    "updated_sequence": [
+      "butter",
+      "glazed_rim_porcelain_ramekin",
+      "cream_cheese"
+    ],
+    "updated_strategy": "odd_positions_first",
+    "user_id": "user_016"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000016.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000016",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "butter",
+    "cream_cheese",
+    "glazed_rim_porcelain_ramekin"
+  ],
+  "language": "After user_016's sequence preference changes from cream_cheese, butter, glazed_rim_porcelain_ramekin to butter, glazed_rim_porcelain_ramekin, cream_cheese, put the same objects into the wooden_tray in the new order: butter, glazed_rim_porcelain_ramekin, cream_cheese",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "butter": true,
+    "cream_cheese": true,
+    "glazed_rim_porcelain_ramekin": true
+  },
+  "ownership": {
+    "user_016": [
+      "butter",
+      "cream_cheese",
+      "glazed_rim_porcelain_ramekin"
+    ]
+  },
+  "participating_users": [
+    "user_016"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "LIVING_ROOM_SCENE6",
+  "sequence_strategy": "odd_positions_first",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2175,
+      "object_type": "butter",
+      "ordinal_position": 1,
+      "x": 0.0743,
+      "y": 0.2044
+    },
+    {
+      "distance_to_tray": 0.2015,
+      "object_type": "cream_cheese",
+      "ordinal_position": 2,
+      "x": -0.2015,
+      "y": -0.0001
+    },
+    {
+      "distance_to_tray": 0.2421,
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "ordinal_position": 3,
+      "x": 0.1212,
+      "y": -0.2096
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "living_room_table",
+  "target_sequence": [
+    "butter",
+    "glazed_rim_porcelain_ramekin",
+    "cream_cheese"
+  ],
+  "target_user": "user_016",
+  "task_type": "adaptability"
+}

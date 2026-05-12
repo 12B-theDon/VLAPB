@@ -1,6 +1,6 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_016, pick the butter and place it at the in of the wooden_cabinet, for user_009, pick the alphabet_soup and place it at the in of the basket.)
+  (:language For user_017, pick the butter and place it at the top_left of the wooden_cabinet, for user_013, pick the milk and place it at the left of the basket.)
     (:regions
       (wooden_cabinet_left_left_region
           (:target kitchen_table)
@@ -38,11 +38,15 @@
             )
           )
       )
-      (contain_region
+      (top_region
           (:target wooden_cabinet_left)
       )
-      (contain_region
-          (:target basket_right)
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1600 -0.1900 0.1600 0.2100)
+            )
+          )
       )
     )
 
@@ -52,13 +56,13 @@
   )
 
   (:objects
-    alphabet_soup_1 - alphabet_soup
     butter_1 - butter
+    milk_1 - milk
     basket_right - basket
   )
 
   (:obj_of_interest
-    butter_1 alphabet_soup_1
+    butter_1 milk_1
     wooden_cabinet_left basket_right
   )
 
@@ -66,11 +70,11 @@
     (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
     (On basket_right kitchen_table_basket_right_right_region)
     (On butter_1 kitchen_table_target_object_init_region)
-    (On alphabet_soup_1 kitchen_table_secondary_object_init_region)
+    (On milk_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In butter_1 wooden_cabinet_left_contain_region) (In alphabet_soup_1 basket_right_contain_region))
+    (And (In butter_1 wooden_cabinet_left_top_region) (AtXY milk_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

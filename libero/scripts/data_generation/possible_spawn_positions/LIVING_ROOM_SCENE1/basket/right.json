@@ -1,14 +1,21 @@
 {
   "akita_black_bowl": {
     "actual_pose": {
-      "x": 0.0,
-      "y": 0.1399,
+      "x": 0.0004,
+      "y": 0.1444,
       "z": 0.4352
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "akita_black_bowl",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6529763
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__akita_black_bowl",
     "label": "right",
     "location": "basket.right_side",
@@ -25,8 +32,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0,
-      "y": 0.1399,
+      "x": 0.0004,
+      "y": 0.1444,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE1",
@@ -39,19 +46,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00014,
+      "displacement": 0.00443,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0,
-        "y": 0.1399,
+        "x": 0.0004,
+        "y": 0.1444,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0,
-        "y": 0.1399,
+        "x": 0.0004,
+        "y": 0.1444,
         "z": 0.4352
       },
       "final_speed": 0.0,
@@ -59,6 +66,7 @@
       "height_drop": 0.14483,
       "location": "basket.right_side",
       "object": "akita_black_bowl",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -67,7 +75,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959290.8102374,
+      "timestamp": 1778085007.8486602,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -80,19 +88,26 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959290.9263735,
+    "timestamp": 1778085007.911365,
     "velocity_threshold": 0.03
   },
   "alphabet_soup": {
     "actual_pose": {
-      "x": 0.0003,
-      "y": 0.14,
+      "x": 0.0006,
+      "y": 0.1401,
       "z": 0.4752
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "alphabet_soup",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6529825
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__alphabet_soup",
     "label": "right",
     "location": "basket.right_side",
@@ -109,8 +124,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0003,
-      "y": 0.14,
+      "x": 0.0006,
+      "y": 0.1401,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE1",
@@ -123,19 +138,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00026,
+      "displacement": 0.00061,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0003,
-        "y": 0.14,
+        "x": 0.0006,
+        "y": 0.1401,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0003,
-        "y": 0.14,
+        "x": 0.0006,
+        "y": 0.1401,
         "z": 0.4752
       },
       "final_speed": 0.0,
@@ -143,6 +158,7 @@
       "height_drop": 0.08483,
       "location": "basket.right_side",
       "object": "alphabet_soup",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -151,7 +167,7 @@
         "z": 0.56
       },
       "status": "review",
-      "timestamp": 1777959292.9801598,
+      "timestamp": 1778085008.9633331,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -164,7 +180,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959293.0800927,
+    "timestamp": 1778085009.0255847,
     "velocity_threshold": 0.03
   },
   "bbq_sauce": {
@@ -175,8 +191,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "bbq_sauce",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6529872
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__bbq_sauce",
     "label": "right",
     "location": "basket.right_side",
@@ -227,6 +250,7 @@
       "height_drop": 0.0886,
       "location": "basket.right_side",
       "object": "bbq_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -235,7 +259,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959295.1452472,
+      "timestamp": 1778085010.0421393,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -248,7 +272,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959295.2503338,
+    "timestamp": 1778085010.1041958,
     "velocity_threshold": 0.03
   },
   "black_book": {
@@ -259,8 +283,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "black_book",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.652991
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__black_book",
     "label": "right",
     "location": "basket.right_side",
@@ -306,11 +337,12 @@
         "y": 0.14,
         "z": 0.4346
       },
-      "final_speed": 1e-05,
+      "final_speed": 0.0,
       "gif_path": null,
       "height_drop": 0.14541,
       "location": "basket.right_side",
       "object": "black_book",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -319,7 +351,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959297.2811844,
+      "timestamp": 1778085011.119793,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -332,19 +364,26 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959297.386131,
+    "timestamp": 1778085011.1871476,
     "velocity_threshold": 0.03
   },
   "butter": {
     "actual_pose": {
-      "x": -0.0,
+      "x": 0.0,
       "y": 0.14,
       "z": 0.4455
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "butter",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6529944
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__butter",
     "label": "right",
     "location": "basket.right_side",
@@ -361,7 +400,7 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": -0.0,
+      "x": 0.0,
       "y": 0.14,
       "z": 0.1
     },
@@ -380,13 +419,13 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": -0.0,
+        "x": 0.0,
         "y": 0.14,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": -0.0,
+        "x": 0.0,
         "y": 0.14,
         "z": 0.4455
       },
@@ -395,6 +434,7 @@
       "height_drop": 0.09453,
       "location": "basket.right_side",
       "object": "butter",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -403,7 +443,7 @@
         "z": 0.54
       },
       "status": "review",
-      "timestamp": 1777959299.488028,
+      "timestamp": 1778085012.205838,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -416,19 +456,26 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959299.587462,
+    "timestamp": 1778085012.2694676,
     "velocity_threshold": 0.03
   },
   "chefmate_8_frypan": {
     "actual_pose": {
-      "x": 0.061,
-      "y": 0.1292,
-      "z": 0.5042
+      "x": -0.0173,
+      "y": 0.1469,
+      "z": 0.5154
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "chefmate_8_frypan",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.652998
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__chefmate_8_frypan",
     "label": "right",
     "location": "basket.right_side",
@@ -445,8 +492,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.061,
-      "y": 0.1292,
+      "x": -0.0173,
+      "y": 0.1469,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE1",
@@ -459,26 +506,27 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.06198,
+      "displacement": 0.01861,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.061,
-        "y": 0.1292,
+        "x": -0.0173,
+        "y": 0.1469,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.061,
-        "y": 0.1292,
-        "z": 0.5042
+        "x": -0.0173,
+        "y": 0.1469,
+        "z": 0.5154
       },
-      "final_speed": 0.02124,
+      "final_speed": 0.00211,
       "gif_path": null,
-      "height_drop": 0.07582,
+      "height_drop": 0.06456,
       "location": "basket.right_side",
       "object": "chefmate_8_frypan",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -487,7 +535,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959301.7988122,
+      "timestamp": 1778085013.3716202,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -500,7 +548,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959301.8989441,
+    "timestamp": 1778085013.4374392,
     "velocity_threshold": 0.03
   },
   "chocolate_pudding": {
@@ -511,8 +559,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "chocolate_pudding",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530015
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__chocolate_pudding",
     "label": "right",
     "location": "basket.right_side",
@@ -563,6 +618,7 @@
       "height_drop": 0.13016,
       "location": "basket.right_side",
       "object": "chocolate_pudding",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -571,7 +627,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959304.016563,
+      "timestamp": 1778085014.4506006,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -584,19 +640,26 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959304.119789,
+    "timestamp": 1778085014.5189884,
     "velocity_threshold": 0.03
   },
   "cookies": {
     "actual_pose": {
-      "x": -0.0,
+      "x": 0.0,
       "y": 0.14,
       "z": 0.4462
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "cookies",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530051
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__cookies",
     "label": "right",
     "location": "basket.right_side",
@@ -613,6 +676,98 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
+      "x": 0.0,
+      "y": 0.14,
+      "z": 0.1
+    },
+    "scene": "LIVING_ROOM_SCENE1",
+    "simulation": {
+      "anchor_pose": {
+        "h": 0.0,
+        "p": 0.0,
+        "r": 0.0,
+        "x": 0.0,
+        "y": 0.14,
+        "z": 0.1
+      },
+      "displacement": 0.0,
+      "final_anchor_pose": {
+        "h": 0.0,
+        "p": 0.0,
+        "r": 0.0,
+        "x": 0.0,
+        "y": 0.14,
+        "z": 0.1
+      },
+      "final_image_path": null,
+      "final_pose": {
+        "x": 0.0,
+        "y": 0.14,
+        "z": 0.4462
+      },
+      "final_speed": 0.0,
+      "gif_path": null,
+      "height_drop": 0.13384,
+      "location": "basket.right_side",
+      "object": "cookies",
+      "post_settle_checks": {},
+      "reason": "height_drop",
+      "scene": "LIVING_ROOM_SCENE1",
+      "start_pose": {
+        "x": 0.0,
+        "y": 0.14,
+        "z": 0.58
+      },
+      "status": "review",
+      "timestamp": 1778085015.5485456,
+      "velocity_stable": true,
+      "velocity_threshold": 0.03,
+      "velocity_warning": ""
+    },
+    "skip_reason": null,
+    "start_pose": {
+      "x": 0.0,
+      "y": 0.14,
+      "z": 0.58
+    },
+    "status": "possible",
+    "table": "living_room_table",
+    "timestamp": 1778085015.6101453,
+    "velocity_threshold": 0.03
+  },
+  "cream_cheese": {
+    "actual_pose": {
+      "x": -0.0,
+      "y": 0.14,
+      "z": 0.4457
+    },
+    "already_in_libero": false,
+    "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "cream_cheese",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530087
+    },
+    "drop_z": 0.1,
+    "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
+    "id": "LIVING_ROOM_SCENE1__basket__right__cream_cheese",
+    "label": "right",
+    "location": "basket.right_side",
+    "object_type": "cream_cheese",
+    "pose": {
+      "h": 0.0,
+      "p": 0.0,
+      "r": 0.0,
+      "x": 0.0,
+      "y": 0.14,
+      "z": 0.1
+    },
+    "relative_scene_table_fixed_pose": {
+      "h": 0.0,
+      "p": 0.0,
+      "r": 0.0,
       "x": -0.0,
       "y": 0.14,
       "z": 0.1
@@ -640,90 +795,6 @@
       "final_pose": {
         "x": -0.0,
         "y": 0.14,
-        "z": 0.4462
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.13384,
-      "location": "basket.right_side",
-      "object": "cookies",
-      "reason": "height_drop",
-      "scene": "LIVING_ROOM_SCENE1",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.58
-      },
-      "status": "review",
-      "timestamp": 1777959306.208203,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.58
-    },
-    "status": "possible",
-    "table": "living_room_table",
-    "timestamp": 1777959306.3083792,
-    "velocity_threshold": 0.03
-  },
-  "cream_cheese": {
-    "actual_pose": {
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.4457
-    },
-    "already_in_libero": false,
-    "area": "living_room",
-    "drop_z": 0.1,
-    "fixed_type": "basket",
-    "id": "LIVING_ROOM_SCENE1__basket__right__cream_cheese",
-    "label": "right",
-    "location": "basket.right_side",
-    "object_type": "cream_cheese",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "scene": "LIVING_ROOM_SCENE1",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 0.0,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.0,
-        "y": 0.14,
         "z": 0.4457
       },
       "final_speed": 0.0,
@@ -731,6 +802,7 @@
       "height_drop": 0.0993,
       "location": "basket.right_side",
       "object": "cream_cheese",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -739,7 +811,7 @@
         "z": 0.545
       },
       "status": "review",
-      "timestamp": 1777959308.330836,
+      "timestamp": 1778085016.6638727,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -752,7 +824,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959308.4358013,
+    "timestamp": 1778085016.7252605,
     "velocity_threshold": 0.03
   },
   "glazed_rim_porcelain_ramekin": {
@@ -763,8 +835,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.653012
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__glazed_rim_porcelain_ramekin",
     "label": "right",
     "location": "basket.right_side",
@@ -795,7 +874,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 2e-05,
+      "displacement": 4e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -815,6 +894,7 @@
       "height_drop": 0.1439,
       "location": "basket.right_side",
       "object": "glazed_rim_porcelain_ramekin",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -823,7 +903,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959310.530538,
+      "timestamp": 1778085017.7853873,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -836,7 +916,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959310.6468935,
+    "timestamp": 1778085017.8472593,
     "velocity_threshold": 0.03
   },
   "ketchup": {
@@ -847,8 +927,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "ketchup",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530154
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__ketchup",
     "label": "right",
     "location": "basket.right_side",
@@ -899,6 +986,7 @@
       "height_drop": 0.07082,
       "location": "basket.right_side",
       "object": "ketchup",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -907,7 +995,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959312.7407618,
+      "timestamp": 1778085018.8804975,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -920,7 +1008,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959312.8393407,
+    "timestamp": 1778085018.944607,
     "velocity_threshold": 0.03
   },
   "milk": {
@@ -931,8 +1019,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "milk",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.653019
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__milk",
     "label": "right",
     "location": "basket.right_side",
@@ -983,6 +1078,7 @@
       "height_drop": 0.07349,
       "location": "basket.right_side",
       "object": "milk",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -991,7 +1087,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959314.8878343,
+      "timestamp": 1778085019.965866,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1004,91 +1100,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959314.9891381,
-    "velocity_threshold": 0.03
-  },
-  "moka_pot": {
-    "actual_pose": {
-      "x": 0.0001,
-      "y": 0.1147,
-      "z": 0.5833
-    },
-    "already_in_libero": false,
-    "area": "living_room",
-    "drop_z": 0.1,
-    "fixed_type": "basket",
-    "id": "LIVING_ROOM_SCENE1__basket__right__moka_pot",
-    "label": "right",
-    "location": "basket.right_side",
-    "object_type": "moka_pot",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0001,
-      "y": 0.1147,
-      "z": 0.1
-    },
-    "scene": "LIVING_ROOM_SCENE1",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 0.02526,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0001,
-        "y": 0.1147,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.0001,
-        "y": 0.1147,
-        "z": 0.5833
-      },
-      "final_speed": 0.00088,
-      "gif_path": null,
-      "height_drop": 0.0,
-      "location": "basket.right_side",
-      "object": "moka_pot",
-      "reason": "settled",
-      "scene": "LIVING_ROOM_SCENE1",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.58
-      },
-      "status": "auto_possible",
-      "timestamp": 1777959317.0530233,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.58
-    },
-    "status": "possible",
-    "table": "living_room_table",
-    "timestamp": 1777959317.1820986,
+    "timestamp": 1778085020.0274742,
     "velocity_threshold": 0.03
   },
   "new_salad_dressing": {
@@ -1099,8 +1111,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "new_salad_dressing",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530232
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__new_salad_dressing",
     "label": "right",
     "location": "basket.right_side",
@@ -1151,6 +1170,7 @@
       "height_drop": 0.12052,
       "location": "basket.right_side",
       "object": "new_salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1159,7 +1179,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959319.073173,
+      "timestamp": 1778085022.1205685,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1172,7 +1192,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959319.1287339,
+    "timestamp": 1778085022.1811843,
     "velocity_threshold": 0.03
   },
   "orange_juice": {
@@ -1183,8 +1203,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "orange_juice",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530266
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__orange_juice",
     "label": "right",
     "location": "basket.right_side",
@@ -1235,6 +1262,7 @@
       "height_drop": 0.07349,
       "location": "basket.right_side",
       "object": "orange_juice",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1243,7 +1271,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959320.9477587,
+      "timestamp": 1778085023.2179084,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1256,19 +1284,26 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959321.0520535,
+    "timestamp": 1778085023.293097,
     "velocity_threshold": 0.03
   },
   "porcelain_mug": {
     "actual_pose": {
-      "x": 0.0076,
-      "y": 0.1905,
+      "x": 0.001,
+      "y": 0.1455,
       "z": 0.4344
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "porcelain_mug",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530302
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__porcelain_mug",
     "label": "right",
     "location": "basket.right_side",
@@ -1285,8 +1320,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0076,
-      "y": 0.1905,
+      "x": 0.001,
+      "y": 0.1455,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE1",
@@ -1299,19 +1334,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.05111,
+      "displacement": 0.00562,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0076,
-        "y": 0.1905,
+        "x": 0.001,
+        "y": 0.1455,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0076,
-        "y": 0.1905,
+        "x": 0.001,
+        "y": 0.1455,
         "z": 0.4344
       },
       "final_speed": 0.0,
@@ -1319,6 +1354,7 @@
       "height_drop": 0.14563,
       "location": "basket.right_side",
       "object": "porcelain_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1327,7 +1363,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959323.4234066,
+      "timestamp": 1778085024.7901852,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1340,19 +1376,26 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959323.5351355,
+    "timestamp": 1778085024.8545353,
     "velocity_threshold": 0.03
   },
   "red_coffee_mug": {
     "actual_pose": {
-      "x": 0.0019,
-      "y": 0.1455,
+      "x": 0.0023,
+      "y": 0.1545,
       "z": 0.4866
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "red_coffee_mug",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530335
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__red_coffee_mug",
     "label": "right",
     "location": "basket.right_side",
@@ -1369,8 +1412,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0019,
-      "y": 0.1455,
+      "x": 0.0023,
+      "y": 0.1545,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE1",
@@ -1383,19 +1426,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00586,
+      "displacement": 0.0147,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0019,
-        "y": 0.1455,
+        "x": 0.0023,
+        "y": 0.1545,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0019,
-        "y": 0.1455,
+        "x": 0.0023,
+        "y": 0.1545,
         "z": 0.4866
       },
       "final_speed": 0.0,
@@ -1403,6 +1446,7 @@
       "height_drop": 0.09342,
       "location": "basket.right_side",
       "object": "red_coffee_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1411,7 +1455,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959325.8153014,
+      "timestamp": 1778085026.2966032,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1424,7 +1468,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959325.9329426,
+    "timestamp": 1778085026.3577504,
     "velocity_threshold": 0.03
   },
   "salad_dressing": {
@@ -1435,8 +1479,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "salad_dressing",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.653037
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__salad_dressing",
     "label": "right",
     "location": "basket.right_side",
@@ -1487,6 +1538,7 @@
       "height_drop": 0.07052,
       "location": "basket.right_side",
       "object": "salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1495,7 +1547,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959328.0934615,
+      "timestamp": 1778085027.410557,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1508,7 +1560,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959328.187343,
+    "timestamp": 1778085027.4734197,
     "velocity_threshold": 0.03
   },
   "tomato_sauce": {
@@ -1519,8 +1571,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "tomato_sauce",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530406
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__tomato_sauce",
     "label": "right",
     "location": "basket.right_side",
@@ -1551,7 +1610,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00026,
+      "displacement": 0.00027,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1571,6 +1630,7 @@
       "height_drop": 0.10483,
       "location": "basket.right_side",
       "object": "tomato_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1579,7 +1639,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959330.2755675,
+      "timestamp": 1778085028.5452545,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1592,7 +1652,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959330.376205,
+    "timestamp": 1778085028.6113727,
     "velocity_threshold": 0.03
   },
   "white_bowl": {
@@ -1603,8 +1663,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "white_bowl",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530442
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__white_bowl",
     "label": "right",
     "location": "basket.right_side",
@@ -1635,7 +1702,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00019,
+      "displacement": 0.00021,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1655,6 +1722,7 @@
       "height_drop": 0.1438,
       "location": "basket.right_side",
       "object": "white_bowl",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1663,7 +1731,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959332.6978278,
+      "timestamp": 1778085030.0318565,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1676,91 +1744,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959332.7926803,
-    "velocity_threshold": 0.03
-  },
-  "white_yellow_mug": {
-    "actual_pose": {
-      "x": 2.1018,
-      "y": -2.7347,
-      "z": 0.0558
-    },
-    "already_in_libero": false,
-    "area": "living_room",
-    "drop_z": 0.1,
-    "fixed_type": "basket",
-    "id": "LIVING_ROOM_SCENE1__basket__right__white_yellow_mug",
-    "label": "right",
-    "location": "basket.right_side",
-    "object_type": "white_yellow_mug",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 2.1018,
-      "y": -2.7347,
-      "z": 0.1
-    },
-    "scene": "LIVING_ROOM_SCENE1",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 3.56112,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 2.1018,
-        "y": -2.7347,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 2.1018,
-        "y": -2.7347,
-        "z": 0.0558
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.52424,
-      "location": "basket.right_side",
-      "object": "white_yellow_mug",
-      "reason": "large_displacement+height_drop",
-      "scene": "LIVING_ROOM_SCENE1",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.58
-      },
-      "status": "review",
-      "timestamp": 1777959335.1033635,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.58
-    },
-    "status": "possible",
-    "table": "living_room_table",
-    "timestamp": 1777959335.2241461,
+    "timestamp": 1778085030.0942354,
     "velocity_threshold": 0.03
   },
   "wine_bottle": {
@@ -1771,8 +1755,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "wine_bottle",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530483
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__wine_bottle",
     "label": "right",
     "location": "basket.right_side",
@@ -1823,6 +1814,7 @@
       "height_drop": 0.14435,
       "location": "basket.right_side",
       "object": "wine_bottle",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1831,7 +1823,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959337.2654946,
+      "timestamp": 1778085032.760399,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1844,7 +1836,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959337.3658016,
+    "timestamp": 1778085032.8319545,
     "velocity_threshold": 0.03
   },
   "yellow_book": {
@@ -1855,8 +1847,15 @@
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "yellow_book",
+      "path": "LIVING_ROOM_SCENE1/basket/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6530519
+    },
     "drop_z": 0.1,
     "fixed_type": "basket",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE1__basket__right__yellow_book",
     "label": "right",
     "location": "basket.right_side",
@@ -1907,6 +1906,7 @@
       "height_drop": 0.14521,
       "location": "basket.right_side",
       "object": "yellow_book",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE1",
       "start_pose": {
@@ -1915,7 +1915,7 @@
         "z": 0.58
       },
       "status": "review",
-      "timestamp": 1777959339.3809216,
+      "timestamp": 1778085033.851703,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1928,7 +1928,7 @@
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959339.4932556,
+    "timestamp": 1778085033.9134998,
     "velocity_threshold": 0.03
   }
 }

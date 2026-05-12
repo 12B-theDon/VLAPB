@@ -1,98 +1,21 @@
 {
-  "akita_black_bowl": {
-    "actual_pose": {
-      "x": 0.372,
-      "y": 0.7375,
-      "z": 0.8835
-    },
-    "already_in_libero": false,
-    "area": "study",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_two_layer_shelf",
-    "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__akita_black_bowl",
-    "label": "right",
-    "location": "wooden_two_layer_shelf.right_side",
-    "object_type": "akita_black_bowl",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.372,
-      "y": 0.4575,
-      "z": 0.1
-    },
-    "scene": "STUDY_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 0.48907,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.372,
-        "y": 0.4575,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.372,
-        "y": 0.7375,
-        "z": 0.8835
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.15346,
-      "location": "wooden_two_layer_shelf.right_side",
-      "object": "akita_black_bowl",
-      "reason": "large_displacement+height_drop",
-      "scene": "STUDY_SCENE4",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.42,
-        "z": 1.037
-      },
-      "status": "review",
-      "timestamp": 1777962072.5689871,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.42,
-      "z": 1.037
-    },
-    "status": "possible",
-    "table": "study_table",
-    "timestamp": 1777962072.662222,
-    "velocity_threshold": 0.03
-  },
   "alphabet_soup": {
     "actual_pose": {
       "x": 0.0003,
-      "y": 0.42,
+      "y": 0.4201,
       "z": 0.9235
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "alphabet_soup",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.717362
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__alphabet_soup",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -110,7 +33,7 @@
       "p": 0.0,
       "r": 0.0,
       "x": 0.0003,
-      "y": 0.14,
+      "y": 0.1401,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -123,19 +46,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00026,
+      "displacement": 0.0003,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
         "x": 0.0003,
-        "y": 0.14,
+        "y": 0.1401,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
         "x": 0.0003,
-        "y": 0.42,
+        "y": 0.4201,
         "z": 0.9235
       },
       "final_speed": 0.0,
@@ -143,6 +66,7 @@
       "height_drop": 0.09346,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "alphabet_soup",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -151,7 +75,7 @@
         "z": 1.017
       },
       "status": "review",
-      "timestamp": 1777962073.695453,
+      "timestamp": 1778086892.8025644,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -164,7 +88,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962073.738571,
+    "timestamp": 1778086892.8648643,
     "velocity_threshold": 0.03
   },
   "bbq_sauce": {
@@ -175,8 +99,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "bbq_sauce",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173676
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__bbq_sauce",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -227,6 +158,7 @@
       "height_drop": 0.09723,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "bbq_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -235,7 +167,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962074.694551,
+      "timestamp": 1778086893.7160943,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -248,7 +180,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962074.797592,
+    "timestamp": 1778086893.7775972,
     "velocity_threshold": 0.03
   },
   "black_book": {
@@ -259,8 +191,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "black_book",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173722
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__black_book",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -291,7 +230,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 3e-05,
+      "displacement": 5e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -311,6 +250,7 @@
       "height_drop": 0.15404,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "black_book",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -319,7 +259,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962075.973793,
+      "timestamp": 1778086894.6483734,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -332,19 +272,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962076.056097,
+    "timestamp": 1778086894.7088795,
     "velocity_threshold": 0.03
   },
   "butter": {
     "actual_pose": {
-      "x": 0.1162,
-      "y": 0.5451,
+      "x": 0.0,
+      "y": 0.42,
       "z": 0.8938
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "butter",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173758
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__butter",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -361,8 +308,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.1162,
-      "y": 0.2651,
+      "x": 0.0,
+      "y": 0.14,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -375,19 +322,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.17076,
+      "displacement": 0.0,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.1162,
-        "y": 0.2651,
+        "x": 0.0,
+        "y": 0.14,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.1162,
-        "y": 0.5451,
+        "x": 0.0,
+        "y": 0.42,
         "z": 0.8938
       },
       "final_speed": 0.0,
@@ -395,7 +342,8 @@
       "height_drop": 0.10316,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "butter",
-      "reason": "large_displacement+height_drop",
+      "post_settle_checks": {},
+      "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
         "x": 0.0,
@@ -403,7 +351,7 @@
         "z": 0.997
       },
       "status": "review",
-      "timestamp": 1777962077.2882893,
+      "timestamp": 1778086895.5750628,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -416,14 +364,14 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962077.3785844,
+    "timestamp": 1778086895.6434882,
     "velocity_threshold": 0.03
   },
   "chefmate_8_frypan": {
     "actual_pose": {
-      "x": 2.6219,
-      "y": 0.6713,
-      "z": -0.0008
+      "x": 0.0377,
+      "y": 0.3988,
+      "z": 1.0093
     },
     "already_in_libero": false,
     "area": "study",
@@ -445,8 +393,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 2.6219,
-      "y": 0.3913,
+      "x": 0.0377,
+      "y": 0.1188,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -459,35 +407,36 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 2.63388,
+      "displacement": 0.04326,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 2.6219,
-        "y": 0.3913,
+        "x": 0.0377,
+        "y": 0.1188,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 2.6219,
-        "y": 0.6713,
-        "z": -0.0008
+        "x": 0.0377,
+        "y": 0.3988,
+        "z": 1.0093
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 1.03781,
+      "height_drop": 0.02772,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "chefmate_8_frypan",
-      "reason": "large_displacement+height_drop",
+      "post_settle_checks": {},
+      "reason": "settled",
       "scene": "STUDY_SCENE4",
       "start_pose": {
         "x": 0.0,
         "y": 0.42,
         "z": 1.037
       },
-      "status": "review",
-      "timestamp": 1777962078.6246235,
+      "status": "auto_possible",
+      "timestamp": 1778086896.5668368,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -500,7 +449,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962078.7363904,
+    "timestamp": 1778086896.628579,
     "velocity_threshold": 0.03
   },
   "chocolate_pudding": {
@@ -511,8 +460,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "chocolate_pudding",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173793
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__chocolate_pudding",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -543,7 +499,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.0,
+      "displacement": 1e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -563,6 +519,7 @@
       "height_drop": 0.13879,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "chocolate_pudding",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -571,7 +528,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962080.0261736,
+      "timestamp": 1778086897.5177464,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -584,7 +541,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962080.1107144,
+    "timestamp": 1778086897.5802846,
     "velocity_threshold": 0.03
   },
   "cookies": {
@@ -595,8 +552,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "cookies",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173824
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__cookies",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -647,6 +611,7 @@
       "height_drop": 0.14247,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "cookies",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -655,7 +620,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962081.3572063,
+      "timestamp": 1778086898.4614227,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -668,7 +633,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962081.4627023,
+    "timestamp": 1778086898.5247483,
     "velocity_threshold": 0.03
   },
   "cream_cheese": {
@@ -679,8 +644,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "cream_cheese",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.717386
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__cream_cheese",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -731,6 +703,7 @@
       "height_drop": 0.10793,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "cream_cheese",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -739,7 +712,7 @@
         "z": 1.002
       },
       "status": "review",
-      "timestamp": 1777962082.7354293,
+      "timestamp": 1778086899.3898065,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -752,19 +725,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962082.8254523,
+    "timestamp": 1778086899.4522595,
     "velocity_threshold": 0.03
   },
   "glazed_rim_porcelain_ramekin": {
     "actual_pose": {
-      "x": 0.0033,
-      "y": 0.4236,
+      "x": 0.0,
+      "y": 0.42,
       "z": 0.8845
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "glazed_rim_porcelain_ramekin",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173896
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__glazed_rim_porcelain_ramekin",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -781,8 +761,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0033,
-      "y": 0.1436,
+      "x": 0.0,
+      "y": 0.14,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -795,19 +775,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00494,
+      "displacement": 2e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0033,
-        "y": 0.1436,
+        "x": 0.0,
+        "y": 0.14,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0033,
-        "y": 0.4236,
+        "x": 0.0,
+        "y": 0.42,
         "z": 0.8845
       },
       "final_speed": 0.0,
@@ -815,6 +795,7 @@
       "height_drop": 0.15253,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "glazed_rim_porcelain_ramekin",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -823,7 +804,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962084.093014,
+      "timestamp": 1778086900.3603556,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -836,7 +817,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962084.1822786,
+    "timestamp": 1778086900.428023,
     "velocity_threshold": 0.03
   },
   "ketchup": {
@@ -847,8 +828,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "ketchup",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173932
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__ketchup",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -899,6 +887,7 @@
       "height_drop": 0.07945,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "ketchup",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -907,7 +896,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962085.4561098,
+      "timestamp": 1778086901.292922,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -920,7 +909,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962085.5398245,
+    "timestamp": 1778086901.3578749,
     "velocity_threshold": 0.03
   },
   "milk": {
@@ -931,8 +920,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "milk",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7173963
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__milk",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -983,6 +979,7 @@
       "height_drop": 0.08212,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "milk",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -991,7 +988,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962086.8238294,
+      "timestamp": 1778086902.2195349,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1004,91 +1001,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962086.903312,
-    "velocity_threshold": 0.03
-  },
-  "moka_pot": {
-    "actual_pose": {
-      "x": 0.0401,
-      "y": 0.5062,
-      "z": 0.9318
-    },
-    "already_in_libero": false,
-    "area": "study",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_two_layer_shelf",
-    "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__moka_pot",
-    "label": "right",
-    "location": "wooden_two_layer_shelf.right_side",
-    "object_type": "moka_pot",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0401,
-      "y": 0.2262,
-      "z": 0.1
-    },
-    "scene": "STUDY_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 0.0951,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0401,
-        "y": 0.2262,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.0401,
-        "y": 0.5062,
-        "z": 0.9318
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.1052,
-      "location": "wooden_two_layer_shelf.right_side",
-      "object": "moka_pot",
-      "reason": "large_displacement+height_drop",
-      "scene": "STUDY_SCENE4",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.42,
-        "z": 1.037
-      },
-      "status": "review",
-      "timestamp": 1777962088.1166148,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.42,
-      "z": 1.037
-    },
-    "status": "possible",
-    "table": "study_table",
-    "timestamp": 1777962088.2029803,
+    "timestamp": 1778086902.2809076,
     "velocity_threshold": 0.03
   },
   "new_salad_dressing": {
@@ -1099,8 +1012,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "new_salad_dressing",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7174003
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__new_salad_dressing",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1151,6 +1071,7 @@
       "height_drop": 0.12915,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "new_salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1159,7 +1080,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962089.4808888,
+      "timestamp": 1778086904.062673,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1172,19 +1093,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962089.56592,
+    "timestamp": 1778086904.125025,
     "velocity_threshold": 0.03
   },
   "orange_juice": {
     "actual_pose": {
-      "x": -0.0,
-      "y": 0.42,
+      "x": 0.0476,
+      "y": 0.4424,
       "z": 0.9549
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "orange_juice",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.717404
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__orange_juice",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1201,8 +1129,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": -0.0,
-      "y": 0.14,
+      "x": 0.0476,
+      "y": 0.1624,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -1215,19 +1143,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.0,
+      "displacement": 0.05264,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": -0.0,
-        "y": 0.14,
+        "x": 0.0476,
+        "y": 0.1624,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": -0.0,
-        "y": 0.42,
+        "x": 0.0476,
+        "y": 0.4424,
         "z": 0.9549
       },
       "final_speed": 0.0,
@@ -1235,6 +1163,7 @@
       "height_drop": 0.08212,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "orange_juice",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1243,7 +1172,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962090.8697984,
+      "timestamp": 1778086904.9971597,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1256,91 +1185,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962090.9691625,
-    "velocity_threshold": 0.03
-  },
-  "porcelain_mug": {
-    "actual_pose": {
-      "x": -1.1712,
-      "y": 2.5731,
-      "z": 0.0412
-    },
-    "already_in_libero": false,
-    "area": "study",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_two_layer_shelf",
-    "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__porcelain_mug",
-    "label": "right",
-    "location": "wooden_two_layer_shelf.right_side",
-    "object_type": "porcelain_mug",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": -1.1712,
-      "y": 2.2931,
-      "z": 0.1
-    },
-    "scene": "STUDY_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 2.45103,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": -1.1712,
-        "y": 2.2931,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": -1.1712,
-        "y": 2.5731,
-        "z": 0.0412
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.99581,
-      "location": "wooden_two_layer_shelf.right_side",
-      "object": "porcelain_mug",
-      "reason": "large_displacement+height_drop",
-      "scene": "STUDY_SCENE4",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.42,
-        "z": 1.037
-      },
-      "status": "review",
-      "timestamp": 1777962092.324779,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.42,
-      "z": 1.037
-    },
-    "status": "possible",
-    "table": "study_table",
-    "timestamp": 1777962092.4422421,
+    "timestamp": 1778086905.0689492,
     "velocity_threshold": 0.03
   },
   "red_coffee_mug": {
@@ -1351,8 +1196,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "red_coffee_mug",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7174077
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__red_coffee_mug",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1383,7 +1235,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 8e-05,
+      "displacement": 0.00014,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1403,6 +1255,7 @@
       "height_drop": 0.15003,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "red_coffee_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1411,7 +1264,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962093.8633106,
+      "timestamp": 1778086907.6778154,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1424,7 +1277,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962093.94694,
+    "timestamp": 1778086907.7393627,
     "velocity_threshold": 0.03
   },
   "salad_dressing": {
@@ -1435,8 +1288,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "salad_dressing",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.717411
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__salad_dressing",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1467,7 +1327,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.0,
+      "displacement": 1e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1487,6 +1347,7 @@
       "height_drop": 0.07915,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1495,7 +1356,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962095.2259076,
+      "timestamp": 1778086908.6534152,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1508,19 +1369,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962095.3085852,
+    "timestamp": 1778086908.720687,
     "velocity_threshold": 0.03
   },
   "tomato_sauce": {
     "actual_pose": {
       "x": 0.0003,
-      "y": 0.42,
+      "y": 0.4201,
       "z": 0.9235
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "tomato_sauce",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7174146
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__tomato_sauce",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1538,7 +1406,7 @@
       "p": 0.0,
       "r": 0.0,
       "x": 0.0003,
-      "y": 0.14,
+      "y": 0.1401,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -1551,19 +1419,19 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.00026,
+      "displacement": 0.00029,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
         "x": 0.0003,
-        "y": 0.14,
+        "y": 0.1401,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
         "x": 0.0003,
-        "y": 0.42,
+        "y": 0.4201,
         "z": 0.9235
       },
       "final_speed": 0.0,
@@ -1571,6 +1439,7 @@
       "height_drop": 0.11346,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "tomato_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1579,7 +1448,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962096.5915074,
+      "timestamp": 1778086909.6240897,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1592,103 +1461,26 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962096.6725512,
-    "velocity_threshold": 0.03
-  },
-  "white_bowl": {
-    "actual_pose": {
-      "x": 0.015,
-      "y": 0.4321,
-      "z": 0.8846
-    },
-    "already_in_libero": false,
-    "area": "study",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_two_layer_shelf",
-    "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__white_bowl",
-    "label": "right",
-    "location": "wooden_two_layer_shelf.right_side",
-    "object_type": "white_bowl",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.14,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.015,
-      "y": 0.1521,
-      "z": 0.1
-    },
-    "scene": "STUDY_SCENE4",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.14,
-        "z": 0.1
-      },
-      "displacement": 0.01926,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.015,
-        "y": 0.1521,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": 0.015,
-        "y": 0.4321,
-        "z": 0.8846
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.15243,
-      "location": "wooden_two_layer_shelf.right_side",
-      "object": "white_bowl",
-      "reason": "height_drop",
-      "scene": "STUDY_SCENE4",
-      "start_pose": {
-        "x": 0.0,
-        "y": 0.42,
-        "z": 1.037
-      },
-      "status": "review",
-      "timestamp": 1777962098.0491903,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0,
-      "y": 0.42,
-      "z": 1.037
-    },
-    "status": "possible",
-    "table": "study_table",
-    "timestamp": 1777962098.1586165,
+    "timestamp": 1778086909.6910882,
     "velocity_threshold": 0.03
   },
   "white_yellow_mug": {
     "actual_pose": {
-      "x": 0.2673,
-      "y": 0.7229,
-      "z": 0.9422
+      "x": 0.0002,
+      "y": 0.42,
+      "z": 0.8852
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "white_yellow_mug",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7174184
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__white_yellow_mug",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1705,8 +1497,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.2673,
-      "y": 0.4429,
+      "x": 0.0002,
+      "y": 0.14,
       "z": 0.1
     },
     "scene": "STUDY_SCENE4",
@@ -1719,27 +1511,28 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 0.40393,
+      "displacement": 0.00016,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.2673,
-        "y": 0.4429,
+        "x": 0.0002,
+        "y": 0.14,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.2673,
-        "y": 0.7229,
-        "z": 0.9422
+        "x": 0.0002,
+        "y": 0.42,
+        "z": 0.8852
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.09482,
+      "height_drop": 0.15177,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "white_yellow_mug",
-      "reason": "large_displacement+height_drop",
+      "post_settle_checks": {},
+      "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
         "x": 0.0,
@@ -1747,7 +1540,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962099.584043,
+      "timestamp": 1778086912.3022513,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1760,7 +1553,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962099.691753,
+    "timestamp": 1778086912.366925,
     "velocity_threshold": 0.03
   },
   "wine_bottle": {
@@ -1771,8 +1564,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "wine_bottle",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.7174218
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__wine_bottle",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1823,6 +1623,7 @@
       "height_drop": 0.15298,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "wine_bottle",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1831,7 +1632,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962100.9029908,
+      "timestamp": 1778086913.2451866,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1844,7 +1645,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962100.9887586,
+    "timestamp": 1778086913.306139,
     "velocity_threshold": 0.03
   },
   "yellow_book": {
@@ -1855,8 +1656,15 @@
     },
     "already_in_libero": false,
     "area": "study",
+    "auto_promoted_from_holded": {
+      "object_type": "yellow_book",
+      "path": "STUDY_SCENE4/wooden_two_layer_shelf/right.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.717425
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_two_layer_shelf",
+    "height_drop_only_auto_accepted": true,
     "id": "STUDY_SCENE4__wooden_two_layer_shelf__right__yellow_book",
     "label": "right",
     "location": "wooden_two_layer_shelf.right_side",
@@ -1887,7 +1695,7 @@
         "y": 0.14,
         "z": 0.1
       },
-      "displacement": 1e-05,
+      "displacement": 3e-05,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
@@ -1907,6 +1715,7 @@
       "height_drop": 0.15384,
       "location": "wooden_two_layer_shelf.right_side",
       "object": "yellow_book",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "STUDY_SCENE4",
       "start_pose": {
@@ -1915,7 +1724,7 @@
         "z": 1.037
       },
       "status": "review",
-      "timestamp": 1777962102.1470551,
+      "timestamp": 1778086914.1526372,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
@@ -1928,7 +1737,7 @@
     },
     "status": "possible",
     "table": "study_table",
-    "timestamp": 1777962102.2419934,
+    "timestamp": 1778086914.2212722,
     "velocity_threshold": 0.03
   }
 }

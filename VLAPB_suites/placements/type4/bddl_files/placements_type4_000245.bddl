@@ -1,0 +1,68 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the butter belonging to user_014 and place it at the left of the basket)
+    (:regions
+      (basket_right_right_region
+          (:target floor)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (flat_stove_left_left_region
+          (:target floor)
+          (:ranges (
+              (-0.1400 -0.2400 -0.1000 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target floor)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target floor)
+          (:ranges (
+              (-0.1400 -0.1700 0.1400 0.1900)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    floor - floor
+    flat_stove_left - flat_stove
+  )
+
+  (:objects
+    butter_1 - butter
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    butter_1
+    basket_right
+  )
+
+  (:init
+    (On basket_right floor_basket_right_right_region)
+    (On flat_stove_left floor_flat_stove_left_left_region)
+    (On butter_1 floor_target_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY butter_1 floor_placement_goal_region))
+  )
+
+)

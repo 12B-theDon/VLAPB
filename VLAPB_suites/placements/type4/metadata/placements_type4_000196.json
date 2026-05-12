@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "living_room",
+  "area": "floor",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type4/bddl_files/placements_type4_000196.bddl",
   "consistency": null,
   "constraints": {
@@ -18,53 +18,55 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "fixture_state": {},
-    "libero_pair_count": 0
+    "libero_pair_count": 2
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_type4_000196",
   "fixtures": [
     {
-      "fixture": "wooden_tray",
+      "fixture": "basket",
       "side": "right"
     },
     {
-      "fixture": "flat_stove",
+      "fixture": "cabinet",
       "side": "left"
     }
   ],
-  "language": "Pick the orange_juice belonging to user_013 and place it at the in of the wooden_tray",
+  "language": "Pick the milk belonging to user_013 and place it at the left of the basket",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
     "user_013": [
-      "orange_juice"
+      "milk"
     ]
   },
   "participating_users": [
     "user_013"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "wooden_tray",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "orange_juice",
-    "scene": "LIVING_ROOM_SCENE3",
-    "table": "living_room_table"
+    "area": "floor",
+    "fixed_type": "basket",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "left",
+    "location": "basket.left_side",
+    "object_type": "milk",
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE3",
+  "scene": "FLOOR_SCENE",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type4",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "orange_juice",
+  "table": "floor",
+  "target_object": "milk",
   "target_object_seen": true,
   "target_user": "user_013",
   "task_type": "type4"

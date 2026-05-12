@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000042.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "chocolate_pudding",
+      "milk"
+    ],
+    "unseen_object": "red_coffee_mug",
+    "user_id": "user_014"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000042",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "chocolate_pudding",
+    "milk",
+    "red_coffee_mug"
+  ],
+  "language": "Put the objects belonging to user_014 into the wooden_tray in this order: chocolate_pudding, milk, red_coffee_mug",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "chocolate_pudding": true,
+    "milk": true,
+    "red_coffee_mug": false
+  },
+  "ownership": {
+    "user_014": [
+      "chocolate_pudding",
+      "milk",
+      "red_coffee_mug"
+    ]
+  },
+  "participating_users": [
+    "user_014"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE3",
+  "sequence_strategy": "right_to_left",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2413,
+      "object_type": "chocolate_pudding",
+      "ordinal_position": 1,
+      "x": 0.0413,
+      "y": 0.2377
+    },
+    {
+      "distance_to_tray": 0.1915,
+      "object_type": "milk",
+      "ordinal_position": 2,
+      "x": -0.1885,
+      "y": -0.0337
+    },
+    {
+      "distance_to_tray": 0.2433,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 3,
+      "x": 0.1569,
+      "y": -0.186
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "chocolate_pudding",
+    "milk",
+    "red_coffee_mug"
+  ],
+  "target_user": "user_014",
+  "task_type": "consistency"
+}

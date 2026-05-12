@@ -1,9 +1,9 @@
-(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+(define (problem LIBERO_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_015, pick the butter and place it at the in of the basket, for user_002, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet.)
+  (:language For user_015, pick the butter and place it at the in of the basket, for user_016, pick the cream_cheese and place it at the top_left of the wooden_cabinet.)
     (:regions
       (basket_left_left_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.0200 -0.2400 0.0200 -0.2000)
             )
@@ -14,7 +14,7 @@
           )
       )
       (wooden_cabinet_right_right_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.0200 0.2800 0.0200 0.3200)
             )
@@ -25,14 +25,14 @@
           )
       )
       (target_object_init_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (-0.1800 -0.0200 -0.1300 0.0300)
             )
           )
       )
       (secondary_object_init_region
-          (:target living_room_table)
+          (:target floor)
           (:ranges (
               (0.1300 -0.0200 0.1800 0.0300)
             )
@@ -41,36 +41,36 @@
       (contain_region
           (:target basket_left)
       )
-      (bottom_region
+      (top_region
           (:target wooden_cabinet_right)
       )
     )
 
   (:fixtures
-    living_room_table - living_room_table
+    floor - floor
     wooden_cabinet_right - wooden_cabinet
   )
 
   (:objects
-    akita_black_bowl_1 - akita_black_bowl
     butter_1 - butter
+    cream_cheese_1 - cream_cheese
     basket_left - basket
   )
 
   (:obj_of_interest
-    butter_1 akita_black_bowl_1
+    butter_1 cream_cheese_1
     basket_left wooden_cabinet_right
   )
 
   (:init
-    (On basket_left living_room_table_basket_left_left_region)
-    (On wooden_cabinet_right living_room_table_wooden_cabinet_right_right_region)
-    (On butter_1 living_room_table_target_object_init_region)
-    (On akita_black_bowl_1 living_room_table_secondary_object_init_region)
+    (On basket_left floor_basket_left_left_region)
+    (On wooden_cabinet_right floor_wooden_cabinet_right_right_region)
+    (On butter_1 floor_target_object_init_region)
+    (On cream_cheese_1 floor_secondary_object_init_region)
   )
 
   (:goal
-    (And (In butter_1 basket_left_contain_region) (In akita_black_bowl_1 wooden_cabinet_right_bottom_region))
+    (And (In butter_1 basket_left_contain_region) (In cream_cheese_1 wooden_cabinet_right_top_region))
   )
 
 )

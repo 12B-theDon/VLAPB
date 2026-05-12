@@ -1,0 +1,84 @@
+{
+  "adaptation": null,
+  "area": "living_room",
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000176.bddl",
+  "consistency": null,
+  "constraints": {
+    "allowed_fixtures": [
+      "basket",
+      "cabinet",
+      "flat_stove",
+      "microwave",
+      "white_cabinet",
+      "wooden_cabinet",
+      "wooden_tray",
+      "wooden_two_layer_shelf"
+    ],
+    "fixture_pair_policy": "drawer-drawer, drawer-shelf, drawer-microwave, and shelf-microwave pairs are skipped",
+    "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
+    "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
+    "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
+  },
+  "debug": {
+    "libero_pair_count": 0
+  },
+  "distractor_object": null,
+  "distractor_pose_index": null,
+  "episode_id": "placements_multiuser_000176",
+  "fixtures": [
+    {
+      "fixture": "basket",
+      "side": "left"
+    },
+    {
+      "fixture": "wooden_cabinet",
+      "side": "right"
+    }
+  ],
+  "language": "For user_006, pick the white_bowl and place it at the front of the basket, for user_005, pick the akita_black_bowl and place it at the bottom of the wooden_cabinet.",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "ownership": {
+    "user_005": [
+      "akita_black_bowl"
+    ],
+    "user_006": [
+      "white_bowl"
+    ]
+  },
+  "participating_users": [
+    "user_006",
+    "user_005"
+  ],
+  "preference": {
+    "area": "living_room",
+    "fixed_type": "basket",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "front",
+    "location": "basket.back_side",
+    "object_type": "white_bowl",
+    "scene": "LIVING_ROOM_SCENE2",
+    "table": "living_room_table"
+  },
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "scene": "LIVING_ROOM_SCENE2",
+  "secondary_object": "akita_black_bowl",
+  "secondary_preference": {
+    "area": "living_room",
+    "fixed_type": "wooden_cabinet",
+    "label": "bottom",
+    "location": "cabinet.bottom_drawer.inside",
+    "object_type": "akita_black_bowl",
+    "scene": "LIVING_ROOM_SCENE2",
+    "table": "living_room_table"
+  },
+  "secondary_user": "user_005",
+  "split": "multiuser",
+  "suite": "placements",
+  "table": "living_room_table",
+  "target_object": "white_bowl",
+  "target_object_seen": true,
+  "target_user": "user_006",
+  "task_type": "multiuser"
+}

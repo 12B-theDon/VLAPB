@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "kitchen",
+  "area": "floor",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type4/bddl_files/placements_type4_000031.bddl",
   "consistency": null,
   "constraints": {
@@ -18,58 +18,54 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "fixture_state": {
-      "drawer_or_door": "open"
-    },
-    "libero_pair_count": 0
+    "fixture_state": {},
+    "libero_pair_count": 1
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_type4_000031",
   "fixtures": [
     {
-      "fixture": "wooden_cabinet",
+      "fixture": "basket",
       "side": "left"
     },
     {
-      "fixture": "wooden_tray",
+      "fixture": "microwave",
       "side": "right"
     }
   ],
-  "language": "Pick the red_coffee_mug belonging to user_005 and place it at the back of the wooden_cabinet",
+  "language": "Pick the chocolate_pudding belonging to user_002 and place it at the in of the basket",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_005": [
-      "red_coffee_mug"
+    "user_002": [
+      "chocolate_pudding"
     ]
   },
   "participating_users": [
-    "user_005"
+    "user_002"
   ],
   "preference": {
-    "area": "kitchen",
-    "fixed_type": "wooden_cabinet",
-    "goal_predicate": "AtXY",
-    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "back",
-    "location": "cabinet.front_side",
-    "object_type": "red_coffee_mug",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
+    "area": "floor",
+    "fixed_type": "basket",
+    "label": "in",
+    "location": "basket.inside",
+    "object_type": "chocolate_pudding",
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE1",
+  "scene": "FLOOR_SCENE",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type4",
   "suite": "placements",
-  "table": "kitchen_table",
-  "target_object": "red_coffee_mug",
+  "table": "floor",
+  "target_object": "chocolate_pudding",
   "target_object_seen": true,
-  "target_user": "user_005",
+  "target_user": "user_002",
   "task_type": "type4"
 }

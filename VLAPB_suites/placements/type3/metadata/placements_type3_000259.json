@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "kitchen",
+  "area": "floor",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/type3/bddl_files/placements_type3_000259.bddl",
   "consistency": null,
   "constraints": {
@@ -18,55 +18,55 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "libero_pair_count": 0
   },
-  "distractor_object": "akita_black_bowl",
+  "distractor_object": "alphabet_soup",
   "distractor_pose_index": 0,
   "episode_id": "placements_type3_000259",
   "fixtures": [
     {
-      "fixture": "wooden_cabinet",
+      "fixture": "basket",
       "side": "right"
     },
     {
-      "fixture": "flat_stove",
+      "fixture": "microwave",
       "side": "left"
     }
   ],
-  "language": "Pick the alphabet_soup belonging to user_008 and place it at the front of the wooden_cabinet",
+  "language": "Pick the glazed_rim_porcelain_ramekin belonging to user_003 and place it at the left of the basket",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_008": [
-      "alphabet_soup"
+    "user_003": [
+      "glazed_rim_porcelain_ramekin"
     ]
   },
   "participating_users": [
-    "user_008"
+    "user_003"
   ],
   "preference": {
-    "area": "kitchen",
-    "fixed_type": "wooden_cabinet",
+    "area": "floor",
+    "fixed_type": "basket",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "front",
-    "location": "cabinet.back_side",
-    "object_type": "alphabet_soup",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
+    "label": "left",
+    "location": "basket.left_side",
+    "object_type": "glazed_rim_porcelain_ramekin",
+    "scene": "FLOOR_SCENE",
+    "table": "floor"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE1",
+  "scene": "FLOOR_SCENE",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "type3",
   "suite": "placements",
-  "table": "kitchen_table",
-  "target_object": "alphabet_soup",
+  "table": "floor",
+  "target_object": "glazed_rim_porcelain_ramekin",
   "target_object_seen": true,
-  "target_user": "user_008",
+  "target_user": "user_003",
   "task_type": "type3"
 }

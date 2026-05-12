@@ -18,10 +18,10 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 1
+    "libero_pair_count": 0
   },
   "distractor_object": "akita_black_bowl",
   "distractor_pose_index": 0,
@@ -36,22 +36,22 @@
       "side": "right"
     }
   ],
-  "language": "Pick the chocolate_pudding belonging to user_018 and place it at the in of the wooden_tray",
+  "language": "Pick the glazed_rim_porcelain_ramekin belonging to user_016 and place it at the in of the wooden_tray",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_018": [
-      "chocolate_pudding"
+    "user_016": [
+      "glazed_rim_porcelain_ramekin"
     ]
   },
   "participating_users": [
-    "user_018"
+    "user_016"
   ],
   "preference": {
     "area": "living_room",
     "fixed_type": "wooden_tray",
     "label": "in",
     "location": "wooden_tray.inside",
-    "object_type": "chocolate_pudding",
+    "object_type": "glazed_rim_porcelain_ramekin",
     "scene": "LIVING_ROOM_SCENE4",
     "table": "living_room_table"
   },
@@ -63,8 +63,8 @@
   "split": "type3",
   "suite": "placements",
   "table": "living_room_table",
-  "target_object": "chocolate_pudding",
+  "target_object": "glazed_rim_porcelain_ramekin",
   "target_object_seen": true,
-  "target_user": "user_018",
+  "target_user": "user_016",
   "task_type": "type3"
 }

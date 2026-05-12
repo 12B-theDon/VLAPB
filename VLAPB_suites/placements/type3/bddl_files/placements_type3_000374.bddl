@@ -1,0 +1,77 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the white_bowl belonging to user_006 and place it at the front of the basket)
+    (:regions
+      (basket_right_right_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0200 0.2000 0.0200 0.2400)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (flat_stove_left_left_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1400 -0.2400 -0.1000 -0.2000)
+            )
+          )
+          (:yaw_rotation (
+              (0.0000 0.0000)
+            )
+          )
+      )
+      (target_object_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1800 -0.0200 -0.1300 0.0300)
+            )
+          )
+      )
+      (distractor_object_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0250 -0.0250 0.0250 0.0250)
+            )
+          )
+      )
+      (placement_goal_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.0200 0.0200 0.2600 0.4200)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+    flat_stove_left - flat_stove
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    white_bowl_1 - white_bowl
+    basket_right - basket
+  )
+
+  (:obj_of_interest
+    white_bowl_1
+    basket_right
+  )
+
+  (:init
+    (On basket_right living_room_table_basket_right_right_region)
+    (On flat_stove_left living_room_table_flat_stove_left_left_region)
+    (On white_bowl_1 living_room_table_target_object_init_region)
+    (On bbq_sauce_1 living_room_table_distractor_object_init_region)
+  )
+
+  (:goal
+    (And (AtXY white_bowl_1 living_room_table_placement_goal_region))
+  )
+
+)

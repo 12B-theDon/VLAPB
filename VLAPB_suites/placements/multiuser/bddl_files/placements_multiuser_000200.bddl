@@ -1,6 +1,6 @@
 (define (problem LIBERO_Kitchen_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language For user_008, pick the cookies and place it at the in of the wooden_cabinet, for user_018, pick the chocolate_pudding and place it at the in of the wooden_tray.)
+  (:language For user_007, pick the glazed_rim_porcelain_ramekin and place it at the bottom of the wooden_cabinet, for user_004, pick the orange_juice and place it at the left of the basket.)
     (:regions
       (wooden_cabinet_left_left_region
           (:target kitchen_table)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (wooden_tray_right_right_region
+      (basket_right_right_region
           (:target kitchen_table)
           (:ranges (
               (-0.0200 0.2000 0.0200 0.2400)
@@ -38,11 +38,15 @@
             )
           )
       )
-      (contain_region
+      (bottom_region
           (:target wooden_cabinet_left)
       )
-      (contain_region
-          (:target wooden_tray_right)
+      (secondary_placement_goal_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1600 -0.1900 0.1600 0.2100)
+            )
+          )
       )
     )
 
@@ -52,25 +56,25 @@
   )
 
   (:objects
-    chocolate_pudding_1 - chocolate_pudding
-    cookies_1 - cookies
-    wooden_tray_right - wooden_tray
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    orange_juice_1 - orange_juice
+    basket_right - basket
   )
 
   (:obj_of_interest
-    cookies_1 chocolate_pudding_1
-    wooden_cabinet_left wooden_tray_right
+    glazed_rim_porcelain_ramekin_1 orange_juice_1
+    wooden_cabinet_left basket_right
   )
 
   (:init
     (On wooden_cabinet_left kitchen_table_wooden_cabinet_left_left_region)
-    (On wooden_tray_right kitchen_table_wooden_tray_right_right_region)
-    (On cookies_1 kitchen_table_target_object_init_region)
-    (On chocolate_pudding_1 kitchen_table_secondary_object_init_region)
+    (On basket_right kitchen_table_basket_right_right_region)
+    (On glazed_rim_porcelain_ramekin_1 kitchen_table_target_object_init_region)
+    (On orange_juice_1 kitchen_table_secondary_object_init_region)
   )
 
   (:goal
-    (And (In cookies_1 wooden_cabinet_left_contain_region) (In chocolate_pudding_1 wooden_tray_right_contain_region))
+    (And (In glazed_rim_porcelain_ramekin_1 wooden_cabinet_left_bottom_region) (AtXY orange_juice_1 kitchen_table_secondary_placement_goal_region))
   )
 
 )

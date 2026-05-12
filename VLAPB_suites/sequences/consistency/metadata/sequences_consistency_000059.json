@@ -1,0 +1,85 @@
+{
+  "adaptation": null,
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/consistency/bddl_files/sequences_consistency_000059.bddl",
+  "consistency": {
+    "rule": "consistency uses two seen belongings and one user-local unseen belonging",
+    "seen_objects": [
+      "cream_cheese",
+      "red_coffee_mug"
+    ],
+    "unseen_object": "white_yellow_mug",
+    "user_id": "user_020"
+  },
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_consistency_000059",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "cream_cheese",
+    "red_coffee_mug",
+    "white_yellow_mug"
+  ],
+  "language": "Put the objects belonging to user_020 into the wooden_tray in this order: red_coffee_mug, white_yellow_mug, cream_cheese",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "cream_cheese": true,
+    "red_coffee_mug": true,
+    "white_yellow_mug": false
+  },
+  "ownership": {
+    "user_020": [
+      "cream_cheese",
+      "red_coffee_mug",
+      "white_yellow_mug"
+    ]
+  },
+  "participating_users": [
+    "user_020"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "STUDY_SCENE1",
+  "sequence_strategy": "fixed_far_to_near",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2071,
+      "object_type": "cream_cheese",
+      "ordinal_position": 1,
+      "x": 0.09,
+      "y": 0.1865
+    },
+    {
+      "distance_to_tray": 0.2582,
+      "object_type": "red_coffee_mug",
+      "ordinal_position": 2,
+      "x": -0.2569,
+      "y": 0.026
+    },
+    {
+      "distance_to_tray": 0.2447,
+      "object_type": "white_yellow_mug",
+      "ordinal_position": 3,
+      "x": 0.1004,
+      "y": -0.2232
+    }
+  ],
+  "split": "consistency",
+  "suite": "sequences",
+  "table": "study_table",
+  "target_sequence": [
+    "red_coffee_mug",
+    "white_yellow_mug",
+    "cream_cheese"
+  ],
+  "target_user": "user_020",
+  "task_type": "consistency"
+}

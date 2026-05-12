@@ -1,0 +1,99 @@
+{
+  "adaptation": {
+    "previous_sequence": [
+      "milk",
+      "salad_dressing",
+      "cookies"
+    ],
+    "previous_strategy": "fixed_near_to_far",
+    "rule": "adaptability changes only the user's sequence strategy and uses no unseen objects",
+    "same_object_set": [
+      "cookies",
+      "milk",
+      "salad_dressing"
+    ],
+    "same_scene": "KITCHEN_SCENE1",
+    "same_table": "kitchen_table",
+    "updated_sequence": [
+      "cookies",
+      "salad_dressing",
+      "milk"
+    ],
+    "updated_strategy": "fixed_far_to_near",
+    "user_id": "user_019"
+  },
+  "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/sequences/adaptability/bddl_files/sequences_adaptability_000019.bddl",
+  "consistency": null,
+  "constraints": {
+    "adaptability_policy": "target-user belongings only; no unseen objects; sequence strategy changes",
+    "bddl_goal_policy": "BDDL checks final In relation for all three objects; temporal order is evaluated from target_sequence metadata",
+    "consistency_policy": "two seen target-user belongings and one unseen target-user belonging",
+    "fixture": "wooden_tray",
+    "graspable_object_count": 3,
+    "spawn_radius": 0.24,
+    "type1_policy": "three unique non-profile graspable objects from libero_objects.json",
+    "type2_policy": "three target-user belongings"
+  },
+  "debug": null,
+  "episode_id": "sequences_adaptability_000019",
+  "fixture": "wooden_tray",
+  "graspable_objects": [
+    "cookies",
+    "milk",
+    "salad_dressing"
+  ],
+  "language": "After user_019's sequence preference changes from milk, salad_dressing, cookies to cookies, salad_dressing, milk, put the same objects into the wooden_tray in the new order: cookies, salad_dressing, milk",
+  "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
+  "object_seen_flags": {
+    "cookies": true,
+    "milk": true,
+    "salad_dressing": true
+  },
+  "ownership": {
+    "user_019": [
+      "cookies",
+      "milk",
+      "salad_dressing"
+    ]
+  },
+  "participating_users": [
+    "user_019"
+  ],
+  "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
+  "relation": "In",
+  "scene": "KITCHEN_SCENE1",
+  "sequence_strategy": "fixed_far_to_near",
+  "spawn_points": [
+    {
+      "distance_to_tray": 0.2582,
+      "object_type": "cookies",
+      "ordinal_position": 1,
+      "x": 0.0848,
+      "y": 0.2439
+    },
+    {
+      "distance_to_tray": 0.2366,
+      "object_type": "milk",
+      "ordinal_position": 2,
+      "x": -0.2366,
+      "y": -0.0034
+    },
+    {
+      "distance_to_tray": 0.2415,
+      "object_type": "salad_dressing",
+      "ordinal_position": 3,
+      "x": 0.1237,
+      "y": -0.2074
+    }
+  ],
+  "split": "adaptability",
+  "suite": "sequences",
+  "table": "kitchen_table",
+  "target_sequence": [
+    "cookies",
+    "salad_dressing",
+    "milk"
+  ],
+  "target_user": "user_019",
+  "task_type": "adaptability"
+}

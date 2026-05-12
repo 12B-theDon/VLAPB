@@ -46,6 +46,8 @@ from openvla_eval_utils import (  # noqa: E402
 from vlapb_eval_common import (  # noqa: E402
     DEFAULT_VLAPB_MANIFEST,
     add_vlapb_selection_args,
+    apply_prompt_style_to_conditions,
+    filter_conditions_by_plain_success,
     filter_completed_conditions,
     is_vlapb_manifest,
     normalize_modes as normalize_vlapb_modes,
@@ -206,6 +208,8 @@ def main() -> None:
     args.modes = normalize_modes(args.modes)
     manifest = load_json(args.manifest)
     conditions = build_conditions(args, manifest)
+    conditions, plain_success_keys = filter_conditions_by_plain_success(conditions, args.require_plain_success_from)
+    conditions = apply_prompt_style_to_conditions(conditions, args.prompt_style)
     run_dir = args.output_dir / f"openvla_compare_pickup_{args.run_id or DATE_TIME}"
     run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -217,6 +221,9 @@ def main() -> None:
         "text_granularity": args.text_granularity,
         "text_selectivity": args.text_selectivity,
         "visual_condition": args.visual_condition,
+        "prompt_style": args.prompt_style,
+        "plain_success_episode_count": len(plain_success_keys),
+        "num_conditions_after_plain_filter": len(conditions),
         "save_videos": args.save_videos,
         "video_every": args.video_every,
         "video_fps": args.video_fps,

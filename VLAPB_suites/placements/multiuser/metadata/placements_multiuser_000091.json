@@ -1,6 +1,6 @@
 {
   "adaptation": null,
-  "area": "kitchen",
+  "area": "study",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/multiuser/bddl_files/placements_multiuser_000091.bddl",
   "consistency": null,
   "constraints": {
@@ -18,7 +18,7 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
     "libero_pair_count": 0
@@ -28,7 +28,7 @@
   "episode_id": "placements_multiuser_000091",
   "fixtures": [
     {
-      "fixture": "wooden_cabinet",
+      "fixture": "wooden_two_layer_shelf",
       "side": "left"
     },
     {
@@ -36,49 +36,49 @@
       "side": "right"
     }
   ],
-  "language": "For user_005, pick the red_coffee_mug and place it at the back of the wooden_cabinet, for user_018, pick the orange_juice and place it at the left of the wooden_tray.",
+  "language": "For user_005, pick the red_coffee_mug and place it at the back of the wooden_two_layer_shelf, for user_001, pick the alphabet_soup and place it at the front of the wooden_tray.",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
+    "user_001": [
+      "alphabet_soup"
+    ],
     "user_005": [
       "red_coffee_mug"
-    ],
-    "user_018": [
-      "orange_juice"
     ]
   },
   "participating_users": [
     "user_005",
-    "user_018"
+    "user_001"
   ],
   "preference": {
-    "area": "kitchen",
-    "fixed_type": "wooden_cabinet",
+    "area": "study",
+    "fixed_type": "wooden_two_layer_shelf",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
     "label": "back",
-    "location": "cabinet.front_side",
+    "location": "wooden_two_layer_shelf.front_side",
     "object_type": "red_coffee_mug",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
+    "scene": "STUDY_SCENE4",
+    "table": "study_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "KITCHEN_SCENE1",
-  "secondary_object": "orange_juice",
+  "scene": "STUDY_SCENE4",
+  "secondary_object": "alphabet_soup",
   "secondary_preference": {
-    "area": "kitchen",
+    "area": "study",
     "fixed_type": "wooden_tray",
     "goal_predicate": "AtXY",
     "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-    "label": "left",
-    "location": "wooden_tray.left_side",
-    "object_type": "orange_juice",
-    "scene": "KITCHEN_SCENE1",
-    "table": "kitchen_table"
+    "label": "front",
+    "location": "wooden_tray.back_side",
+    "object_type": "alphabet_soup",
+    "scene": "STUDY_SCENE4",
+    "table": "study_table"
   },
-  "secondary_user": "user_018",
+  "secondary_user": "user_001",
   "split": "multiuser",
   "suite": "placements",
-  "table": "kitchen_table",
+  "table": "study_table",
   "target_object": "red_coffee_mug",
   "target_object_seen": true,
   "target_user": "user_005",

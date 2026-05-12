@@ -1,28 +1,28 @@
 {
   "adaptation": {
     "previous_placement": {
-      "area": "living_room",
-      "fixed_type": "wooden_tray",
-      "goal_predicate": "AtXY",
-      "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
-      "label": "left",
-      "location": "wooden_tray.left_side",
-      "object_type": "orange_juice",
-      "scene": "LIVING_ROOM_SCENE4",
-      "table": "living_room_table"
+      "area": "kitchen",
+      "fixed_type": "white_cabinet",
+      "label": "bottom_back",
+      "location": "cabinet.bottom_drawer.front_side",
+      "object_type": "alphabet_soup",
+      "scene": "KITCHEN_SCENE4",
+      "table": "kitchen_table"
     },
     "updated_placement": {
-      "area": "living_room",
-      "fixed_type": "wooden_tray",
-      "label": "in",
-      "location": "wooden_tray.inside",
-      "object_type": "chocolate_pudding",
-      "scene": "LIVING_ROOM_SCENE4",
-      "table": "living_room_table"
+      "area": "kitchen",
+      "fixed_type": "microwave",
+      "goal_predicate": "AtXY",
+      "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+      "label": "front",
+      "location": "microwave.back_side",
+      "object_type": "cookies",
+      "scene": "KITCHEN_SCENE6",
+      "table": "kitchen_table"
     },
-    "user_id": "user_018"
+    "user_id": "user_008"
   },
-  "area": "living_room",
+  "area": "kitchen",
   "bddl_file": "/home/artemis/Documents/VLAPB/VLAPB_suites/placements/adaptability/bddl_files/placements_adaptability_000072.bddl",
   "consistency": null,
   "constraints": {
@@ -40,49 +40,51 @@
     "seen_unseen_policy": "type/adaptability/multiuser use seen belongings; consistency uses unseen belongings only",
     "side_goal_policy": "left/right/front/back labels use camera-visible explicit table placement_goal_region with AtXY predicate",
     "side_policy": "left-side fixtures block left placement; right-side fixtures block right placement",
-    "structural_pair_policy": "in/on/top/bottom placements require fixed-object/graspable-object evidence in libero_objects.json"
+    "structural_pair_policy": "in/on/top/middle/bottom and drawer-side placements require validated spawn-position evidence"
   },
   "debug": {
-    "libero_pair_count": 1
+    "libero_pair_count": 0
   },
   "distractor_object": null,
   "distractor_pose_index": null,
   "episode_id": "placements_adaptability_000072",
   "fixtures": [
     {
-      "fixture": "wooden_tray",
-      "side": "left"
+      "fixture": "microwave",
+      "side": "right"
     }
   ],
-  "language": "Pick the chocolate_pudding belonging to user_018 and place it at the in of the wooden_tray",
+  "language": "Pick the cookies belonging to user_008 and place it at the front of the microwave",
   "libero_objects_source": "/home/artemis/Documents/VLAPB/libero/docs/libero_objects.json",
   "ownership": {
-    "user_018": [
-      "chocolate_pudding"
+    "user_008": [
+      "cookies"
     ]
   },
   "participating_users": [
-    "user_018"
+    "user_008"
   ],
   "preference": {
-    "area": "living_room",
-    "fixed_type": "wooden_tray",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "chocolate_pudding",
-    "scene": "LIVING_ROOM_SCENE4",
-    "table": "living_room_table"
+    "area": "kitchen",
+    "fixed_type": "microwave",
+    "goal_predicate": "AtXY",
+    "goal_region_policy": "camera-visible side label encoded as explicit table placement_goal_region",
+    "label": "front",
+    "location": "microwave.back_side",
+    "object_type": "cookies",
+    "scene": "KITCHEN_SCENE6",
+    "table": "kitchen_table"
   },
   "profile_source": "/home/artemis/Documents/VLAPB/libero/profiles/profiles.json",
-  "scene": "LIVING_ROOM_SCENE4",
+  "scene": "KITCHEN_SCENE6",
   "secondary_object": null,
   "secondary_preference": null,
   "secondary_user": null,
   "split": "adaptability",
   "suite": "placements",
-  "table": "living_room_table",
-  "target_object": "chocolate_pudding",
+  "table": "kitchen_table",
+  "target_object": "cookies",
   "target_object_seen": true,
-  "target_user": "user_018",
+  "target_user": "user_008",
   "task_type": "adaptability"
 }

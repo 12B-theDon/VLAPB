@@ -1,14 +1,21 @@
 {
   "akita_black_bowl": {
     "actual_pose": {
-      "x": 0.0022,
-      "y": -0.0052,
+      "x": -0.002,
+      "y": 0.0003,
       "z": 0.4429
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "akita_black_bowl",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6670449
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__akita_black_bowl",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -25,8 +32,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0022,
-      "y": -0.0052,
+      "x": -0.002,
+      "y": 0.0003,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -39,19 +46,19 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.0002,
+      "displacement": 0.00024,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0022,
-        "y": -0.0052,
+        "x": -0.002,
+        "y": 0.0003,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0022,
-        "y": -0.0052,
+        "x": -0.002,
+        "y": 0.0003,
         "z": 0.4429
       },
       "final_speed": 0.0,
@@ -59,28 +66,29 @@
       "height_drop": 0.1769,
       "location": "wooden_tray.inside",
       "object": "akita_black_bowl",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0021,
-        "y": -0.005,
+        "x": -0.0021,
+        "y": 0.0005,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959676.67112,
+      "timestamp": 1778085216.0147507,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0021,
-      "y": -0.005,
+      "x": -0.0021,
+      "y": 0.0005,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959676.7663646,
+    "timestamp": 1778085216.0804539,
     "velocity_threshold": 0.03
   },
   "alphabet_soup": {
@@ -100,18 +108,25 @@
     "scene": "LIVING_ROOM_SCENE3",
     "status": "skipped",
     "table": "living_room_table",
-    "timestamp": 1777959676.781331
+    "timestamp": 1778085216.0808756
   },
   "bbq_sauce": {
     "actual_pose": {
-      "x": -0.0015,
-      "y": -0.0041,
+      "x": 0.0034,
+      "y": 0.0006,
       "z": 0.4991
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "bbq_sauce",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6670656
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__bbq_sauce",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -128,8 +143,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": -0.0015,
-      "y": -0.0041,
+      "x": 0.0034,
+      "y": 0.0006,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -142,19 +157,19 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.00027,
+      "displacement": 0.00058,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": -0.0015,
-        "y": -0.0041,
+        "x": 0.0034,
+        "y": 0.0006,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": -0.0015,
-        "y": -0.0041,
+        "x": 0.0034,
+        "y": 0.0006,
         "z": 0.4991
       },
       "final_speed": 0.0,
@@ -162,112 +177,29 @@
       "height_drop": 0.12067,
       "location": "wooden_tray.inside",
       "object": "bbq_sauce",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0018,
-        "y": -0.0041,
+        "x": 0.0028,
+        "y": 0.0007,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959680.1922565,
+      "timestamp": 1778085218.1356122,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0018,
-      "y": -0.0041,
+      "x": 0.0028,
+      "y": 0.0007,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959680.3014367,
-    "velocity_threshold": 0.03
-  },
-  "black_book": {
-    "actual_pose": {
-      "x": -0.0291,
-      "y": 0.0149,
-      "z": 0.4779
-    },
-    "already_in_libero": false,
-    "area": "living_room",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_tray",
-    "id": "LIVING_ROOM_SCENE3__wooden_tray__in__black_book",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "black_book",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": -0.0291,
-      "y": 0.0149,
-      "z": 0.1
-    },
-    "scene": "LIVING_ROOM_SCENE3",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.03531,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": -0.0291,
-        "y": 0.0149,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": -0.0291,
-        "y": 0.0149,
-        "z": 0.4779
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.14188,
-      "location": "wooden_tray.inside",
-      "object": "black_book",
-      "reason": "height_drop",
-      "scene": "LIVING_ROOM_SCENE3",
-      "start_pose": {
-        "x": 0.0018,
-        "y": -0.0022,
-        "z": 0.6198
-      },
-      "status": "review",
-      "timestamp": 1777959683.6876588,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": 0.0018,
-      "y": -0.0022,
-      "z": 0.6198
-    },
-    "status": "possible",
-    "table": "living_room_table",
-    "timestamp": 1777959683.8006563,
+    "timestamp": 1778085218.1967409,
     "velocity_threshold": 0.03
   },
   "butter": {
@@ -287,18 +219,25 @@
     "scene": "LIVING_ROOM_SCENE3",
     "status": "skipped",
     "table": "living_room_table",
-    "timestamp": 1777959683.8019931
+    "timestamp": 1778085220.3153608
   },
   "chefmate_8_frypan": {
     "actual_pose": {
-      "x": -0.0052,
-      "y": 0.0203,
-      "z": 0.4854
+      "x": -0.004,
+      "y": 0.0353,
+      "z": 0.4762
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "chefmate_8_frypan",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.667082
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__chefmate_8_frypan",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -315,8 +254,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": -0.0052,
-      "y": 0.0203,
+      "x": -0.004,
+      "y": 0.0353,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -329,60 +268,68 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.02534,
+      "displacement": 0.0355,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": -0.0052,
-        "y": 0.0203,
+        "x": -0.004,
+        "y": 0.0353,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": -0.0052,
-        "y": 0.0203,
-        "z": 0.4854
+        "x": -0.004,
+        "y": 0.0353,
+        "z": 0.4762
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.13442,
+      "height_drop": 0.1436,
       "location": "wooden_tray.inside",
       "object": "chefmate_8_frypan",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0019,
-        "y": -0.0048,
+        "x": 0.0015,
+        "y": 0.0002,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959687.2785695,
+      "timestamp": 1778085222.4167922,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0019,
-      "y": -0.0048,
+      "x": 0.0015,
+      "y": 0.0002,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959687.3752193,
+    "timestamp": 1778085222.4808836,
     "velocity_threshold": 0.03
   },
   "chocolate_pudding": {
     "actual_pose": {
-      "x": 0.0013,
-      "y": 0.0035,
+      "x": 0.0009,
+      "y": -0.0008,
       "z": 0.4576
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "chocolate_pudding",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6670938
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__chocolate_pudding",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -399,8 +346,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0013,
-      "y": 0.0035,
+      "x": 0.0009,
+      "y": -0.0008,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -413,19 +360,19 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.00014,
+      "displacement": 0.00024,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0013,
-        "y": 0.0035,
+        "x": 0.0009,
+        "y": -0.0008,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0013,
-        "y": 0.0035,
+        "x": 0.0009,
+        "y": -0.0008,
         "z": 0.4576
       },
       "final_speed": 0.0,
@@ -433,40 +380,48 @@
       "height_drop": 0.16223,
       "location": "wooden_tray.inside",
       "object": "chocolate_pudding",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0012,
-        "y": 0.0035,
+        "x": 0.0007,
+        "y": -0.0008,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959690.837785,
+      "timestamp": 1778085224.5571017,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0012,
-      "y": 0.0035,
+      "x": 0.0007,
+      "y": -0.0008,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959690.951565,
+    "timestamp": 1778085224.6182203,
     "velocity_threshold": 0.03
   },
   "cookies": {
     "actual_pose": {
-      "x": 0.0,
-      "y": 0.0029,
+      "x": -0.0047,
+      "y": 0.0047,
       "z": 0.4539
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "cookies",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671047
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__cookies",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -483,8 +438,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0,
-      "y": 0.0029,
+      "x": -0.0047,
+      "y": 0.0047,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -502,14 +457,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0,
-        "y": 0.0029,
+        "x": -0.0047,
+        "y": 0.0047,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0,
-        "y": 0.0029,
+        "x": -0.0047,
+        "y": 0.0047,
         "z": 0.4539
       },
       "final_speed": 0.0,
@@ -517,28 +472,29 @@
       "height_drop": 0.16591,
       "location": "wooden_tray.inside",
       "object": "cookies",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0001,
-        "y": 0.0029,
+        "x": -0.0048,
+        "y": 0.0047,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959694.4530005,
+      "timestamp": 1778085226.7164385,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0001,
-      "y": 0.0029,
+      "x": -0.0048,
+      "y": 0.0047,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959694.568091,
+    "timestamp": 1778085226.7794926,
     "velocity_threshold": 0.03
   },
   "cream_cheese": {
@@ -558,91 +514,7 @@
     "scene": "LIVING_ROOM_SCENE3",
     "status": "skipped",
     "table": "living_room_table",
-    "timestamp": 1777959694.5700886
-  },
-  "glazed_rim_porcelain_ramekin": {
-    "actual_pose": {
-      "x": -0.0245,
-      "y": 0.0705,
-      "z": 0.478
-    },
-    "already_in_libero": false,
-    "area": "living_room",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_tray",
-    "id": "LIVING_ROOM_SCENE3__wooden_tray__in__glazed_rim_porcelain_ramekin",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "glazed_rim_porcelain_ramekin",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": -0.0245,
-      "y": 0.0705,
-      "z": 0.1
-    },
-    "scene": "LIVING_ROOM_SCENE3",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.07856,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": -0.0245,
-        "y": 0.0705,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": -0.0245,
-        "y": 0.0705,
-        "z": 0.478
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.14183,
-      "location": "wooden_tray.inside",
-      "object": "glazed_rim_porcelain_ramekin",
-      "reason": "height_drop",
-      "scene": "LIVING_ROOM_SCENE3",
-      "start_pose": {
-        "x": -0.0027,
-        "y": -0.0049,
-        "z": 0.6198
-      },
-      "status": "review",
-      "timestamp": 1777959698.0138786,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": -0.0027,
-      "y": -0.0049,
-      "z": 0.6198
-    },
-    "status": "possible",
-    "table": "living_room_table",
-    "timestamp": 1777959698.10757,
-    "velocity_threshold": 0.03
+    "timestamp": 1778085226.780218
   },
   "ketchup": {
     "fixed_type": "wooden_tray",
@@ -661,18 +533,25 @@
     "scene": "LIVING_ROOM_SCENE3",
     "status": "skipped",
     "table": "living_room_table",
-    "timestamp": 1777959698.1088748
+    "timestamp": 1778085228.9691412
   },
   "milk": {
     "actual_pose": {
-      "x": -0.0002,
-      "y": -0.0015,
+      "x": 0.0036,
+      "y": 0.002,
       "z": 0.5142
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "milk",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671178
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__milk",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -689,8 +568,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": -0.0002,
-      "y": -0.0015,
+      "x": 0.0036,
+      "y": 0.002,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -708,14 +587,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": -0.0002,
-        "y": -0.0015,
+        "x": 0.0036,
+        "y": 0.002,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": -0.0002,
-        "y": -0.0015,
+        "x": 0.0036,
+        "y": 0.002,
         "z": 0.5142
       },
       "final_speed": 0.0,
@@ -723,124 +602,48 @@
       "height_drop": 0.10556,
       "location": "wooden_tray.inside",
       "object": "milk",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0003,
-        "y": -0.0015,
+        "x": 0.0035,
+        "y": 0.002,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959701.5726113,
+      "timestamp": 1778085231.0686128,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0003,
-      "y": -0.0015,
+      "x": 0.0035,
+      "y": 0.002,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959701.6832688,
-    "velocity_threshold": 0.03
-  },
-  "moka_pot": {
-    "actual_pose": {
-      "x": -0.0751,
-      "y": -0.32,
-      "z": 0.4834
-    },
-    "already_in_libero": false,
-    "area": "living_room",
-    "drop_z": 0.1,
-    "fixed_type": "wooden_tray",
-    "id": "LIVING_ROOM_SCENE3__wooden_tray__in__moka_pot",
-    "label": "in",
-    "location": "wooden_tray.inside",
-    "object_type": "moka_pot",
-    "pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.1
-    },
-    "relative_scene_table_fixed_pose": {
-      "h": 0.0,
-      "p": 0.0,
-      "r": 0.0,
-      "x": -0.0751,
-      "y": -0.32,
-      "z": 0.1
-    },
-    "scene": "LIVING_ROOM_SCENE3",
-    "simulation": {
-      "anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.1
-      },
-      "displacement": 0.32338,
-      "final_anchor_pose": {
-        "h": 0.0,
-        "p": 0.0,
-        "r": 0.0,
-        "x": -0.0751,
-        "y": -0.32,
-        "z": 0.1
-      },
-      "final_image_path": null,
-      "final_pose": {
-        "x": -0.0751,
-        "y": -0.32,
-        "z": 0.4834
-      },
-      "final_speed": 0.0,
-      "gif_path": null,
-      "height_drop": 0.13637,
-      "location": "wooden_tray.inside",
-      "object": "moka_pot",
-      "reason": "large_displacement+height_drop",
-      "scene": "LIVING_ROOM_SCENE3",
-      "start_pose": {
-        "x": -0.0042,
-        "y": -0.0045,
-        "z": 0.6198
-      },
-      "status": "review",
-      "timestamp": 1777959704.6462169,
-      "velocity_stable": true,
-      "velocity_threshold": 0.03,
-      "velocity_warning": ""
-    },
-    "skip_reason": null,
-    "start_pose": {
-      "x": -0.0042,
-      "y": -0.0045,
-      "z": 0.6198
-    },
-    "status": "possible",
-    "table": "living_room_table",
-    "timestamp": 1777959704.7316415,
+    "timestamp": 1778085231.1344416,
     "velocity_threshold": 0.03
   },
   "new_salad_dressing": {
     "actual_pose": {
-      "x": 0.0015,
-      "y": 0.0014,
+      "x": 0.0014,
+      "y": 0.0019,
       "z": 0.4672
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "new_salad_dressing",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671305
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__new_salad_dressing",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -857,8 +660,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0015,
-      "y": 0.0014,
+      "x": 0.0014,
+      "y": 0.0019,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -876,14 +679,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0015,
-        "y": 0.0014,
+        "x": 0.0014,
+        "y": 0.0019,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0015,
-        "y": 0.0014,
+        "x": 0.0014,
+        "y": 0.0019,
         "z": 0.4672
       },
       "final_speed": 0.0,
@@ -891,40 +694,48 @@
       "height_drop": 0.15259,
       "location": "wooden_tray.inside",
       "object": "new_salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0015,
-        "y": 0.0014,
+        "x": 0.0014,
+        "y": 0.0019,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959708.2269423,
+      "timestamp": 1778085235.3448772,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0015,
-      "y": 0.0014,
+      "x": 0.0014,
+      "y": 0.0019,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959708.3388069,
+    "timestamp": 1778085235.4062574,
     "velocity_threshold": 0.03
   },
   "orange_juice": {
     "actual_pose": {
-      "x": -0.0017,
-      "y": -0.0025,
+      "x": 0.0003,
+      "y": 0.001,
       "z": 0.5142
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "orange_juice",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671422
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__orange_juice",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -941,8 +752,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": -0.0017,
-      "y": -0.0025,
+      "x": 0.0003,
+      "y": 0.001,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -960,14 +771,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": -0.0017,
-        "y": -0.0025,
+        "x": 0.0003,
+        "y": 0.001,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": -0.0017,
-        "y": -0.0025,
+        "x": 0.0003,
+        "y": 0.001,
         "z": 0.5142
       },
       "final_speed": 0.0,
@@ -975,40 +786,48 @@
       "height_drop": 0.10556,
       "location": "wooden_tray.inside",
       "object": "orange_juice",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0018,
-        "y": -0.0025,
+        "x": 0.0002,
+        "y": 0.001,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959711.8352528,
+      "timestamp": 1778085237.449108,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0018,
-      "y": -0.0025,
+      "x": 0.0002,
+      "y": 0.001,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959711.917685,
+    "timestamp": 1778085237.5114276,
     "velocity_threshold": 0.03
   },
   "porcelain_mug": {
     "actual_pose": {
-      "x": 0.0121,
-      "y": 0.0333,
-      "z": 0.4639
+      "x": 0.0601,
+      "y": 0.002,
+      "z": 0.4421
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "porcelain_mug",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671524
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__porcelain_mug",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1025,8 +844,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0121,
-      "y": 0.0333,
+      "x": 0.0601,
+      "y": 0.002,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1039,60 +858,68 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.03156,
+      "displacement": 0.06096,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0121,
-        "y": 0.0333,
+        "x": 0.0601,
+        "y": 0.002,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0121,
-        "y": 0.0333,
-        "z": 0.4639
+        "x": 0.0601,
+        "y": 0.002,
+        "z": 0.4421
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.1559,
+      "height_drop": 0.17775,
       "location": "wooden_tray.inside",
       "object": "porcelain_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0002,
-        "y": 0.0043,
+        "x": -0.0008,
+        "y": 0.0033,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959715.4956226,
+      "timestamp": 1778085239.9705899,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0002,
-      "y": 0.0043,
+      "x": -0.0008,
+      "y": 0.0033,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959715.5793893,
+    "timestamp": 1778085240.0321226,
     "velocity_threshold": 0.03
   },
   "red_coffee_mug": {
     "actual_pose": {
-      "x": 0.0256,
-      "y": -0.0104,
+      "x": 0.0121,
+      "y": -0.0126,
       "z": 0.4463
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "red_coffee_mug",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671638
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__red_coffee_mug",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1109,8 +936,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0256,
-      "y": -0.0104,
+      "x": 0.0121,
+      "y": -0.0126,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1123,60 +950,68 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.02647,
+      "displacement": 0.01348,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0256,
-        "y": -0.0104,
+        "x": 0.0121,
+        "y": -0.0126,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0256,
-        "y": -0.0104,
+        "x": 0.0121,
+        "y": -0.0126,
         "z": 0.4463
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.17351,
+      "height_drop": 0.17348,
       "location": "wooden_tray.inside",
       "object": "red_coffee_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0012,
-        "y": -0.0003,
+        "x": 0.0021,
+        "y": -0.0036,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959719.186627,
+      "timestamp": 1778085242.486339,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0012,
-      "y": -0.0003,
+      "x": 0.0021,
+      "y": -0.0036,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959719.301642,
+    "timestamp": 1778085242.5492015,
     "velocity_threshold": 0.03
   },
   "salad_dressing": {
     "actual_pose": {
-      "x": 0.0024,
-      "y": 0.0045,
+      "x": -0.0024,
+      "y": -0.0017,
       "z": 0.5172
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "salad_dressing",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671746
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__salad_dressing",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1193,8 +1028,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0024,
-      "y": 0.0045,
+      "x": -0.0024,
+      "y": -0.0017,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1212,14 +1047,14 @@
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0024,
-        "y": 0.0045,
+        "x": -0.0024,
+        "y": -0.0017,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0024,
-        "y": 0.0045,
+        "x": -0.0024,
+        "y": -0.0017,
         "z": 0.5172
       },
       "final_speed": 0.0,
@@ -1227,28 +1062,29 @@
       "height_drop": 0.10259,
       "location": "wooden_tray.inside",
       "object": "salad_dressing",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0023,
-        "y": 0.0045,
+        "x": -0.0025,
+        "y": -0.0017,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959722.7857318,
+      "timestamp": 1778085244.6638582,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0023,
-      "y": 0.0045,
+      "x": -0.0025,
+      "y": -0.0017,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959722.8925953,
+    "timestamp": 1778085244.7293897,
     "velocity_threshold": 0.03
   },
   "tomato_sauce": {
@@ -1268,18 +1104,25 @@
     "scene": "LIVING_ROOM_SCENE3",
     "status": "skipped",
     "table": "living_room_table",
-    "timestamp": 1777959722.8942273
+    "timestamp": 1778085244.7305062
   },
   "white_bowl": {
     "actual_pose": {
-      "x": 0.005,
-      "y": -0.0023,
+      "x": -0.0032,
+      "y": 0.0016,
       "z": 0.4439
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "white_bowl",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671855
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__white_bowl",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1296,8 +1139,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.005,
-      "y": -0.0023,
+      "x": -0.0032,
+      "y": 0.0016,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1310,19 +1153,19 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.00029,
+      "displacement": 0.00036,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.005,
-        "y": -0.0023,
+        "x": -0.0032,
+        "y": 0.0016,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.005,
-        "y": -0.0023,
+        "x": -0.0032,
+        "y": 0.0016,
         "z": 0.4439
       },
       "final_speed": 0.0,
@@ -1330,40 +1173,48 @@
       "height_drop": 0.17587,
       "location": "wooden_tray.inside",
       "object": "white_bowl",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0049,
-        "y": -0.002,
+        "x": -0.0034,
+        "y": 0.0019,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959726.4456968,
+      "timestamp": 1778085247.179328,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0049,
-      "y": -0.002,
+      "x": -0.0034,
+      "y": 0.0019,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959726.537604,
+    "timestamp": 1778085247.245323,
     "velocity_threshold": 0.03
   },
   "white_yellow_mug": {
     "actual_pose": {
-      "x": 0.043,
-      "y": -0.0277,
-      "z": 0.4838
+      "x": 0.0216,
+      "y": -0.0023,
+      "z": 0.4446
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "white_yellow_mug",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.6671965
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__white_yellow_mug",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1380,8 +1231,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.043,
-      "y": -0.0277,
+      "x": 0.0216,
+      "y": -0.0023,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1394,60 +1245,68 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.0538,
+      "displacement": 0.01931,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.043,
-        "y": -0.0277,
+        "x": 0.0216,
+        "y": -0.0023,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.043,
-        "y": -0.0277,
-        "z": 0.4838
+        "x": 0.0216,
+        "y": -0.0023,
+        "z": 0.4446
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.13599,
+      "height_drop": 0.17524,
       "location": "wooden_tray.inside",
       "object": "white_yellow_mug",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0012,
-        "y": 0.003,
+        "x": 0.0023,
+        "y": -0.0011,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959730.0672479,
+      "timestamp": 1778085249.7316587,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0012,
-      "y": 0.003,
+      "x": 0.0023,
+      "y": -0.0011,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959730.1656113,
+    "timestamp": 1778085249.7968438,
     "velocity_threshold": 0.03
   },
   "wine_bottle": {
     "actual_pose": {
-      "x": 0.0036,
-      "y": 0.0003,
+      "x": 0.0019,
+      "y": -0.003,
       "z": 0.4434
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "wine_bottle",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.667207
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__wine_bottle",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1464,8 +1323,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0036,
-      "y": 0.0003,
+      "x": 0.0019,
+      "y": -0.003,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1478,19 +1337,19 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.0,
+      "displacement": 0.00016,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0036,
-        "y": 0.0003,
+        "x": 0.0019,
+        "y": -0.003,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0036,
-        "y": 0.0003,
+        "x": 0.0019,
+        "y": -0.003,
         "z": 0.4434
       },
       "final_speed": 0.0,
@@ -1498,40 +1357,48 @@
       "height_drop": 0.17642,
       "location": "wooden_tray.inside",
       "object": "wine_bottle",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": 0.0036,
-        "y": 0.0003,
+        "x": 0.0018,
+        "y": -0.003,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959733.6377478,
+      "timestamp": 1778085251.9006646,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": 0.0036,
-      "y": 0.0003,
+      "x": 0.0018,
+      "y": -0.003,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959733.7525175,
+    "timestamp": 1778085251.967882,
     "velocity_threshold": 0.03
   },
   "yellow_book": {
     "actual_pose": {
-      "x": 0.0415,
-      "y": 0.0042,
-      "z": 0.4424
+      "x": 0.0304,
+      "y": -0.0021,
+      "z": 0.4425
     },
     "already_in_libero": false,
     "area": "living_room",
+    "auto_promoted_from_holded": {
+      "object_type": "yellow_book",
+      "path": "LIVING_ROOM_SCENE3/wooden_tray/in.json",
+      "rule": "reason==height_drop and velocity_stable and final_speed<=threshold and no post_settle_checks",
+      "timestamp": 1778217835.667218
+    },
     "drop_z": 0.1,
     "fixed_type": "wooden_tray",
+    "height_drop_only_auto_accepted": true,
     "id": "LIVING_ROOM_SCENE3__wooden_tray__in__yellow_book",
     "label": "in",
     "location": "wooden_tray.inside",
@@ -1548,8 +1415,8 @@
       "h": 0.0,
       "p": 0.0,
       "r": 0.0,
-      "x": 0.0415,
-      "y": 0.0042,
+      "x": 0.0304,
+      "y": -0.0021,
       "z": 0.1
     },
     "scene": "LIVING_ROOM_SCENE3",
@@ -1562,48 +1429,49 @@
         "y": 0.0,
         "z": 0.1
       },
-      "displacement": 0.04162,
+      "displacement": 0.03152,
       "final_anchor_pose": {
         "h": 0.0,
         "p": 0.0,
         "r": 0.0,
-        "x": 0.0415,
-        "y": 0.0042,
+        "x": 0.0304,
+        "y": -0.0021,
         "z": 0.1
       },
       "final_image_path": null,
       "final_pose": {
-        "x": 0.0415,
-        "y": 0.0042,
-        "z": 0.4424
+        "x": 0.0304,
+        "y": -0.0021,
+        "z": 0.4425
       },
       "final_speed": 0.0,
       "gif_path": null,
-      "height_drop": 0.17735,
+      "height_drop": 0.17733,
       "location": "wooden_tray.inside",
       "object": "yellow_book",
+      "post_settle_checks": {},
       "reason": "height_drop",
       "scene": "LIVING_ROOM_SCENE3",
       "start_pose": {
-        "x": -0.0001,
-        "y": 0.0033,
+        "x": -0.0011,
+        "y": -0.0008,
         "z": 0.6198
       },
       "status": "review",
-      "timestamp": 1777959736.7957664,
+      "timestamp": 1778085254.018512,
       "velocity_stable": true,
       "velocity_threshold": 0.03,
       "velocity_warning": ""
     },
     "skip_reason": null,
     "start_pose": {
-      "x": -0.0001,
-      "y": 0.0033,
+      "x": -0.0011,
+      "y": -0.0008,
       "z": 0.6198
     },
     "status": "possible",
     "table": "living_room_table",
-    "timestamp": 1777959736.877989,
+    "timestamp": 1778085254.079717,
     "velocity_threshold": 0.03
   }
 }

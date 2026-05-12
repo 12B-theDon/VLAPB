@@ -51,6 +51,8 @@ checkpoints/
 .env
 .env.*
 !.env.example
+libero/scripts/suites/openai_api_key.txt
+libero/scripts/suites/*api_key*.txt
 
 # codex
 LIBERO.code-workspace
@@ -78,3 +80,8 @@ libero/evaluations/compare_injection_methods/manifest_vlapb.json
 libero/evaluations/compare_injection_methods/*_results/
 libero/evaluations/compare_injection_methods/zeroshot_results/
 libero/evaluations/compare_injection_methods/finetuned_checkpoint_results/
+libero/scripts/data_generation/holded_spawn_positions
+libero/scripts/data_generation/possible_spawn_positions
+
+/home/artemis/Documents/VLAPB/VLAPB_suites
+/home/artemis/Documents/VLAPB/libero/evaluations/official_libero_sanity
